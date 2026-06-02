@@ -1,0 +1,301 @@
+
+1.
+[2 / 2 Points]
+3/10 Submissions Used
+
+Details
+
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.1.WA.003.
+What is the molar mass of iron(II) sulfate (FeSO4)?
+WebAssign will check your answer for the correct number of significant figures.151.92 
+Correct: Your answer is correct.
+ g/mol
+Resources
+Tutorial
+
+2.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.1.WA.012.
+(a) How many moles of CO2 contain 2.53 ✕ 1024 molecules?
+WebAssign will check your answer for the correct number of significant figures.4.20 
+Correct: Your answer is correct.
+ mol CO2
+
+(b) What number of moles is equivalent to 7.27 ✕ 1021 atoms of Hg?
+WebAssign will check your answer for the correct number of significant figures.0.0121 
+Correct: Your answer is correct.
+ mol Hg
+Resources
+Tutorial
+
+3.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.1.WA.014.
+Calculate the number of moles of potassium permanganate (KMnO4) corresponding to 242.9 g of the substance.
+WebAssign will check your answer for the correct number of significant figures.1.537 
+Correct: Your answer is correct.
+ mol
+Resources
+Tutorial
+
+4.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.1.WA.016.
+Calculate the number of moles of KMnO4 in 212.9 g of the substance.
+WebAssign will check your answer for the correct number of significant figures.1.347 
+Correct: Your answer is correct.
+ mol
+Resources
+Tutorial
+
+5.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.1.WA.022.
+How many molecules of xylose (C5H10O5) are present in 22.3 g of the substance?
+WebAssign will check your answer for the correct number of significant figures.8.94E22 
+Correct: Your answer is correct.
+ molecules
+Resources
+Tutorial
+
+6.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.2.WA.002.
+Find the percent by mass of carbon in hexanal, C5H11CHO.
+Carbon is WebAssign will check your answer for the correct number of significant figures.71.95 
+Correct: Your answer is correct.
+ % by mass in C5H11CHO.
+Resources
+Tutorial
+
+7.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.2.WA.004.
+What is the percent by mass (mass percent) of potassium in potassium amide, KNH2?
+WebAssign will check your answer for the correct number of significant figures.70.93 
+Correct: Your answer is correct.
+ %
+Resources
+Tutorial
+
+8.
+[2 / 2 Points]
+2/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.2.WA.007.
+Ethylene dichloride, which is present in paint removers, was found to consist of 24.27% C, 4.07% H, and 71.65% Cl by mass. Find the empirical formula of ethylene dichloride.
+chemPadHelp
+CH2Cl
+CH_2Cl
+Correct.
+
+Resources
+Tutorial
+
+9.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.2.WA.015.
+Eugenol, one of the simplest molecules of a class of molecules known as phenylpropenes, has an empirical formula of C5H6O and a formula mass of 164.20 amu. What is its molecular formula?
+chemPadHelp
+C10H12O2
+C_10H_12O_2
+Correct.
+
+Resources
+Tutorial
+
+10.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.3.WA.001.
+What is the volume of a 0.19 M sulfuric acid (H2SO4) solution that contains 0.31 mol sulfuric acid?
+WebAssign will check your answer for the correct number of significant figures.1.6 
+Correct: Your answer is correct.
+ L
+Resources
+Tutorial
+
+11.
+[2 / 2 Points]
+3/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.3.WA.002.
+A chemist makes a solution of Mg(NO3)2 by dissolving 22.2 g Mg(NO3)2 in water to make 100.0 mL of solution. What is the concentration of NO3− ions in the solution? Assume that Mg(NO3)2 is the only solute in the solution. The molar mass of Mg(NO3)2 is 148.33 g/mol.
+WebAssign will check your answer for the correct number of significant figures.2.99 
+Correct: Your answer is correct.
+ M
+Resources
+Tutorial
+
+12.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.3.WA.003.
+Determine the concentration of a 1.00 M solution of sodium chloride (NaCl) after the following changes occur.
+(a) Exactly one liter of the solution is mixed with 0.45 L of water.
+WebAssign will check your answer for the correct number of significant figures.0.690 
+Correct: Your answer is correct.
+ M
+
+(b) Exactly one liter of the solution is left to evaporate until it has a volume of 0.29 L. (Assume that only the water evaporates from the solution.)
+WebAssign will check your answer for the correct number of significant figures.3.4 
+Correct: Your answer is correct.
+ M
+Resources
+Tutorial
+
+13.
+[2 / 2 Points]
+1/10 Submissions Used
+
+Details
+
+My Notes
+
+Previous Answers
+
+Ask Your Teacher
+
+Practice Another
+was OSGenChem1 3.4.WA.006.
+Determine the concentrations of each ion present in 0.045 M Mg(NO3)2.
+Mg2+    		WebAssign will check your answer for the correct number of significant figures.0.045 
+Correct: Your answer is correct.
+ M
+NO3−    		WebAssign will check your answer for the correct number of significant figures.0.090 
+Correct: Your answer is correct.
+ M
+
+Resources
+Tutorial
+
+Home
+My Assignments
+
+Request Extension
+Copyright © 1998 - 2026 Cengage Learning, Inc. All Rights Reserved
+Terms of use
+Privacy
