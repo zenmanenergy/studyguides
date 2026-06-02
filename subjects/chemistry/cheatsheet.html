@@ -1,376 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Chemistry &mdash; Test 1 Cheat Sheet</title>
-	<link rel="stylesheet" href="style.css">
-	<style>
-		.cs-table {
-			border-collapse: collapse;
-			font-size: 11px;
-			width: 100%;
-		}
-		.cs-table th {
-			background: #1a3a6b;
-			color: white;
-			padding: 3px 6px;
-			text-align: left;
-			white-space: nowrap;
-		}
-		.cs-table td {
-			padding: 2px 6px;
-			border-bottom: 1px solid #ddd;
-			vertical-align: top;
-		}
-		.cs-table tr:nth-child(even) td { background: #f5f7fa; }
-		.cs-table .qn {
-			text-align: center;
-			font-weight: bold;
-			white-space: nowrap;
-			color: #1a3a6b;
-			width: 24px;
-		}
-		.cs-table .ans {
-			color: #222;
-		}
-		.section-head td {
-			background: #2c5f9e !important;
-			color: white;
-			font-weight: bold;
-			font-size: 10px;
-			padding: 2px 6px;
-			letter-spacing: 0.05em;
-			text-transform: uppercase;
-		}
+<meta charset="UTF-8">
+<title>Chemistry &mdash; Reference Sheet</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.ref-table {
+border-collapse: collapse;
+font-size: 11px;
+width: 100%;
+margin-bottom: 10px;
+}
+.ref-table th {
+background: #1a3a6b;
+color: white;
+padding: 3px 7px;
+text-align: left;
+}
+.ref-table td {
+padding: 2px 7px;
+border-bottom: 1px solid #ddd;
+vertical-align: top;
+}
+.ref-table tr:nth-child(even) td { background: #f5f7fa; }
+.ref-table .label {
+font-weight: bold;
+white-space: nowrap;
+color: #1a3a6b;
+width: 30%;
+}
 
-		.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+.section-title {
+background: #2c5f9e;
+color: white;
+font-weight: bold;
+font-size: 11px;
+padding: 3px 7px;
+margin: 8px 0 0 0;
+text-transform: uppercase;
+letter-spacing: 0.04em;
+}
 
-		@media print {
-			body { max-width: 100%; margin: 0; padding: 6px 10px; font-size: 10px; }
-			nav { display: none; }
-			h1 { font-size: 13px; margin: 0 0 4px; padding-bottom: 3px; }
-			p { display: none; }
-			.cols { gap: 0 12px; }
-			.cs-table { font-size: 9px; }
-			.cs-table td, .cs-table th { padding: 1px 4px; }
-			@page { margin: 0.4in; size: portrait; }
-		}
-	</style>
+.formula-box {
+font-family: monospace;
+background: #eef2f8;
+border-left: 3px solid #2c5f9e;
+padding: 2px 6px;
+margin: 2px 0;
+font-size: 11px;
+}
+
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+.col { }
+
+@media print {
+body { max-width: 100%; margin: 0; padding: 6px 10px; font-size: 10px; }
+nav { display: none; }
+h1 { font-size: 13px; margin: 0 0 4px; padding-bottom: 3px; }
+p { display: none; }
+.cols { gap: 0 12px; }
+.ref-table { font-size: 9px; }
+.ref-table td, .ref-table th { padding: 1px 5px; }
+.section-title { font-size: 9px; padding: 2px 5px; margin-top: 5px; }
+.formula-box { font-size: 9px; padding: 1px 4px; }
+@page { margin: 0.4in; size: portrait; }
+}
+</style>
 </head>
 <body>
 <nav>
-	<a href="Test1.html">Test 1</a>
-	<a href="polyatomic-ions.html">Polyatomic Ions</a>
-	<a href="cheatsheet.html" class="active">Cheat Sheet</a>
+<a href="Test1.html">Test 1</a>
+<a href="polyatomic-ions.html">Polyatomic Ions</a>
+<a href="cheatsheet.html" class="active">Reference Sheet</a>
 </nav>
 
-<h1>Chemistry Test 1 &mdash; Cheat Sheet (Q1&ndash;54)</h1>
-<p>All 54 questions with key answers in compact form. Print with Ctrl+P.</p>
+<h1>Chemistry Test 1 &mdash; Reference Sheet</h1>
+<p>Formulas, rules, and methods for every problem type. Print with Ctrl+P.</p>
 
 <div class="cols">
 
 <!-- LEFT COLUMN -->
-<table class="cs-table">
-	<thead>
-		<tr><th>#</th><th>Topic</th><th>Answer(s)</th></tr>
-	</thead>
-	<tbody>
+<div class="col">
 
-		<tr class="section-head"><td colspan="3">Ch. 1 &mdash; Scientific Method &amp; Measurement</td></tr>
-
-		<tr>
-			<td class="qn">1</td>
-			<td>Unit conversion</td>
-			<td class="ans">3.200 &times; 10<sup>-6</sup> cm</td>
-		</tr>
-		<tr>
-			<td class="qn">7</td>
-			<td>Hypothesis / Law / Theory</td>
-			<td class="ans">(a) Hypothesis &bull; (b) Law &bull; (c) Theory</td>
-		</tr>
-		<tr>
-			<td class="qn">8</td>
-			<td>Element / Compound / Mixture</td>
-			<td class="ans">Air=Mixture &bull; Water=Compound &bull; Cu=Element &bull; S=Element</td>
-		</tr>
-		<tr>
-			<td class="qn">9</td>
-			<td>Pure substance</td>
-			<td class="ans">Water only</td>
-		</tr>
-		<tr>
-			<td class="qn">10</td>
-			<td>Homo vs Hetero mixtures</td>
-			<td class="ans">Al+Fe<sub>2</sub>O<sub>3</sub>=Hetero &bull; Concrete=Hetero &bull; CoSO<sub>4</sub> soln=Homo &bull; Vinegar=Homo</td>
-		</tr>
-		<tr>
-			<td class="qn">11</td>
-			<td>Physical vs Chemical change</td>
-			<td class="ans">Digesting=Chem &bull; Explosion=Chem &bull; Baking=Chem &bull; Cast silver=Phys &bull; Scratch floor=Phys</td>
-		</tr>
-		<tr>
-			<td class="qn">12</td>
-			<td>Volume: &micro;m<sup>3</sup> to m<sup>3</sup></td>
-			<td class="ans">1.215 &times; 10<sup>-15</sup> m<sup>3</sup></td>
-		</tr>
-		<tr>
-			<td class="qn">13</td>
-			<td>SI prefix from power of 10</td>
-			<td class="ans">10<sup>9</sup>=giga G &bull; 10<sup>-2</sup>=centi c &bull; 10<sup>-12</sup>=pico p &bull; 10<sup>-6</sup>=micro &micro;</td>
-		</tr>
-		<tr>
-			<td class="qn">14</td>
-			<td>SI prefix from symbol</td>
-			<td class="ans">T=tera 10<sup>12</sup> &bull; d=deci 10<sup>-1</sup> &bull; M=mega 10<sup>6</sup> &bull; m=milli 10<sup>-3</sup></td>
-		</tr>
-		<tr>
-			<td class="qn">15</td>
-			<td>Scientific notation</td>
-			<td class="ans">3.35&times;10<sup>4</sup> m &bull; 2.4300&times;10<sup>5</sup> m &bull; 5.27&times;10<sup>-5</sup> cm &bull; 2.5&times;10<sup>-7</sup> cm</td>
-		</tr>
-		<tr>
-			<td class="qn">16</td>
-			<td>g to mg</td>
-			<td class="ans">275 mg</td>
-		</tr>
-		<tr>
-			<td class="qn">17</td>
-			<td>Mass to kg and pg</td>
-			<td class="ans">1.867&times;10<sup>-25</sup> kg &bull; 1.867&times;10<sup>-10</sup> pg</td>
-		</tr>
-		<tr>
-			<td class="qn">18</td>
-			<td>Accuracy &amp; Precision</td>
-			<td class="ans">(a) Neither &bull; (b) Precise only &bull; (c) Both</td>
-		</tr>
-		<tr>
-			<td class="qn">19</td>
-			<td>Exact vs Inexact numbers</td>
-			<td class="ans">12 ft=Inexact &bull; 3000 psi=Inexact &bull; 13 states=Exact &bull; 200 seats=Exact</td>
-		</tr>
-		<tr>
-			<td class="qn">20</td>
-			<td>Significant figures (0.000640 g)</td>
-			<td class="ans">3 sig figs</td>
-		</tr>
-		<tr>
-			<td class="qn">21</td>
-			<td>Sig figs: subtraction &amp; division</td>
-			<td class="ans">Mass = 155.9 g &bull; Density = 0.791 g/cm<sup>3</sup></td>
-		</tr>
-		<tr>
-			<td class="qn">22</td>
-			<td>Sig figs: mixed operations</td>
-			<td class="ans">2.10&times;10<sup>1</sup> &bull; 4.3&times;10<sup>-3</sup></td>
-		</tr>
-		<tr>
-			<td class="qn">23</td>
-			<td>lb to kg</td>
-			<td class="ans">0.549 kg</td>
-		</tr>
-		<tr>
-			<td class="qn">24</td>
-			<td>Feet to km</td>
-			<td class="ans">10.203 km</td>
-		</tr>
-
-		<tr class="section-head"><td colspan="3">Ch. 2 &mdash; Atoms &amp; Nomenclature</td></tr>
-
-		<tr>
-			<td class="qn">2</td>
-			<td>Weighted avg atomic mass</td>
-			<td class="ans">28.09 amu (Silicon)</td>
-		</tr>
-		<tr>
-			<td class="qn">25</td>
-			<td>Dalton's atomic theory</td>
-			<td class="ans">I: atoms indivisible &bull; II: same-element atoms identical &bull; III: atoms conserved &bull; IV: fixed whole-number ratios</td>
-		</tr>
-		<tr>
-			<td class="qn">26</td>
-			<td>Write atomic symbols</td>
-			<td class="ans">S &bull; Na<sup>2+</sup> &bull; Cl<sup>1-</sup> &bull; <sup>29</sup>Si</td>
-		</tr>
-		<tr>
-			<td class="qn">27</td>
-			<td>Avg atomic mass of Cl</td>
-			<td class="ans">35.45 amu</td>
-		</tr>
-		<tr>
-			<td class="qn">28</td>
-			<td>% abundance (Sb isotopes)</td>
-			<td class="ans"><sup>121</sup>Sb = 57.20% &bull; <sup>123</sup>Sb = 42.80%</td>
-		</tr>
-		<tr>
-			<td class="qn">29</td>
-			<td><sup>41</sup><sub>19</sub>K: Z, A, neutrons</td>
-			<td class="ans">Z = 19 &bull; A = 41 &bull; 22 neutrons</td>
-		</tr>
-
-	</tbody>
+<div class="section-title">Classification</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Definition / Key Test</th></tr>
+<tr><td class="label">Hypothesis</td><td>Tentative, testable explanation for one observation. Not yet verified.</td></tr>
+<tr><td class="label">Law</td><td>Describes what consistently happens; does not explain why.</td></tr>
+<tr><td class="label">Theory</td><td>Well-tested explanation for a broad range of observations.</td></tr>
+<tr><td class="label">Element</td><td>One type of atom; found on the periodic table.</td></tr>
+<tr><td class="label">Compound</td><td>Fixed ratio of 2+ elements chemically bonded; separable only by chemical means.</td></tr>
+<tr><td class="label">Mixture</td><td>Variable composition; components retain individual properties.</td></tr>
+<tr><td class="label">Homogeneous</td><td>Uniform throughout (solutions, air, vinegar).</td></tr>
+<tr><td class="label">Heterogeneous</td><td>Visibly distinct regions (concrete, salad, Al + Fe<sub>2</sub>O<sub>3</sub>).</td></tr>
+<tr><td class="label">Physical change</td><td>Shape/state changes; same substance. (melting, cutting, casting)</td></tr>
+<tr><td class="label">Chemical change</td><td>New substance(s) formed. (combustion, digestion, baking)</td></tr>
+<tr><td class="label">Exact number</td><td>Counted or defined; no uncertainty. (13 states, 200 seats)</td></tr>
+<tr><td class="label">Inexact number</td><td>Measured; always has uncertainty. (12 ft lane, 3000 psi)</td></tr>
 </table>
+
+<div class="section-title">Significant Figures</div>
+<table class="ref-table">
+<tr><th>Rule</th><th>Example</th></tr>
+<tr><td class="label">Non-zero digits</td><td>Always significant. 1.23 = 3 sig figs.</td></tr>
+<tr><td class="label">Leading zeros</td><td>Never significant. 0.0042 = 2 sig figs.</td></tr>
+<tr><td class="label">Trapped zeros</td><td>Always significant. 1.002 = 4 sig figs.</td></tr>
+<tr><td class="label">Trailing zeros + decimal</td><td>Significant. 1.500 = 4 sig figs.</td></tr>
+<tr><td class="label">Trailing zeros, no decimal</td><td>Ambiguous. 1500 = 2, 3, or 4 sig figs.</td></tr>
+<tr><td class="label">Adding / Subtracting</td><td>Round to fewest decimal places.</td></tr>
+<tr><td class="label">Multiplying / Dividing</td><td>Round to fewest sig figs.</td></tr>
+</table>
+
+<div class="section-title">SI Prefixes</div>
+<table class="ref-table">
+<tr><th>Prefix</th><th>Symbol</th><th>Power</th></tr>
+<tr><td class="label">tera</td><td>T</td><td>10<sup>12</sup></td></tr>
+<tr><td class="label">giga</td><td>G</td><td>10<sup>9</sup></td></tr>
+<tr><td class="label">mega</td><td>M</td><td>10<sup>6</sup></td></tr>
+<tr><td class="label">kilo</td><td>k</td><td>10<sup>3</sup></td></tr>
+<tr><td class="label">deci</td><td>d</td><td>10<sup>-1</sup></td></tr>
+<tr><td class="label">centi</td><td>c</td><td>10<sup>-2</sup></td></tr>
+<tr><td class="label">milli</td><td>m</td><td>10<sup>-3</sup></td></tr>
+<tr><td class="label">micro</td><td>&micro;</td><td>10<sup>-6</sup></td></tr>
+<tr><td class="label">nano</td><td>n</td><td>10<sup>-9</sup></td></tr>
+<tr><td class="label">pico</td><td>p</td><td>10<sup>-12</sup></td></tr>
+</table>
+
+<div class="section-title">Unit Conversion (Dimensional Analysis)</div>
+<table class="ref-table">
+<tr><td class="label">Method</td><td>Multiply by a conversion factor so the unwanted unit cancels.<br>Cube the factor for cubic units (e.g. &micro;m<sup>3</sup> to m<sup>3</sup>: use (10<sup>-6</sup>)<sup>3</sup>).</td></tr>
+<tr><td class="label">Scientific notation</td><td>Write as a &times; 10<sup>n</sup>, where 1 &le; |a| &lt; 10.<br>Decimal moves left = positive n; right = negative n.</td></tr>
+<tr><td class="label">Accuracy</td><td>Close to the true/reference value (within ~2%).</td></tr>
+<tr><td class="label">Precision</td><td>Measurements close to each other (within ~5% of each other).</td></tr>
+</table>
+
+<div class="section-title">Atomic Structure</div>
+<table class="ref-table">
+<tr><th>Symbol</th><th>Meaning / Formula</th></tr>
+<tr><td class="label">Z (atomic #)</td><td>= number of protons; identifies the element.</td></tr>
+<tr><td class="label">A (mass #)</td><td>= protons + neutrons.</td></tr>
+<tr><td class="label">Neutrons</td><td>= A &minus; Z.</td></tr>
+<tr><td class="label">Neutral atom</td><td>electrons = protons.</td></tr>
+<tr><td class="label">Cation (X<sup>n+</sup>)</td><td>Lost n electrons; electrons = Z &minus; n.</td></tr>
+<tr><td class="label">Anion (X<sup>n-</sup>)</td><td>Gained n electrons; electrons = Z + n.</td></tr>
+<tr><td class="label">Isotope notation</td><td><sup>A</sup><sub>Z</sub>X &nbsp; (e.g. <sup>41</sup><sub>19</sub>K: Z=19, A=41, n=22)</td></tr>
+</table>
+
+<div class="section-title">Weighted Average Atomic Mass</div>
+<div class="formula-box">avg mass = &Sigma; (isotope mass &times; decimal abundance)</div>
+<table class="ref-table">
+<tr><td class="label">Find % abundance</td><td>Let x = fraction of isotope 1, (1&minus;x) = isotope 2.<br>m<sub>1</sub>x + m<sub>2</sub>(1&minus;x) = avg mass; solve for x, convert to %.</td></tr>
+</table>
+
+<div class="section-title">Periodic Table Groups</div>
+<table class="ref-table">
+<tr><th>Group</th><th>Name</th><th>Lightest</th></tr>
+<tr><td class="label">Group 1</td><td>Alkali metals</td><td>Li</td></tr>
+<tr><td class="label">Group 2</td><td>Alkaline earth metals</td><td>Be</td></tr>
+<tr><td class="label">Groups 3&ndash;12</td><td>Outer transition metals (d-block)</td><td>&mdash;</td></tr>
+<tr><td class="label">Lanthanides/Actinides</td><td>Inner transition metals (f-block)</td><td>&mdash;</td></tr>
+<tr><td class="label">Group 16</td><td>Chalcogens</td><td>O</td></tr>
+<tr><td class="label">Group 17</td><td>Halogens</td><td>F</td></tr>
+<tr><td class="label">Group 18</td><td>Noble gases</td><td>He</td></tr>
+<tr><td class="label">Same-group rule</td><td colspan="2">Same valence electrons = similar chemical properties.</td></tr>
+</table>
+
+</div>
 
 <!-- RIGHT COLUMN -->
-<table class="cs-table">
-	<thead>
-		<tr><th>#</th><th>Topic</th><th>Answer(s)</th></tr>
-	</thead>
-	<tbody>
+<div class="col">
 
-		<tr class="section-head"><td colspan="3">Ch. 2 &mdash; Atoms &amp; Nomenclature (cont.)</td></tr>
-
-		<tr>
-			<td class="qn">30</td>
-			<td>Covalent names &amp; formulas</td>
-			<td class="ans">CS<sub>2</sub>=Carbon disulfide &bull; Cl<sub>2</sub>O<sub>6</sub>=Dichlorine hexoxide &bull; AsO<sub>3</sub>=Arsenic trioxide &bull; B<sub>2</sub>S<sub>3</sub> &bull; PCl<sub>5</sub></td>
-		</tr>
-		<tr>
-			<td class="qn">31</td>
-			<td>Count atoms in formula</td>
-			<td class="ans">K<sub>2</sub>SO<sub>4</sub>: 2K,1S,4O &bull; Mg<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>: 3Mg,2P,8O &bull; HC<sub>3</sub>H<sub>6</sub>O<sub>2</sub>: 3C,7H,2O</td>
-		</tr>
-		<tr>
-			<td class="qn">32</td>
-			<td>Molecular vs Ionic</td>
-			<td class="ans">PH<sub>3</sub>=Mol &bull; MgI<sub>2</sub>=Ion &bull; N<sub>2</sub>O=Mol &bull; CaCl<sub>2</sub>=Ion</td>
-		</tr>
-		<tr>
-			<td class="qn">33</td>
-			<td>Protons &amp; electrons in ions</td>
-			<td class="ans">F<sup>-</sup>:9p,10e &bull; Te<sup>2-</sup>:52p,54e &bull; K<sup>+</sup>:19p,18e &bull; Ga<sup>3+</sup>:31p,28e</td>
-		</tr>
-		<tr>
-			<td class="qn">34</td>
-			<td>Classify elements (periodic table)</td>
-			<td class="ans">Th=Metal/Inner &bull; Ti=Metal/Outer &bull; Nd=Metal/Inner &bull; Xe=Nonmetal/Main &bull; Bi=Metal/Main &bull; Ca=Metal/Main &bull; Sc=Metal/Outer &bull; Pb=Metal/Main &bull; W=Metal/Outer</td>
-		</tr>
-		<tr>
-			<td class="qn">35</td>
-			<td>Lightest group members</td>
-			<td class="ans">Noble=He &bull; Alk. Earth=Be &bull; Alkali=Li &bull; Chalcogen=O</td>
-		</tr>
-		<tr>
-			<td class="qn">36</td>
-			<td>Chemical similarity</td>
-			<td class="ans">Sr, Mg, Ca (all Group 2)</td>
-		</tr>
-		<tr>
-			<td class="qn">37</td>
-			<td>Name ionic compounds</td>
-			<td class="ans">Cu(ClO<sub>4</sub>)<sub>2</sub>=Copper(II) perchlorate &bull; Cs<sub>3</sub>PO<sub>3</sub>=Cesium phosphite &bull; Cr<sub>2</sub>S<sub>3</sub>=Chromium(III) sulfide</td>
-		</tr>
-		<tr>
-			<td class="qn">38</td>
-			<td>Covalent names &amp; formulas (ext.)</td>
-			<td class="ans">CS<sub>2</sub>=Carbon disulfide &bull; N<sub>2</sub>S<sub>5</sub>=Dinitrogen pentasulfide &bull; C<sub>4</sub>Cl<sub>8</sub> &bull; P<sub>4</sub>O<sub>10</sub></td>
-		</tr>
-		<tr>
-			<td class="qn">39</td>
-			<td>Write ionic formulas</td>
-			<td class="ans">CrI<sub>3</sub> &bull; MnS<sub>2</sub> &bull; (NH<sub>4</sub>)<sub>3</sub>PO<sub>3</sub> &bull; Ba(HCO<sub>3</sub>)<sub>2</sub> &bull; Sn(BrO<sub>2</sub>)<sub>2</sub></td>
-		</tr>
-		<tr>
-			<td class="qn">40</td>
-			<td>Ion combo: formula &amp; name</td>
-			<td class="ans">(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub>=Ammonium phosphate &bull; Ca(NO<sub>2</sub>)<sub>2</sub>=Calcium nitrite &bull; Ni<sub>2</sub>(CO<sub>3</sub>)<sub>3</sub>=Nickel(III) carbonate &bull; Rb<sub>2</sub>HPO<sub>4</sub>=Rubidium hydrogen phosphate &bull; Hg<sub>2</sub>I<sub>2</sub>=Mercury(I) iodide</td>
-		</tr>
-		<tr>
-			<td class="qn">41</td>
-			<td>Acid names &amp; formulas</td>
-			<td class="ans">HCl=Hydrochloric &bull; H<sub>3</sub>BO<sub>3</sub>=Boric &bull; HIO=Hypoiodous &bull; H<sub>2</sub>CrO<sub>4</sub> &bull; H<sub>2</sub>Se &bull; HBrO<sub>2</sub></td>
-		</tr>
-
-		<tr class="section-head"><td colspan="3">Ch. 3 &mdash; Stoichiometry &amp; Solutions</td></tr>
-
-		<tr>
-			<td class="qn">3</td>
-			<td>Mole / Avogadro calc.</td>
-			<td class="ans">6.98 &times; 10<sup>23</sup> oxygen atoms</td>
-		</tr>
-		<tr>
-			<td class="qn">4</td>
-			<td>Empirical &amp; molecular formula</td>
-			<td class="ans">Empirical: C<sub>3</sub>H<sub>8</sub>O &bull; Molecular from EF &times; n</td>
-		</tr>
-		<tr>
-			<td class="qn">5</td>
-			<td>Solution concentration</td>
-			<td class="ans">[Na<sup>+</sup>] = 0.4618 M</td>
-		</tr>
-		<tr>
-			<td class="qn">6</td>
-			<td>Nomenclature (name/formula)</td>
-			<td class="ans">H<sub>2</sub>CO<sub>3</sub> &bull; Pb(SO<sub>3</sub>)<sub>2</sub> &bull; Mg(OH)<sub>2</sub> &bull; Al<sub>2</sub>S<sub>3</sub> &bull; Copper(II) phosphate &bull; Potassium acetate &bull; Dinitrogen tetroxide &bull; Hydrosulfuric acid</td>
-		</tr>
-		<tr>
-			<td class="qn">42</td>
-			<td>Molar mass (FeSO<sub>4</sub>)</td>
-			<td class="ans">151.92 g/mol</td>
-		</tr>
-		<tr>
-			<td class="qn">43</td>
-			<td>Molecules/atoms to moles</td>
-			<td class="ans">4.20 mol CO<sub>2</sub> &bull; 0.0121 mol Hg</td>
-		</tr>
-		<tr>
-			<td class="qn">44</td>
-			<td>242.9 g KMnO<sub>4</sub> to moles</td>
-			<td class="ans">1.537 mol</td>
-		</tr>
-		<tr>
-			<td class="qn">45</td>
-			<td>212.9 g KMnO<sub>4</sub> to moles</td>
-			<td class="ans">1.347 mol</td>
-		</tr>
-		<tr>
-			<td class="qn">46</td>
-			<td>22.3 g xylose to molecules</td>
-			<td class="ans">8.94 &times; 10<sup>22</sup> molecules</td>
-		</tr>
-		<tr>
-			<td class="qn">47</td>
-			<td>% mass C in hexanal (C<sub>6</sub>H<sub>12</sub>O)</td>
-			<td class="ans">71.95%</td>
-		</tr>
-		<tr>
-			<td class="qn">48</td>
-			<td>% mass K in KNH<sub>2</sub></td>
-			<td class="ans">70.93%</td>
-		</tr>
-		<tr>
-			<td class="qn">49</td>
-			<td>Empirical formula (24.27% C, 4.07% H, 71.65% Cl)</td>
-			<td class="ans">CH<sub>2</sub>Cl</td>
-		</tr>
-		<tr>
-			<td class="qn">50</td>
-			<td>Molecular formula (EF=C<sub>5</sub>H<sub>6</sub>O, M=164.20)</td>
-			<td class="ans">C<sub>10</sub>H<sub>12</sub>O<sub>2</sub></td>
-		</tr>
-		<tr>
-			<td class="qn">51</td>
-			<td>Volume from molarity (0.31 mol, 0.19 M H<sub>2</sub>SO<sub>4</sub>)</td>
-			<td class="ans">1.6 L</td>
-		</tr>
-		<tr>
-			<td class="qn">52</td>
-			<td>[NO<sub>3</sub><sup>-</sup>] from dissolving Mg(NO<sub>3</sub>)<sub>2</sub></td>
-			<td class="ans">2.99 M</td>
-		</tr>
-		<tr>
-			<td class="qn">53</td>
-			<td>Dilution / evaporation of 1.00 M NaCl</td>
-			<td class="ans">(a) add 0.45 L water: 0.690 M &bull; (b) evap to 0.29 L: 3.4 M</td>
-		</tr>
-		<tr>
-			<td class="qn">54</td>
-			<td>Ion concentrations in 0.045 M Mg(NO<sub>3</sub>)<sub>2</sub></td>
-			<td class="ans">[Mg<sup>2+</sup>]=0.045 M &bull; [NO<sub>3</sub><sup>-</sup>]=0.090 M</td>
-		</tr>
-
-	</tbody>
+<div class="section-title">Naming Compounds</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Rule</th></tr>
+<tr><td class="label">Ionic (main-group metal)</td><td>Metal name + anion root + -ide.<br>NaCl = sodium chloride</td></tr>
+<tr><td class="label">Ionic (transition metal)</td><td>Metal name + (Roman numeral) + anion name.<br>FeCl<sub>3</sub> = iron(III) chloride</td></tr>
+<tr><td class="label">Ionic + polyatomic ion</td><td>Use polyatomic ion name as-is.<br>Cu(ClO<sub>4</sub>)<sub>2</sub> = copper(II) perchlorate</td></tr>
+<tr><td class="label">Covalent (nonmetal + nonmetal)</td><td>Greek prefixes (mono, di, tri, tetra, penta, hexa...) + second element ends in -ide. First element omits mono-.<br>N<sub>2</sub>O<sub>4</sub> = dinitrogen tetroxide</td></tr>
+<tr><td class="label">Binary acid (HX)</td><td>hydro- + element root + -ic acid.<br>HCl = hydrochloric acid</td></tr>
+<tr><td class="label">Oxyacid (H + polyatomic)</td><td>-ate ion &rarr; -ic acid; &nbsp; -ite ion &rarr; -ous acid.<br>H<sub>2</sub>SO<sub>4</sub> (sulfate) = sulfuric acid; &nbsp; HNO<sub>2</sub> (nitrite) = nitrous acid</td></tr>
 </table>
 
+<div class="section-title">Writing Ionic Formulas</div>
+<table class="ref-table">
+<tr><td class="label">Cross-multiply charges</td><td>Cation charge becomes anion subscript; anion charge becomes cation subscript. Reduce if needed.<br>Al<sup>3+</sup> + O<sup>2-</sup> &rarr; Al<sub>2</sub>O<sub>3</sub></td></tr>
+<tr><td class="label">Polyatomic anion &gt; 1</td><td>Wrap in parentheses before subscript.<br>Ca<sup>2+</sup> + OH<sup>-</sup> &rarr; Ca(OH)<sub>2</sub></td></tr>
+</table>
+
+<div class="section-title">Counting Atoms in a Formula</div>
+<table class="ref-table">
+<tr><td class="label">Subscripts</td><td>Apply to the element immediately to the left.</td></tr>
+<tr><td class="label">Parentheses</td><td>Outside subscript multiplies everything inside.<br>Mg<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>: P=1&times;2=2, O=4&times;2=8</td></tr>
+</table>
+
+<div class="section-title">Moles, Mass, and Molecules</div>
+<div class="formula-box">n = m / M &nbsp;&nbsp;&nbsp; (moles = grams / molar mass)</div>
+<div class="formula-box">N = n &times; N<sub>A</sub> &nbsp;&nbsp; (particles = moles &times; 6.022&times;10<sup>23</sup>)</div>
+<table class="ref-table">
+<tr><td class="label">Molar mass (M)</td><td>Sum of (atomic mass &times; count) for every element. Units: g/mol.</td></tr>
+<tr><td class="label">g &rarr; mol</td><td>Divide mass by molar mass.</td></tr>
+<tr><td class="label">mol &rarr; g</td><td>Multiply moles by molar mass.</td></tr>
+<tr><td class="label">mol &rarr; molecules</td><td>Multiply by 6.022&times;10<sup>23</sup>.</td></tr>
+<tr><td class="label">molecules &rarr; mol</td><td>Divide by 6.022&times;10<sup>23</sup>.</td></tr>
+<tr><td class="label">g &rarr; molecules</td><td>g &rarr; mol (divide by M) &rarr; particles (multiply by N<sub>A</sub>).</td></tr>
+</table>
+
+<div class="section-title">Percent by Mass</div>
+<div class="formula-box">% element = (mass of element in 1 mol / molar mass of compound) &times; 100%</div>
+
+<div class="section-title">Empirical and Molecular Formula</div>
+<table class="ref-table">
+<tr><td class="label">Empirical formula</td><td>
+1. Assume 100 g sample &rarr; % becomes grams.<br>
+2. Divide each mass by atomic mass to get moles.<br>
+3. Divide all mole values by the smallest.<br>
+4. Round or multiply to reach whole-number ratios.
+</td></tr>
+<tr><td class="label">Molecular formula</td><td>n = molecular molar mass / empirical formula molar mass.<br>Multiply each subscript in the empirical formula by n.</td></tr>
+</table>
+
+<div class="section-title">Solutions and Molarity</div>
+<div class="formula-box">M = n / V &nbsp;&nbsp; (mol per liter; convert mL to L)</div>
+<div class="formula-box">M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub> &nbsp;&nbsp; (dilution; moles of solute are constant)</div>
+<table class="ref-table">
+<tr><td class="label">Find V</td><td>V = n / M</td></tr>
+<tr><td class="label">Find n</td><td>n = M &times; V</td></tr>
+<tr><td class="label">Dilution (add water)</td><td>V<sub>2</sub> = V<sub>1</sub> + added volume; concentration decreases.</td></tr>
+<tr><td class="label">Evaporation</td><td>Solute stays; V<sub>2</sub> = remaining volume; concentration increases.</td></tr>
+</table>
+
+<div class="section-title">Ion Concentrations from Ionic Compounds</div>
+<table class="ref-table">
+<tr><td class="label">Step 1</td><td>Write the dissociation equation.<br>e.g. Mg(NO<sub>3</sub>)<sub>2</sub> &rarr; Mg<sup>2+</sup> + 2 NO<sub>3</sub><sup>-</sup></td></tr>
+<tr><td class="label">Step 2</td><td>[ion] = compound molarity &times; stoichiometric coefficient.<br>[NO<sub>3</sub><sup>-</sup>] = 2 &times; [Mg(NO<sub>3</sub>)<sub>2</sub>]</td></tr>
+<tr><td class="label">From grams</td><td>g &rarr; mol (divide by M) &rarr; ion mol (multiply by coeff.) &rarr; molarity (divide by V in L).</td></tr>
+</table>
+
+<div class="section-title">Dalton's Atomic Theory (4 Postulates)</div>
+<table class="ref-table">
+<tr><td class="label">I</td><td>Matter is made of indivisible atoms.</td></tr>
+<tr><td class="label">II</td><td>All atoms of an element are identical; different elements differ.</td></tr>
+<tr><td class="label">III</td><td>Atoms are conserved in reactions (conservation of mass).</td></tr>
+<tr><td class="label">IV</td><td>Compounds form in fixed whole-number ratios (definite proportions).</td></tr>
+</table>
+
+</div>
 </div>
 </body>
 </html>
