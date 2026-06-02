@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chemistry &mdash; Polyatomic Ions</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.ion-table {
+			border-collapse: collapse;
+			font-size: 12px;
+			width: 100%;
+		}
+		.ion-table th {
+			background: #1a3a6b;
+			color: white;
+			padding: 4px 8px;
+			text-align: left;
+		}
+		.ion-table td {
+			padding: 3px 8px;
+			border-bottom: 1px solid #ddd;
+		}
+		.ion-table tr:nth-child(even) td { background: #f5f7fa; }
+		.ion-table .charge { text-align: center; font-weight: bold; }
+
+		.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+
+		@media print {
+			body { max-width: 100%; margin: 0; padding: 8px 12px; font-size: 11px; }
+			nav { display: none; }
+			h1 { font-size: 14px; margin: 0 0 6px; padding-bottom: 4px; }
+			p { display: none; }
+			.cols { gap: 0 14px; }
+			.ion-table { font-size: 10px; }
+			.ion-table td, .ion-table th { padding: 2px 6px; }
+			@page { margin: 0.5in; size: portrait; }
+		}
+	</style>
+</head>
+<body>
+<nav>
+	<a href="Test1.html">Test 1</a>
+	<a href="polyatomic-ions.html" class="active">Polyatomic Ions</a>
+</nav>
+
+<h1>Polyatomic Ions &mdash; Reference Sheet</h1>
+<p>All common polyatomic ions sorted by formula. Print with Ctrl+P.</p>
+
+<div class="cols">
+<table class="ion-table">
+	<thead>
+		<tr><th>Formula</th><th>Name</th><th>Charge</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>BO<sub>3</sub></td><td>borate</td><td class="charge">3&minus;</td></tr>
+		<tr><td>BrO<sub>3</sub></td><td>bromate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>BrO<sub>4</sub></td><td>perbromate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>C<sub>2</sub>H<sub>3</sub>O<sub>2</sub></td><td>acetate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>C<sub>2</sub>O<sub>4</sub></td><td>oxalate</td><td class="charge">2&minus;</td></tr>
+		<tr><td>ClO</td><td>hypochlorite</td><td class="charge">1&minus;</td></tr>
+		<tr><td>ClO<sub>2</sub></td><td>chlorite</td><td class="charge">1&minus;</td></tr>
+		<tr><td>ClO<sub>3</sub></td><td>chlorate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>ClO<sub>4</sub></td><td>perchlorate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>CN</td><td>cyanide</td><td class="charge">1&minus;</td></tr>
+		<tr><td>CO<sub>3</sub></td><td>carbonate</td><td class="charge">2&minus;</td></tr>
+		<tr><td>CrO<sub>4</sub></td><td>chromate</td><td class="charge">2&minus;</td></tr>
+		<tr><td>Cr<sub>2</sub>O<sub>7</sub></td><td>dichromate</td><td class="charge">2&minus;</td></tr>
+		<tr><td>H<sub>2</sub>PO<sub>4</sub></td><td>dihydrogen phosphate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>H<sub>3</sub>O</td><td>hydronium</td><td class="charge">1+</td></tr>
+		<tr><td>HCO<sub>3</sub></td><td>bicarbonate</td><td class="charge">1&minus;</td></tr>
+	</tbody>
+</table>
+
+<table class="ion-table">
+	<thead>
+		<tr><th>Formula</th><th>Name</th><th>Charge</th></tr>
+	</thead>
+	<tbody>
+		<tr><td>HPO<sub>4</sub></td><td>hydrogen phosphate</td><td class="charge">2&minus;</td></tr>
+		<tr><td>IO<sub>3</sub></td><td>iodate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>MnO<sub>4</sub></td><td>permanganate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>N<sub>3</sub></td><td>azide</td><td class="charge">1&minus;</td></tr>
+		<tr><td>NH<sub>4</sub></td><td>ammonium</td><td class="charge">1+</td></tr>
+		<tr><td>NO<sub>2</sub></td><td>nitrite</td><td class="charge">1&minus;</td></tr>
+		<tr><td>NO<sub>3</sub></td><td>nitrate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>O<sub>2</sub></td><td>peroxide</td><td class="charge">2&minus;</td></tr>
+		<tr><td>OCN</td><td>cyanate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>OH</td><td>hydroxide</td><td class="charge">1&minus;</td></tr>
+		<tr><td>PO<sub>3</sub></td><td>phosphite</td><td class="charge">3&minus;</td></tr>
+		<tr><td>PO<sub>4</sub></td><td>phosphate</td><td class="charge">3&minus;</td></tr>
+		<tr><td>S<sub>2</sub>O<sub>3</sub></td><td>thiosulfate</td><td class="charge">2&minus;</td></tr>
+		<tr><td>SCN</td><td>thiocyanate</td><td class="charge">1&minus;</td></tr>
+		<tr><td>SO<sub>3</sub></td><td>sulfite</td><td class="charge">2&minus;</td></tr>
+		<tr><td>SO<sub>4</sub></td><td>sulfate</td><td class="charge">2&minus;</td></tr>
+	</tbody>
+</table>
+</div>
+
+</body>
+</html>
