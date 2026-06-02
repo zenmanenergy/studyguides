@@ -137,4 +137,4 @@ if __name__ == '__main__':
 		print('WARNING: ANTHROPIC_API_KEY environment variable not set!')
 		print('Set it with: export ANTHROPIC_API_KEY="sk-..."')
 	debug_mode = os.getenv('FLASK_DEBUG', 'false').lower() == 'true'
-	socketio.run(app, host='0.0.0.0', port=5000, debug=debug_mode)
+	socketio.run(app, host='0.0.0.0', port=5000, debug=debug_mode, allow_unsafe_werkzeug=True)
