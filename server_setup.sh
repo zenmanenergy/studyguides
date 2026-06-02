@@ -1,35 +1,37 @@
 #!/bin/bash
 set -e
 
+REPO_URL=https://github.com/zenmanenergy/studyguides.git
 PROJECT_DIR=/opt/studyguides
-UPLOAD_DIR=/tmp/studyguides_upload
 
 echo "=== Study Guides Server Setup ==="
 
 # Install system dependencies
 apt-get update -q
-apt-get install -y apache2 python3 python3-pip python3-venv ufw
+apt-get install -y apache2 python3 python3-pip python3-venv git ufw
 
-# Stop service if running (for updates)
+# Stop service if running
 systemctl stop studyguides-chat 2>/dev/null || true
 
-# Create project directory
-mkdir -p $PROJECT_DIR
-
-# Copy uploaded files (preserve .env if it already exists)
+# Preserve .env across installs
 if [ -f $PROJECT_DIR/.env ]; then
     echo "Preserving existing .env"
     cp $PROJECT_DIR/.env /tmp/studyguides_env_backup
 fi
 
-cp -r $UPLOAD_DIR/. $PROJECT_DIR/
-
-if [ -f /tmp/studyguides_env_backup ]; then
-    cp /tmp/studyguides_env_backup $PROJECT_DIR/.env
+# Clone or update repo
+if [ -d $PROJECT_DIR/.git ]; then
+    echo "Updating existing repo..."
+    git -C $PROJECT_DIR pull
+else
+    echo "Cloning repo..."
+    git clone $REPO_URL $PROJECT_DIR
 fi
 
-# First-time .env setup
-if [ ! -f $PROJECT_DIR/.env ]; then
+# Restore or create .env
+if [ -f /tmp/studyguides_env_backup ]; then
+    cp /tmp/studyguides_env_backup $PROJECT_DIR/.env
+elif [ ! -f $PROJECT_DIR/.env ]; then
     cp $PROJECT_DIR/.env.example $PROJECT_DIR/.env
     echo ""
     echo "ACTION REQUIRED: Set your API key before starting the service:"

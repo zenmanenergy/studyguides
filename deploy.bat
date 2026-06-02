@@ -4,11 +4,11 @@ setlocal
 set TARGET=%1
 if "%TARGET%"=="" (
     echo Usage: deploy.bat ^<user@server-ip^>
-    echo Example: deploy.bat snelson@204.168.211.182
+    echo Example: deploy.bat root@204.168.211.182
     exit /b 1
 )
 
-rem Allow plain IP with default user, or user@ip format
+rem Allow plain IP or user@ip format
 echo %TARGET% | findstr "@" >nul
 if %errorlevel%==0 (
     for /f "tokens=1,2 delims=@" %%a in ("%TARGET%") do (
@@ -16,31 +16,27 @@ if %errorlevel%==0 (
         set SERVER_IP=%%b
     )
 ) else (
-    set REMOTE_USER=%USERNAME%
+    set REMOTE_USER=root
     set SERVER_IP=%TARGET%
 )
 
-set UPLOAD_DIR=/tmp/studyguides_upload
+echo First-time setup on %REMOTE_USER%@%SERVER_IP%...
 
-echo Deploying to %REMOTE_USER%@%SERVER_IP%...
+echo Uploading setup script...
+scp server_setup.sh %REMOTE_USER%@%SERVER_IP%:/tmp/server_setup.sh
+if %errorlevel% neq 0 ( echo ERROR: Upload failed & exit /b 1 )
 
-echo Creating upload directory on server...
-ssh %REMOTE_USER%@%SERVER_IP% "rm -rf %UPLOAD_DIR% && mkdir -p %UPLOAD_DIR%"
-if %errorlevel% neq 0 ( echo ERROR: SSH connection failed & exit /b 1 )
-
-echo Copying files...
-scp -r subjects chat_server.py requirements.txt .env.example studyguides-chat.service server_setup.sh %REMOTE_USER%@%SERVER_IP%:%UPLOAD_DIR%/
-if %errorlevel% neq 0 ( echo ERROR: File copy failed & exit /b 1 )
-
-echo Running server setup...
-ssh %REMOTE_USER%@%SERVER_IP% "sudo bash %UPLOAD_DIR%/server_setup.sh"
-if %errorlevel% neq 0 ( echo ERROR: Setup script failed & exit /b 1 )
+echo Running setup (clones from GitHub and installs everything)...
+ssh %REMOTE_USER%@%SERVER_IP% "bash /tmp/server_setup.sh"
+if %errorlevel% neq 0 ( echo ERROR: Setup failed & exit /b 1 )
 
 echo.
-echo Deployment complete!
+echo Setup complete!
 echo Site: http://%SERVER_IP%/studyguides/
 echo.
-echo If this is the first deployment, set your API key on the server:
+echo Set your API key on the server:
 echo   ssh %REMOTE_USER%@%SERVER_IP%
 echo   nano /opt/studyguides/.env
 echo   systemctl restart studyguides-chat
+echo.
+echo For future updates, run: update.bat %TARGET%
