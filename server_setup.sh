@@ -25,6 +25,7 @@ if [ -d $PROJECT_DIR/.git ]; then
     git -C $PROJECT_DIR pull
 else
     echo "Cloning repo..."
+    rm -rf $PROJECT_DIR
     git clone $REPO_URL $PROJECT_DIR
 fi
 
