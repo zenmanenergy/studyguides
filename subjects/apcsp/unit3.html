@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP Computer Science Principles -- Unit 3: Programming</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html" class="active">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+</nav>
+
+<h1>AP Computer Science Principles -- Unit 3: Programming</h1>
+
+<h2>What Is a Program?</h2>
+<p>A <strong>program</strong> is a set of instructions that a computer executes to accomplish a task. Programs are written in a <strong>programming language</strong> that must eventually be translated to binary machine code that the CPU can execute.</p>
+<div class="key">The AP CSP exam uses a generic pseudocode called <strong>AP Pseudocode</strong>. You are not required to know any specific programming language, but you must understand the pseudocode conventions used on the exam.</div>
+<table>
+	<tr><th>Concept</th><th>AP Pseudocode Syntax</th></tr>
+	<tr><td>Assignment</td><td>a &lt;-- 5</td></tr>
+	<tr><td>Display output</td><td>DISPLAY(a)</td></tr>
+	<tr><td>Get input</td><td>a &lt;-- INPUT()</td></tr>
+	<tr><td>If statement</td><td>IF (condition) { ... }</td></tr>
+	<tr><td>If-else</td><td>IF (condition) { ... } ELSE { ... }</td></tr>
+	<tr><td>Repeat N times</td><td>REPEAT n TIMES { ... }</td></tr>
+	<tr><td>Repeat until</td><td>REPEAT UNTIL (condition) { ... }</td></tr>
+	<tr><td>List (array)</td><td>myList &lt;-- [1, 2, 3]</td></tr>
+	<tr><td>For each in list</td><td>FOR EACH item IN myList { ... }</td></tr>
+	<tr><td>Procedure call</td><td>result &lt;-- myProc(x, y)</td></tr>
+</table>
+<hr>
+
+<h2>Variables and Data Types</h2>
+<p>A <strong>variable</strong> stores a value that can change as the program runs. Variables have a <strong>data type</strong> that determines what kind of value they can hold.</p>
+<table>
+	<tr><th>Data Type</th><th>Description</th><th>Examples</th></tr>
+	<tr><td>Integer</td><td>Whole numbers, positive or negative</td><td>0, 42, -7</td></tr>
+	<tr><td>Float / Real</td><td>Numbers with decimal points</td><td>3.14, -0.5, 2.0</td></tr>
+	<tr><td>String</td><td>Text; a sequence of characters</td><td>"hello", "AP CSP", ""</td></tr>
+	<tr><td>Boolean</td><td>True or False</td><td>true, false</td></tr>
+	<tr><td>List</td><td>Ordered collection of values</td><td>[1, 2, 3], ["a", "b"]</td></tr>
+</table>
+<div class="code">score &lt;-- 95
+name &lt;-- "Alice"
+passed &lt;-- true
+grades &lt;-- [88, 91, 95, 79]</div>
+<hr>
+
+<h2>Conditionals</h2>
+<p>Conditionals let a program make decisions: execute certain code only if a condition is true.</p>
+<div class="code">IF (score &gt;= 90)
+{
+    DISPLAY("A")
+}
+ELSE IF (score &gt;= 80)
+{
+    DISPLAY("B")
+}
+ELSE
+{
+    DISPLAY("Below B")
+}</div>
+<table>
+	<tr><th>Operator</th><th>Meaning</th></tr>
+	<tr><td>=</td><td>Equal to</td></tr>
+	<tr><td>!=</td><td>Not equal to</td></tr>
+	<tr><td>&lt; / &gt;</td><td>Less than / greater than</td></tr>
+	<tr><td>&lt;= / &gt;=</td><td>Less than or equal / greater than or equal</td></tr>
+	<tr><td>AND</td><td>Both conditions must be true</td></tr>
+	<tr><td>OR</td><td>At least one condition must be true</td></tr>
+	<tr><td>NOT</td><td>Inverts the condition</td></tr>
+</table>
+<hr>
+
+<h2>Loops (Iteration)</h2>
+<p>Loops repeat a block of code. The two main types are count-controlled and condition-controlled.</p>
+<div class="code">// Count-controlled: runs exactly 5 times
+REPEAT 5 TIMES
+{
+    DISPLAY("Hello")
+}
+
+// Condition-controlled: runs until condition is true
+count &lt;-- 1
+REPEAT UNTIL (count &gt; 10)
+{
+    DISPLAY(count)
+    count &lt;-- count + 1
+}
+
+// For each: iterates over a list
+scores &lt;-- [85, 92, 78]
+FOR EACH s IN scores
+{
+    DISPLAY(s)
+}</div>
+<div class="key">An <strong>infinite loop</strong> occurs when a REPEAT UNTIL condition never becomes true. The program will run forever (or until forcibly stopped). Always make sure your loop condition can eventually be met.</div>
+<hr>
+
+<h2>Procedures (Functions)</h2>
+<p>A <strong>procedure</strong> (function) is a named block of code that can be called by name. Procedures promote reuse and make programs easier to read and maintain.</p>
+<div class="code">// Define a procedure
+PROCEDURE greet(name)
+{
+    DISPLAY("Hello, " + name)
+}
+
+// Call it
+greet("Alice")
+greet("Bob")
+
+// Procedure that returns a value
+PROCEDURE square(x)
+{
+    RETURN x * x
+}
+
+result &lt;-- square(5)   // result is now 25</div>
+<table>
+	<tr><th>Concept</th><th>Meaning</th></tr>
+	<tr><td>Parameter</td><td>A variable in the procedure definition that receives a value when called</td></tr>
+	<tr><td>Argument</td><td>The actual value passed to the procedure at call time</td></tr>
+	<tr><td>Return value</td><td>A value the procedure sends back to the caller</td></tr>
+	<tr><td>Abstraction</td><td>Hiding implementation details behind a named interface</td></tr>
+</table>
+<hr>
+
+<h2>Lists and Traversal</h2>
+<p>Lists store multiple values in a single variable. AP CSP lists are 1-indexed (first element is at index 1).</p>
+<div class="code">names &lt;-- ["Alice", "Bob", "Carol"]
+
+// Access by index
+DISPLAY(names[1])     // Alice
+DISPLAY(names[3])     // Carol
+
+// Append, insert, remove
+APPEND(names, "Dave")
+INSERT(names, 2, "Eve")
+REMOVE(names, 1)
+
+// Find length
+len &lt;-- LENGTH(names)</div>
+<div class="key">AP pseudocode is 1-indexed (names[1] is the first element). Most real programming languages like Python and JavaScript are 0-indexed (names[0] is the first element). Do not confuse the two on the exam.</div>
+<hr>
+
+<h2>Debugging and Testing</h2>
+<p>Finding and fixing errors is an essential part of programming.</p>
+<table>
+	<tr><th>Error Type</th><th>Description</th><th>Example</th></tr>
+	<tr><td>Syntax error</td><td>Violates the rules of the language; program won't run</td><td>Missing brace, misspelled keyword</td></tr>
+	<tr><td>Runtime error</td><td>Program crashes during execution</td><td>Dividing by zero, accessing invalid list index</td></tr>
+	<tr><td>Logic error</td><td>Program runs but produces wrong output</td><td>Off-by-one in a loop, wrong formula</td></tr>
+</table>
+<p><strong>Testing strategies:</strong></p>
+<ul>
+	<li>Test with normal inputs, edge cases (minimum/maximum), and invalid inputs</li>
+	<li>Trace through code by hand (desk checking) to verify logic</li>
+	<li>Use display/print statements to inspect variable values at key points</li>
+	<li>Test individual procedures before combining them</li>
+</ul>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apcsp_unit3';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

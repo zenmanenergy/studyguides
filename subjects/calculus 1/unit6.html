@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 1 — Unit 6: Integration and Accumulation of Change</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html" class="active">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+</nav>
+
+<h1>Calculus 1 &mdash; Unit 6: Integration and Accumulation of Change</h1>
+
+<h2>Riemann Sums and the Definite Integral</h2>
+<ul>
+	<li>Partition \([a,b]\) into \(n\) subintervals of width \(\Delta x = \dfrac{b-a}{n}\)</li>
+	<li><strong>Left Riemann sum:</strong> sample at left endpoint of each subinterval</li>
+	<li><strong>Right Riemann sum:</strong> sample at right endpoint</li>
+	<li><strong>Midpoint sum:</strong> sample at midpoint of each subinterval</li>
+</ul>
+<div class="formula">
+	\[ \int_a^b f(x)\,dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i^*)\,\Delta x \]
+</div>
+<ul>
+	<li>The definite integral equals the net signed area between \(f(x)\) and the \(x\)-axis on \([a,b]\)</li>
+	<li>Area below the \(x\)-axis is counted as negative</li>
+</ul>
+
+<hr>
+<h2>Fundamental Theorem of Calculus</h2>
+<div class="formula">
+	<strong>Part 1:</strong> If \(F(x) = \displaystyle\int_a^x f(t)\,dt\), then \(F'(x) = f(x)\)<br><br>
+	<strong>Part 2:</strong> \(\displaystyle\int_a^b f(x)\,dx = F(b) - F(a)\), where \(F' = f\)
+</div>
+<ul>
+	<li>Part 1: the accumulation function is an antiderivative of the integrand</li>
+	<li>Part 2: use an antiderivative to evaluate definite integrals exactly</li>
+	<li>Chain rule with FTC Part 1: \(\dfrac{d}{dx}\!\int_a^{g(x)} f(t)\,dt = f(g(x)) \cdot g'(x)\)</li>
+</ul>
+
+<hr>
+<h2>Basic Integration Rules</h2>
+<table>
+	<tr><th>Function</th><th>Antiderivative</th></tr>
+	<tr><td>\(x^n\) (\(n \neq -1\))</td><td>\(\dfrac{x^{n+1}}{n+1} + C\)</td></tr>
+	<tr><td>\(\dfrac{1}{x}\)</td><td>\(\ln|x| + C\)</td></tr>
+	<tr><td>\(e^x\)</td><td>\(e^x + C\)</td></tr>
+	<tr><td>\(\sin x\)</td><td>\(-\cos x + C\)</td></tr>
+	<tr><td>\(\cos x\)</td><td>\(\sin x + C\)</td></tr>
+	<tr><td>\(\sec^2 x\)</td><td>\(\tan x + C\)</td></tr>
+	<tr><td>\(\dfrac{1}{1+x^2}\)</td><td>\(\arctan x + C\)</td></tr>
+	<tr><td>\(\dfrac{1}{\sqrt{1-x^2}}\)</td><td>\(\arcsin x + C\)</td></tr>
+</table>
+
+<hr>
+<h2>u-Substitution</h2>
+<ul>
+	<li>The chain rule in reverse: let \(u = g(x)\), then \(du = g'(x)\,dx\)</li>
+	<li>Rewrite entire integral in terms of \(u\), integrate, substitute back</li>
+</ul>
+<div class="formula">
+	Example: \(\displaystyle\int 2x\cos(x^2)\,dx\)<br>
+	Let \(u = x^2,\; du = 2x\,dx\)<br>
+	\(= \displaystyle\int \cos(u)\,du = \sin(u) + C = \sin(x^2) + C\)
+</div>
+<ul>
+	<li>For definite integrals: change the limits of integration to \(u\)-values, or substitute back before evaluating</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Left vs Right Riemann Sums for f(x) = x^2 on [0, 2] (n=4)</h3>
+		<canvas id="riemannChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Accumulation function F(x) = integral from 0 to x of t^2 dt</h3>
+		<canvas id="ftcChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	// Riemann sum visualization
+	var curveData = [];
+	for (var x = 0; x <= 2; x += 0.05) {
+		curveData.push({ x: x, y: x * x });
+	}
+	// Left sums: x = 0, 0.5, 1, 1.5; right sums: x = 0.5, 1, 1.5, 2
+	var leftBars = [
+		{ x: 0.25, y: 0 * 0 },
+		{ x: 0.75, y: 0.5 * 0.5 },
+		{ x: 1.25, y: 1 * 1 },
+		{ x: 1.75, y: 1.5 * 1.5 }
+	];
+	var rightBars = [
+		{ x: 0.25, y: 0.5 * 0.5 },
+		{ x: 0.75, y: 1 * 1 },
+		{ x: 1.25, y: 1.5 * 1.5 },
+		{ x: 1.75, y: 2 * 2 }
+	];
+	new Chart(document.getElementById('riemannChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'f(x) = x^2', data: curveData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0, order: 1 },
+				{ label: 'Left sum (underestimate)', data: leftBars, borderColor: 'rgba(39,174,96,0.8)', backgroundColor: 'rgba(39,174,96,0.3)', pointRadius: 8, pointStyle: 'rect', order: 2 },
+				{ label: 'Right sum (overestimate)', data: rightBars, borderColor: 'rgba(192,57,43,0.8)', backgroundColor: 'rgba(192,57,43,0.3)', pointRadius: 8, pointStyle: 'rect', order: 3 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { min: -0.1, max: 2.2, title: { display: true, text: 'x' } }, y: { min: -0.2, max: 4.5 } }
+		}
+	});
+
+	var fData = [], FData = [];
+	for (var x = 0; x <= 3; x += 0.1) {
+		fData.push({ x: x, y: x * x });
+		FData.push({ x: x, y: (x * x * x) / 3 });
+	}
+	new Chart(document.getElementById('ftcChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'f(t) = t^2', data: fData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: 'F(x) = x^3/3 (area so far)', data: FData, borderColor: '#e67e22', backgroundColor: 'transparent', showLine: true, pointRadius: 0 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { title: { display: true, text: 'y' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc1_unit6';
+
+	function setCookie(name, val) {
+		var d = new Date();
+		d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=';
+		var parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) {
+			var c = parts[i].trim();
+			if (c.indexOf(key) === 0) return c.substring(key.length);
+		}
+		return null;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var h2s = document.querySelectorAll('h2');
+		h2s.forEach(function(h2) {
+			var siblings = [];
+			var next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') {
+				siblings.push(next);
+				next = next.nextElementSibling;
+			}
+			var wrapper = document.createElement('div');
+			wrapper.className = 'section-content';
+			if (siblings.length > 0) {
+				h2.parentNode.insertBefore(wrapper, siblings[0]);
+				siblings.forEach(function(s) { wrapper.appendChild(s); });
+			}
+			var headingText = h2.textContent.trim().replace(/\s+/g, '_');
+			var cookieKey = PAGE_KEY + '__' + headingText;
+			var cb = document.createElement('input');
+			cb.type = 'checkbox';
+			cb.className = 'section-checkbox';
+			cb.title = 'Mark as understood (collapses section)';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span');
+			hint.className = 'collapse-hint';
+			hint.textContent = 'click to collapse';
+			h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed;
+				hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				if (collapsed) { wrapper.classList.add('collapsed'); } else { wrapper.classList.remove('collapsed'); }
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			var saved = getCookie(cookieKey);
+			applyState(saved === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

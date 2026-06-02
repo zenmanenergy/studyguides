@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP Computer Science Principles -- Unit 7: Global Impact and Exam Prep</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html" class="active">Unit 7</a>
+</nav>
+
+<h1>AP Computer Science Principles -- Unit 7: Global Impact and Exam Prep</h1>
+
+<h2>Computing Innovations</h2>
+<p>A <strong>computing innovation</strong> is any software or hardware that has had a significant effect on individuals or society. This is a central theme throughout AP CSP -- you must be able to analyze innovations using a consistent framework.</p>
+<div class="key">For any computing innovation, ask: What problem does it solve? What data does it use or produce? What are the beneficial effects? What are the harmful effects? Who is helped? Who is harmed or left out?</div>
+<table>
+	<tr><th>Innovation</th><th>Beneficial Effects</th><th>Harmful / Unintended Effects</th></tr>
+	<tr><td>Social media</td><td>Connects people globally; enables activism; distributes information rapidly</td><td>Misinformation; addiction by design; mental health harms; surveillance</td></tr>
+	<tr><td>GPS / navigation apps</td><td>Dramatically reduces getting lost; enables ride-sharing; assists emergency services</td><td>Congestion routing through residential streets; privacy tracking; skill atrophy</td></tr>
+	<tr><td>Electronic health records</td><td>Reduces errors; enables data sharing between providers; improves care coordination</td><td>Privacy breaches; interoperability problems; physician screen fatigue</td></tr>
+	<tr><td>Facial recognition</td><td>Unlocking phones; finding missing persons; tagging photos</td><td>Mass surveillance; higher error rates for people of color; chilling effect on protest</td></tr>
+	<tr><td>Streaming services</td><td>Access to vast media libraries; democratizes content creation</td><td>Threatens local theaters; recommends filter bubbles; drives short attention spans</td></tr>
+</table>
+<hr>
+
+<h2>The Digital Divide</h2>
+<p>The <strong>digital divide</strong> describes unequal access to technology and its benefits across populations.</p>
+<ul>
+	<li>Divided by income, geography (urban vs. rural), age, disability, and country</li>
+	<li>Lack of broadband in rural areas limits educational and economic opportunities</li>
+	<li>High-speed internet access and device ownership correlate strongly with academic achievement</li>
+	<li>The divide is not just about hardware -- it includes <strong>digital literacy</strong>: knowing how to use technology effectively and safely</li>
+	<li>Closing the divide requires infrastructure investment, affordable devices, and education</li>
+</ul>
+<hr>
+
+<h2>Intellectual Property and Licensing</h2>
+<p>Digital content raises new challenges for intellectual property law.</p>
+<table>
+	<tr><th>Term</th><th>Meaning</th></tr>
+	<tr><td>Copyright</td><td>Automatic legal protection of original creative works; others cannot copy without permission</td></tr>
+	<tr><td>Creative Commons</td><td>Flexible licensing that lets creators specify how their work may be used (free use, attribution required, non-commercial only, etc.)</td></tr>
+	<tr><td>Open source</td><td>Source code is publicly available; others can use, modify, and distribute it under defined license terms</td></tr>
+	<tr><td>Fair use</td><td>Limited use of copyrighted material without permission for purposes like education, commentary, parody</td></tr>
+	<tr><td>Plagiarism</td><td>Presenting someone else's work as your own; an ethical violation even when not illegal</td></tr>
+</table>
+<hr>
+
+<h2>Computing and Collaboration</h2>
+<p>Modern software is almost never built by one person. Collaboration introduces benefits and challenges.</p>
+<ul>
+	<li><strong>Version control</strong> (e.g., Git): tracks changes to code over time; allows multiple contributors to work simultaneously; enables rollback to earlier versions</li>
+	<li><strong>Pair programming</strong>: two programmers work together at one machine; one types, one reviews in real time</li>
+	<li>Diverse teams produce better software -- different perspectives catch different problems and serve broader users</li>
+	<li>Documentation and comments make code understandable to others (and to your future self)</li>
+</ul>
+<hr>
+
+<h2>Exam Overview</h2>
+<p>The AP CSP exam has two components:</p>
+<table>
+	<tr><th>Component</th><th>Format</th><th>Weight</th></tr>
+	<tr><td>Section I: Multiple Choice</td><td>70 questions in 120 minutes</td><td>70%</td></tr>
+	<tr><td>Section II: Create Performance Task</td><td>Program submitted before exam; short written responses on exam day</td><td>30%</td></tr>
+</table>
+<div class="charts">
+	<div class="chart-box">
+		<h3>Exam Score Breakdown</h3>
+		<canvas id="examChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Big Ideas Coverage (Approx. MC %)</h3>
+		<canvas id="bigIdeasChart"></canvas>
+	</div>
+</div>
+<hr>
+
+<h2>The Create Performance Task</h2>
+<p>The <strong>Create Task</strong> requires you to design and implement a program that solves a problem, pursues a personal interest, or creates something. You submit the program and written responses before the exam.</p>
+<table>
+	<tr><th>Requirement</th><th>Details</th></tr>
+	<tr><td>Program purpose and function</td><td>Describe what the program does and demonstrate it running</td></tr>
+	<tr><td>Data abstraction</td><td>Must use a list (or other collection) to manage complexity; explain how it stores data</td></tr>
+	<tr><td>Managing complexity</td><td>Show how the list/collection makes the program more manageable</td></tr>
+	<tr><td>Procedural abstraction</td><td>Must define and call a procedure with a parameter that affects its behavior</td></tr>
+	<tr><td>Algorithm</td><td>Must include sequencing, selection, AND iteration within the procedure</td></tr>
+	<tr><td>Testing</td><td>Describe two test cases: one that produces the expected result, one that doesn't -- and explain how you fixed it</td></tr>
+</table>
+<div class="key">The Create Task is scored on whether your written responses accurately describe your code. Write responses that match your actual program. Common error: describing an algorithm or list that is not present in the submitted code.</div>
+<hr>
+
+<h2>Multiple Choice Topics to Review</h2>
+<ul>
+	<li>Binary / number bases / data size calculations</li>
+	<li>Lossless vs. lossy compression trade-offs</li>
+	<li>Reading and tracing AP pseudocode (especially procedures, lists, and loops)</li>
+	<li>Internet protocols: TCP vs. UDP, HTTP vs. HTTPS, DNS, IP addresses</li>
+	<li>Packet switching and fault tolerance</li>
+	<li>Algorithm efficiency: linear vs. binary search; reasonable vs. unreasonable time</li>
+	<li>The Halting Problem and undecidable problems</li>
+	<li>Symmetric vs. asymmetric encryption; how HTTPS protects data</li>
+	<li>Privacy, data collection, bias, and unintended effects of innovations</li>
+	<li>Beneficial and harmful effects of computing innovations</li>
+	<li>Digital divide and open vs. proprietary standards</li>
+	<li>Intellectual property: copyright, Creative Commons, open source, fair use</li>
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	var ctx1 = document.getElementById('examChart');
+	if (ctx1) {
+		new Chart(ctx1, {
+			type: 'doughnut',
+			data: {
+				labels: ['Multiple Choice (70%)', 'Create Task (30%)'],
+				datasets: [{ data: [70, 30], backgroundColor: ['#3d3d9e', '#9999cc'], borderWidth: 2 }]
+			},
+			options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+		});
+	}
+	var ctx2 = document.getElementById('bigIdeasChart');
+	if (ctx2) {
+		new Chart(ctx2, {
+			type: 'bar',
+			data: {
+				labels: ['Creative Dev', 'Data', 'Algorithms &\nProgramming', 'Systems &\nNetworks', 'Impact of\nComputing'],
+				datasets: [{ label: 'Approx. % of MC', data: [10, 18, 30, 22, 20], backgroundColor: '#3d3d9e' }]
+			},
+			options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 40, title: { display: true, text: 'Approx. % of questions' } } } }
+		});
+	}
+});
+</script>
+<script>
+(function() {
+	var PAGE_KEY = 'apcsp_unit7';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

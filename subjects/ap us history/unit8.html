@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 8: Period 8 (1945–1980)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html" class="active">Unit 8</a>
+	<a href="unit9.html">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 8: Period 8 (1945&ndash;1980)</h1>
+
+<h2>Cold War Origins and Foreign Policy</h2>
+<ul>
+	<li><strong>Containment doctrine (Truman, 1947):</strong> prevent spread of communism; George Kennan's "Long Telegram"</li>
+	<li><strong>Truman Doctrine:</strong> US would support free peoples resisting communist subversion (Greece, Turkey)</li>
+	<li><strong>Marshall Plan:</strong> $13 billion to rebuild Western Europe; prevent communism through prosperity</li>
+	<li><strong>NATO (1949):</strong> collective defense pact; USSR formed Warsaw Pact in response</li>
+	<li><strong>Korean War (1950–53):</strong> limited war; ended in stalemate at 38th parallel; first test of containment</li>
+	<li><strong>Nuclear arms race:</strong> USSR got the bomb 1949; US developed hydrogen bomb 1952; MAD (Mutually Assured Destruction) doctrine</li>
+</ul>
+
+<hr>
+<h2>Postwar Society and McCarthyism</h2>
+<ul>
+	<li><strong>Baby Boom (1946–64):</strong> 76 million births; suburbs grew (Levittown); interstate highway system (1956)</li>
+	<li><strong>Consumer culture:</strong> TV, automobiles, appliances; conformity vs. counterculture tension</li>
+	<li><strong>Second Red Scare:</strong> House Un-American Activities Committee (HUAC); Hollywood Ten; loyalty oaths</li>
+	<li><strong>McCarthyism:</strong> Senator Joseph McCarthy's reckless accusations; "Are you now or have you ever been..."</li>
+	<li>Rosenberg execution (1953); Army-McCarthy hearings (1954) ended McCarthy's influence</li>
+</ul>
+
+<hr>
+<h2>Civil Rights Movement</h2>
+<table>
+	<tr><th>Event</th><th>Year</th><th>Significance</th></tr>
+	<tr><td>Brown v. Board of Education</td><td>1954</td><td>Overturned Plessy; "separate but equal" unconstitutional</td></tr>
+	<tr><td>Montgomery Bus Boycott</td><td>1955–56</td><td>Rosa Parks; MLK's emergence; 381 days; desegregated buses</td></tr>
+	<tr><td>Little Rock Crisis</td><td>1957</td><td>Eisenhower sent troops to enforce school integration</td></tr>
+	<tr><td>Sit-ins / Freedom Rides</td><td>1960–61</td><td>Nonviolent direct action; desegregated lunch counters and transit</td></tr>
+	<tr><td>March on Washington</td><td>1963</td><td>"I Have a Dream"; 250,000 marchers; pressured Congress</td></tr>
+	<tr><td>Civil Rights Act</td><td>1964</td><td>Banned discrimination in public accommodations and employment</td></tr>
+	<tr><td>Voting Rights Act</td><td>1965</td><td>Banned literacy tests; federal oversight of elections</td></tr>
+</table>
+<div class="key">
+	MLK's philosophy: nonviolent direct action; moral suasion; beloved community. Malcolm X: Black nationalism, self-defense, Black Pride. Both assassinated 1965 and 1968.
+</div>
+
+<hr>
+<h2>Vietnam War and Social Upheaval</h2>
+<ul>
+	<li>Gulf of Tonkin Resolution (1964): LBJ given broad war powers; escalation began</li>
+	<li>US troop levels peaked at 543,000 (1969); 58,000 Americans killed</li>
+	<li><strong>Tet Offensive (1968):</strong> massive NVA/Viet Cong attacks; undermined public support despite US military success</li>
+	<li><strong>Kent State (1970):</strong> National Guard killed 4 students at anti-war protest; massive campus protests</li>
+	<li><strong>Nixon's Vietnamization:</strong> gradual withdrawal; Paris Peace Accords (1973); South Vietnam fell 1975</li>
+	<li>War Powers Act (1973): limited president's ability to commit troops without congressional approval</li>
+</ul>
+
+<hr>
+<h2>Great Society and Nixon</h2>
+<ul>
+	<li><strong>LBJ's Great Society:</strong> Medicare/Medicaid (1965), Elementary and Secondary Education Act, Voting Rights Act, War on Poverty (Head Start, VISTA)</li>
+	<li>24th Amendment (1964): banned poll tax; Immigration Act of 1965 ended national-origins quotas</li>
+	<li><strong>Nixon (1969–74):</strong> detente with China and USSR; SALT I arms limitation; EPA created (1970)</li>
+	<li><strong>Watergate:</strong> break-in at DNC HQ; cover-up; Saturday Night Massacre; Nixon resigned Aug 9, 1974</li>
+	<li>Women's liberation: NOW (1966), ERA debate, Roe v. Wade (1973)</li>
+	<li>Stagflation (high inflation + unemployment) + OPEC oil embargo (1973) ended postwar economic prosperity</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>US Defense Spending as % of GDP, 1945–1980</h3>
+		<canvas id="defenseChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Civil Rights Legislation Timeline</h3>
+		<canvas id="civilRightsChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('defenseChart'), {
+		type: 'line',
+		data: {
+			labels: ['1945','1950','1953','1955','1960','1965','1968','1970','1975','1980'],
+			datasets: [{
+				label: 'Defense spending (% of GDP)',
+				data: [37.5, 5.0, 14.2, 10.8, 9.3, 7.4, 9.5, 8.1, 5.5, 4.9],
+				borderColor: '#8b2500',
+				backgroundColor: 'rgba(139,37,0,0.1)',
+				fill: true, tension: 0.3, pointRadius: 4
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { title: { display: true, text: '% of GDP' } } }
+		}
+	});
+
+	new Chart(document.getElementById('civilRightsChart'), {
+		type: 'bar',
+		data: {
+			labels: ['Brown v.\nBoard 1954', 'Civil Rights\nAct 1957', 'Civil Rights\nAct 1964', 'Voting Rights\nAct 1965', 'Fair Housing\nAct 1968'],
+			datasets: [{
+				label: 'Significance score (relative)',
+				data: [9, 4, 10, 10, 7],
+				backgroundColor: ['#8b2500cc','#c0392bcc','#5a1a1acc','#5a1a1acc','#8b2500cc']
+			}]
+		},
+		options: {
+			indexAxis: 'y',
+			plugins: { legend: { display: false } },
+			scales: { x: { max: 12, ticks: { display: false } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit8';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

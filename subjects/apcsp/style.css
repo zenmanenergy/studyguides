@@ -1,0 +1,25 @@
+body { font-family: Arial, sans-serif; max-width: 960px; margin: 0 auto; padding: 20px 28px; font-size: 15px; color: #222; }
+h1 { color: #1a1a5a; border-bottom: 3px solid #1a1a5a; padding-bottom: 8px; margin-bottom: 6px; }
+h2 { color: #3d3d9e; margin-top: 22px; margin-bottom: 6px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.5px; border-left: 4px solid #3d3d9e; padding-left: 8px; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px; }
+h2:hover { background: #f4f4ff; }
+.section-checkbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border: 2px solid #3d3d9e; border-radius: 3px; flex-shrink: 0; cursor: pointer; position: relative; background: white; }
+.section-checkbox:checked { background: #3d3d9e; }
+.section-checkbox:checked::after { content: ''; position: absolute; left: 3px; top: 0px; width: 5px; height: 9px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
+.section-content.collapsed { display: none; }
+.collapse-hint { font-size: 11px; color: #aaa; font-weight: normal; margin-left: auto; text-transform: none; letter-spacing: 0; }
+hr { border: none; border-top: 1px solid #ddd; margin: 14px 0; }
+table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 14px; }
+th { background: #1a1a5a; color: white; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #f4f4fc; }
+ul, ol { margin: 4px 0; padding-left: 22px; }
+li { margin: 3px 0; }
+.key { background: #f4f4ff; border-left: 4px solid #3d3d9e; padding: 7px 14px; margin: 8px 0; }
+.code { background: #1e1e2e; color: #cdd6f4; font-family: 'Courier New', monospace; font-size: 13px; padding: 10px 14px; border-radius: 6px; margin: 8px 0; white-space: pre; overflow-x: auto; line-height: 1.5; }
+.charts { display: flex; gap: 20px; flex-wrap: wrap; margin: 14px 0; }
+.chart-box { flex: 1; min-width: 280px; background: #fafafa; border: 1px solid #ddd; border-radius: 6px; padding: 12px; }
+.chart-box h3 { margin: 0 0 8px; font-size: 0.9em; color: #1a1a5a; text-align: center; }
+canvas { max-width: 100%; }
+nav { background: #1a1a5a; padding: 8px 28px; margin: -20px -28px 20px; display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { color: #b8b8e8; text-decoration: none; padding: 5px 10px; border-radius: 4px; font-size: 13px; }
+nav a:hover, nav a.active { background: #3d3d9e; color: white; }

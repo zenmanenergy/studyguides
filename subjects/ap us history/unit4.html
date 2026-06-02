@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 4: Period 4 (1800–1848)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html" class="active">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 4: Period 4 (1800&ndash;1848)</h1>
+
+<h2>Jeffersonian Democracy and Expansion</h2>
+<ul>
+	<li><strong>Louisiana Purchase (1803):</strong> doubled US size; Napoleon sold it; Jefferson set aside strict constitutionalism</li>
+	<li><strong>Lewis and Clark Expedition (1804–06):</strong> mapped West; charted relations with Native tribes</li>
+	<li><strong>Marbury v. Madison (1803):</strong> established judicial review; Marshall Court expanded federal power</li>
+	<li><strong>Embargo Act (1807):</strong> banned trade with Britain/France; backfired — hurt US economy, especially New England</li>
+	<li><strong>War of 1812:</strong> vs. Britain; ended in stalemate (Treaty of Ghent); boosted American nationalism</li>
+</ul>
+
+<hr>
+<h2>Market Revolution and Economic Change</h2>
+<ul>
+	<li>Shift from subsistence farming to market-oriented production; wage labor grew</li>
+	<li><strong>Erie Canal (1825):</strong> linked Great Lakes to NYC; transformed internal commerce</li>
+	<li><strong>Lowell System:</strong> factory system using young women ("Lowell girls"); early industrialization in New England</li>
+	<li>Eli Whitney's interchangeable parts; rise of manufacturing in Northeast</li>
+	<li>Economic sectionalism deepened: North = industry; South = cotton/slavery; West = farming</li>
+	<li>Cotton gin (1793) dramatically increased cotton production and demand for enslaved labor</li>
+</ul>
+
+<hr>
+<h2>Jacksonian Democracy</h2>
+<ul>
+	<li><strong>Andrew Jackson (1829–37):</strong> "common man" democracy; expanded white male suffrage; spoils system; states' rights</li>
+	<li><strong>Nullification Crisis (1832):</strong> South Carolina nullified tariff; Jackson threatened force; compromise reached</li>
+	<li><strong>Bank War:</strong> Jackson vetoed recharter of Second Bank of US; destroyed it; caused economic instability</li>
+	<li><strong>Indian Removal Act (1830):</strong> forced removal of Five Civilized Tribes; Cherokee's Trail of Tears (1838–39) killed ~4,000</li>
+	<li><em>Worcester v. Georgia</em> (1832): Supreme Court ruled for Cherokee; Jackson reportedly ignored it</li>
+</ul>
+
+<hr>
+<h2>Reform Movements</h2>
+<table>
+	<tr><th>Movement</th><th>Key Figures</th><th>Goals / Outcomes</th></tr>
+	<tr><td>Abolitionism</td><td>William Lloyd Garrison, Frederick Douglass, Sojourner Truth</td><td>End slavery; Garrison's <em>The Liberator</em> (1831); Underground Railroad</td></tr>
+	<tr><td>Women's Rights</td><td>Elizabeth Cady Stanton, Lucretia Mott</td><td>Seneca Falls Convention (1848); Declaration of Sentiments</td></tr>
+	<tr><td>Temperance</td><td>American Temperance Society</td><td>Reduce alcohol consumption; later led to Prohibition</td></tr>
+	<tr><td>Education</td><td>Horace Mann</td><td>Public school system; teacher training</td></tr>
+	<tr><td>Prison/asylum reform</td><td>Dorothea Dix</td><td>Humane treatment of mentally ill</td></tr>
+</table>
+<div class="key">
+	Second Great Awakening (1800s–1840s): evangelical revival fueled reform movements — individual moral responsibility linked to social change
+</div>
+
+<hr>
+<h2>Manifest Destiny (early)</h2>
+<ul>
+	<li>Belief that American expansion across North America was divinely ordained and inevitable</li>
+	<li>Texas independence from Mexico (1836); Texas annexation debate divided Congress over slavery expansion</li>
+	<li>Oregon Trail; settlers moved westward in large numbers; "54-40 or Fight" vs. Britain over Oregon (settled at 49th parallel, 1846)</li>
+	<li>Displacement and conflict with Native peoples accelerated as settlers pushed west</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>US Cotton Production (bales, millions) — Growth with Slavery</h3>
+		<canvas id="cottonChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>US Territorial Growth by Acquisition</h3>
+		<canvas id="territoryChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('cottonChart'), {
+		type: 'line',
+		data: {
+			labels: ['1800', '1810', '1820', '1830', '1840', '1850'],
+			datasets: [{
+				label: 'Cotton (millions of bales)',
+				data: [0.07, 0.18, 0.34, 0.73, 1.35, 2.13],
+				borderColor: '#8b2500',
+				backgroundColor: 'rgba(139,37,0,0.1)',
+				fill: true, tension: 0.3, pointRadius: 4
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { beginAtZero: true, title: { display: true, text: 'Millions of bales' } } }
+		}
+	});
+
+	new Chart(document.getElementById('territoryChart'), {
+		type: 'bar',
+		data: {
+			labels: ['Original\n13 states\n1783', 'Louisiana\nPurchase\n1803', 'Florida\n1819', 'Texas\n1845', 'Oregon\n1846', 'Mexican\nCession\n1848'],
+			datasets: [{
+				label: 'Approx. sq. miles (100k)',
+				data: [8.9, 8.3, 0.7, 2.7, 2.8, 5.3],
+				backgroundColor: ['#5a1a1acc','#8b2500cc','#c0392bcc','#e74c3ccc','#e67e22cc','#f39c12cc']
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { title: { display: true, text: '100,000 sq. miles' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit4';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

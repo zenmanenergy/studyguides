@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP Computer Science Principles -- Unit 5: Data and Analysis</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html" class="active">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+</nav>
+
+<h1>AP Computer Science Principles -- Unit 5: Data and Analysis</h1>
+
+<h2>Why Data Matters</h2>
+<p>Computing has transformed how data is collected, stored, and analyzed. Vast amounts of digital data are generated every second -- by sensors, apps, social media, transactions, and scientific instruments.</p>
+<div class="key">Data is only useful if it is collected carefully, analyzed correctly, and interpreted honestly. Bad data collection, flawed analysis, and misrepresentation of results can cause real harm -- in medicine, justice, finance, and policy.</div>
+<ul>
+	<li><strong>Metadata</strong>: data about data. A photo file contains not just pixels but also the time, location, and device it was taken with. Metadata can reveal patterns even without accessing the primary data.</li>
+	<li><strong>Structured data</strong>: organized in rows and columns (spreadsheets, databases)</li>
+	<li><strong>Unstructured data</strong>: text, images, audio, video -- harder to analyze automatically</li>
+</ul>
+<hr>
+
+<h2>Data Collection and Bias</h2>
+<p>How data is collected determines what conclusions can be drawn. Poor collection introduces <strong>bias</strong> that distorts results.</p>
+<table>
+	<tr><th>Bias Type</th><th>Description</th><th>Example</th></tr>
+	<tr><td>Sampling bias</td><td>The sample doesn't represent the full population</td><td>Surveying only college students about retirement savings</td></tr>
+	<tr><td>Selection bias</td><td>Only certain kinds of data get recorded</td><td>Medical studies that only enrolled men historically</td></tr>
+	<tr><td>Confirmation bias</td><td>Collecting/emphasizing data that confirms existing beliefs</td><td>Stopping a study when it shows the desired result</td></tr>
+	<tr><td>Measurement bias</td><td>The measurement tool itself skews results</td><td>A scale that always reads 2 lbs heavy</td></tr>
+	<tr><td>Algorithmic bias</td><td>Patterns in training data cause models to treat groups unequally</td><td>Facial recognition that is less accurate for darker skin tones</td></tr>
+</table>
+<hr>
+
+<h2>Visualizing Data</h2>
+<p>Visualization transforms raw numbers into patterns a human can perceive. Choosing the right chart type matters.</p>
+<div class="charts">
+	<div class="chart-box">
+		<h3>Chart Types and When to Use Them</h3>
+		<canvas id="vizChart"></canvas>
+	</div>
+</div>
+<table>
+	<tr><th>Chart Type</th><th>Best For</th></tr>
+	<tr><td>Bar chart</td><td>Comparing discrete categories</td></tr>
+	<tr><td>Line chart</td><td>Showing trends over time</td></tr>
+	<tr><td>Scatter plot</td><td>Showing correlation between two numeric variables</td></tr>
+	<tr><td>Pie / Doughnut</td><td>Showing parts of a whole (use sparingly; hard to compare slices)</td></tr>
+	<tr><td>Histogram</td><td>Distribution of a single numeric variable</td></tr>
+	<tr><td>Heat map</td><td>Two-dimensional patterns in large datasets</td></tr>
+</table>
+<div class="key">Misleading visualizations are a common manipulation tactic. Watch for: truncated y-axes that exaggerate differences, inconsistent scales, cherry-picked time ranges, and 3D charts that distort proportions.</div>
+<hr>
+
+<h2>Correlation vs. Causation</h2>
+<p>Two variables that move together are <strong>correlated</strong>. This does NOT mean one causes the other.</p>
+<ul>
+	<li><strong>Correlation</strong>: Ice cream sales and drowning rates are both higher in summer -- they are correlated.</li>
+	<li><strong>Causation</strong>: Hot weather (a third variable) causes both. Ice cream does not cause drowning.</li>
+	<li>Establishing causation requires controlled experiments where all variables except one are held constant</li>
+	<li>Observational data (surveys, logs, social media) can show correlation but rarely proves causation</li>
+</ul>
+<hr>
+
+<h2>Privacy and Data Collection</h2>
+<p>Every digital interaction generates data. This creates powerful tools -- and serious privacy risks.</p>
+<table>
+	<tr><th>Concern</th><th>Description</th></tr>
+	<tr><td>Personally identifiable information (PII)</td><td>Name, SSN, email, location, biometrics -- data that can identify an individual</td></tr>
+	<tr><td>Data aggregation</td><td>Combining individually harmless data points to reveal sensitive information</td></tr>
+	<tr><td>Third-party data sharing</td><td>Apps and websites selling user data to advertisers and data brokers</td></tr>
+	<tr><td>Data breaches</td><td>Unauthorized access to stored personal data; affects millions at a time</td></tr>
+	<tr><td>Surveillance capitalism</td><td>Business model based on collecting and monetizing behavioral data</td></tr>
+</table>
+<div class="key">Anonymizing data is harder than it seems. Researchers have repeatedly re-identified "anonymous" users by combining datasets. In one study, just 4 location data points were enough to uniquely identify 95% of people in a dataset.</div>
+<hr>
+
+<h2>Machine Learning and Pattern Recognition</h2>
+<p>Machine learning algorithms find patterns in large datasets and use them to make predictions or decisions without being explicitly programmed for each case.</p>
+<ul>
+	<li><strong>Training data</strong>: the dataset the model learns from. If this is biased, the model will be biased.</li>
+	<li><strong>Classification</strong>: predicting which category an input belongs to (spam/not spam; disease/no disease)</li>
+	<li><strong>Regression</strong>: predicting a numeric value (house price, temperature tomorrow)</li>
+	<li>Machine learning models can achieve high accuracy but are often difficult to interpret -- the "black box" problem</li>
+	<li>High-stakes uses (sentencing, hiring, lending) raise ethical concerns when models produce unexplainable decisions</li>
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	var ctx = document.getElementById('vizChart');
+	if (ctx) {
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: ['Bar', 'Line', 'Scatter', 'Pie', 'Histogram'],
+				datasets: [{
+					label: 'Ease of Comparison (subjective)',
+					data: [9, 8, 7, 4, 6],
+					backgroundColor: ['#3d3d9e','#5555bb','#7777cc','#9999dd','#bbbbee']
+				}]
+			},
+			options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { min: 0, max: 10 } } }
+		});
+	}
+});
+</script>
+<script>
+(function() {
+	var PAGE_KEY = 'apcsp_unit5';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

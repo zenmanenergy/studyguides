@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP Computer Science Principles -- Unit 6: Cybersecurity</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html" class="active">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+</nav>
+
+<h1>AP Computer Science Principles -- Unit 6: Cybersecurity</h1>
+
+<h2>Why Cybersecurity Matters</h2>
+<p>As more of society depends on networked systems, the consequences of security failures grow: financial theft, healthcare disruptions, election interference, espionage, and infrastructure attacks.</p>
+<div class="key">No system is perfectly secure. Security is always a trade-off: stronger security usually means more inconvenience, cost, or reduced functionality. The goal is to make attacks difficult enough that the attacker's cost exceeds their benefit.</div>
+<ul>
+	<li>The <strong>CIA triad</strong>: the three goals of information security</li>
+	<li><strong>Confidentiality</strong>: only authorized parties can read the data</li>
+	<li><strong>Integrity</strong>: data has not been altered without authorization</li>
+	<li><strong>Availability</strong>: systems and data are accessible when needed</li>
+</ul>
+<hr>
+
+<h2>Common Attacks</h2>
+<table>
+	<tr><th>Attack</th><th>How It Works</th><th>Defense</th></tr>
+	<tr><td>Phishing</td><td>Fake emails/sites trick users into giving up credentials or installing malware</td><td>User education; multi-factor authentication; spam filters</td></tr>
+	<tr><td>Malware</td><td>Malicious software installed on a device (virus, ransomware, spyware, trojan)</td><td>Antivirus; keeping software patched; avoiding untrusted downloads</td></tr>
+	<tr><td>SQL Injection</td><td>Attacker inserts malicious SQL code into input fields to manipulate databases</td><td>Input validation; parameterized queries</td></tr>
+	<tr><td>Man-in-the-middle</td><td>Attacker intercepts communication between two parties</td><td>HTTPS/TLS encryption; certificate validation</td></tr>
+	<tr><td>DDoS</td><td>Overwhelming a server with traffic from thousands of compromised machines</td><td>Traffic filtering; rate limiting; CDN distribution</td></tr>
+	<tr><td>Brute force</td><td>Systematically trying all possible passwords</td><td>Strong passwords; rate limiting login attempts; lockouts</td></tr>
+	<tr><td>Social engineering</td><td>Manipulating people (not systems) to reveal information or take actions</td><td>Employee training; verification procedures; skepticism</td></tr>
+</table>
+<hr>
+
+<h2>Encryption</h2>
+<p><strong>Encryption</strong> transforms readable data (<strong>plaintext</strong>) into unreadable form (<strong>ciphertext</strong>) using a key. Only someone with the correct key can decrypt it.</p>
+<table>
+	<tr><th>Type</th><th>How It Works</th><th>Use Cases</th><th>Key Feature</th></tr>
+	<tr><td>Symmetric encryption</td><td>Same key encrypts and decrypts</td><td>Encrypting stored files; AES</td><td>Fast; but how do you safely share the key?</td></tr>
+	<tr><td>Asymmetric encryption</td><td>Public key encrypts; private key decrypts (or vice versa for signatures)</td><td>HTTPS, SSH, digital signatures; RSA</td><td>Solves the key-sharing problem; slower</td></tr>
+</table>
+<p><strong>How HTTPS works (simplified):</strong></p>
+<ol>
+	<li>Your browser requests a site over HTTPS</li>
+	<li>The server sends its <strong>public key</strong> and a digital certificate</li>
+	<li>Your browser verifies the certificate is signed by a trusted <strong>Certificate Authority (CA)</strong></li>
+	<li>Browser uses the server's public key to securely exchange a shared <strong>session key</strong></li>
+	<li>All further communication is encrypted using that session key (symmetric, for speed)</li>
+</ol>
+<div class="key">A digital certificate is like a government-issued ID for a website. It proves the website is who it claims to be. If a certificate is invalid or expired, your browser warns you -- do not ignore those warnings.</div>
+<hr>
+
+<h2>Password Security</h2>
+<p>Passwords are the most common authentication mechanism -- and the most commonly broken.</p>
+<ul>
+	<li><strong>Password length matters most</strong>: a 20-character passphrase is stronger than a 10-character "complex" password with symbols</li>
+	<li>Use a different password for every account -- a breach at one site exposes all accounts if you reuse passwords</li>
+	<li><strong>Password managers</strong> generate and store unique strong passwords for every site</li>
+	<li>Websites should store passwords as <strong>hashed + salted</strong> values, never as plaintext</li>
+	<li><strong>Multi-factor authentication (MFA)</strong>: something you know (password) + something you have (phone code) + something you are (biometric)</li>
+</ul>
+<table>
+	<tr><th>Password Strength Estimate</th><th>Approx. Time to Brute Force</th></tr>
+	<tr><td>"password"</td><td>Instantly (it's in every dictionary)</td></tr>
+	<tr><td>"P@ssw0rd"</td><td>Minutes (common substitutions are known)</td></tr>
+	<tr><td>"xQ7!mR2k"</td><td>Hours to days</td></tr>
+	<tr><td>"correct-horse-battery-staple"</td><td>Centuries (long random passphrase)</td></tr>
+</table>
+<hr>
+
+<h2>Network Security</h2>
+<ul>
+	<li><strong>Firewall</strong>: filters incoming and outgoing network traffic based on rules; blocks unauthorized connections</li>
+	<li><strong>VPN (Virtual Private Network)</strong>: encrypts traffic between your device and a VPN server; hides your IP address from sites you visit; useful on public Wi-Fi</li>
+	<li><strong>TLS/SSL</strong>: the encryption protocol behind HTTPS; protects data in transit from interception</li>
+	<li><strong>Two-factor authentication</strong>: protects accounts even if a password is compromised</li>
+	<li><strong>Software updates</strong>: patches fix known vulnerabilities; delaying updates leaves known exploits open</li>
+</ul>
+<hr>
+
+<h2>The Digital Divide and Global Security</h2>
+<p>Security tools and practices are not equally accessible. This creates a <strong>digital divide</strong> in security:</p>
+<ul>
+	<li>Users in low-income regions may rely on outdated devices and software with unpatched vulnerabilities</li>
+	<li>Organizations in developing nations may lack resources for security training or infrastructure</li>
+	<li>Cybercrime is borderless -- attackers in one country can target anyone in the world</li>
+	<li>State-sponsored attacks (cyber espionage, infrastructure sabotage) are a major international security challenge</li>
+</ul>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apcsp_unit6';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP Computer Science Principles -- Unit 4: Algorithms</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html" class="active">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+</nav>
+
+<h1>AP Computer Science Principles -- Unit 4: Algorithms</h1>
+
+<h2>What Is an Algorithm?</h2>
+<p>An <strong>algorithm</strong> is a precise, finite set of instructions for solving a problem or accomplishing a task. Algorithms must eventually terminate and produce a result.</p>
+<div class="key">Key properties of a correct algorithm: (1) It must be <strong>finite</strong> -- it terminates after a defined number of steps. (2) It must be <strong>unambiguous</strong> -- each step has exactly one interpretation. (3) It must be <strong>correct</strong> -- it produces the right output for all valid inputs.</div>
+<p>Algorithms can be expressed as:</p>
+<ul>
+	<li>Natural language (English steps)</li>
+	<li>Pseudocode</li>
+	<li>Flowcharts</li>
+	<li>Actual programming language code</li>
+</ul>
+<hr>
+
+<h2>Sequential, Selection, and Iteration</h2>
+<p>All algorithms are built from three fundamental structures:</p>
+<table>
+	<tr><th>Structure</th><th>Description</th><th>Example</th></tr>
+	<tr><td>Sequence</td><td>Steps executed one after another in order</td><td>Step 1, Step 2, Step 3...</td></tr>
+	<tr><td>Selection</td><td>A decision point: execute different code depending on a condition</td><td>IF/ELSE statements</td></tr>
+	<tr><td>Iteration</td><td>Repeating a block of steps</td><td>REPEAT, FOR EACH loops</td></tr>
+</table>
+<hr>
+
+<h2>Linear Search</h2>
+<p><strong>Linear search</strong> checks each element of a list one at a time until the target is found (or the list ends).</p>
+<div class="code">PROCEDURE linearSearch(list, target)
+{
+    FOR EACH item IN list
+    {
+        IF (item = target)
+        {
+            RETURN true
+        }
+    }
+    RETURN false
+}</div>
+<ul>
+	<li><strong>Best case</strong>: target is the first element -- 1 comparison</li>
+	<li><strong>Worst case</strong>: target is not in the list -- N comparisons (N = list length)</li>
+	<li>Works on any list, sorted or unsorted</li>
+</ul>
+<hr>
+
+<h2>Binary Search</h2>
+<p><strong>Binary search</strong> works only on <em>sorted</em> lists. It repeatedly halves the search space by comparing the target to the middle element.</p>
+<div class="code">// Assumes list is sorted in ascending order
+PROCEDURE binarySearch(list, target)
+{
+    low &lt;-- 1
+    high &lt;-- LENGTH(list)
+    REPEAT UNTIL (low &gt; high)
+    {
+        mid &lt;-- (low + high) / 2
+        IF (list[mid] = target) { RETURN mid }
+        ELSE IF (list[mid] &lt; target) { low &lt;-- mid + 1 }
+        ELSE { high &lt;-- mid - 1 }
+    }
+    RETURN -1
+}</div>
+<div class="key">Binary search is MUCH faster than linear search for large lists. For a list of 1,000,000 items: linear search may check all 1,000,000; binary search checks at most 20 (log2 of 1,000,000 is about 20).</div>
+<div class="charts">
+	<div class="chart-box">
+		<h3>Max Comparisons: Linear vs. Binary Search</h3>
+		<canvas id="searchChart"></canvas>
+	</div>
+</div>
+<hr>
+
+<h2>Sorting Algorithms</h2>
+<p>Sorting organizes a list into a defined order. AP CSP expects conceptual understanding of common sorting approaches.</p>
+<table>
+	<tr><th>Algorithm</th><th>How It Works</th><th>Efficiency (rough)</th></tr>
+	<tr><td>Selection sort</td><td>Find the minimum, swap it to the front; repeat for the rest</td><td>Slow for large lists (N^2)</td></tr>
+	<tr><td>Insertion sort</td><td>Take each element and insert it into its correct position in the sorted portion</td><td>Slow for large lists; fast for nearly-sorted data</td></tr>
+	<tr><td>Merge sort</td><td>Divide list in half repeatedly, sort each half, merge back together</td><td>Much faster (N log N); used in practice</td></tr>
+</table>
+<hr>
+
+<h2>Algorithmic Efficiency</h2>
+<p>Efficiency describes how an algorithm's resource usage (time, memory) grows as the input size grows. We care most about behavior on large inputs.</p>
+<table>
+	<tr><th>Growth Type</th><th>Description</th><th>Example</th></tr>
+	<tr><td>Constant O(1)</td><td>Same time regardless of input size</td><td>Access list element by index</td></tr>
+	<tr><td>Logarithmic O(log n)</td><td>Doubles input = one more step</td><td>Binary search</td></tr>
+	<tr><td>Linear O(n)</td><td>Steps grow proportionally to input</td><td>Linear search, traverse a list</td></tr>
+	<tr><td>Quadratic O(n^2)</td><td>Steps grow with square of input</td><td>Nested loops; selection sort</td></tr>
+	<tr><td>Exponential O(2^n)</td><td>Doubles with each additional input element</td><td>Some brute-force problems; quickly impractical</td></tr>
+</table>
+<div class="key">An algorithm that is "reasonable" runs in polynomial time (O(n^2) or better). An "unreasonable" algorithm runs in exponential time -- for large inputs, these are effectively unsolvable, even with the fastest computers.</div>
+<hr>
+
+<h2>Undecidable and Unsolvable Problems</h2>
+<p>Not every problem can be solved by an algorithm. Some problems are <strong>undecidable</strong> -- there is no algorithm that will always produce a correct yes/no answer.</p>
+<ul>
+	<li>The <strong>Halting Problem</strong>: Given a program and its input, will the program eventually halt (stop running)? There is no algorithm that can determine this for all programs. Proven undecidable by Alan Turing.</li>
+	<li>Undecidable does not mean we can never get an answer for specific cases -- it means no single algorithm can solve all cases</li>
+	<li>Some problems are <strong>decidable but unreasonably slow</strong> -- a correct algorithm exists, but it would take longer than the age of the universe to run on large inputs</li>
+</ul>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	var ctx = document.getElementById('searchChart');
+	if (ctx) {
+		var sizes = [10, 100, 1000, 10000, 100000];
+		new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: sizes.map(function(n) { return n.toLocaleString(); }),
+				datasets: [
+					{ label: 'Linear Search (max)', data: sizes, backgroundColor: '#9999cc' },
+					{ label: 'Binary Search (max)', data: sizes.map(function(n) { return Math.ceil(Math.log2(n)); }), backgroundColor: '#3d3d9e' }
+				]
+			},
+			options: { responsive: true, plugins: { legend: { position: 'bottom' } }, scales: { y: { title: { display: true, text: 'Comparisons' } } } }
+		});
+	}
+});
+</script>
+<script>
+(function() {
+	var PAGE_KEY = 'apcsp_unit4';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

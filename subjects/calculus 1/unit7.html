@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 1 — Unit 7: Differential Equations</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html" class="active">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+</nav>
+
+<h1>Calculus 1 &mdash; Unit 7: Differential Equations</h1>
+
+<h2>Separable Differential Equations</h2>
+<ul>
+	<li>A differential equation where variables can be separated to each side</li>
+	<li>Form: \(\dfrac{dy}{dx} = f(x)\cdot g(y)\)</li>
+</ul>
+<div class="formula">
+	Separate: \(\dfrac{dy}{g(y)} = f(x)\,dx\)<br>
+	Then integrate both sides, solve for \(y\), apply initial condition if given
+</div>
+<ul>
+	<li>Example: \(\dfrac{dy}{dx} = xy \;\Rightarrow\; \dfrac{dy}{y} = x\,dx \;\Rightarrow\; \ln|y| = \tfrac{x^2}{2} + C \;\Rightarrow\; y = Ae^{x^2/2}\)</li>
+</ul>
+
+<hr>
+<h2>Exponential Growth and Decay</h2>
+<div class="formula">
+	\[ \frac{dy}{dt} = ky \;\Longrightarrow\; y = y_0 e^{kt} \]
+</div>
+<ul>
+	<li>\(k > 0\): exponential growth (population, compound interest)</li>
+	<li>\(k < 0\): exponential decay (radioactive decay, cooling)</li>
+	<li>\(y_0 = y(0)\) is the initial value; \(k\) is the growth/decay constant</li>
+	<li><strong>Half-life:</strong> \(t_{1/2} = \dfrac{\ln 2}{|k|}\)</li>
+	<li><strong>Doubling time:</strong> \(t_d = \dfrac{\ln 2}{k}\)</li>
+</ul>
+
+<hr>
+<h2>Slope Fields</h2>
+<ul>
+	<li>A visual representation of a differential equation \(\dfrac{dy}{dx} = F(x,y)\)</li>
+	<li>At each point \((x,y)\), draw a short segment with slope \(F(x,y)\)</li>
+	<li>Solution curves flow along the direction of the slopes</li>
+	<li>Used to sketch general solution behavior without solving analytically</li>
+</ul>
+<div class="formula">
+	For \(\dfrac{dy}{dx} = x\): slopes increase with \(x\), independent of \(y\) &rarr; solutions are parabolas \(y = \tfrac{x^2}{2} + C\)
+</div>
+
+<hr>
+<h2>Euler's Method</h2>
+<ul>
+	<li>Numerical approximation of a DE solution using tangent line steps</li>
+	<li>Given \(\dfrac{dy}{dx} = F(x,y)\), step size \(h\), starting point \((x_0, y_0)\):</li>
+</ul>
+<div class="formula">
+	\[ x_{n+1} = x_n + h \qquad y_{n+1} = y_n + h \cdot F(x_n, y_n) \]
+</div>
+<ul>
+	<li>Smaller step size \(h\) &rarr; more accurate approximation</li>
+	<li>Euler's method follows the tangent line, so it overshoots on concave up curves</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Exponential growth (k=0.5) vs decay (k=-0.5) with y0=1</h3>
+		<canvas id="expChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Euler's Method vs exact solution for dy/dx = y, y(0)=1, h=0.5</h3>
+		<canvas id="eulerChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	var growData = [], decayData = [];
+	for (var t = 0; t <= 4; t += 0.1) {
+		growData.push({ x: t, y: Math.exp(0.5 * t) });
+		decayData.push({ x: t, y: Math.exp(-0.5 * t) });
+	}
+	new Chart(document.getElementById('expChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'Growth: y = e^(0.5t)', data: growData, borderColor: '#27ae60', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: 'Decay: y = e^(-0.5t)', data: decayData, borderColor: '#c0392b', backgroundColor: 'transparent', showLine: true, pointRadius: 0 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 't' } }, y: { min: 0, max: 8 } }
+		}
+	});
+
+	// Euler's method for dy/dx = y, exact: y = e^x
+	var exactData = [], eulerData = [];
+	var x = 0, y = 1, h = 0.5;
+	eulerData.push({ x: x, y: y });
+	for (var i = 0; i < 6; i++) {
+		y = y + h * y;
+		x = x + h;
+		eulerData.push({ x: x, y: y });
+	}
+	for (var xe = 0; xe <= 3; xe += 0.05) {
+		exactData.push({ x: xe, y: Math.exp(xe) });
+	}
+	new Chart(document.getElementById('eulerChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'Exact: y = e^x', data: exactData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: "Euler (h=0.5)", data: eulerData, borderColor: '#e67e22', backgroundColor: '#e67e22', showLine: true, pointRadius: 4 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { min: 0, max: 22 } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc1_unit7';
+
+	function setCookie(name, val) {
+		var d = new Date();
+		d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=';
+		var parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) {
+			var c = parts[i].trim();
+			if (c.indexOf(key) === 0) return c.substring(key.length);
+		}
+		return null;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var h2s = document.querySelectorAll('h2');
+		h2s.forEach(function(h2) {
+			var siblings = [];
+			var next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') {
+				siblings.push(next);
+				next = next.nextElementSibling;
+			}
+			var wrapper = document.createElement('div');
+			wrapper.className = 'section-content';
+			if (siblings.length > 0) {
+				h2.parentNode.insertBefore(wrapper, siblings[0]);
+				siblings.forEach(function(s) { wrapper.appendChild(s); });
+			}
+			var headingText = h2.textContent.trim().replace(/\s+/g, '_');
+			var cookieKey = PAGE_KEY + '__' + headingText;
+			var cb = document.createElement('input');
+			cb.type = 'checkbox';
+			cb.className = 'section-checkbox';
+			cb.title = 'Mark as understood (collapses section)';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span');
+			hint.className = 'collapse-hint';
+			hint.textContent = 'click to collapse';
+			h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed;
+				hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				if (collapsed) { wrapper.classList.add('collapsed'); } else { wrapper.classList.remove('collapsed'); }
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			var saved = getCookie(cookieKey);
+			applyState(saved === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

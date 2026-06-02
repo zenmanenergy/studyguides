@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP Computer Science Principles -- Unit 1: Digital Information</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html" class="active">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+</nav>
+
+<h1>AP Computer Science Principles -- Unit 1: Digital Information</h1>
+
+<h2>How Computers Represent Data</h2>
+<p>All data in a computer -- numbers, text, images, audio, video -- is ultimately stored as <strong>binary</strong>: sequences of 0s and 1s. A single 0 or 1 is called a <strong>bit</strong>. 8 bits = 1 <strong>byte</strong>.</p>
+<div class="key">Computers use binary because electronic circuits have two reliable states: on (1) and off (0). Trying to distinguish more than two voltage levels introduces errors.</div>
+<table>
+	<tr><th>Unit</th><th>Size</th><th>Example Use</th></tr>
+	<tr><td>Bit</td><td>1 binary digit</td><td>A single true/false value</td></tr>
+	<tr><td>Byte</td><td>8 bits</td><td>One ASCII character</td></tr>
+	<tr><td>Kilobyte (KB)</td><td>1,024 bytes</td><td>Short text document</td></tr>
+	<tr><td>Megabyte (MB)</td><td>1,024 KB</td><td>A photo</td></tr>
+	<tr><td>Gigabyte (GB)</td><td>1,024 MB</td><td>A movie file</td></tr>
+	<tr><td>Terabyte (TB)</td><td>1,024 GB</td><td>Large database or disk drive</td></tr>
+</table>
+<hr>
+
+<h2>Binary Numbers</h2>
+<p>Binary is <strong>base-2</strong>: each position represents a power of 2 (vs. decimal which is base-10, each position a power of 10).</p>
+<table>
+	<tr><th>Binary</th><th>Powers of 2</th><th>Decimal</th></tr>
+	<tr><td>0001</td><td>1</td><td>1</td></tr>
+	<tr><td>0010</td><td>2</td><td>2</td></tr>
+	<tr><td>0100</td><td>4</td><td>4</td></tr>
+	<tr><td>1000</td><td>8</td><td>8</td></tr>
+	<tr><td>1010</td><td>8 + 2</td><td>10</td></tr>
+	<tr><td>1111</td><td>8 + 4 + 2 + 1</td><td>15</td></tr>
+	<tr><td>1 0000</td><td>16</td><td>16</td></tr>
+</table>
+<p><strong>Converting binary to decimal:</strong> Write out the place values (128, 64, 32, 16, 8, 4, 2, 1), multiply each digit by its place value, and sum.</p>
+<p>Example: 1 0 1 1 0 1 0 1 = 128 + 0 + 32 + 16 + 0 + 4 + 0 + 1 = <strong>181</strong></p>
+<hr>
+
+<h2>Representing Text -- ASCII and Unicode</h2>
+<p>Text is represented by mapping characters to numbers, then storing those numbers in binary.</p>
+<table>
+	<tr><th>Standard</th><th>Bits</th><th>Characters Supported</th><th>Notes</th></tr>
+	<tr><td>ASCII</td><td>7 bits (128 values)</td><td>English letters, digits, basic symbols</td><td>Simple; too small for global use</td></tr>
+	<tr><td>Extended ASCII</td><td>8 bits (256 values)</td><td>ASCII + accented characters</td><td>Not standardized across systems</td></tr>
+	<tr><td>Unicode (UTF-8)</td><td>Variable (1-4 bytes)</td><td>All scripts worldwide, emoji</td><td>Universal standard; backward compatible with ASCII</td></tr>
+</table>
+<div class="key">The letter 'A' is ASCII 65 = binary 01000001. Every character you type is ultimately a number the computer looks up in a table.</div>
+<hr>
+
+<h2>Representing Images -- Pixels and Color</h2>
+<p>Images are stored as a grid of <strong>pixels</strong>. Each pixel stores a color value.</p>
+<ul>
+	<li><strong>Grayscale</strong>: 1 byte per pixel; values 0 (black) to 255 (white)</li>
+	<li><strong>RGB color</strong>: 3 bytes per pixel -- one each for Red, Green, Blue (0-255 each)</li>
+	<li><strong>Image resolution</strong>: width x height in pixels. A 1920x1080 image has 2,073,600 pixels = about 6 MB uncompressed</li>
+	<li><strong>Metadata</strong>: Images can embed additional data like GPS location, camera model, and timestamp</li>
+</ul>
+<table>
+	<tr><th>Color</th><th>R</th><th>G</th><th>B</th></tr>
+	<tr><td>Red</td><td>255</td><td>0</td><td>0</td></tr>
+	<tr><td>Green</td><td>0</td><td>255</td><td>0</td></tr>
+	<tr><td>Blue</td><td>0</td><td>0</td><td>255</td></tr>
+	<tr><td>White</td><td>255</td><td>255</td><td>255</td></tr>
+	<tr><td>Black</td><td>0</td><td>0</td><td>0</td></tr>
+	<tr><td>Yellow</td><td>255</td><td>255</td><td>0</td></tr>
+</table>
+<hr>
+
+<h2>Compression</h2>
+<p>Files can be made smaller through <strong>compression</strong>. The two types behave very differently:</p>
+<table>
+	<tr><th>Type</th><th>How It Works</th><th>Restoration</th><th>Use Cases</th></tr>
+	<tr><td>Lossless</td><td>Removes redundancy; encodes patterns more efficiently</td><td>Perfect reconstruction of original</td><td>ZIP, PNG, FLAC; any data where exact accuracy matters</td></tr>
+	<tr><td>Lossy</td><td>Discards data the human eye/ear is unlikely to notice</td><td>Original cannot be fully recovered</td><td>JPEG, MP3, MP4; good enough quality at much smaller size</td></tr>
+</table>
+<p><strong>Run-length encoding</strong> (lossless example): Instead of storing AAAAABBB, store 5A3B. Only useful when data has long repeated runs.</p>
+<div class="key">For the AP exam: Lossless = no data lost, can fully restore. Lossy = some data permanently discarded, cannot restore -- but results in much smaller files. This is a trade-off: file size vs. quality/accuracy.</div>
+<hr>
+
+<h2>Data Overflow and Limits</h2>
+<p>Because computers use a fixed number of bits to store numbers, there are limits to what values they can represent. When a value exceeds the maximum, <strong>overflow</strong> occurs.</p>
+<ul>
+	<li>An 8-bit unsigned integer can hold 0 to 255 (2^8 - 1). Adding 1 to 255 overflows back to 0.</li>
+	<li>Floating point numbers have limited precision -- very large or very small values introduce rounding errors</li>
+	<li>Overflow bugs can cause real-world failures (the Ariane 5 rocket crash was caused by an integer overflow)</li>
+</ul>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apcsp_unit1';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

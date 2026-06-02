@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 5: Period 5 (1844–1877)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html" class="active">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 5: Period 5 (1844&ndash;1877)</h1>
+
+<h2>Manifest Destiny and the Mexican-American War</h2>
+<ul>
+	<li>Polk elected 1844 on expansionist platform; believed US destined to stretch to Pacific</li>
+	<li><strong>Mexican-American War (1846–48):</strong> disputed Texas border; US won decisively</li>
+	<li><strong>Treaty of Guadalupe Hidalgo (1848):</strong> Mexico ceded California, New Mexico, Arizona, Nevada, Utah, Colorado</li>
+	<li><strong>Wilmot Proviso (1846):</strong> proposed banning slavery in new territories; passed House, failed Senate; intensified sectional debate</li>
+	<li>California Gold Rush (1848–49) brought 300,000 migrants; California applied as free state &rarr; crisis</li>
+</ul>
+
+<hr>
+<h2>Sectionalism and the Road to War</h2>
+<table>
+	<tr><th>Event</th><th>Year</th><th>Significance</th></tr>
+	<tr><td>Compromise of 1850</td><td>1850</td><td>California = free; Fugitive Slave Act strengthened; bought time</td></tr>
+	<tr><td>Uncle Tom's Cabin</td><td>1852</td><td>Harriet Beecher Stowe; humanized enslaved people; shifted Northern opinion</td></tr>
+	<tr><td>Kansas-Nebraska Act</td><td>1854</td><td>Popular sovereignty; repealed Missouri Compromise; "Bleeding Kansas"</td></tr>
+	<tr><td>Republican Party founded</td><td>1854</td><td>Anti-slavery extension coalition; replaced Whigs</td></tr>
+	<tr><td>Dred Scott v. Sandford</td><td>1857</td><td>Slaves not citizens; Congress can't ban slavery in territories</td></tr>
+	<tr><td>Lincoln-Douglas Debates</td><td>1858</td><td>Exposed slavery's irreconcilability; Lincoln gained national fame</td></tr>
+	<tr><td>John Brown's raid</td><td>1859</td><td>Harpers Ferry; terrified South; martyred in North</td></tr>
+</table>
+<div class="key">
+	Freeport Doctrine: Douglas argued popular sovereignty could exclude slavery despite Dred Scott — cost him Southern Democratic support
+</div>
+
+<hr>
+<h2>The Civil War (1861–1865)</h2>
+<ul>
+	<li>Lincoln's election (1860) triggered secession; 11 Southern states formed Confederate States of America</li>
+	<li>Fort Sumter attack (April 1861) began the war</li>
+	<li><strong>Key turning points:</strong> Antietam (Sept 1862) — bloodiest single day; enabled Emancipation Proclamation; Gettysburg (July 1863) — Confederate invasion repelled; Vicksburg (July 1863) — Union controls Mississippi</li>
+	<li><strong>Emancipation Proclamation (Jan 1, 1863):</strong> freed enslaved people in Confederate states; reframed war as fight against slavery; allowed Black men to enlist (180,000 served)</li>
+	<li>Total war strategy: Sherman's March to the Sea (1864) destroyed Confederate infrastructure and morale</li>
+	<li>Appomattox, April 9, 1865: Lee surrendered to Grant; Lincoln assassinated 5 days later</li>
+</ul>
+
+<hr>
+<h2>Reconstruction (1865–1877)</h2>
+<table>
+	<tr><th>Amendment</th><th>Year</th><th>Content</th></tr>
+	<tr><td>13th Amendment</td><td>1865</td><td>Abolished slavery throughout the US</td></tr>
+	<tr><td>14th Amendment</td><td>1868</td><td>Citizenship; equal protection; due process</td></tr>
+	<tr><td>15th Amendment</td><td>1870</td><td>Right to vote cannot be denied based on race</td></tr>
+</table>
+<ul>
+	<li><strong>Freedmen's Bureau:</strong> provided food, education, labor contracts to formerly enslaved people</li>
+	<li>Black men voted, held office; Hiram Revels and Blanche Bruce in Senate</li>
+	<li><strong>Black Codes and KKK:</strong> Southern resistance to Black freedom; terrorism and legal restrictions</li>
+	<li><strong>Compromise of 1877:</strong> Hayes became president; federal troops withdrawn from South; Reconstruction ended; "Redeemer" Democrats took back Southern governments</li>
+	<li>Sharecropping system kept formerly enslaved people in debt servitude</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Civil War Casualties by Major Battle</h3>
+		<canvas id="casualtyChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Black Voter Registration in South (during Reconstruction)</h3>
+		<canvas id="voterChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('casualtyChart'), {
+		type: 'bar',
+		data: {
+			labels: ['Antietam\n1862', 'Gettysburg\n1863', 'Chickamauga\n1863', 'Chancellorsville\n1863', 'Spotsylvania\n1864', 'Cold Harbor\n1864'],
+			datasets: [{
+				label: 'Total casualties (thousands)',
+				data: [22.7, 51, 34.6, 30, 30, 13],
+				backgroundColor: '#8b2500cc'
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { title: { display: true, text: 'Casualties (thousands)' } } }
+		}
+	});
+
+	new Chart(document.getElementById('voterChart'), {
+		type: 'bar',
+		data: {
+			labels: ['Alabama', 'Georgia', 'Louisiana', 'Mississippi', 'S. Carolina', 'Virginia'],
+			datasets: [
+				{ label: 'Black registered voters (1867)', data: [72, 80, 84, 83, 80, 105], backgroundColor: '#8b2500cc' },
+				{ label: '% of total electorate', data: [53, 49, 65, 57, 60, 46], backgroundColor: '#c0392bcc' }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { y: { title: { display: true, text: 'Thousands / Percent' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit5';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

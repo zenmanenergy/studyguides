@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 2 &mdash; Unit 1: Applications of the Definite Integral (Ch. 6)</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html" class="active">Unit 1 &mdash; Ch. 6</a>
+	<a href="unit2.html">Unit 2 &mdash; Ch. 7</a>
+	<a href="unit3.html">Unit 3 &mdash; Ch. 9</a>
+	<a href="unit4.html">Unit 4 &mdash; Ch. 10</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Unit 1: Applications of the Definite Integral</h1>
+
+<h2>6.1 Finding Volumes Using Slices</h2>
+<p>The idea: slice a solid into thin cross-sections perpendicular to an axis, compute each cross-section's area \(A(x)\), and integrate.</p>
+<div class="formula">
+	\[ V = \int_a^b A(x)\, dx \]
+</div>
+<p><strong>Disk Method</strong> (region rotated about the \(x\)-axis, no gap):</p>
+<div class="formula">
+	\[ V = \pi \int_a^b [f(x)]^2\, dx \]
+</div>
+<p><strong>Washer Method</strong> (region between two curves rotated about the \(x\)-axis):</p>
+<div class="formula">
+	\[ V = \pi \int_a^b \left([f(x)]^2 - [g(x)]^2\right) dx \qquad \text{where } f(x) \ge g(x) \ge 0 \]
+</div>
+<ul>
+	<li>\(f(x)\) is the <strong>outer radius</strong>, \(g(x)\) is the <strong>inner radius</strong></li>
+	<li>Rotating about the \(y\)-axis: integrate with respect to \(y\), express \(x = h(y)\)</li>
+	<li>Rotating about a horizontal line \(y = k\): radii become \(f(x) - k\) and \(g(x) - k\) (adjust signs carefully)</li>
+	<li>Cross-sections of known shape (square, triangle, semicircle): find \(A(x)\) from the geometry, then integrate directly</li>
+</ul>
+<hr>
+
+<h2>6.2 Finding Volumes Using Cylindrical Shells</h2>
+<p>The shell method wraps thin cylindrical shells around the axis of rotation instead of slicing perpendicular to it. Useful when the washer method requires two integrals or awkward expressions.</p>
+<div class="formula">
+	\[ V = 2\pi \int_a^b x\, f(x)\, dx \qquad \text{(rotation about the } y\text{-axis, region above } x\text{-axis)} \]
+</div>
+<div class="formula">
+	\[ V = 2\pi \int_a^b (\text{radius})(\text{height})\, dx \]
+</div>
+<ul>
+	<li><strong>Radius</strong>: distance from the shell to the axis of rotation</li>
+	<li><strong>Height</strong>: value of the function (or difference of functions) at that \(x\)</li>
+	<li>Rotating about the \(x\)-axis: integrate with respect to \(y\); radius = \(y\), height = \(h(y)\)</li>
+	<li>Rotating about \(x = k\): radius becomes \(|x - k|\)</li>
+</ul>
+<table>
+	<tr><th>Situation</th><th>Preferred Method</th></tr>
+	<tr><td>Rotating about \(x\)-axis, functions of \(x\)</td><td>Disk/Washer (integrate in \(x\))</td></tr>
+	<tr><td>Rotating about \(y\)-axis, functions of \(x\)</td><td>Shells (integrate in \(x\)) -- often easier</td></tr>
+	<tr><td>Boundary expressed as \(x = g(y)\)</td><td>Disk/Washer in \(y\)</td></tr>
+</table>
+<hr>
+
+<h2>6.3 Arc Length and Surface Area</h2>
+<p><strong>Arc Length</strong> of \(y = f(x)\) on \([a,b]\):</p>
+<div class="formula">
+	\[ L = \int_a^b \sqrt{1 + [f'(x)]^2}\, dx \]
+</div>
+<p>For \(x = g(y)\) on \([c,d]\):</p>
+<div class="formula">
+	\[ L = \int_c^d \sqrt{1 + [g'(y)]^2}\, dy \]
+</div>
+<p><strong>Surface Area of Revolution</strong> about the \(x\)-axis:</p>
+<div class="formula">
+	\[ S = 2\pi \int_a^b f(x)\sqrt{1 + [f'(x)]^2}\, dx \qquad (f(x) \ge 0) \]
+</div>
+<p>About the \(y\)-axis:</p>
+<div class="formula">
+	\[ S = 2\pi \int_a^b x\sqrt{1 + [f'(x)]^2}\, dx \]
+</div>
+<ul>
+	<li>Arc length integrals are often difficult to evaluate in closed form; substitution or numerical methods may be needed</li>
+	<li>The factor \(2\pi r\) in the surface area formula is the circumference of the ring at each point</li>
+</ul>
+<hr>
+
+<h2>6.4 Moments and Centers of Mass</h2>
+<p>The <strong>center of mass</strong> \((\bar{x}, \bar{y})\) is the balance point of a lamina (thin flat plate) with density \(\rho\).</p>
+<p>For a lamina bounded by \(f(x) \ge g(x)\) on \([a,b]\) with uniform density:</p>
+<div class="formula">
+	\[ M = \rho \int_a^b [f(x) - g(x)]\, dx \qquad \text{(mass)} \]
+</div>
+<div class="formula">
+	\[ M_y = \rho \int_a^b x[f(x) - g(x)]\, dx \qquad M_x = \frac{\rho}{2}\int_a^b \left([f(x)]^2 - [g(x)]^2\right) dx \]
+</div>
+<div class="formula">
+	\[ \bar{x} = \frac{M_y}{M}, \qquad \bar{y} = \frac{M_x}{M} \]
+</div>
+<ul>
+	<li>\(M_x\): moment about the \(x\)-axis (controls \(\bar{y}\))</li>
+	<li>\(M_y\): moment about the \(y\)-axis (controls \(\bar{x}\))</li>
+	<li>With uniform density, \(\rho\) cancels in \(\bar{x}\) and \(\bar{y}\) -- the center of mass is purely geometric (centroid)</li>
+	<li><strong>Pappus's Theorem</strong>: Volume of solid of revolution = \(2\pi \bar{r} \cdot A\), where \(\bar{r}\) is the distance from the centroid to the axis and \(A\) is the area</li>
+</ul>
+<hr>
+
+<h2>6.5 Force, Work, and Pressure</h2>
+<p><strong>Work (constant force):</strong> \(W = Fd\)</p>
+<p><strong>Work (variable force):</strong></p>
+<div class="formula">
+	\[ W = \int_a^b F(x)\, dx \]
+</div>
+<p><strong>Hooke's Law:</strong> Spring force \(F = kx\), where \(k\) is the spring constant and \(x\) is displacement from natural length.</p>
+<div class="formula">
+	\[ W = \int_0^d kx\, dx = \frac{1}{2}kd^2 \]
+</div>
+<p><strong>Work pumping a fluid:</strong></p>
+<div class="formula">
+	\[ W = \int_a^b \rho g\, A(x)\, d(x)\, dx \]
+</div>
+<ul>
+	<li>\(\rho\) = fluid density, \(g\) = gravitational acceleration, \(A(x)\) = cross-sectional area of the tank at height \(x\), \(d(x)\) = distance the slice must be lifted</li>
+</ul>
+<p><strong>Hydrostatic Force</strong> on a vertical submerged plate:</p>
+<div class="formula">
+	\[ F = \int_a^b \rho g\, d(x)\, w(x)\, dx \]
+</div>
+<ul>
+	<li>\(d(x)\) = depth of strip below surface, \(w(x)\) = width of plate at depth \(d(x)\)</li>
+</ul>
+<hr>
+
+<h2>6.6 Hyperbolic Functions</h2>
+<p><strong>Definitions:</strong></p>
+<div class="formula">
+	\[ \sinh x = \frac{e^x - e^{-x}}{2}, \qquad \cosh x = \frac{e^x + e^{-x}}{2}, \qquad \tanh x = \frac{\sinh x}{\cosh x} \]
+</div>
+<p><strong>Key Identity:</strong></p>
+<div class="formula">
+	\[ \cosh^2 x - \sinh^2 x = 1 \]
+</div>
+<table>
+	<tr><th>Function</th><th>Derivative</th><th>Integral</th></tr>
+	<tr><td>\(\sinh x\)</td><td>\(\cosh x\)</td><td>\(\cosh x + C\)</td></tr>
+	<tr><td>\(\cosh x\)</td><td>\(\sinh x\)</td><td>\(\sinh x + C\)</td></tr>
+	<tr><td>\(\tanh x\)</td><td>\(\text{sech}^2 x\)</td><td>\(\ln(\cosh x) + C\)</td></tr>
+	<tr><td>\(\text{sech}\, x\)</td><td>\(-\text{sech}\, x \tanh x\)</td><td>\(\arctan(\sinh x) + C\)</td></tr>
+</table>
+<p><strong>Inverse Hyperbolic Functions (logarithmic forms):</strong></p>
+<div class="formula">
+	\[ \sinh^{-1} x = \ln\!\left(x + \sqrt{x^2+1}\right), \quad \cosh^{-1} x = \ln\!\left(x + \sqrt{x^2-1}\right)\ (x \ge 1), \quad \tanh^{-1} x = \frac{1}{2}\ln\!\frac{1+x}{1-x}\ (|x|<1) \]
+</div>
+<table>
+	<tr><th>Inverse</th><th>Derivative</th></tr>
+	<tr><td>\(\sinh^{-1} x\)</td><td>\(\dfrac{1}{\sqrt{x^2+1}}\)</td></tr>
+	<tr><td>\(\cosh^{-1} x\)</td><td>\(\dfrac{1}{\sqrt{x^2-1}}\)</td></tr>
+	<tr><td>\(\tanh^{-1} x\)</td><td>\(\dfrac{1}{1-x^2}\)</td></tr>
+</table>
+<ul>
+	<li>The catenary (shape of a hanging chain) is \(y = a\cosh(x/a)\)</li>
+	<li>Hyperbolic substitutions are useful for integrals involving \(\sqrt{x^2 \pm a^2}\)</li>
+</ul>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc2_unit1';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

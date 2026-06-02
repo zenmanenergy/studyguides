@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 2 &mdash; Unit 5: Chapter 9 Practice Test</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.q-block { background: #eef2ff; border: 1px solid #b0c4de; border-radius: 4px; padding: 10px 14px; margin: 14px 0 0; }
+		.q-label { font-weight: bold; color: #1a3a6b; margin-bottom: 6px; font-size: 0.97em; }
+		.solution-block { background: #f4faf4; border-left: 4px solid #3a7d44; padding: 9px 14px; margin: 0 0 6px; font-size: 14px; }
+		.solution-label { font-weight: bold; color: #2e7031; margin-bottom: 6px; }
+		.step { margin: 3px 0 3px 10px; }
+		.answer { font-weight: bold; color: #1a3a6b; margin-top: 6px; }
+	</style>
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1 &mdash; Ch. 6</a>
+	<a href="unit2.html">Unit 2 &mdash; Ch. 7</a>
+	<a href="unit3.html">Unit 3 &mdash; Ch. 9</a>
+	<a href="unit4.html">Unit 4 &mdash; Ch. 10</a>
+	<a href="unit5.html" class="active">Unit 5 &mdash; Ch. 9 Practice</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Unit 5: Chapter 9 Practice Test</h1>
+<p>Three practice problems per topic, each with a complete step-by-step walkthrough. Click any section header to collapse or expand it.</p>
+
+<h2>Topic 1 &mdash; Complete the Table Using Parametric Equations</h2>
+<p>Evaluate \(x(t)\) and \(y(t)\) at each given value of \(t\), record the results, and identify the underlying Cartesian curve by eliminating the parameter.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Given \(x = t + 1\) and \(y = t^2 - 4\), complete the table for \(t = -2, -1, 0, 1, 2\). Then eliminate the parameter to identify the curve.</p>
+	<table>
+		<tr><th>\(t\)</th><th>\(x = t+1\)</th><th>\(y = t^2-4\)</th><th>Point \((x,y)\)</th></tr>
+		<tr><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+	</table>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Substitute each \(t\):</strong></p>
+	<table>
+		<tr><th>\(t\)</th><th>\(x = t+1\)</th><th>\(y = t^2-4\)</th><th>Point \((x,y)\)</th></tr>
+		<tr><td>\(-2\)</td><td>\(-1\)</td><td>\(0\)</td><td>\((-1,\;0)\)</td></tr>
+		<tr><td>\(-1\)</td><td>\(0\)</td><td>\(-3\)</td><td>\((0,\;-3)\)</td></tr>
+		<tr><td>\(0\)</td><td>\(1\)</td><td>\(-4\)</td><td>\((1,\;-4)\)</td></tr>
+		<tr><td>\(1\)</td><td>\(2\)</td><td>\(-3\)</td><td>\((2,\;-3)\)</td></tr>
+		<tr><td>\(2\)</td><td>\(3\)</td><td>\(0\)</td><td>\((3,\;0)\)</td></tr>
+	</table>
+	<p><strong>Step 2 &mdash; Eliminate the parameter:</strong></p>
+	<p class="step">From \(x = t+1\), solve for \(t\): \(t = x - 1\).</p>
+	<p class="step">Substitute into \(y\): \(y = (x-1)^2 - 4\).</p>
+	<div class="formula">\[ y = (x-1)^2 - 4 \]</div>
+	<p class="answer">This is an upward-opening parabola with vertex at \((1, -4)\). The table confirms it: the points are symmetric about \(x = 1\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Given \(x = 3\cos t\) and \(y = 3\sin t\), complete the table for \(t = 0,\; \frac{\pi}{6},\; \frac{\pi}{4},\; \frac{\pi}{3},\; \frac{\pi}{2}\). Then identify the curve.</p>
+	<table>
+		<tr><th>\(t\)</th><th>\(x = 3\cos t\)</th><th>\(y = 3\sin t\)</th><th>Point (approx)</th></tr>
+		<tr><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+	</table>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Evaluate using exact values and decimal approximations:</strong></p>
+	<table>
+		<tr><th>\(t\)</th><th>\(x = 3\cos t\)</th><th>\(y = 3\sin t\)</th><th>Point (approx)</th></tr>
+		<tr><td>\(0\)</td><td>\(3\)</td><td>\(0\)</td><td>\((3.00,\;0.00)\)</td></tr>
+		<tr><td>\(\pi/6\)</td><td>\(\frac{3\sqrt{3}}{2}\)</td><td>\(\frac{3}{2}\)</td><td>\((2.60,\;1.50)\)</td></tr>
+		<tr><td>\(\pi/4\)</td><td>\(\frac{3\sqrt{2}}{2}\)</td><td>\(\frac{3\sqrt{2}}{2}\)</td><td>\((2.12,\;2.12)\)</td></tr>
+		<tr><td>\(\pi/3\)</td><td>\(\frac{3}{2}\)</td><td>\(\frac{3\sqrt{3}}{2}\)</td><td>\((1.50,\;2.60)\)</td></tr>
+		<tr><td>\(\pi/2\)</td><td>\(0\)</td><td>\(3\)</td><td>\((0.00,\;3.00)\)</td></tr>
+	</table>
+	<p><strong>Step 2 &mdash; Eliminate the parameter:</strong></p>
+	<p class="step">Solve: \(\cos t = \dfrac{x}{3}\) and \(\sin t = \dfrac{y}{3}\).</p>
+	<p class="step">Apply the Pythagorean identity \(\cos^2 t + \sin^2 t = 1\):</p>
+	<div class="formula">\[ \frac{x^2}{9} + \frac{y^2}{9} = 1 \implies x^2 + y^2 = 9 \]</div>
+	<p class="answer">This is a circle of radius 3 centered at the origin. The table traces the first-quadrant arc from \((3,0)\) to \((0,3)\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Given \(x = 2t - 1\) and \(y = t^2 + t\), complete the table for \(t = -2, -1, 0, 1, 2\). Then eliminate the parameter.</p>
+	<table>
+		<tr><th>\(t\)</th><th>\(x = 2t-1\)</th><th>\(y = t^2+t\)</th><th>Point \((x,y)\)</th></tr>
+		<tr><td>?</td><td>?</td><td>?</td><td>?</td></tr>
+	</table>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Substitute each \(t\):</strong></p>
+	<table>
+		<tr><th>\(t\)</th><th>\(x = 2t-1\)</th><th>\(y = t^2+t\)</th><th>Point \((x,y)\)</th></tr>
+		<tr><td>\(-2\)</td><td>\(-5\)</td><td>\(2\)</td><td>\((-5,\;2)\)</td></tr>
+		<tr><td>\(-1\)</td><td>\(-3\)</td><td>\(0\)</td><td>\((-3,\;0)\)</td></tr>
+		<tr><td>\(0\)</td><td>\(-1\)</td><td>\(0\)</td><td>\((-1,\;0)\)</td></tr>
+		<tr><td>\(1\)</td><td>\(1\)</td><td>\(2\)</td><td>\((1,\;2)\)</td></tr>
+		<tr><td>\(2\)</td><td>\(3\)</td><td>\(6\)</td><td>\((3,\;6)\)</td></tr>
+	</table>
+	<p><strong>Step 2 &mdash; Eliminate the parameter:</strong></p>
+	<p class="step">From \(x = 2t - 1\), solve: \(t = \dfrac{x+1}{2}\).</p>
+	<p class="step">Substitute into \(y = t^2 + t = t(t+1)\):</p>
+	<div class="formula">\[ y = \frac{x+1}{2}\cdot\frac{x+3}{2} = \frac{(x+1)(x+3)}{4} \]</div>
+	<p class="answer">This is a parabola. Notice that \(y = 0\) at \(x = -1\) and \(x = -3\) (confirmed in the table), giving intercepts and a vertex at \(x = -2\), \(y = -\frac{1}{4}\).</p>
+</div>
+<hr>
+
+<h2>Topic 2 &mdash; Construct Parametric Equations for a Line</h2>
+<p>A line through point \((x_0, y_0)\) with direction vector \((a, b)\) has parametric equations \(x = x_0 + at,\; y = y_0 + bt\). Note: the representation is not unique &mdash; any scalar multiple of the direction vector works.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Construct parametric equations for the line passing through \((2, 5)\) with slope \(-3\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify a direction vector from the slope.</strong></p>
+	<p class="step">Slope \(-3\) means: for every 1 unit right, go 3 units down. Direction vector: \((1, -3)\).</p>
+	<p><strong>Step 2 &mdash; Write parametric equations using the point and direction.</strong></p>
+	<div class="formula">\[ x = 2 + t, \qquad y = 5 - 3t \]</div>
+	<p><strong>Step 3 &mdash; Verify.</strong></p>
+	<p class="step">\(\dfrac{dy/dt}{dx/dt} = \dfrac{-3}{1} = -3\) &mdash; slope is correct. At \(t=0\): point is \((2, 5)\) &mdash; correct.</p>
+	<p class="answer">Answer: \(x = 2 + t,\quad y = 5 - 3t\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Construct parametric equations for the line passing through \((-1, 4)\) and \((3, -2)\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find the direction vector.</strong></p>
+	<p class="step">Direction: \((3 - (-1),\; -2 - 4) = (4, -6)\). We can simplify by dividing by 2: direction \((2, -3)\).</p>
+	<p><strong>Step 2 &mdash; Write equations using either point (use \((-1, 4)\)).</strong></p>
+	<div class="formula">\[ x = -1 + 2t, \qquad y = 4 - 3t \]</div>
+	<p><strong>Step 3 &mdash; Verify both points are on the curve.</strong></p>
+	<p class="step">At \(t = 0\): \((-1, 4)\) &mdash; correct.</p>
+	<p class="step">At \(t = 2\): \(x = -1+4=3\), \(y = 4-6=-2\) &mdash; correct.</p>
+	<p class="answer">Answer: \(x = -1 + 2t,\quad y = 4 - 3t\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Construct parametric equations for the line with \(x\)-intercept \((5, 0)\) and \(y\)-intercept \((0, -3)\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify slope from intercepts.</strong></p>
+	<p class="step">Slope \(= \dfrac{-3 - 0}{0 - 5} = \dfrac{-3}{-5} = \dfrac{3}{5}\). Direction vector: \((5, 3)\) (or any scalar multiple).</p>
+	<p><strong>Step 2 &mdash; Use the \(x\)-intercept \((5, 0)\) as base point.</strong></p>
+	<div class="formula">\[ x = 5 + 5t, \qquad y = 3t \]</div>
+	<p><strong>Alternate form</strong> using the \(y\)-intercept \((0, -3)\) as base point:</p>
+	<div class="formula">\[ x = 5t, \qquad y = -3 + 3t \]</div>
+	<p><strong>Step 3 &mdash; Verify.</strong></p>
+	<p class="step">For the second form: \(t = 0 \Rightarrow (0, -3)\) &mdash; correct. \(t = 1 \Rightarrow (5, 0)\) &mdash; correct.</p>
+	<p class="answer">Answer (one valid form): \(x = 5t,\quad y = -3 + 3t\)</p>
+</div>
+<hr>
+
+<h2>Topic 3 &mdash; Parametric Modeling</h2>
+<p>Parametric equations naturally describe motion in the plane where both position coordinates depend on time \(t\). Key physics facts: horizontal velocity is constant, vertical position under gravity is \(y = y_0 + v_y t - \frac{1}{2}gt^2\) with \(g = 32\) ft/s\(^2\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>A projectile is launched from the ground at a 45-degree angle with an initial speed of 64 ft/s. Write parametric equations for its position. Find the time of flight, maximum height, and range.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Decompose initial velocity.</strong></p>
+	<p class="step">\(v_x = 64\cos 45^\circ = 64 \cdot \frac{\sqrt{2}}{2} = 32\sqrt{2}\) ft/s</p>
+	<p class="step">\(v_y = 64\sin 45^\circ = 32\sqrt{2}\) ft/s</p>
+	<p><strong>Step 2 &mdash; Write parametric equations.</strong></p>
+	<div class="formula">\[ x(t) = 32\sqrt{2}\, t, \qquad y(t) = 32\sqrt{2}\, t - 16t^2 \]</div>
+	<p><strong>Step 3 &mdash; Time of flight.</strong> Set \(y = 0\):</p>
+	<p class="step">\(t(32\sqrt{2} - 16t) = 0 \Rightarrow t = 0\) or \(t = 2\sqrt{2} \approx 2.83\) sec</p>
+	<p><strong>Step 4 &mdash; Maximum height.</strong> Occurs at \(t = \sqrt{2}\) (midpoint of flight):</p>
+	<p class="step">\(y(\sqrt{2}) = 32\sqrt{2}\cdot\sqrt{2} - 16\cdot 2 = 64 - 32 = 32\) ft</p>
+	<p><strong>Step 5 &mdash; Range.</strong></p>
+	<p class="step">\(x(2\sqrt{2}) = 32\sqrt{2}\cdot 2\sqrt{2} = 32 \cdot 4 = 128\) ft</p>
+	<p class="answer">Equations: \(x = 32\sqrt{2}\,t,\; y = 32\sqrt{2}\,t - 16t^2\). Time of flight: \(2\sqrt{2}\) s. Max height: 32 ft. Range: 128 ft.</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>A ball rolls horizontally off a table 4 ft high at 6 ft/s. Write parametric equations for its position. How long until it hits the ground? How far from the table does it land?</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Set up equations.</strong> Initial position: \((0, 4)\). No vertical launch component.</p>
+	<div class="formula">\[ x(t) = 6t, \qquad y(t) = 4 - 16t^2 \]</div>
+	<p><strong>Step 2 &mdash; Time to hit ground.</strong> Set \(y = 0\):</p>
+	<p class="step">\(4 - 16t^2 = 0 \Rightarrow t^2 = \dfrac{1}{4} \Rightarrow t = \dfrac{1}{2}\) sec</p>
+	<p><strong>Step 3 &mdash; Horizontal distance.</strong></p>
+	<p class="step">\(x\!\left(\tfrac{1}{2}\right) = 6\cdot\dfrac{1}{2} = 3\) ft</p>
+	<p class="answer">The ball hits the ground after 0.5 sec and lands 3 ft from the base of the table.</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>A Ferris wheel has radius 20 ft and its center is 25 ft above the ground. It completes one full revolution every 60 seconds. A rider starts at the lowest point. Write parametric equations for the rider's position \((x(t), y(t))\) where \(t\) is in seconds.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify the angular speed.</strong></p>
+	<p class="step">One revolution = \(2\pi\) radians in 60 sec, so \(\omega = \dfrac{2\pi}{60} = \dfrac{\pi}{30}\) rad/s.</p>
+	<p><strong>Step 2 &mdash; Determine starting angle.</strong></p>
+	<p class="step">The standard parameterization puts \(\theta = 0\) at the right side. The bottom of the wheel is at angle \(-\frac{\pi}{2}\) (or equivalently, \(\theta = \omega t - \frac{\pi}{2}\)).</p>
+	<p class="step">Center of wheel: \((0, 25)\). At \(t = 0\) the rider is at \((0, 5)\) (directly below center).</p>
+	<p><strong>Step 3 &mdash; Write parametric equations.</strong></p>
+	<div class="formula">\[ x(t) = 20\sin\!\left(\frac{\pi t}{30}\right), \qquad y(t) = 25 - 20\cos\!\left(\frac{\pi t}{30}\right) \]</div>
+	<p><strong>Step 4 &mdash; Verify key positions.</strong></p>
+	<p class="step">\(t = 0\): \(x = 0,\; y = 25 - 20 = 5\) ft &mdash; bottom of wheel. Correct.</p>
+	<p class="step">\(t = 30\): \(x = 0,\; y = 25 + 20 = 45\) ft &mdash; top of wheel. Correct.</p>
+	<p class="step">\(t = 15\): \(x = 20,\; y = 25\) ft &mdash; rightmost point. Correct.</p>
+	<p class="answer">Answer: \(x(t) = 20\sin\!\bigl(\frac{\pi t}{30}\bigr),\quad y(t) = 25 - 20\cos\!\bigl(\frac{\pi t}{30}\bigr)\)</p>
+</div>
+<hr>
+
+<h2>Topic 4 &mdash; Find Horizontal Tangent Lines</h2>
+<p>A parametric curve has a <em>horizontal</em> tangent where \(\dfrac{dy}{dt} = 0\) and \(\dfrac{dx}{dt} \ne 0\). If both equal zero at the same \(t\), that point requires further analysis.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find all horizontal tangent lines to the curve \(x = t^2 - 2t,\quad y = t^3 - 3t^2\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Differentiate both components.</strong></p>
+	<div class="formula">\[ \frac{dx}{dt} = 2t - 2, \qquad \frac{dy}{dt} = 3t^2 - 6t = 3t(t-2) \]</div>
+	<p><strong>Step 2 &mdash; Set \(\frac{dy}{dt} = 0\).</strong></p>
+	<p class="step">\(3t(t-2) = 0 \Rightarrow t = 0\) or \(t = 2\).</p>
+	<p><strong>Step 3 &mdash; Confirm \(\frac{dx}{dt} \ne 0\) at each.</strong></p>
+	<p class="step">At \(t = 0\): \(\frac{dx}{dt} = -2 \ne 0\). Horizontal tangent exists.</p>
+	<p class="step">At \(t = 2\): \(\frac{dx}{dt} = 2 \ne 0\). Horizontal tangent exists.</p>
+	<p><strong>Step 4 &mdash; Find the Cartesian points.</strong></p>
+	<p class="step">\(t=0\): \(x = 0,\; y = 0\) &rarr; tangent line \(y = 0\).</p>
+	<p class="step">\(t=2\): \(x = 4-4=0,\; y = 8-12=-4\) &rarr; tangent line \(y = -4\).</p>
+	<p class="answer">Horizontal tangent lines: \(y = 0\) and \(y = -4\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find all horizontal tangent lines to the curve \(x = \cos t,\quad y = \sin(2t)\) for \(t \in [0, 2\pi)\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Differentiate.</strong></p>
+	<div class="formula">\[ \frac{dx}{dt} = -\sin t, \qquad \frac{dy}{dt} = 2\cos(2t) \]</div>
+	<p><strong>Step 2 &mdash; Set \(\frac{dy}{dt} = 0\).</strong></p>
+	<p class="step">\(2\cos(2t) = 0 \Rightarrow 2t = \frac{\pi}{2}, \frac{3\pi}{2}, \frac{5\pi}{2}, \frac{7\pi}{2} \Rightarrow t = \frac{\pi}{4}, \frac{3\pi}{4}, \frac{5\pi}{4}, \frac{7\pi}{4}\).</p>
+	<p><strong>Step 3 &mdash; Check \(\frac{dx}{dt} = -\sin t \ne 0\) at each.</strong></p>
+	<p class="step">\(\sin\!\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2} \ne 0\) &mdash; confirmed for all four values (none are multiples of \(\pi\)).</p>
+	<p><strong>Step 4 &mdash; Find the \(y\)-coordinates.</strong></p>
+	<p class="step">\(t = \frac{\pi}{4}\): \(y = \sin\!\left(\frac{\pi}{2}\right) = 1\).</p>
+	<p class="step">\(t = \frac{3\pi}{4}\): \(y = \sin\!\left(\frac{3\pi}{2}\right) = -1\).</p>
+	<p class="step">\(t = \frac{5\pi}{4}\): \(y = \sin\!\left(\frac{5\pi}{2}\right) = 1\) (same line as \(t = \frac{\pi}{4}\)).</p>
+	<p class="step">\(t = \frac{7\pi}{4}\): \(y = \sin\!\left(\frac{7\pi}{2}\right) = -1\) (same line as \(t = \frac{3\pi}{4}\)).</p>
+	<p class="answer">Horizontal tangent lines: \(y = 1\) and \(y = -1\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find all horizontal tangent lines to the curve \(x = t^3 - 3t + 1,\quad y = t^2 - 1\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Differentiate.</strong></p>
+	<div class="formula">\[ \frac{dx}{dt} = 3t^2 - 3, \qquad \frac{dy}{dt} = 2t \]</div>
+	<p><strong>Step 2 &mdash; Set \(\frac{dy}{dt} = 0\).</strong></p>
+	<p class="step">\(2t = 0 \Rightarrow t = 0\).</p>
+	<p><strong>Step 3 &mdash; Check \(\frac{dx}{dt}\) at \(t = 0\).</strong></p>
+	<p class="step">\(\frac{dx}{dt}\big|_{t=0} = 3(0)^2 - 3 = -3 \ne 0\). Horizontal tangent confirmed.</p>
+	<p><strong>Step 4 &mdash; Find the point.</strong></p>
+	<p class="step">\(x = 0 - 0 + 1 = 1,\quad y = 0 - 1 = -1\). Point: \((1, -1)\).</p>
+	<p class="answer">Horizontal tangent line: \(y = -1\).</p>
+</div>
+<hr>
+
+<h2>Topic 5 &mdash; Find dy/dx for a Parametric Curve</h2>
+<p>For a parametric curve, the slope of the tangent at a given \(t\) is:</p>
+<div class="formula">
+	\[ \frac{dy}{dx} = \frac{dy/dt}{dx/dt} \qquad \left(\frac{dx}{dt} \ne 0\right) \]
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find \(\dfrac{dy}{dx}\) for the curve \(x = t^3 - t,\quad y = t^2 + 2t\) at \(t = 1\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Differentiate each component.</strong></p>
+	<div class="formula">\[ \frac{dx}{dt} = 3t^2 - 1, \qquad \frac{dy}{dt} = 2t + 2 \]</div>
+	<p><strong>Step 2 &mdash; Evaluate at \(t = 1\).</strong></p>
+	<p class="step">\(\dfrac{dx}{dt}\big|_{t=1} = 3(1)^2 - 1 = 2\).</p>
+	<p class="step">\(\dfrac{dy}{dt}\big|_{t=1} = 2(1) + 2 = 4\).</p>
+	<p><strong>Step 3 &mdash; Compute \(\dfrac{dy}{dx}\).</strong></p>
+	<div class="formula">\[ \frac{dy}{dx} = \frac{4}{2} = 2 \]</div>
+	<p class="answer">The slope of the tangent line at \(t = 1\) is \(2\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find \(\dfrac{dy}{dx}\) for the curve \(x = e^t,\quad y = t\,e^t\) at \(t = 0\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Differentiate.</strong></p>
+	<p class="step">\(\dfrac{dx}{dt} = e^t\).</p>
+	<p class="step">\(\dfrac{dy}{dt} = e^t + t\,e^t = e^t(1 + t)\) &nbsp; (product rule).</p>
+	<p><strong>Step 2 &mdash; Evaluate at \(t = 0\).</strong></p>
+	<p class="step">\(\dfrac{dx}{dt}\big|_0 = e^0 = 1\).</p>
+	<p class="step">\(\dfrac{dy}{dt}\big|_0 = e^0(1 + 0) = 1\).</p>
+	<p><strong>Step 3 &mdash; Compute.</strong></p>
+	<div class="formula">\[ \frac{dy}{dx} = \frac{1}{1} = 1 \]</div>
+	<p class="answer">The slope of the tangent at \(t = 0\) (the point \((1, 0)\)) is \(1\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find \(\dfrac{dy}{dx}\) for the curve \(x = \sin(2t),\quad y = \cos t\) at \(t = \dfrac{\pi}{6}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Differentiate.</strong></p>
+	<p class="step">\(\dfrac{dx}{dt} = 2\cos(2t)\).</p>
+	<p class="step">\(\dfrac{dy}{dt} = -\sin t\).</p>
+	<p><strong>Step 2 &mdash; Evaluate at \(t = \pi/6\).</strong></p>
+	<p class="step">\(\dfrac{dx}{dt}\big|_{\pi/6} = 2\cos\!\left(\frac{\pi}{3}\right) = 2\cdot\frac{1}{2} = 1\).</p>
+	<p class="step">\(\dfrac{dy}{dt}\big|_{\pi/6} = -\sin\!\left(\frac{\pi}{6}\right) = -\frac{1}{2}\).</p>
+	<p><strong>Step 3 &mdash; Compute.</strong></p>
+	<div class="formula">\[ \frac{dy}{dx} = \frac{-1/2}{1} = -\frac{1}{2} \]</div>
+	<p class="answer">The slope of the tangent at \(t = \pi/6\) is \(-\dfrac{1}{2}\).</p>
+</div>
+<hr>
+
+<h2>Topic 6 &mdash; Convert a Polar Point to Cartesian</h2>
+<p>Given a polar point \((r, \theta)\), convert using:</p>
+<div class="formula">\[ x = r\cos\theta, \qquad y = r\sin\theta \]</div>
+<p>A negative \(r\) means the point lies in the direction <em>opposite</em> to \(\theta\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Convert the polar point \(\left(4,\; \dfrac{\pi}{3}\right)\) to Cartesian coordinates.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Apply conversion formulas.</strong></p>
+	<p class="step">\(x = 4\cos\!\left(\dfrac{\pi}{3}\right) = 4\cdot\dfrac{1}{2} = 2\).</p>
+	<p class="step">\(y = 4\sin\!\left(\dfrac{\pi}{3}\right) = 4\cdot\dfrac{\sqrt{3}}{2} = 2\sqrt{3}\).</p>
+	<p class="answer">Cartesian point: \(\left(2,\; 2\sqrt{3}\right) \approx (2,\; 3.46)\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Convert the polar point \(\left(6,\; \dfrac{5\pi}{6}\right)\) to Cartesian coordinates.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Recall exact values at \(5\pi/6\).</strong></p>
+	<p class="step">\(\cos\!\left(\dfrac{5\pi}{6}\right) = -\dfrac{\sqrt{3}}{2}\), &nbsp; \(\sin\!\left(\dfrac{5\pi}{6}\right) = \dfrac{1}{2}\).</p>
+	<p><strong>Step 2 &mdash; Apply formulas.</strong></p>
+	<p class="step">\(x = 6\cdot\left(-\dfrac{\sqrt{3}}{2}\right) = -3\sqrt{3}\).</p>
+	<p class="step">\(y = 6\cdot\dfrac{1}{2} = 3\).</p>
+	<p class="answer">Cartesian point: \(\left(-3\sqrt{3},\; 3\right) \approx (-5.20,\; 3)\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Convert the polar point \(\left(-3,\; \dfrac{\pi}{4}\right)\) to Cartesian coordinates.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Note that \(r = -3\) (negative). The point is reflected through the origin relative to \(\theta = \pi/4\).</strong></p>
+	<p><strong>Step 2 &mdash; Apply formulas (the sign on \(r\) carries through automatically).</strong></p>
+	<p class="step">\(x = -3\cos\!\left(\dfrac{\pi}{4}\right) = -3\cdot\dfrac{\sqrt{2}}{2} = -\dfrac{3\sqrt{2}}{2}\).</p>
+	<p class="step">\(y = -3\sin\!\left(\dfrac{\pi}{4}\right) = -3\cdot\dfrac{\sqrt{2}}{2} = -\dfrac{3\sqrt{2}}{2}\).</p>
+	<p><strong>Step 3 &mdash; Verify direction.</strong> The positive version \((3, \pi/4)\) would give \(\left(\frac{3\sqrt{2}}{2}, \frac{3\sqrt{2}}{2}\right)\). The negative \(r\) gives the reflected point in the third quadrant. Confirmed.</p>
+	<p class="answer">Cartesian point: \(\left(-\dfrac{3\sqrt{2}}{2},\; -\dfrac{3\sqrt{2}}{2}\right) \approx (-2.12,\; -2.12)\).</p>
+</div>
+<hr>
+
+<h2>Topic 7 &mdash; Convert a Polar Equation to Rectangular</h2>
+<p>Use the substitutions \(r^2 = x^2 + y^2\), \(r\cos\theta = x\), \(r\sin\theta = y\). Multiply through by \(r\) when needed to create \(r^2\) or \(r\cos\theta\) terms.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Convert \(r = 4\sin\theta\) to rectangular form and identify the curve.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Multiply both sides by \(r\).</strong></p>
+	<div class="formula">\[ r^2 = 4r\sin\theta \]</div>
+	<p><strong>Step 2 &mdash; Substitute \(r^2 = x^2+y^2\) and \(r\sin\theta = y\).</strong></p>
+	<div class="formula">\[ x^2 + y^2 = 4y \]</div>
+	<p><strong>Step 3 &mdash; Complete the square in \(y\).</strong></p>
+	<div class="formula">\[ x^2 + y^2 - 4y = 0 \implies x^2 + (y-2)^2 = 4 \]</div>
+	<p class="answer">This is a circle with center \((0, 2)\) and radius \(2\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Convert \(r = \dfrac{3}{1 - \cos\theta}\) to rectangular form and identify the curve.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Multiply both sides by \((1 - \cos\theta)\).</strong></p>
+	<div class="formula">\[ r - r\cos\theta = 3 \]</div>
+	<p><strong>Step 2 &mdash; Substitute \(r = \sqrt{x^2+y^2}\) and \(r\cos\theta = x\).</strong></p>
+	<div class="formula">\[ \sqrt{x^2+y^2} - x = 3 \implies \sqrt{x^2+y^2} = x + 3 \]</div>
+	<p><strong>Step 3 &mdash; Square both sides (valid when \(x \ge -3\)).</strong></p>
+	<div class="formula">\[ x^2 + y^2 = x^2 + 6x + 9 \implies y^2 = 6x + 9 \]</div>
+	<p class="answer">This is a parabola opening to the right: \(y^2 = 6\!\left(x + \frac{3}{2}\right)\), vertex at \(\left(-\frac{3}{2}, 0\right)\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Convert \(r = \dfrac{2}{3 - 2\cos\theta}\) to rectangular form and identify the curve.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Multiply both sides by \((3 - 2\cos\theta)\).</strong></p>
+	<div class="formula">\[ 3r - 2r\cos\theta = 2 \]</div>
+	<p><strong>Step 2 &mdash; Substitute.</strong></p>
+	<div class="formula">\[ 3\sqrt{x^2+y^2} - 2x = 2 \implies 3\sqrt{x^2+y^2} = 2x + 2 \]</div>
+	<p><strong>Step 3 &mdash; Square both sides.</strong></p>
+	<div class="formula">\[ 9(x^2+y^2) = (2x+2)^2 = 4x^2 + 8x + 4 \]</div>
+	<p><strong>Step 4 &mdash; Simplify.</strong></p>
+	<div class="formula">\[ 5x^2 + 9y^2 - 8x - 4 = 0 \]</div>
+	<p class="answer">Since both \(x^2\) and \(y^2\) terms are positive but have different coefficients, this is an <strong>ellipse</strong>. (It can be brought to standard form by completing the square.)</p>
+</div>
+<hr>
+
+<h2>Topic 8 &mdash; Find the Slope of the Tangent to a Polar Curve</h2>
+<p>Treat \(r = f(\theta)\) as a parametric curve with \(\theta\) as the parameter: \(x = r\cos\theta,\; y = r\sin\theta\). Then:</p>
+<div class="formula">
+	\[ \frac{dy}{dx} = \frac{r'\sin\theta + r\cos\theta}{r'\cos\theta - r\sin\theta}, \qquad r' = \frac{dr}{d\theta} \]
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find the slope of the tangent to the cardioid \(r = 2 + 2\cos\theta\) at \(\theta = \dfrac{\pi}{2}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find \(r\) and \(r'\) at \(\theta = \pi/2\).</strong></p>
+	<p class="step">\(r = 2 + 2\cos\!\left(\frac{\pi}{2}\right) = 2 + 0 = 2\).</p>
+	<p class="step">\(r' = -2\sin\theta \Rightarrow r'\!\left(\frac{\pi}{2}\right) = -2\sin\!\left(\frac{\pi}{2}\right) = -2\).</p>
+	<p><strong>Step 2 &mdash; Compute numerator and denominator separately.</strong></p>
+	<p class="step">Numerator: \(r'\sin\theta + r\cos\theta = (-2)(1) + (2)(0) = -2\).</p>
+	<p class="step">Denominator: \(r'\cos\theta - r\sin\theta = (-2)(0) - (2)(1) = -2\).</p>
+	<p><strong>Step 3 &mdash; Compute slope.</strong></p>
+	<div class="formula">\[ \frac{dy}{dx} = \frac{-2}{-2} = 1 \]</div>
+	<p class="answer">The tangent line to the cardioid at \(\theta = \pi/2\) has slope \(1\).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find the slope of the tangent to \(r = 3\sin\theta\) at \(\theta = \dfrac{\pi}{6}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find \(r\) and \(r'\) at \(\theta = \pi/6\).</strong></p>
+	<p class="step">\(r = 3\sin\!\left(\frac{\pi}{6}\right) = 3\cdot\frac{1}{2} = \frac{3}{2}\).</p>
+	<p class="step">\(r' = 3\cos\theta \Rightarrow r'\!\left(\frac{\pi}{6}\right) = 3\cdot\frac{\sqrt{3}}{2} = \frac{3\sqrt{3}}{2}\).</p>
+	<p><strong>Step 2 &mdash; Compute numerator and denominator.</strong></p>
+	<p class="step">Numerator: \(\frac{3\sqrt{3}}{2}\cdot\frac{1}{2} + \frac{3}{2}\cdot\frac{\sqrt{3}}{2} = \frac{3\sqrt{3}}{4} + \frac{3\sqrt{3}}{4} = \frac{3\sqrt{3}}{2}\).</p>
+	<p class="step">Denominator: \(\frac{3\sqrt{3}}{2}\cdot\frac{\sqrt{3}}{2} - \frac{3}{2}\cdot\frac{1}{2} = \frac{9}{4} - \frac{3}{4} = \frac{6}{4} = \frac{3}{2}\).</p>
+	<p><strong>Step 3 &mdash; Compute slope.</strong></p>
+	<div class="formula">\[ \frac{dy}{dx} = \frac{3\sqrt{3}/2}{3/2} = \sqrt{3} \]</div>
+	<p class="answer">The slope of the tangent at \(\theta = \pi/6\) is \(\sqrt{3}\) (corresponding to a 60-degree angle).</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find the slope of the tangent to the rose \(r = \sin(2\theta)\) at \(\theta = \dfrac{\pi}{4}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find \(r\) and \(r'\) at \(\theta = \pi/4\).</strong></p>
+	<p class="step">\(r = \sin\!\left(\frac{\pi}{2}\right) = 1\).</p>
+	<p class="step">\(r' = 2\cos(2\theta) \Rightarrow r'\!\left(\frac{\pi}{4}\right) = 2\cos\!\left(\frac{\pi}{2}\right) = 0\).</p>
+	<p><strong>Step 2 &mdash; Compute numerator and denominator.</strong></p>
+	<p class="step">Numerator: \(0\cdot\sin\!\left(\frac{\pi}{4}\right) + 1\cdot\cos\!\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}\).</p>
+	<p class="step">Denominator: \(0\cdot\cos\!\left(\frac{\pi}{4}\right) - 1\cdot\sin\!\left(\frac{\pi}{4}\right) = -\frac{\sqrt{2}}{2}\).</p>
+	<p><strong>Step 3 &mdash; Compute slope.</strong></p>
+	<div class="formula">\[ \frac{dy}{dx} = \frac{\sqrt{2}/2}{-\sqrt{2}/2} = -1 \]</div>
+	<p class="answer">The slope at the tip of the petal at \(\theta = \pi/4\) is \(-1\).</p>
+</div>
+<hr>
+
+<h2>Topic 9 &mdash; Find the Arc Length of a Polar Curve</h2>
+<p>The arc length of \(r = f(\theta)\) from \(\theta = \alpha\) to \(\theta = \beta\) is:</p>
+<div class="formula">
+	\[ L = \int_\alpha^\beta \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2}\, d\theta \]
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find the arc length of \(r = 4\) from \(\theta = 0\) to \(\theta = \pi\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify \(r\) and \(r'\).</strong></p>
+	<p class="step">\(r = 4\) (constant), so \(r' = 0\).</p>
+	<p><strong>Step 2 &mdash; Set up and evaluate the integral.</strong></p>
+	<div class="formula">\[ L = \int_0^\pi \sqrt{4^2 + 0^2}\, d\theta = \int_0^\pi 4\, d\theta = 4\pi \]</div>
+	<p><strong>Step 3 &mdash; Sanity check.</strong> \(r = 4\) is a circle of radius 4 with circumference \(8\pi\). The arc from \(0\) to \(\pi\) is a semicircle, so \(L = 4\pi\). Confirmed.</p>
+	<p class="answer">\(L = 4\pi\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find the arc length of \(r = e^{2\theta}\) from \(\theta = 0\) to \(\theta = \pi\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find \(r'\).</strong></p>
+	<p class="step">\(r' = 2e^{2\theta}\).</p>
+	<p><strong>Step 2 &mdash; Simplify the integrand.</strong></p>
+	<div class="formula">\[ r^2 + (r')^2 = e^{4\theta} + 4e^{4\theta} = 5e^{4\theta} \implies \sqrt{5e^{4\theta}} = \sqrt{5}\, e^{2\theta} \]</div>
+	<p><strong>Step 3 &mdash; Integrate.</strong></p>
+	<div class="formula">\[ L = \int_0^\pi \sqrt{5}\, e^{2\theta}\, d\theta = \sqrt{5}\left[\frac{e^{2\theta}}{2}\right]_0^\pi = \frac{\sqrt{5}}{2}\left(e^{2\pi} - 1\right) \]</div>
+	<p class="answer">\(L = \dfrac{\sqrt{5}}{2}\!\left(e^{2\pi} - 1\right) \approx 303.2\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find the arc length of \(r = 2\cos\theta\) from \(\theta = 0\) to \(\theta = \dfrac{\pi}{2}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find \(r'\).</strong></p>
+	<p class="step">\(r' = -2\sin\theta\).</p>
+	<p><strong>Step 2 &mdash; Simplify the integrand using a Pythagorean identity.</strong></p>
+	<div class="formula">\[ r^2 + (r')^2 = 4\cos^2\theta + 4\sin^2\theta = 4(\cos^2\theta + \sin^2\theta) = 4 \]</div>
+	<p><strong>Step 3 &mdash; Integrate.</strong></p>
+	<div class="formula">\[ L = \int_0^{\pi/2} \sqrt{4}\, d\theta = \int_0^{\pi/2} 2\, d\theta = 2\cdot\frac{\pi}{2} = \pi \]</div>
+	<p><strong>Step 4 &mdash; Sanity check.</strong> \(r = 2\cos\theta\) is a circle of diameter 2 (radius 1) centered at \((1, 0)\), with circumference \(2\pi\). The interval \(\theta = 0\) to \(\pi/2\) traces one full semicircle, giving \(L = \pi\). Confirmed.</p>
+	<p class="answer">\(L = \pi\)</p>
+</div>
+<hr>
+
+<h2>Topic 10 &mdash; Construct a Polar Equation for a Conic Section</h2>
+<p>With a focus at the origin, all three conics fit the unified form:</p>
+<div class="formula">
+	\[ r = \frac{ed}{1 \pm e\cos\theta} \qquad \text{or} \qquad r = \frac{ed}{1 \pm e\sin\theta} \]
+</div>
+<p>where \(e\) is eccentricity and \(d\) is the distance from focus to directrix. The sign and trig function depend on the orientation of the directrix:</p>
+<table>
+	<tr><th>Directrix location</th><th>Form</th></tr>
+	<tr><td>Right of focus: \(x = d\)</td><td>\(r = \dfrac{ed}{1 + e\cos\theta}\)</td></tr>
+	<tr><td>Left of focus: \(x = -d\)</td><td>\(r = \dfrac{ed}{1 - e\cos\theta}\)</td></tr>
+	<tr><td>Above focus: \(y = d\)</td><td>\(r = \dfrac{ed}{1 + e\sin\theta}\)</td></tr>
+	<tr><td>Below focus: \(y = -d\)</td><td>\(r = \dfrac{ed}{1 - e\sin\theta}\)</td></tr>
+</table>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Construct a polar equation for the parabola with focus at the origin and directrix \(x = 4\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify \(e\) and \(d\).</strong></p>
+	<p class="step">A parabola has eccentricity \(e = 1\). The directrix \(x = 4\) is to the <em>right</em> of the focus, so \(d = 4\).</p>
+	<p><strong>Step 2 &mdash; Select the correct form.</strong></p>
+	<p class="step">Directrix to the right: use \(r = \dfrac{ed}{1 + e\cos\theta}\).</p>
+	<p><strong>Step 3 &mdash; Substitute.</strong></p>
+	<div class="formula">\[ r = \frac{(1)(4)}{1 + (1)\cos\theta} = \frac{4}{1 + \cos\theta} \]</div>
+	<p class="answer">\(r = \dfrac{4}{1 + \cos\theta}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Construct a polar equation for the ellipse with eccentricity \(\dfrac{1}{2}\), focus at the origin, and directrix \(y = -6\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify \(e\) and \(d\).</strong></p>
+	<p class="step">\(e = \dfrac{1}{2}\), \(d = 6\). The directrix \(y = -6\) is <em>below</em> the focus.</p>
+	<p><strong>Step 2 &mdash; Select the correct form.</strong></p>
+	<p class="step">Directrix below: use \(r = \dfrac{ed}{1 - e\sin\theta}\).</p>
+	<p><strong>Step 3 &mdash; Substitute.</strong></p>
+	<div class="formula">\[ r = \frac{\frac{1}{2}\cdot 6}{1 - \frac{1}{2}\sin\theta} = \frac{3}{1 - \frac{1}{2}\sin\theta} \]</div>
+	<p><strong>Step 4 &mdash; Clear the fraction in the denominator (optional).</strong></p>
+	<div class="formula">\[ r = \frac{6}{2 - \sin\theta} \]</div>
+	<p><strong>Step 5 &mdash; Confirm it is an ellipse.</strong> Since \(e = \frac{1}{2} < 1\), yes.</p>
+	<p class="answer">\(r = \dfrac{6}{2 - \sin\theta}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Construct a polar equation for the hyperbola with eccentricity \(2\), focus at the origin, and directrix \(x = -3\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify \(e\) and \(d\).</strong></p>
+	<p class="step">\(e = 2\), and the directrix \(x = -3\) is to the <em>left</em> of the focus, so \(d = 3\).</p>
+	<p><strong>Step 2 &mdash; Select the correct form.</strong></p>
+	<p class="step">Directrix to the left: use \(r = \dfrac{ed}{1 - e\cos\theta}\).</p>
+	<p><strong>Step 3 &mdash; Substitute.</strong></p>
+	<div class="formula">\[ r = \frac{(2)(3)}{1 - (2)\cos\theta} = \frac{6}{1 - 2\cos\theta} \]</div>
+	<p><strong>Step 4 &mdash; Confirm it is a hyperbola.</strong> Since \(e = 2 > 1\), yes. The curve has two branches.</p>
+	<p class="answer">\(r = \dfrac{6}{1 - 2\cos\theta}\)</p>
+</div>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc2_unit5';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

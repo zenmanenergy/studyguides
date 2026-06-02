@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 2: Period 2 (1607–1754)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html" class="active">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 2: Period 2 (1607&ndash;1754)</h1>
+
+<h2>British Colonial Regions</h2>
+<table>
+	<tr><th>Region</th><th>Key Colonies</th><th>Economy</th><th>Character</th></tr>
+	<tr><td>New England</td><td>Mass., Conn., R.I., N.H.</td><td>Fishing, shipbuilding, small farms, trade</td><td>Puritan religious community, town meetings</td></tr>
+	<tr><td>Middle Colonies</td><td>N.Y., Pa., N.J., Del.</td><td>Grain farming, trade, artisans</td><td>Diverse religions/ethnicities, "breadbasket"</td></tr>
+	<tr><td>Chesapeake</td><td>Virginia, Maryland</td><td>Tobacco plantations</td><td>Indentured servants, then enslaved labor</td></tr>
+	<tr><td>Southern</td><td>N.C., S.C., Georgia</td><td>Rice, indigo, later cotton</td><td>Large plantations, heavy reliance on slavery</td></tr>
+</table>
+
+<hr>
+<h2>Early Settlement: Jamestown and the Chesapeake</h2>
+<ul>
+	<li><strong>Jamestown (1607):</strong> first permanent English settlement; near collapse until tobacco saved the colony</li>
+	<li><strong>John Rolfe:</strong> introduced tobacco cultivation; married Pocahontas (1614)</li>
+	<li><strong>Indentured servitude:</strong> white servants worked 4–7 years for passage; freed servants created restless underclass</li>
+	<li><strong>Bacon's Rebellion (1676):</strong> frontier farmers vs. Governor Berkeley; exposed class tensions; accelerated shift to African slavery</li>
+	<li>House of Burgesses (1619): first representative assembly in British America</li>
+</ul>
+
+<hr>
+<h2>New England: Puritans and Religion</h2>
+<ul>
+	<li><strong>Pilgrims:</strong> Separatists at Plymouth (1620); Mayflower Compact = self-governance</li>
+	<li><strong>Puritans:</strong> Massachusetts Bay Colony (1630); "city upon a hill" (John Winthrop)</li>
+	<li><strong>Roger Williams:</strong> banished; founded Rhode Island with religious tolerance and separation of church/state</li>
+	<li><strong>Anne Hutchinson:</strong> antinomianism trial; banished 1638 — challenged Puritan authority and gender norms</li>
+	<li><strong>King Philip's War (1675–76):</strong> deadliest colonial conflict; Wampanoag vs. colonists; Natives defeated, tribes destroyed</li>
+	<li><strong>Salem Witch Trials (1692):</strong> social anxiety, factionalism, misogyny; 20 executed</li>
+</ul>
+
+<hr>
+<h2>Slavery and the Atlantic World</h2>
+<ul>
+	<li>Transatlantic slave trade: 12+ million Africans forcibly transported, ~2 million died crossing (Middle Passage)</li>
+	<li><strong>Triangular Trade:</strong> manufactured goods to Africa &rarr; enslaved people to Americas &rarr; raw materials to Europe</li>
+	<li>Virginia's slave codes (1705) legally defined slavery as race-based and hereditary</li>
+	<li><strong>Stono Rebellion (1739, South Carolina):</strong> largest slave revolt in colonial era; led to harsher slave codes</li>
+	<li>By 1750: enslaved Africans outnumbered whites in South Carolina</li>
+</ul>
+
+<hr>
+<h2>Colonial Society and Governance</h2>
+<ul>
+	<li><strong>Salutary neglect:</strong> Britain loosely enforced colonial laws; colonies developed self-rule habits</li>
+	<li>Each colony had a governor (often appointed by Crown) and an elected assembly</li>
+	<li><strong>Enlightenment influence:</strong> John Locke's natural rights; reason over tradition; challenged inherited authority</li>
+	<li><strong>Great Awakening (1730s–40s):</strong> evangelical religious revival; preachers like Jonathan Edwards, George Whitefield; undermined established churches; spread democratic ideas</li>
+	<li>Print culture: Ben Franklin's Pennsylvania Gazette; John Peter Zenger trial (1735) established precedent for freedom of the press</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Colonial Population Growth (approximate)</h3>
+		<canvas id="popChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Enslaved Population as % of Total Colonial Population</h3>
+		<canvas id="slaveryChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('popChart'), {
+		type: 'line',
+		data: {
+			labels: ['1620', '1650', '1680', '1710', '1740', '1754'],
+			datasets: [{
+				label: 'Total colonial population (thousands)',
+				data: [2, 52, 152, 332, 889, 1200],
+				borderColor: '#8b2500',
+				backgroundColor: 'rgba(139,37,0,0.1)',
+				fill: true,
+				tension: 0.3,
+				pointRadius: 4
+			}]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { y: { beginAtZero: true, title: { display: true, text: 'Thousands of people' } } }
+		}
+	});
+
+	new Chart(document.getElementById('slaveryChart'), {
+		type: 'bar',
+		data: {
+			labels: ['New England', 'Middle Colonies', 'Chesapeake', 'Lower South'],
+			datasets: [{
+				label: '% enslaved (~1750)',
+				data: [2, 7, 40, 60],
+				backgroundColor: ['#c0392bcc', '#e74c3ccc', '#8b2500cc', '#5a1a1acc']
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { max: 70, title: { display: true, text: '% of population enslaved' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit2';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

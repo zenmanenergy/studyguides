@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 1 — Unit 8: Applications of Integration</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html" class="active">Unit 8</a>
+</nav>
+
+<h1>Calculus 1 &mdash; Unit 8: Applications of Integration</h1>
+
+<h2>Area Between Two Curves</h2>
+<div class="formula">
+	\[ A = \int_a^b \bigl[f(x) - g(x)\bigr]\,dx \quad \text{where } f(x) \ge g(x) \text{ on } [a,b] \]
+</div>
+<ul>
+	<li>Find intersection points to determine limits of integration</li>
+	<li>Always subtract the lower curve from the upper curve (so the integrand is non-negative)</li>
+	<li>If curves cross on the interval, split into sub-intervals and add absolute values</li>
+	<li>Integrating with respect to \(y\): \(A = \int_c^d [\text{right} - \text{left}]\,dy\)</li>
+</ul>
+
+<hr>
+<h2>Average Value of a Function</h2>
+<div class="formula">
+	\[ f_{\text{avg}} = \frac{1}{b-a} \int_a^b f(x)\,dx \]
+</div>
+<ul>
+	<li><strong>Mean Value Theorem for Integrals:</strong> there exists \(c \in [a,b]\) such that \(f(c) = f_{\text{avg}}\)</li>
+	<li>Geometric interpretation: the rectangle with height \(f_{\text{avg}}\) and width \(b-a\) has the same area as under the curve</li>
+</ul>
+
+<hr>
+<h2>Displacement vs Total Distance</h2>
+<table>
+	<tr><th>Quantity</th><th>Formula</th><th>Notes</th></tr>
+	<tr><td>Displacement</td><td>\(\displaystyle\int_a^b v(t)\,dt\)</td><td>Net signed change in position</td></tr>
+	<tr><td>Total Distance</td><td>\(\displaystyle\int_a^b |v(t)|\,dt\)</td><td>Split at zeros of \(v(t)\)</td></tr>
+	<tr><td>Position</td><td>\(s(t) = s(a) + \displaystyle\int_a^t v(u)\,du\)</td><td>Accumulation from initial position</td></tr>
+</table>
+<ul>
+	<li>Displacement can be negative; total distance is always &ge; 0</li>
+	<li>To find total distance, find when \(v(t) = 0\), split integral, take absolute value of each piece</li>
+</ul>
+
+<hr>
+<h2>Accumulation and Net Change</h2>
+<div class="formula">
+	\[ F(b) - F(a) = \int_a^b F'(x)\,dx \]
+	Net change = integral of rate of change
+</div>
+<ul>
+	<li>If \(r(t)\) = rate of water flow, then \(\displaystyle\int_a^b r(t)\,dt\) = total water accumulated</li>
+	<li>If net change is positive, the quantity increased; if negative, it decreased</li>
+	<li>Read graphs of \(f'(x)\) to determine where \(f\) is increasing, decreasing, at a max/min</li>
+</ul>
+
+<hr>
+<h2>Volumes of Revolution (Disk/Washer)</h2>
+<div class="formula">
+	<strong>Disk method</strong> (rotating about \(x\)-axis):
+	\[ V = \pi \int_a^b [f(x)]^2\,dx \]
+	<strong>Washer method</strong> (outer radius \(R\), inner radius \(r\)):
+	\[ V = \pi \int_a^b \bigl[R(x)^2 - r(x)^2\bigr]\,dx \]
+</div>
+<ul>
+	<li>Shell method (rotating about \(y\)-axis): \(V = 2\pi \int_a^b x \cdot f(x)\,dx\)</li>
+	<li>Choose disk/washer vs shell based on which requires fewer sub-intervals</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Area between f(x) = x+2 and g(x) = x^2 on [-1, 2]</h3>
+		<canvas id="areaChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Average value of f(x) = sin(x) on [0, pi]</h3>
+		<canvas id="avgChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	var fData = [], gData = [], fillData = [];
+	for (var x = -1.5; x <= 2.5; x += 0.05) {
+		fData.push({ x: x, y: x + 2 });
+		gData.push({ x: x, y: x * x });
+	}
+	// Shaded area between intersections: x=-1 and x=2
+	var fillF = [], fillG = [];
+	for (var x = -1; x <= 2; x += 0.05) {
+		fillF.push({ x: x, y: x + 2 });
+		fillG.push({ x: x, y: x * x });
+	}
+	new Chart(document.getElementById('areaChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'f(x) = x + 2', data: fData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: 'g(x) = x^2', data: gData, borderColor: '#c0392b', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: 'Shaded area', data: fillF, borderColor: 'rgba(44,95,158,0.5)', backgroundColor: 'rgba(44,95,158,0.2)', showLine: true, pointRadius: 0, fill: '+1' },
+				{ label: '', data: fillG, borderColor: 'transparent', backgroundColor: 'transparent', showLine: true, pointRadius: 0 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 }, filter: function(item) { return item.text !== ''; } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { min: -1, max: 6 } }
+		}
+	});
+
+	var sinData = [], avgLine = [];
+	var avg = 2 / Math.PI; // integral of sin from 0 to pi = 2, divided by pi
+	for (var x = 0; x <= Math.PI; x += 0.05) {
+		sinData.push({ x: x, y: Math.sin(x) });
+		avgLine.push({ x: x, y: avg });
+	}
+	new Chart(document.getElementById('avgChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'f(x) = sin(x)', data: sinData, borderColor: '#2c5f9e', backgroundColor: 'rgba(44,95,158,0.15)', showLine: true, pointRadius: 0, fill: 'origin' },
+				{ label: 'f_avg = 2/pi ≈ 0.637', data: avgLine, borderColor: '#e67e22', borderDash: [5,5], backgroundColor: 'transparent', showLine: true, pointRadius: 0 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { min: 0, max: Math.PI, title: { display: true, text: 'x' } }, y: { min: -0.1, max: 1.2 } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc1_unit8';
+
+	function setCookie(name, val) {
+		var d = new Date();
+		d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=';
+		var parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) {
+			var c = parts[i].trim();
+			if (c.indexOf(key) === 0) return c.substring(key.length);
+		}
+		return null;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var h2s = document.querySelectorAll('h2');
+		h2s.forEach(function(h2) {
+			var siblings = [];
+			var next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') {
+				siblings.push(next);
+				next = next.nextElementSibling;
+			}
+			var wrapper = document.createElement('div');
+			wrapper.className = 'section-content';
+			if (siblings.length > 0) {
+				h2.parentNode.insertBefore(wrapper, siblings[0]);
+				siblings.forEach(function(s) { wrapper.appendChild(s); });
+			}
+			var headingText = h2.textContent.trim().replace(/\s+/g, '_');
+			var cookieKey = PAGE_KEY + '__' + headingText;
+			var cb = document.createElement('input');
+			cb.type = 'checkbox';
+			cb.className = 'section-checkbox';
+			cb.title = 'Mark as understood (collapses section)';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span');
+			hint.className = 'collapse-hint';
+			hint.textContent = 'click to collapse';
+			h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed;
+				hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				if (collapsed) { wrapper.classList.add('collapsed'); } else { wrapper.classList.remove('collapsed'); }
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			var saved = getCookie(cookieKey);
+			applyState(saved === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

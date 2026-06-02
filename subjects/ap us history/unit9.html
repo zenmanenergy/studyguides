@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 9: Period 9 (1980–Present)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html" class="active">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 9: Period 9 (1980&ndash;Present)</h1>
+
+<h2>The Reagan Revolution</h2>
+<ul>
+	<li>Reagan elected 1980 on conservative platform: reduce government, cut taxes, fight communism</li>
+	<li><strong>Supply-side economics ("Reaganomics"):</strong> cut top marginal tax rates from 70% to 28%; deregulation; belief that wealth "trickles down"</li>
+	<li>Reagan drastically increased defense spending &rarr; increased national debt</li>
+	<li><strong>Cold War escalation:</strong> Reagan Doctrine — support anti-communist rebels worldwide (Nicaragua, Afghanistan)</li>
+	<li><strong>Iran-Contra Affair:</strong> secret arms sales to Iran used to fund Nicaraguan Contras; major scandal</li>
+	<li>Conservative social agenda: "Moral Majority" (Jerry Falwell); opposition to abortion, gay rights</li>
+</ul>
+
+<hr>
+<h2>End of the Cold War</h2>
+<ul>
+	<li><strong>Gorbachev's reforms:</strong> glasnost (openness) and perestroika (restructuring) — opened door to change</li>
+	<li>Fall of Berlin Wall (November 9, 1989); German reunification 1990</li>
+	<li>USSR dissolved December 25, 1991; 15 independent nations emerged</li>
+	<li><strong>George H.W. Bush:</strong> managed Cold War's end; Gulf War (1991) expelled Iraq from Kuwait with UN coalition</li>
+	<li>Post-Cold War debates: what is US role in the world? Unipolar moment; "end of history" (Fukuyama)</li>
+</ul>
+
+<hr>
+<h2>1990s: Globalization and Culture Wars</h2>
+<ul>
+	<li><strong>Clinton presidency:</strong> "Third Way" liberal; budget surpluses; NAFTA (1994) — free trade; WTO membership for China</li>
+	<li>Technology boom: internet, dot-com bubble; globalization transformed economy</li>
+	<li><strong>Culture wars:</strong> debates over abortion, multiculturalism, LGBT rights, immigration intensified</li>
+	<li>Clinton impeached (1998) over perjury/obstruction related to Monica Lewinsky scandal; acquitted by Senate</li>
+	<li>Welfare Reform Act (1996): "end welfare as we know it"; work requirements; devolved to states</li>
+	<li>Rising income inequality; deindustrialization; Rust Belt decline</li>
+</ul>
+
+<hr>
+<h2>9/11 and the War on Terror</h2>
+<ul>
+	<li>September 11, 2001: al-Qaeda attacks on World Trade Center and Pentagon; 2,977 killed</li>
+	<li><strong>USA PATRIOT Act (2001):</strong> expanded government surveillance; civil liberties concerns</li>
+	<li><strong>Afghanistan War (2001):</strong> toppled Taliban; 20-year conflict; US withdrawal 2021</li>
+	<li><strong>Iraq War (2003):</strong> Bush claimed WMDs; no WMDs found; destabilized region; cost $2+ trillion</li>
+	<li>Department of Homeland Security created; TSA; surveillance debate (NSA programs)</li>
+	<li><strong>Hurricane Katrina (2005):</strong> exposed racial and class inequality in disaster response</li>
+</ul>
+
+<hr>
+<h2>Recent Decades: 2008–Present</h2>
+<table>
+	<tr><th>Development</th><th>Significance</th></tr>
+	<tr><td>Financial Crisis (2008)</td><td>Bank failures, recession, TARP bailout; Great Recession</td></tr>
+	<tr><td>Obama presidency (2009–17)</td><td>First Black president; Affordable Care Act; economic recovery; Dodd-Frank</td></tr>
+	<tr><td>Tea Party / polarization</td><td>Conservative populist backlash; gridlock; rise of partisan media</td></tr>
+	<tr><td>Obergefell v. Hodges (2015)</td><td>Supreme Court legalized same-sex marriage nationwide</td></tr>
+	<tr><td>Black Lives Matter (2013+)</td><td>Movement against police violence; George Floyd (2020); national reckoning</td></tr>
+	<tr><td>COVID-19 pandemic (2020)</td><td>1 million+ US deaths; economic disruption; polarized public health response</td></tr>
+</table>
+<div class="key">
+	Key theme: increasing political polarization — geographic sorting, media fragmentation, party realignment, and social media have deepened partisan divides since the 1990s
+</div>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>US Federal Debt as % of GDP (selected years)</h3>
+		<canvas id="debtChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Income Inequality: Top 1% Share of Income</h3>
+		<canvas id="inequalityChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('debtChart'), {
+		type: 'line',
+		data: {
+			labels: ['1980', '1985', '1990', '1995', '2000', '2005', '2010', '2015', '2020', '2023'],
+			datasets: [{
+				label: 'Federal debt (% of GDP)',
+				data: [31, 43, 54, 64, 55, 61, 91, 100, 129, 120],
+				borderColor: '#8b2500',
+				backgroundColor: 'rgba(139,37,0,0.1)',
+				fill: true, tension: 0.3, pointRadius: 4
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { title: { display: true, text: '% of GDP' } } }
+		}
+	});
+
+	new Chart(document.getElementById('inequalityChart'), {
+		type: 'bar',
+		data: {
+			labels: ['1970', '1980', '1990', '2000', '2007', '2012', '2019'],
+			datasets: [{
+				label: 'Top 1% share of income (%)',
+				data: [10.0, 10.0, 13.0, 17.0, 18.3, 19.3, 18.8],
+				backgroundColor: '#8b2500cc'
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { title: { display: true, text: '% of total income' }, max: 25 } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit9';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

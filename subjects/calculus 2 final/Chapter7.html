@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calculus 2 &mdash; Unit 2: Techniques of Integration (Ch. 7)</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+<link rel="stylesheet" href="style.css">
+<style>
+.q-block { background: #eef2ff; border: 1px solid #b0c4de; border-radius: 4px; padding: 10px 14px; margin: 14px 0 0; }
+.q-label { font-weight: bold; color: #1a3a6b; margin-bottom: 6px; font-size: 0.97em; }
+.solution-block { background: #f4faf4; border-left: 4px solid #3a7d44; padding: 9px 14px; margin: 0 0 6px; font-size: 14px; }
+.solution-label { font-weight: bold; color: #2e7031; margin-bottom: 6px; }
+.step { margin: 3px 0 3px 10px; }
+.answer { font-weight: bold; color: #1a3a6b; margin-top: 6px; }
+</style>
+</head>
+<body>
+<nav>
+<a href="Chapter6.html">Chapter 6 &mdash; Ch. 6</a>
+<a href="Chapter7.html" class="active">Chapter 7 &mdash; Ch. 7</a>
+<a href="Chapter10.html">Chapter 10 &mdash; Ch. 10</a>
+<a href="Chapter9.html">Chapter 9 &mdash; Ch. 9</a>
+<a href="final.html">Final</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Unit 2: Techniques of Integration (Ch. 7)</h1>
+<p>Chapter 7 Practice Test: Ten questions with complete step-by-step walkthroughs. Click any section header to collapse or expand it.</p>
+
+<h2>Topic 1 &mdash; Improper Integrals and Convergence</h2>
+<p>Evaluate improper integrals with infinite limits or discontinuous integrands. Use limits: \(\int_a^\infty f(x)\, dx = \lim_{t \to \infty} \int_a^t f(x)\, dx\).</p>
+
+<div class="q-block">
+<div class="q-label">Question 1</div>
+<p>Determine whether the following integral is convergent or divergent. If the integral is convergent, find its value. Write the exact answer. Do not round. If it is divergent, write <em>DIV</em> for your answer.
+\[ \int_{0}^{16} \frac{4}{\sqrt{x}}\, dx \]</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Identify the improper integral.</strong></p>
+<p class="step">The integrand \(\frac{4}{\sqrt{x}} = 4x^{-1/2}\) has a singularity at \(x = 0\) (in the interval \([0,16]\)).</p>
+<p><strong>Step 2 &mdash; Use the limit definition.</strong></p>
+<div class="formula">\[ \int_0^{16} \frac{4}{\sqrt{x}}\, dx = \lim_{a \to 0^+} \int_a^{16} 4x^{-1/2}\, dx \]</div>
+<p><strong>Step 3 &mdash; Evaluate the antiderivative.</strong></p>
+<p class="step">\(\int 4x^{-1/2}\, dx = 4 \cdot 2x^{1/2} = 8\sqrt{x}\)</p>
+<p><strong>Step 4 &mdash; Apply limits.</strong></p>
+<p class="step">\(\lim_{a \to 0^+} \left[ 8\sqrt{x} \right]_a^{16} = \lim_{a \to 0^+} (8\sqrt{16} - 8\sqrt{a}) = 32 - 0 = 32\)</p>
+<p class="answer">The integral is convergent: \(\int_0^{16} \frac{4}{\sqrt{x}}\, dx = 32\)</p>
+</div>
+<hr>
+
+<h2>Topic 2 &mdash; Integration by Parts</h2>
+<p>Use the formula \(\int u\, dv = uv - \int v\, du\) to integrate products. Choose \(u\) using LIATE: Log, Inverse trig, Algebraic, Trig, Exponential.</p>
+
+<div class="q-block">
+<div class="q-label">Question 2</div>
+<p>Evaluate the integral
+\[ \int 2t^3 e^{2t}\, dt \]
+Use \(C\) for the constant of integration. Write the exact answer. Do not round. If necessary, use integration by parts more than once.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; First integration by parts.</strong></p>
+<p class="step">Let \(u = 2t^3\), \(dv = e^{2t}\, dt\). Then \(du = 6t^2\, dt\), \(v = \frac{e^{2t}}{2}\).</p>
+<div class="formula">\[ \int 2t^3 e^{2t}\, dt = t^3 e^{2t} - \int 3t^2 e^{2t}\, dt \]</div>
+<p><strong>Step 2 &mdash; Second integration by parts.</strong></p>
+<p class="step">Let \(u = 3t^2\), \(dv = e^{2t}\, dt\). Then \(du = 6t\, dt\), \(v = \frac{e^{2t}}{2}\).</p>
+<p class="step">\(\int 3t^2 e^{2t}\, dt = \frac{3t^2 e^{2t}}{2} - \int 3t e^{2t}\, dt\)</p>
+<p><strong>Step 3 &mdash; Third integration by parts.</strong></p>
+<p class="step">Let \(u = 3t\), \(dv = e^{2t}\, dt\). Then \(du = 3\, dt\), \(v = \frac{e^{2t}}{2}\).</p>
+<p class="step">\(\int 3t e^{2t}\, dt = \frac{3te^{2t}}{2} - \int \frac{3e^{2t}}{2}\, dt = \frac{3te^{2t}}{2} - \frac{3e^{2t}}{4}\)</p>
+<p><strong>Step 4 &mdash; Combine all parts.</strong></p>
+<div class="formula">\[ \int 2t^3 e^{2t}\, dt = t^3 e^{2t} - \frac{3t^2 e^{2t}}{2} + 3t e^{2t} - \frac{3e^{2t}}{4} + C = e^{2t}\!\left(t^3 - \frac{3t^2}{2} + 3t - \frac{3}{4}\right) + C \]</div>
+<p class="answer">\(\int 2t^3 e^{2t}\, dt = e^{2t}\!\left(t^3 - \dfrac{3t^2}{2} + 3t - \dfrac{3}{4}\right) + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 3 &mdash; Partial Fraction Decomposition</h2>
+<p>Decompose rational functions into simpler fractions. For linear factors: \(\dfrac{A}{x-a} + \dfrac{B}{x-b}\). Use the Heaviside cover-up method to find coefficients.</p>
+
+<div class="q-block">
+<div class="q-label">Question 3</div>
+<p>Apply the Heaviside cover-up method to evaluate the integral
+\[ \int \frac{4(x + 3)}{(x - 3)(x^2 - 1)}\, dx \]
+Use \(C\) for the constant of integration. Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Factor the denominator.</strong></p>
+<p class="step">\(x^2 - 1 = (x-1)(x+1)\), so the denominator is \((x-3)(x-1)(x+1)\).</p>
+<p><strong>Step 2 &mdash; Set up partial fractions.</strong></p>
+<div class="formula">\[ \frac{4(x+3)}{(x-3)(x-1)(x+1)} = \frac{A}{x-3} + \frac{B}{x-1} + \frac{C}{x+1} \]</div>
+<p><strong>Step 3 &mdash; Use cover-up method to find \(A\), \(B\), \(C\).</strong></p>
+<p class="step">Cover \((x-3)\): \(A = \frac{4(3+3)}{(3-1)(3+1)} = \frac{24}{8} = 3\)</p>
+<p class="step">Cover \((x-1)\): \(B = \frac{4(1+3)}{(1-3)(1+1)} = \frac{16}{-4} = -4\)</p>
+<p class="step">Cover \((x+1)\): \(C = \frac{4(-1+3)}{(-1-3)(-1-1)} = \frac{8}{8} = 1\)</p>
+<p><strong>Step 4 &mdash; Integrate.</strong></p>
+<div class="formula">\[ \int \left( \frac{3}{x-3} - \frac{4}{x-1} + \frac{1}{x+1} \right) dx = 3\ln|x-3| - 4\ln|x-1| + \ln|x+1| + C \]</div>
+<p class="answer">\(\int \frac{4(x+3)}{(x-3)(x^2-1)}\, dx = 3\ln|x-3| - 4\ln|x-1| + \ln|x+1| + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 4 &mdash; Trigonometric Integrals</h2>
+<p>Integrate powers of sine and cosine. For odd powers, factor out one and use substitution. For even powers, use power reduction formulas.</p>
+
+<div class="q-block">
+<div class="q-label">Question 4</div>
+<p>Evaluate the indefinite integral
+\[ \int 2\sqrt[3]{\cos x}\, \sin^3 x\, dx \]
+Use \(C\) for the constant of integration. Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Rewrite using exponent notation.</strong></p>
+<p class="step">\(\int 2(\cos x)^{1/3} \sin^3 x\, dx = \int 2(\cos x)^{1/3} \sin^2 x \sin x\, dx\)</p>
+<p><strong>Step 2 &mdash; Use \(\sin^2 x = 1 - \cos^2 x\).</strong></p>
+<p class="step">\(\int 2(\cos x)^{1/3} (1 - \cos^2 x) \sin x\, dx\)</p>
+<p><strong>Step 3 &mdash; Substitute \(u = \cos x\), \(du = -\sin x\, dx\).</strong></p>
+<div class="formula">\[ \int 2u^{1/3} (1 - u^2)(-du) = -2\int (u^{1/3} - u^{7/3})\, du \]</div>
+<p><strong>Step 4 &mdash; Integrate.</strong></p>
+<p class="step">\(-2 \left[ \frac{3u^{4/3}}{4} - \frac{3u^{10/3}}{10} \right] = -\frac{3u^{4/3}}{2} + \frac{3u^{10/3}}{5}\)</p>
+<p><strong>Step 5 &mdash; Back-substitute.</strong></p>
+<p class="step">\(-\frac{3(\cos x)^{4/3}}{2} + \frac{3(\cos x)^{10/3}}{5} + C\)</p>
+<p class="answer">\(\int 2\sqrt[3]{\cos x}\, \sin^3 x\, dx = -\dfrac{3(\cos x)^{4/3}}{2} + \dfrac{3(\cos x)^{10/3}}{5} + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 5 &mdash; Integration by Parts (Linear times Trig)</h2>
+<p>For \(\int p(x)\sin x\, dx\) or \(\int p(x)\cos x\, dx\) where \(p(x)\) is a polynomial, apply integration by parts with \(u = p(x)\), \(dv = \sin x\, dx\) (or \(\cos x\, dx\)).</p>
+
+<div class="q-block">
+<div class="q-label">Question 5</div>
+<p>Evaluate the integral
+\[ \int 3x \sin x\, dx \]
+Use \(C\) for the constant of integration. Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Apply integration by parts.</strong></p>
+<p class="step">Let \(u = 3x\), \(dv = \sin x\, dx\). Then \(du = 3\, dx\), \(v = -\cos x\).</p>
+<p><strong>Step 2 &mdash; Use the formula.</strong></p>
+<div class="formula">\[ \int 3x \sin x\, dx = -3x \cos x - \int -3\cos x\, dx = -3x \cos x + 3\int \cos x\, dx \]</div>
+<p><strong>Step 3 &mdash; Integrate \(\cos x\).</strong></p>
+<p class="step">\(3\int \cos x\, dx = 3\sin x\)</p>
+<p><strong>Step 4 &mdash; Combine.</strong></p>
+<p class="step">\(\int 3x \sin x\, dx = -3x \cos x + 3\sin x + C\)</p>
+<p class="answer">\(\int 3x \sin x\, dx = -3x \cos x + 3\sin x + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 6 &mdash; Improper Integrals at Infinity</h2>
+<p>Evaluate integrals with infinite upper or lower limits. Test for convergence using power rule: \(\int_a^\infty \frac{1}{x^p}\, dx\) converges if \(p > 1\).</p>
+
+<div class="q-block">
+<div class="q-label">Question 6</div>
+<p>Determine whether the improper integral is convergent or divergent. If the improper integral is convergent, evaluate.
+\[ \int_{3}^{\infty} \frac{4}{x^3}\, dx \]</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Set up with limit.</strong></p>
+<p class="step">\(\int_3^\infty \frac{4}{x^3}\, dx = \lim_{t \to \infty} \int_3^t 4x^{-3}\, dx\)</p>
+<p><strong>Step 2 &mdash; Integrate.</strong></p>
+<p class="step">\(\int 4x^{-3}\, dx = 4 \cdot \frac{x^{-2}}{-2} = -\frac{2}{x^2}\)</p>
+<p><strong>Step 3 &mdash; Apply limits.</strong></p>
+<div class="formula">\[ \lim_{t \to \infty} \left[ -\frac{2}{x^2} \right]_3^t = \lim_{t \to \infty} \left( -\frac{2}{t^2} + \frac{2}{9} \right) = 0 + \frac{2}{9} = \frac{2}{9} \]</div>
+<p class="answer">The integral converges to \(\dfrac{2}{9}\)</p>
+</div>
+<hr>
+
+<h2>Topic 7 &mdash; Trigonometric Identities and Simplification</h2>
+<p>Use identities like \(\tan^2 x + 1 = \sec^2 x\) and \(\dfrac{\sec^2\theta}{\csc^2\theta} = \tan^2\theta\) to simplify integrands before integration.</p>
+
+<div class="q-block">
+<div class="q-label">Question 7</div>
+<p>Evaluate
+\[ \int \frac{4\bigl[\tan^2(9x) + 1\bigr]}{\csc^2(9x)}\, dx \]
+Whenever possible, try to simplify before integrating. Use \(C\) for the constant of integration. Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Simplify using \(\tan^2\theta + 1 = \sec^2\theta\).</strong></p>
+<p class="step">\(\tan^2(9x) + 1 = \sec^2(9x)\)</p>
+<p><strong>Step 2 &mdash; Substitute.</strong></p>
+<div class="formula">\[ \int \frac{4\sec^2(9x)}{\csc^2(9x)}\, dx = \int 4\tan^2(9x)\, dx \]</div>
+<p><strong>Step 3 &mdash; Use \(\tan^2\theta = \sec^2\theta - 1\).</strong></p>
+<div class="formula">\[ \int 4[\sec^2(9x) - 1]\, dx = 4\int \sec^2(9x)\, dx - 4\int dx \]</div>
+<p><strong>Step 4 &mdash; Integrate.</strong></p>
+<p class="step">\(4 \cdot \frac{\tan(9x)}{9} - 4x + C = \frac{4\tan(9x)}{9} - 4x + C\)</p>
+<p class="answer">\(\int \frac{4[\tan^2(9x) + 1]}{\csc^2(9x)}\, dx = \dfrac{4\tan(9x)}{9} - 4x + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 8 &mdash; Trigonometric Substitution</h2>
+<p>Use substitutions \(x = a\sin\theta\), \(x = a\tan\theta\), or \(x = a\sec\theta\) to handle \(\sqrt{a^2 - x^2}\), \(\sqrt{a^2 + x^2}\), and \(\sqrt{x^2 - a^2}\) respectively.</p>
+
+<div class="q-block">
+<div class="q-label">Question 8</div>
+<p>Use the three trigonometric substitutions (if required) to evaluate
+\[ \int \frac{-3x}{\sqrt{9 - x^2}}\, dx \]
+Use \(C\) for the constant of integration. Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Recognize the form \(\sqrt{9 - x^2}\).</strong></p>
+<p class="step">This suggests \(x = 3\sin\theta\), \(dx = 3\cos\theta\, d\theta\), \(\sqrt{9-x^2} = 3\cos\theta\).</p>
+<p><strong>Step 2 &mdash; Substitute.</strong></p>
+<div class="formula">\[ \int \frac{-3(3\sin\theta)}{3\cos\theta} \cdot 3\cos\theta\, d\theta = \int -9\sin\theta\, d\theta \]</div>
+<p><strong>Step 3 &mdash; Integrate.</strong></p>
+<p class="step">\(\int -9\sin\theta\, d\theta = 9\cos\theta + C\)</p>
+<p><strong>Step 4 &mdash; Back-substitute using \(\cos\theta = \frac{\sqrt{9-x^2}}{3}\).</strong></p>
+<p class="step">\(9 \cdot \frac{\sqrt{9-x^2}}{3} + C = 3\sqrt{9-x^2} + C\)</p>
+<p class="answer">\(\int \frac{-3x}{\sqrt{9-x^2}}\, dx = 3\sqrt{9-x^2} + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 9 &mdash; Secant Powers via Substitution</h2>
+<p>For even powers of secant, factor out \(\sec^2 x\) and use \(\sec^2 x = 1 + \tan^2 x\), then substitute \(u = \tan x\).</p>
+
+<div class="q-block">
+<div class="q-label">Question 9</div>
+<p>Evaluate the indefinite integral
+\[ \int 16 \sec^4(8x)\, dx \]
+Use \(C\) for the constant of integration. Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Rewrite using \(\sec^2(8x) = 1 + \tan^2(8x)\).</strong></p>
+<p class="step">\(\sec^4(8x) = [1 + \tan^2(8x)]\sec^2(8x)\)</p>
+<p><strong>Step 2 &mdash; Substitute \(u = \tan(8x)\), \(du = 8\sec^2(8x)\, dx\).</strong></p>
+<div class="formula">\[ \int 16[1 + u^2]\, \frac{du}{8} = 2\int (1 + u^2)\, du = 2\!\left( u + \frac{u^3}{3} \right) + C \]</div>
+<p><strong>Step 3 &mdash; Back-substitute.</strong></p>
+<p class="step">\(2\tan(8x) + \frac{2\tan^3(8x)}{3} + C\)</p>
+<p class="answer">\(\int 16\sec^4(8x)\, dx = 2\tan(8x) + \dfrac{2\tan^3(8x)}{3} + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 10 &mdash; Numerical Integration (Simpson's Rule)</h2>
+<p>Approximate definite integrals using Simpson's Rule: \(\int_a^b f(x)\, dx \approx \dfrac{\Delta x}{3}[f(x_0) + 4f(x_1) + 2f(x_2) + \cdots + f(x_n)]\) with \(n\) even.</p>
+
+<div class="q-block">
+<div class="q-label">Question 10</div>
+<p>Use Simpson's Rule with \(n = 8\) to approximate the integral
+\[ \int_{0}^{4} 7x\sqrt{x^2 + 1}\, dx \]
+Round any intermediate calculations, if needed, to no less than six decimal places, and round your final answer to four decimal places.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Calculate \(\Delta x\).</strong></p>
+<p class="step">\(\Delta x = \frac{4 - 0}{8} = 0.5\)</p>
+<p><strong>Step 2 &mdash; Evaluate \(f(x) = 7x\sqrt{x^2+1}\) at each node.</strong></p>
+<p class="step">\(x_0 = 0{:}\ f(0) = 0\)</p>
+<p class="step">\(x_1 = 0.5{:}\ f(0.5) = 3.5\sqrt{1.25} \approx 3.905869\)</p>
+<p class="step">\(x_2 = 1.0{:}\ f(1) = 7\sqrt{2} \approx 9.899495\)</p>
+<p class="step">\(x_3 = 1.5{:}\ f(1.5) = 10.5\sqrt{3.25} \approx 19.022688\)</p>
+<p class="step">\(x_4 = 2.0{:}\ f(2) = 14\sqrt{5} \approx 31.304952\)</p>
+<p class="step">\(x_5 = 2.5{:}\ f(2.5) = 17.5\sqrt{7.25} \approx 47.431832\)</p>
+<p class="step">\(x_6 = 3.0{:}\ f(3) = 21\sqrt{10} \approx 66.433283\)</p>
+<p class="step">\(x_7 = 3.5{:}\ f(3.5) = 24.5\sqrt{13.25} \approx 89.321928\)</p>
+<p class="step">\(x_8 = 4.0{:}\ f(4) = 28\sqrt{17} \approx 115.524063\)</p>
+<p><strong>Step 3 &mdash; Apply Simpson's Rule formula.</strong></p>
+<div class="formula">\[ \int_0^4 \approx \frac{0.5}{3}\bigl[f_0 + 4f_1 + 2f_2 + 4f_3 + 2f_4 + 4f_5 + 2f_6 + 4f_7 + f_8\bigr] \]</div>
+<p class="step">\(= \dfrac{1}{6}\bigl[0 + 15.623476 + 19.798990 + 76.090752 + 62.609904 + 189.727328 + 132.866566 + 357.287712 + 115.524063\bigr]\)</p>
+<p class="step">\(= \dfrac{969.528791}{6} \approx 161.6547\)</p>
+<p class="answer">The approximation is \(\approx 161.6547\)</p>
+</div>
+
+<script>
+(function() {
+var PAGE_KEY = 'calc2_ch7';
+function setCookie(name, val) {
+var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+}
+function getCookie(name) {
+var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+return null;
+}
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('h2').forEach(function(h2) {
+var siblings = [], next = h2.nextElementSibling;
+while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+h2.insertBefore(cb, h2.firstChild);
+var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+function applyState(collapsed, save) {
+cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+wrapper.classList.toggle('collapsed', collapsed);
+if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+}
+applyState(getCookie(cookieKey) === '1', false);
+h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+});
+});
+}());
+</script>
+</body>
+</html>

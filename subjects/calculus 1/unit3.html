@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 1 — Unit 3: Composite, Implicit, and Inverse Differentiation</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html" class="active">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+</nav>
+
+<h1>Calculus 1 &mdash; Unit 3: Composite, Implicit, and Inverse Differentiation</h1>
+
+<h2>Chain Rule</h2>
+<div class="formula">
+	\[ \frac{d}{dx}[f(g(x))] = f'(g(x)) \cdot g'(x) \]
+	"Derivative of outer (with inner inside) times derivative of inner"
+</div>
+<ul>
+	<li>Identify the outer and inner functions first</li>
+	<li>Example: \(\dfrac{d}{dx}[\sin(x^2)] = \cos(x^2) \cdot 2x\)</li>
+	<li>Example: \(\dfrac{d}{dx}[e^{3x}] = e^{3x} \cdot 3\)</li>
+	<li>Chain rule can be nested: \(\dfrac{d}{dx}[\sin^3(x^2)]\) requires chain rule twice</li>
+</ul>
+
+<hr>
+<h2>Implicit Differentiation</h2>
+<ul>
+	<li>Use when \(y\) is not explicitly solved for in terms of \(x\)</li>
+	<li>Differentiate both sides with respect to \(x\); apply chain rule to any \(y\) term (multiply by \(dy/dx\))</li>
+	<li>Then solve algebraically for \(dy/dx\)</li>
+</ul>
+<div class="formula">
+	Example: \(x^2 + y^2 = 25\)<br>
+	\(2x + 2y\dfrac{dy}{dx} = 0 \;\Rightarrow\; \dfrac{dy}{dx} = -\dfrac{x}{y}\)
+</div>
+<ul>
+	<li>Used for circles, ellipses, and any curve not easily expressed as \(y = f(x)\)</li>
+</ul>
+
+<hr>
+<h2>Derivatives of Inverse Trig Functions</h2>
+<table>
+	<tr><th>Function</th><th>Derivative</th></tr>
+	<tr><td>\(\arcsin x\)</td><td>\(\dfrac{1}{\sqrt{1-x^2}}\)</td></tr>
+	<tr><td>\(\arccos x\)</td><td>\(-\dfrac{1}{\sqrt{1-x^2}}\)</td></tr>
+	<tr><td>\(\arctan x\)</td><td>\(\dfrac{1}{1+x^2}\)</td></tr>
+	<tr><td>\(\text{arcsec } x\)</td><td>\(\dfrac{1}{|x|\sqrt{x^2-1}}\)</td></tr>
+</table>
+<ul>
+	<li>Combine with chain rule: \(\dfrac{d}{dx}[\arctan(3x)] = \dfrac{3}{1+9x^2}\)</li>
+</ul>
+
+<hr>
+<h2>Logarithmic Differentiation</h2>
+<ul>
+	<li>Take \(\ln\) of both sides, then differentiate implicitly — useful for variable exponents</li>
+</ul>
+<div class="formula">
+	Example: \(y = x^x\)<br>
+	\(\ln y = x \ln x\)<br>
+	\(\dfrac{1}{y}\dfrac{dy}{dx} = \ln x + 1 \;\Rightarrow\; \dfrac{dy}{dx} = x^x(\ln x + 1)\)
+</div>
+<ul>
+	<li>Also simplifies products/quotients with many factors</li>
+	<li>General power rule: \(\dfrac{d}{dx}[x^n] = nx^{n-1}\) works for any real \(n\) via logarithmic differentiation</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Circle x^2 + y^2 = 25 with implicit tangent at (3, 4)</h3>
+		<canvas id="implicitChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>arctan(x) and its derivative 1/(1+x^2)</h3>
+		<canvas id="arctanChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	var circleTop = [], circleBot = [], tangentData = [];
+	for (var x = -5; x <= 5; x += 0.1) {
+		var y2 = 25 - x * x;
+		if (y2 < 0) continue;
+		circleTop.push({ x: x, y: Math.sqrt(y2) });
+		circleBot.push({ x: x, y: -Math.sqrt(y2) });
+	}
+	// tangent at (3,4): dy/dx = -3/4, so y - 4 = -3/4*(x-3) => y = -3x/4 + 25/4
+	tangentData = [{ x: -1, y: -3*(-1)/4 + 25/4 }, { x: 6, y: -3*6/4 + 25/4 }];
+
+	new Chart(document.getElementById('implicitChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'Circle', data: circleTop.concat(circleBot), borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: false, pointRadius: 1 },
+				{ label: 'Tangent at (3,4)', data: tangentData, borderColor: '#c0392b', borderDash: [5,5], backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: '(3, 4)', data: [{ x: 3, y: 4 }], borderColor: '#c0392b', backgroundColor: '#c0392b', pointRadius: 6 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { min: -6, max: 7 }, y: { min: -6, max: 7 } }
+		}
+	});
+
+	var atanData = [], datanData = [];
+	for (var x = -4; x <= 4; x += 0.2) {
+		atanData.push({ x: x, y: Math.atan(x) });
+		datanData.push({ x: x, y: 1 / (1 + x*x) });
+	}
+	new Chart(document.getElementById('arctanChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'arctan(x)', data: atanData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: "d/dx arctan(x) = 1/(1+x^2)", data: datanData, borderColor: '#e67e22', backgroundColor: 'transparent', showLine: true, pointRadius: 0 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { min: -0.2, max: 1.8 } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc1_unit3';
+
+	function setCookie(name, val) {
+		var d = new Date();
+		d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=';
+		var parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) {
+			var c = parts[i].trim();
+			if (c.indexOf(key) === 0) return c.substring(key.length);
+		}
+		return null;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var h2s = document.querySelectorAll('h2');
+		h2s.forEach(function(h2) {
+			var siblings = [];
+			var next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') {
+				siblings.push(next);
+				next = next.nextElementSibling;
+			}
+			var wrapper = document.createElement('div');
+			wrapper.className = 'section-content';
+			if (siblings.length > 0) {
+				h2.parentNode.insertBefore(wrapper, siblings[0]);
+				siblings.forEach(function(s) { wrapper.appendChild(s); });
+			}
+			var headingText = h2.textContent.trim().replace(/\s+/g, '_');
+			var cookieKey = PAGE_KEY + '__' + headingText;
+			var cb = document.createElement('input');
+			cb.type = 'checkbox';
+			cb.className = 'section-checkbox';
+			cb.title = 'Mark as understood (collapses section)';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span');
+			hint.className = 'collapse-hint';
+			hint.textContent = 'click to collapse';
+			h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed;
+				hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				if (collapsed) { wrapper.classList.add('collapsed'); } else { wrapper.classList.remove('collapsed'); }
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			var saved = getCookie(cookieKey);
+			applyState(saved === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

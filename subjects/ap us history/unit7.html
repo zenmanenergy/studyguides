@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 7: Period 7 (1890–1945)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html" class="active">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 7: Period 7 (1890&ndash;1945)</h1>
+
+<h2>Progressive Era (1890s–1920)</h2>
+<ul>
+	<li><strong>Muckrakers:</strong> investigative journalists exposed social problems — Upton Sinclair (<em>The Jungle</em>, meatpacking), Ida Tarbell (Standard Oil), Jacob Riis (<em>How the Other Half Lives</em>, tenements)</li>
+	<li><strong>TR (Theodore Roosevelt):</strong> trust-busting (Northern Securities Case), Square Deal, conservation, Pure Food and Drug Act (1906)</li>
+	<li><strong>Taft:</strong> more trusts busted; alienated progressives; split Republican Party</li>
+	<li><strong>Wilson:</strong> New Freedom; Federal Reserve (1913), Clayton Antitrust Act, income tax (16th Amendment)</li>
+</ul>
+<table>
+	<tr><th>Amendment</th><th>Year</th><th>Purpose</th></tr>
+	<tr><td>16th</td><td>1913</td><td>Federal income tax</td></tr>
+	<tr><td>17th</td><td>1913</td><td>Direct election of senators</td></tr>
+	<tr><td>18th</td><td>1919</td><td>Prohibition (alcohol)</td></tr>
+	<tr><td>19th</td><td>1920</td><td>Women's suffrage</td></tr>
+</table>
+
+<hr>
+<h2>World War I and Its Aftermath</h2>
+<ul>
+	<li>US neutral 1914–1917; German unrestricted submarine warfare + Zimmermann Telegram pushed US in</li>
+	<li><strong>Wilson's 14 Points:</strong> self-determination, open diplomacy, freedom of seas, League of Nations</li>
+	<li><strong>Treaty of Versailles (1919):</strong> Senate rejected it; US never joined League of Nations (isolationism)</li>
+	<li><strong>Great Migration:</strong> 1.6 million Black Americans moved North for factory jobs and to escape Jim Crow (1910–1940)</li>
+	<li><strong>Red Scare (1919–20):</strong> fear of communism after Russian Revolution; Palmer Raids; Sacco and Vanzetti</li>
+</ul>
+
+<hr>
+<h2>The 1920s</h2>
+<ul>
+	<li>Consumer culture: automobiles, radio, appliances; installment buying; advertising boom</li>
+	<li><strong>Harlem Renaissance:</strong> flowering of Black literature, art, music — Langston Hughes, Zora Neale Hurston, Duke Ellington</li>
+	<li><strong>Prohibition:</strong> 18th Amendment; rise of organized crime (Al Capone); repealed by 21st (1933)</li>
+	<li><strong>Nativism:</strong> Immigration Act of 1924 established national-origins quotas; severely restricted Southern/Eastern European and Asian immigration</li>
+	<li>KKK revival; fundamentalism vs. modernism (Scopes Trial, 1925)</li>
+	<li>Stock speculation and overextension set the stage for the 1929 crash</li>
+</ul>
+
+<hr>
+<h2>Great Depression and New Deal</h2>
+<ul>
+	<li><strong>Causes of Depression:</strong> stock market crash (Oct 1929), bank failures, Smoot-Hawley Tariff, falling farm prices, overproduction, income inequality</li>
+	<li><strong>Hoover:</strong> relied on voluntary cooperation and Reconstruction Finance Corporation; seen as too passive</li>
+	<li><strong>FDR's New Deal:</strong> relief, recovery, reform — FDIC, Social Security, SEC, CCC, TVA, WPA</li>
+	<li><strong>Critics:</strong> Huey Long (Share Our Wealth), Father Coughlin (too conservative); Supreme Court struck down early New Deal programs</li>
+	<li><strong>Significance:</strong> expanded role of federal government; set expectations for government intervention in economy</li>
+</ul>
+<div class="key">
+	New Deal coalition: labor unions, urban immigrants, Black voters (in North), White Southerners, farmers — sustained Democratic dominance until the 1960s
+</div>
+
+<hr>
+<h2>World War II</h2>
+<ul>
+	<li><strong>US neutrality (1939–41):</strong> Lend-Lease aided Britain; isolationism vs. interventionism debate</li>
+	<li><strong>Pearl Harbor (Dec 7, 1941):</strong> Japanese attack; US declared war on Japan; Germany declared war on US</li>
+	<li><strong>Japanese American internment:</strong> Executive Order 9066; 120,000 Japanese Americans relocated; <em>Korematsu v. US</em> (1944) upheld it</li>
+	<li><strong>Homefront:</strong> wartime production; women in workforce ("Rosie the Riveter"); rationing; war bonds</li>
+	<li><strong>Double V campaign:</strong> Black Americans fought for democracy abroad and at home</li>
+	<li>D-Day (June 6, 1944); Germany surrendered May 1945; atomic bombs on Hiroshima/Nagasaki August 1945 &rarr; Japan surrendered</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>US Unemployment Rate, 1929–1942</h3>
+		<canvas id="unemploymentChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>US War Production Output Index (1940–1945)</h3>
+		<canvas id="productionChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('unemploymentChart'), {
+		type: 'line',
+		data: {
+			labels: ['1929','1930','1931','1932','1933','1934','1935','1936','1937','1938','1939','1940','1941','1942'],
+			datasets: [{
+				label: 'Unemployment %',
+				data: [3.2, 8.9, 16.3, 24.1, 24.9, 21.7, 20.1, 17.0, 14.3, 19.0, 17.2, 14.6, 9.9, 4.7],
+				borderColor: '#8b2500',
+				backgroundColor: 'rgba(139,37,0,0.15)',
+				fill: true, tension: 0.3, pointRadius: 3
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false }, annotation: {} },
+			scales: { y: { max: 28, title: { display: true, text: 'Unemployment (%)' } } }
+		}
+	});
+
+	new Chart(document.getElementById('productionChart'), {
+		type: 'bar',
+		data: {
+			labels: ['1940', '1941', '1942', '1943', '1944', '1945'],
+			datasets: [{
+				label: 'War production index',
+				data: [100, 175, 350, 520, 600, 490],
+				backgroundColor: '#8b2500cc'
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { title: { display: true, text: 'Index (1940 = 100)' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit7';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

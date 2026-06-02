@@ -1,0 +1,24 @@
+body { font-family: Arial, sans-serif; max-width: 960px; margin: 0 auto; padding: 20px 28px; font-size: 15px; color: #222; }
+h1 { color: #5a1a1a; border-bottom: 3px solid #5a1a1a; padding-bottom: 8px; margin-bottom: 6px; }
+h2 { color: #8b2500; margin-top: 22px; margin-bottom: 6px; font-size: 1em; text-transform: uppercase; letter-spacing: 0.5px; border-left: 4px solid #8b2500; padding-left: 8px; cursor: pointer; user-select: none; display: flex; align-items: center; gap: 8px; }
+h2:hover { background: #fff5f0; }
+.section-checkbox { appearance: none; -webkit-appearance: none; width: 16px; height: 16px; border: 2px solid #8b2500; border-radius: 3px; flex-shrink: 0; cursor: pointer; position: relative; background: white; }
+.section-checkbox:checked { background: #8b2500; }
+.section-checkbox:checked::after { content: ''; position: absolute; left: 3px; top: 0px; width: 5px; height: 9px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
+.section-content.collapsed { display: none; }
+.collapse-hint { font-size: 11px; color: #aaa; font-weight: normal; margin-left: auto; text-transform: none; letter-spacing: 0; }
+hr { border: none; border-top: 1px solid #ddd; margin: 14px 0; }
+table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 14px; }
+th { background: #5a1a1a; color: white; padding: 6px 10px; text-align: left; }
+td { padding: 5px 10px; border-bottom: 1px solid #ddd; }
+tr:nth-child(even) td { background: #fdf5f5; }
+ul, ol { margin: 4px 0; padding-left: 22px; }
+li { margin: 3px 0; }
+.key { background: #fff3ee; border-left: 4px solid #8b2500; padding: 7px 14px; margin: 8px 0; }
+.charts { display: flex; gap: 20px; flex-wrap: wrap; margin: 14px 0; }
+.chart-box { flex: 1; min-width: 280px; background: #fafafa; border: 1px solid #ddd; border-radius: 6px; padding: 12px; }
+.chart-box h3 { margin: 0 0 8px; font-size: 0.9em; color: #5a1a1a; text-align: center; }
+canvas { max-width: 100%; }
+nav { background: #5a1a1a; padding: 8px 28px; margin: -20px -28px 20px; display: flex; gap: 4px; flex-wrap: wrap; }
+nav a { color: #f5ccc0; text-decoration: none; padding: 5px 10px; border-radius: 4px; font-size: 13px; }
+nav a:hover, nav a.active { background: #8b2500; color: white; }

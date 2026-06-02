@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 2 &mdash; Applications of Integration (Ch. 6)</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.q-block { background: #eef2ff; border: 1px solid #b0c4de; border-radius: 4px; padding: 10px 14px; margin: 14px 0 0; }
+		.q-label { font-weight: bold; color: #1a3a6b; margin-bottom: 6px; font-size: 0.97em; }
+		.solution-block { background: #f4faf4; border-left: 4px solid #3a7d44; padding: 9px 14px; margin: 0 0 6px; font-size: 14px; }
+		.solution-label { font-weight: bold; color: #2e7031; margin-bottom: 6px; }
+		.step { margin: 3px 0 3px 10px; }
+		.answer { font-weight: bold; color: #1a3a6b; margin-top: 6px; }
+	</style>
+</head>
+<body>
+<nav>
+	<a href="Chapter6.html" class="active">Chapter 6 &mdash; Ch. 6</a>
+	<a href="Chapter7.html">Chapter 7 &mdash; Ch. 7</a>
+	<a href="Chapter10.html">Chapter 10 &mdash; Ch. 10</a>
+	<a href="Chapter9.html">Chapter 9 &mdash; Ch. 9</a>
+	<a href="final.html">Final</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Applications of Integration</h1>
+<p>Chapter 6 Practice: Ten problems covering surface area, work, arc length, volume, and centroids, complete with step-by-step walkthroughs. Click any section header to collapse or expand it.</p>
+
+<h2>Topic 1 &mdash; Surface Area of Revolution</h2>
+<p>For a curve \(x = g(y)\) revolved about the \(y\)-axis over \([c,d]\), the surface area is \(SA = 2\pi \int_c^d x\sqrt{1 + \left(\frac{dx}{dy}\right)^2}\, dy\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Set up, but do not evaluate, an integral defining the surface area of the solid obtained by revolving the curve
+	\[ x^2 - 3 = y^2 + 2y, \quad 0 \leq y \leq 2 \]
+	about the \(y\)-axis.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Solve for \(x\).</strong></p>
+	<p class="step">\(x^2 = y^2 + 2y + 3\), so \(x = \sqrt{y^2 + 2y + 3}\) (positive root, since the surface is in the region \(x \geq 0\)).</p>
+	<p><strong>Step 2 &mdash; Differentiate.</strong></p>
+	<p class="step">\(\dfrac{dx}{dy} = \dfrac{2y + 2}{2\sqrt{y^2+2y+3}} = \dfrac{y+1}{\sqrt{y^2+2y+3}}\)</p>
+	<p><strong>Step 3 &mdash; Compute \(1 + \left(\dfrac{dx}{dy}\right)^2\).</strong></p>
+	<p class="step">\(1 + \dfrac{(y+1)^2}{y^2+2y+3} = \dfrac{y^2+2y+3+(y+1)^2}{y^2+2y+3} = \dfrac{2y^2+4y+4}{y^2+2y+3} = \dfrac{2(y^2+2y+2)}{y^2+2y+3}\)</p>
+	<p><strong>Step 4 &mdash; Set up the surface area integral.</strong></p>
+	<div class="formula">\[ SA = 2\pi \int_0^2 \sqrt{y^2+2y+3}\cdot\sqrt{\frac{2(y^2+2y+2)}{y^2+2y+3}}\, dy = 2\sqrt{2}\,\pi\int_0^2 \sqrt{y^2+2y+2}\, dy \]</div>
+	<p class="answer">Surface area \(= 2\sqrt{2}\,\pi\displaystyle\int_0^2 \sqrt{y^2+2y+2}\, dy\)</p>
+</div>
+<hr>
+
+<h2>Topic 2 &mdash; Work: Hooke's Law (Springs)</h2>
+<p>By Hooke's Law, \(F = kx\) where \(x\) is the displacement from natural length and \(k\) is the spring constant. Work done stretching from extension \(a\) to \(b\) is \(W = \int_a^b kx\, dx\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>A force of \(50\text{ lb}\) stretches a \(9\text{ ft}\) spring by \(\dfrac{1}{2}\text{ ft}\). Find the work done in stretching the spring from \(11\text{ ft}\) to \(14\text{ ft}\). Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find the spring constant.</strong></p>
+	<p class="step">Using \(F = kx\): \(50 = k \cdot \dfrac{1}{2}\), so \(k = 100\) lb/ft.</p>
+	<p><strong>Step 2 &mdash; Convert lengths to extensions from natural length.</strong></p>
+	<p class="step">Natural length = 9 ft. Stretching to 11 ft: extension = \(11 - 9 = 2\) ft. Stretching to 14 ft: extension = \(14 - 9 = 5\) ft.</p>
+	<p><strong>Step 3 &mdash; Set up and evaluate the work integral.</strong></p>
+	<div class="formula">\[ W = \int_2^5 100x\, dx = \left[50x^2\right]_2^5 = 50(25) - 50(4) = 1250 - 200 = 1050 \text{ ft-lb} \]</div>
+	<p class="answer">Work \(= 1050\) ft-lb</p>
+</div>
+<hr>
+
+<h2>Topic 3 &mdash; Work: Lifting with a Cable</h2>
+<p>When lifting an object with a heavy cable, both the constant object weight and the decreasing hanging cable weight contribute to the total force. At position \(x\) (feet lifted), \(F(x) = \text{(object weight)} + \text{(cable weight remaining)}\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>At a construction site, a \(120\text{ ft}\) cable is supporting a piece of equipment that weighs \(60\text{ lb}\). In order to lift the equipment by \(30\text{ ft}\), the cable is wound on a cylindrical drum. If the cable weighs \(5\text{ lb/ft}\), find the work done during this process.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Express the total force as a function of displacement.</strong></p>
+	<p class="step">Let \(x\) = distance the equipment has been lifted, \(0 \leq x \leq 30\).</p>
+	<p class="step">Weight of equipment: \(60\) lb (constant).</p>
+	<p class="step">Remaining hanging cable length: \(120 - x\) ft, weighing \(5(120 - x)\) lb.</p>
+	<p class="step">Total force: \(F(x) = 60 + 5(120 - x) = 660 - 5x\).</p>
+	<p><strong>Step 2 &mdash; Evaluate the work integral.</strong></p>
+	<div class="formula">\[ W = \int_0^{30} (660 - 5x)\, dx = \left[660x - \frac{5x^2}{2}\right]_0^{30} = 660(30) - \frac{5(900)}{2} = 19800 - 2250 = 17550 \text{ ft-lb} \]</div>
+	<p class="answer">Work \(= 17{,}550\) ft-lb</p>
+</div>
+<hr>
+
+<h2>Topic 4 &mdash; Arc Length</h2>
+<p>The arc length of \(y = f(x)\) over \([a,b]\) is \(L = \int_a^b \sqrt{1+[f'(x)]^2}\, dx\). The arc length function from \(a\) to \(x\) is \(s(x) = \int_a^x \sqrt{1+[f'(t)]^2}\, dt\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 4</div>
+	<p>Set up, but do not evaluate, an integral defining the arc length of the graph of the equation
+	\[ y = x^5 + 2 \]
+	over the interval \(0 \leq x \leq 4\). Then find the corresponding arc length function \(s(x)\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Differentiate.</strong></p>
+	<p class="step">\(y = x^5 + 2 \Rightarrow y' = 5x^4\)</p>
+	<p><strong>Step 2 &mdash; Set up the arc length integral.</strong></p>
+	<div class="formula">\[ L = \int_0^4 \sqrt{1+(5x^4)^2}\, dx = \int_0^4 \sqrt{1+25x^8}\, dx \]</div>
+	<p><strong>Step 3 &mdash; Write the arc length function.</strong></p>
+	<div class="formula">\[ s(x) = \int_0^x \sqrt{1+25t^8}\, dt \]</div>
+	<p class="answer">Arc length \(= \displaystyle\int_0^4 \sqrt{1+25x^8}\, dx\); arc length function \(s(x) = \displaystyle\int_0^x \sqrt{1+25t^8}\, dt\)</p>
+</div>
+<hr>
+
+<h2>Topic 5 &mdash; Volume: Disk Method</h2>
+<p>Revolving \(y = f(x)\) about the \(x\)-axis over \([a,b]\) produces a solid with volume \(V = \pi\int_a^b [f(x)]^2\, dx\). Square the function first before integrating.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 5</div>
+	<p>Find the volume of the solid that results from rotating the region between the graph of
+	\[ y = 6\sqrt{8 - x^3} \]
+	and the \(x\)-axis about the \(x\)-axis, over the interval \(0 \leq x \leq 2\). Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Apply the disk method formula.</strong></p>
+	<div class="formula">\[ V = \pi\int_0^2 \left[6\sqrt{8-x^3}\right]^2 dx = \pi\int_0^2 36(8-x^3)\, dx \]</div>
+	<p><strong>Step 2 &mdash; Integrate.</strong></p>
+	<div class="formula">\[ V = 36\pi\int_0^2 (8-x^3)\, dx = 36\pi\left[8x - \frac{x^4}{4}\right]_0^2 = 36\pi\left[16 - \frac{16}{4}\right] = 36\pi(16-4) = 36\pi \cdot 12 = 432\pi \]</div>
+	<p class="answer">\(V = 432\pi\)</p>
+</div>
+<hr>
+
+<h2>Topic 6 &mdash; Centroid of a Plane Region</h2>
+<p>For a region of constant density, \(\bar{x} = M_y/A\) and \(\bar{y} = M_x/A\), where \(M_y = \int x\,f(x)\, dx\), \(M_x = \frac{1}{2}\int [f(x)]^2\, dx\), and \(A\) is the area.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 6</div>
+	<p>Find the centroid of the plane region of constant density bounded by the curves
+	\[ y = x + 1, \quad y(x + 1) = 1, \quad y = 0, \quad \text{and} \quad x = 3. \]
+	If possible, use symmetry to simplify your calculations. Write your answer as an ordered pair. Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify the region.</strong></p>
+	<p class="step">The line \(y = x+1\) passes through \((-1,0)\) and \((0,1)\). The hyperbola \(y = \dfrac{1}{x+1}\) passes through \((0,1)\) and \((3,\tfrac{1}{4})\). Both curves meet at \((0,1)\). No useful symmetry is available.</p>
+	<p class="step">The region has a composite upper boundary: \(y = x+1\) for \(-1 \leq x \leq 0\) and \(y = \dfrac{1}{x+1}\) for \(0 \leq x \leq 3\), with \(y = 0\) below and \(x = 3\) on the right.</p>
+	<p><strong>Step 2 &mdash; Find the area \(A\).</strong></p>
+	<div class="formula">\[ A = \int_{-1}^0 (x+1)\, dx + \int_0^3 \frac{1}{x+1}\, dx = \left[\frac{(x+1)^2}{2}\right]_{-1}^0 + \bigl[\ln(x+1)\bigr]_0^3 = \frac{1}{2} + \ln 4 \]</div>
+	<p><strong>Step 3 &mdash; Find \(M_y\).</strong></p>
+	<p class="step">\(\displaystyle\int_{-1}^0 x(x+1)\, dx = \int_{-1}^0 (x^2+x)\, dx = \left[\frac{x^3}{3}+\frac{x^2}{2}\right]_{-1}^0 = 0 - \left(-\frac{1}{3}+\frac{1}{2}\right) = -\frac{1}{6}\)</p>
+	<p class="step">\(\displaystyle\int_0^3 \frac{x}{x+1}\, dx = \int_0^3 \left(1-\frac{1}{x+1}\right)dx = \bigl[x-\ln(x+1)\bigr]_0^3 = 3-\ln 4\)</p>
+	<p class="step">\(M_y = -\dfrac{1}{6} + 3 - \ln 4 = \dfrac{17}{6} - \ln 4\)</p>
+	<p><strong>Step 4 &mdash; Find \(M_x\).</strong></p>
+	<p class="step">\(\dfrac{1}{2}\displaystyle\int_{-1}^0 (x+1)^2\, dx = \dfrac{1}{2}\left[\dfrac{(x+1)^3}{3}\right]_{-1}^0 = \dfrac{1}{2}\cdot\dfrac{1}{3} = \dfrac{1}{6}\)</p>
+	<p class="step">\(\dfrac{1}{2}\displaystyle\int_0^3 \frac{1}{(x+1)^2}\, dx = \dfrac{1}{2}\left[-\dfrac{1}{x+1}\right]_0^3 = \dfrac{1}{2}\!\left(-\dfrac{1}{4}+1\right) = \dfrac{3}{8}\)</p>
+	<p class="step">\(M_x = \dfrac{1}{6}+\dfrac{3}{8} = \dfrac{4}{24}+\dfrac{9}{24} = \dfrac{13}{24}\)</p>
+	<p><strong>Step 5 &mdash; Compute the centroid.</strong></p>
+	<div class="formula">\[ \bar{x} = \frac{M_y}{A} = \frac{\dfrac{17}{6}-\ln 4}{\dfrac{1}{2}+\ln 4}, \qquad \bar{y} = \frac{M_x}{A} = \frac{\dfrac{13}{24}}{\dfrac{1}{2}+\ln 4} \]</div>
+	<p class="answer">Centroid: \(\left(\dfrac{17/6-\ln 4}{1/2+\ln 4},\;\dfrac{13/24}{1/2+\ln 4}\right)\)</p>
+</div>
+<hr>
+
+<h2>Topic 7 &mdash; Volume: Shell Method about the y-axis</h2>
+<p>Revolving a region about the \(y\)-axis using cylindrical shells: \(V = 2\pi\int_a^b x\cdot h(x)\, dx\), where \(h(x)\) is the height of the region at each \(x\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 7</div>
+	<p>Find the volume of the solid that results from rotating the region bounded by the graphs of
+	\[ y = \tfrac{1}{6}x - 3, \quad x = 0, \quad \text{and} \quad y = 0 \]
+	about the \(y\)-axis. Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify the region.</strong></p>
+	<p class="step">\(y = \tfrac{1}{6}x-3\) crosses the \(x\)-axis at \(x = 18\) and the \(y\)-axis at \(y = -3\). The region is the triangle with vertices \((0,0)\), \((18,0)\), and \((0,-3)\).</p>
+	<p class="step">For \(0 \leq x \leq 18\), the height from the line up to \(y=0\) is \(0 - \left(\tfrac{x}{6}-3\right) = 3-\tfrac{x}{6}\).</p>
+	<p><strong>Step 2 &mdash; Apply the shell method.</strong></p>
+	<div class="formula">\[ V = 2\pi\int_0^{18} x\!\left(3-\frac{x}{6}\right)dx = 2\pi\int_0^{18}\!\left(3x-\frac{x^2}{6}\right)dx \]</div>
+	<p><strong>Step 3 &mdash; Integrate.</strong></p>
+	<div class="formula">\[ V = 2\pi\left[\frac{3x^2}{2}-\frac{x^3}{18}\right]_0^{18} = 2\pi\!\left[\frac{3(324)}{2}-\frac{5832}{18}\right] = 2\pi[486-324] = 2\pi\cdot 162 = 324\pi \]</div>
+	<p class="answer">\(V = 324\pi\)</p>
+</div>
+<hr>
+
+<h2>Topic 8 &mdash; Volume: Shell Method about the x-axis</h2>
+<p>Revolving a region about the \(x\)-axis using horizontal cylindrical shells: \(V = 2\pi\int_c^d y\cdot L(y)\, dy\), where \(L(y)\) is the horizontal length of the region at height \(y\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 8</div>
+	<p>Use the shell method to find the volume of the solid that is generated by revolving the region bounded by \(y = 0\) and the graph of
+	\[ f(x) = 9 - 0.5x \]
+	about the \(x\)-axis over the interval \(17 \leq x \leq 18\). Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify the region.</strong></p>
+	<p class="step">At \(x=17\): \(f(17)=0.5\). At \(x=18\): \(f(18)=0\). The region lies between \(y=0\) and \(y=9-0.5x\) for \(17 \leq x \leq 18\). Maximum height is \(y=0.5\).</p>
+	<p><strong>Step 2 &mdash; Set up horizontal shells.</strong></p>
+	<p class="step">For a shell at height \(y\) (\(0 \leq y \leq \tfrac{1}{2}\)): solve \(9-0.5x = y\) to get \(x = 18-2y\). The condition \(y \leq f(x)\) requires \(x \leq 18-2y\), so the shell spans \(17 \leq x \leq 18-2y\).</p>
+	<p class="step">Shell length: \((18-2y)-17 = 1-2y\).</p>
+	<div class="formula">\[ V = 2\pi\int_0^{1/2} y(1-2y)\, dy = 2\pi\int_0^{1/2}(y-2y^2)\, dy \]</div>
+	<p><strong>Step 3 &mdash; Integrate.</strong></p>
+	<div class="formula">\[ V = 2\pi\left[\frac{y^2}{2}-\frac{2y^3}{3}\right]_0^{1/2} = 2\pi\!\left[\frac{1}{8}-\frac{1}{12}\right] = 2\pi\cdot\frac{1}{24} = \frac{\pi}{12} \]</div>
+	<p class="answer">\(V = \dfrac{\pi}{12}\)</p>
+</div>
+<hr>
+
+<h2>Topic 9 &mdash; Center of Mass of a Rod</h2>
+<p>For a rod with variable density \(\rho(x)\) over \([0,l]\): total mass \(m = \int_0^l \rho(x)\, dx\) and center of mass \(\bar{x} = \dfrac{1}{m}\int_0^l x\,\rho(x)\, dx\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 9</div>
+	<p>A thin rod of length \(l = 130\text{ cm}\), with a continuously varying density
+	\[ \rho = 0.4 + 0.07x \ \text{g/cm}, \]
+	is placed into the coordinate system so that it lies horizontally on the \(x\)-axis with its left endpoint coinciding with the origin. Find its center of mass. Round your answer to four decimal places if necessary.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find the total mass \(m\).</strong></p>
+	<div class="formula">\[ m = \int_0^{130}(0.4+0.07x)\, dx = \left[0.4x+0.035x^2\right]_0^{130} = 52 + 0.035(16900) = 52 + 591.5 = 643.5 \text{ g} \]</div>
+	<p><strong>Step 2 &mdash; Find the first moment.</strong></p>
+	<div class="formula">\[ \int_0^{130} x(0.4+0.07x)\, dx = \left[0.2x^2+\frac{0.07x^3}{3}\right]_0^{130} = 0.2(16900)+\frac{0.07(2{,}197{,}000)}{3} = 3380+\frac{153{,}790}{3} = \frac{163{,}930}{3} \]</div>
+	<p><strong>Step 3 &mdash; Compute the center of mass.</strong></p>
+	<div class="formula">\[ \bar{x} = \frac{163930/3}{643.5} = \frac{327{,}860}{3861} \approx 84.9158 \text{ cm} \]</div>
+	<p class="answer">Center of mass \(\bar{x} \approx 84.9158\) cm</p>
+</div>
+<hr>
+
+<h2>Topic 10 &mdash; Shell Method: Setting Up a Volume Formula</h2>
+<p>When the problem asks only for the integral formula, apply \(V = 2\pi\int_a^b x\,f(x)\, dx\) (shells about the \(y\)-axis) and stop before evaluating.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 10</div>
+	<p>Using the shell method, find a formula for the volume of the solid that results when the region bounded by the graphs of the equations
+	\[ y = 28e^{-x} - 1, \quad x = 0, \quad x = \ln(28), \quad \text{and} \quad y = 0 \]
+	is revolved about the \(y\)-axis. Do not evaluate the integral.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Confirm the region boundaries.</strong></p>
+	<p class="step">At \(x=0\): \(y = 28e^0-1 = 27\). At \(x = \ln 28\): \(y = 28\cdot\tfrac{1}{28}-1 = 0\). The curve starts at \((0,27)\), decreases to \((\ln 28, 0)\), and the region lies above \(y = 0\).</p>
+	<p><strong>Step 2 &mdash; Apply the shell method about the \(y\)-axis.</strong></p>
+	<p class="step">Shell at position \(x\): radius \(= x\), height \(= 28e^{-x}-1\).</p>
+	<div class="formula">\[ V = 2\pi\int_0^{\ln 28} x\bigl(28e^{-x}-1\bigr)\, dx \]</div>
+	<p class="answer">\(V = 2\pi\displaystyle\int_0^{\ln 28} x\bigl(28e^{-x}-1\bigr)\, dx\)</p>
+</div>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc2_ch6';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP English Language -- Unit 9: Synthesis and Exam Preparation</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html" class="active">Unit 9</a>
+</nav>
+
+<h1>AP English Language -- Unit 9: Synthesis and Exam Preparation</h1>
+
+<h2>Exam Overview</h2>
+<p>The AP English Language and Composition exam has two sections:</p>
+<table>
+	<tr><th>Section</th><th>Content</th><th>Time</th><th>Points</th></tr>
+	<tr><td>Section I: Multiple Choice</td><td>45 questions on reading and writing passages</td><td>60 minutes</td><td>45% of score</td></tr>
+	<tr><td>Section II: Free Response</td><td>3 essays: Synthesis, Rhetorical Analysis, Argument</td><td>135 minutes (15 min reading + 120 writing)</td><td>55% of score</td></tr>
+</table>
+<div class="key">You have 40 minutes per essay if you divide the writing time equally. In practice: Synthesis often takes the longest (you read 6-7 sources). Budget 15 minutes for setup/planning per essay and 25 minutes for writing.</div>
+<div class="charts">
+	<div class="chart-box">
+		<h3>Score Composition</h3>
+		<canvas id="scoreChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>FRQ Time Allocation (Suggested)</h3>
+		<canvas id="timeChart"></canvas>
+	</div>
+</div>
+<hr>
+
+<h2>FRQ 1 -- The Synthesis Essay</h2>
+<p>You are given 6-7 sources (articles, data, images, charts) on a single topic. You must write an argument that synthesizes at least 3 sources to support your position.</p>
+<table>
+	<tr><th>Scoring Dimension</th><th>Points</th><th>What Earns It</th></tr>
+	<tr><td>Thesis</td><td>0-1</td><td>Arguable claim that responds to the prompt; not a restatement</td></tr>
+	<tr><td>Evidence &amp; Commentary</td><td>0-4</td><td>Use of evidence from at least 3 sources with explanation; commentary connecting to thesis</td></tr>
+	<tr><td>Sophistication</td><td>0-1</td><td>Nuance, complexity, compelling argument structure, or vivid style</td></tr>
+</table>
+<p><strong>Synthesis Strategy:</strong></p>
+<ol>
+	<li>Read all sources quickly during the 15-minute reading period; annotate key claims and evidence</li>
+	<li>Decide your position on the prompt question</li>
+	<li>Identify which sources support, complicate, or oppose your view</li>
+	<li>Write a thesis that reflects your position and previews your reasoning</li>
+	<li>Use sources to support your points -- not as the point itself. Synthesize means YOU drive the argument; sources are evidence</li>
+	<li>Do NOT agree with all sources equally -- take a position and use sources selectively</li>
+</ol>
+<div class="key">A critical synthesis mistake: writing a "tour of the sources" instead of an argument. Each paragraph should advance YOUR claim using evidence from sources -- not just summarize each source in turn.</div>
+<hr>
+
+<h2>FRQ 2 -- The Rhetorical Analysis Essay</h2>
+<p>You are given one nonfiction prose passage and asked to analyze how the writer uses rhetorical strategies to achieve their purpose.</p>
+<table>
+	<tr><th>Scoring Dimension</th><th>Points</th><th>What Earns It</th></tr>
+	<tr><td>Thesis</td><td>0-1</td><td>Arguable claim about the writer's rhetorical choices and their effect; not a list of devices</td></tr>
+	<tr><td>Evidence &amp; Commentary</td><td>0-4</td><td>Specific textual evidence with analysis of how/why the choice is effective</td></tr>
+	<tr><td>Sophistication</td><td>0-1</td><td>Nuanced analysis of multiple layers of the text; complex argument about how strategies work together</td></tr>
+</table>
+<p><strong>Rhetorical Analysis Structure:</strong></p>
+<ol>
+	<li>Read the passage annotating: underline choices (diction, syntax, figurative language); note tone shifts; identify the rhetorical situation</li>
+	<li>Write a thesis that makes a claim about HOW and WHY -- not just WHAT devices are used</li>
+	<li>Organize by argument, not by device ("Adams builds credibility through..." not "Adams uses ethos, pathos, and logos...")</li>
+	<li>Quote specifically; analyze immediately; connect to purpose</li>
+	<li>Return to the larger rhetorical situation in your conclusion</li>
+</ol>
+<div class="key">Weak thesis: "The author uses ethos, pathos, and logos to persuade." Strong thesis: "By grounding her appeal in shared cultural memory and then pivoting to urgent statistical evidence, the author constructs a case that is simultaneously emotionally resonant and intellectually credible."</div>
+<hr>
+
+<h2>FRQ 3 -- The Argument Essay</h2>
+<p>You are given a prompt with a claim or question. You must take and defend a position using evidence from your reading, experience, or observation.</p>
+<table>
+	<tr><th>Scoring Dimension</th><th>Points</th><th>What Earns It</th></tr>
+	<tr><td>Thesis</td><td>0-1</td><td>Arguable, defensible claim that responds directly to the prompt</td></tr>
+	<tr><td>Evidence &amp; Commentary</td><td>0-4</td><td>Specific evidence (from any source) with explanation of how it proves the claim</td></tr>
+	<tr><td>Sophistication</td><td>0-1</td><td>Nuanced argument; complex reasoning; effective use of style</td></tr>
+</table>
+<p><strong>Argument Essay Strategy:</strong></p>
+<ol>
+	<li>Spend 5 minutes planning: What is your position? What are your 2-3 strongest arguments? What is the best counterargument?</li>
+	<li>Write a clear, arguable thesis with a stated line of reasoning</li>
+	<li>One body paragraph per main argument; lead each with a strong topic sentence</li>
+	<li>Use specific evidence: a real example, a relevant historical event, a study you know, a literary work</li>
+	<li>Include one counterargument paragraph with concession and refutation</li>
+	<li>Conclude by returning to the significance of your thesis</li>
+</ol>
+<hr>
+
+<h2>The Sophistication Point</h2>
+<p>Each essay has one "sophistication" point that rewards complex, nuanced thinking. It is the hardest point to earn. These moves can earn it:</p>
+<table>
+	<tr><th>Move</th><th>How to Execute It</th></tr>
+	<tr><td>Nuanced argument</td><td>Acknowledge the limits of your own argument; qualify claims; address genuine complexity</td></tr>
+	<tr><td>Vivid or precise style</td><td>Use strategically effective language choices throughout; not just at the end</td></tr>
+	<tr><td>Compelling line of reasoning</td><td>Arguments connect logically and build on each other rather than being a disconnected list</td></tr>
+	<tr><td>Broader implications</td><td>Connect your argument to larger themes, systemic issues, or historical patterns</td></tr>
+	<tr><td>Explain the "so what"</td><td>Don't just prove your claim -- explain why it matters and what follows from it</td></tr>
+</table>
+<hr>
+
+<h2>Multiple Choice -- Reading Section Tips</h2>
+<p>The 45-question multiple choice section includes reading passages and questions about rhetorical analysis and writing effectiveness.</p>
+<ul>
+	<li>For rhetorical analysis questions: always return to the passage; eliminate answers that describe a real device but explain the wrong purpose</li>
+	<li>"Best" answer means most precise and most fully supported -- not just one that is partially correct</li>
+	<li>For "writing" questions (asking what revisions would improve the passage): prioritize clarity, precision, and argumentative coherence</li>
+	<li>Watch for answers that add accurate information but don't address the specific question asked</li>
+	<li>Manage time: aim for 1.5 minutes per question; mark and return to difficult ones</li>
+</ul>
+<hr>
+
+<h2>Final Exam Checklist</h2>
+<table>
+	<tr><th>Skill</th><th>Confidence Level</th></tr>
+	<tr><td>Identify and analyze rhetorical situation</td><td></td></tr>
+	<tr><td>Recognize and explain ethos, pathos, logos</td><td></td></tr>
+	<tr><td>Write an arguable, nuanced thesis</td><td></td></tr>
+	<tr><td>Identify claim types and lines of reasoning</td><td></td></tr>
+	<tr><td>Evaluate evidence quality and logical fallacies</td><td></td></tr>
+	<tr><td>Analyze diction, syntax, and figurative language</td><td></td></tr>
+	<tr><td>Write a concession-refutation paragraph</td><td></td></tr>
+	<tr><td>Synthesize 3+ sources in a coherent argument</td><td></td></tr>
+	<tr><td>Write a rhetorical analysis with specific textual evidence</td><td></td></tr>
+	<tr><td>Execute the argument essay in 40 minutes</td><td></td></tr>
+</table>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	var ctx1 = document.getElementById('scoreChart');
+	if (ctx1) {
+		new Chart(ctx1, {
+			type: 'doughnut',
+			data: {
+				labels: ['Multiple Choice (45%)', 'Free Response (55%)'],
+				datasets: [{ data: [45, 55], backgroundColor: ['#2d6a3f', '#a8d5b5'], borderWidth: 2 }]
+			},
+			options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
+		});
+	}
+	var ctx2 = document.getElementById('timeChart');
+	if (ctx2) {
+		new Chart(ctx2, {
+			type: 'bar',
+			data: {
+				labels: ['Synthesis', 'Rhetorical Analysis', 'Argument'],
+				datasets: [
+					{ label: 'Planning (min)', data: [10, 8, 7], backgroundColor: '#2d6a3f' },
+					{ label: 'Writing (min)', data: [30, 27, 28], backgroundColor: '#a8d5b5' }
+				]
+			},
+			options: { responsive: true, plugins: { legend: { position: 'bottom' } }, scales: { x: { stacked: true }, y: { stacked: true, title: { display: true, text: 'Minutes' } } } }
+		});
+	}
+});
+</script>
+<script>
+(function() {
+	var PAGE_KEY = 'aplang_unit9';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

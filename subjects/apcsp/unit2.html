@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP Computer Science Principles -- Unit 2: The Internet</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html" class="active">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+</nav>
+
+<h1>AP Computer Science Principles -- Unit 2: The Internet</h1>
+
+<h2>What Is the Internet?</h2>
+<p>The internet is a global network of interconnected computers that communicate using agreed-upon rules called <strong>protocols</strong>. No single entity owns or controls it.</p>
+<div class="key">The internet was designed to be <strong>fault tolerant</strong> -- if one path is blocked, data reroutes around it. This decentralized design was intentional: the original ARPANET was built to survive partial failures (including nuclear attack).</div>
+<ul>
+	<li>The internet connects billions of devices through a mixture of physical cables, fiber optics, cellular networks, and satellite links</li>
+	<li><strong>The World Wide Web</strong> (WWW) is a service that runs ON the internet -- a collection of linked documents accessed via browsers. The internet also carries email, file transfers, streaming, and more.</li>
+	<li><strong>Bandwidth</strong>: the maximum amount of data that can be transmitted per second (measured in Mbps, Gbps)</li>
+	<li><strong>Latency</strong>: the time delay for data to travel from source to destination</li>
+</ul>
+<hr>
+
+<h2>Packets and Packet Switching</h2>
+<p>Data sent over the internet is broken into small chunks called <strong>packets</strong>. Each packet travels independently and may take a different route to the destination. They are reassembled at the destination.</p>
+<table>
+	<tr><th>Packet Component</th><th>Contains</th></tr>
+	<tr><td>Header</td><td>Source IP, destination IP, packet number, total packet count, protocol info</td></tr>
+	<tr><td>Body (payload)</td><td>The actual chunk of data being transmitted</td></tr>
+</table>
+<p><strong>Why packet switching?</strong></p>
+<ul>
+	<li>Efficient: network capacity is shared; no dedicated line needed per connection</li>
+	<li>Fault tolerant: if one router fails, packets reroute automatically</li>
+	<li>Scalable: works whether the network has 10 or 10 billion connected devices</li>
+</ul>
+<hr>
+
+<h2>IP Addresses and DNS</h2>
+<p>Every device on the internet has a unique <strong>IP address</strong>. Humans use domain names (google.com) instead; the <strong>Domain Name System (DNS)</strong> translates names to IP addresses.</p>
+<table>
+	<tr><th>Version</th><th>Format</th><th>Example</th><th>Total Addresses</th></tr>
+	<tr><td>IPv4</td><td>4 numbers 0-255, dot-separated</td><td>192.168.1.1</td><td>About 4.3 billion</td></tr>
+	<tr><td>IPv6</td><td>8 groups of 4 hex digits, colon-separated</td><td>2001:0db8:85a3::8a2e:0370:7334</td><td>About 3.4 x 10^38</td></tr>
+</table>
+<p>IPv4 addresses are nearly exhausted; IPv6 was designed to provide essentially unlimited addresses for all devices worldwide.</p>
+<p><strong>DNS lookup process:</strong></p>
+<ol>
+	<li>You type "wikipedia.org" in your browser</li>
+	<li>Your computer asks a DNS resolver (usually your ISP's)</li>
+	<li>The resolver queries root nameservers, then TLD servers (.org), then Wikipedia's nameserver</li>
+	<li>The IP address is returned and your browser connects to it</li>
+	<li>The result is cached to speed up future lookups</li>
+</ol>
+<hr>
+
+<h2>Protocols -- TCP/IP and HTTP</h2>
+<p>Protocols are standardized rules that let different devices and software communicate reliably. The internet runs on a layered stack of protocols.</p>
+<table>
+	<tr><th>Protocol</th><th>Layer</th><th>Purpose</th></tr>
+	<tr><td>HTTP / HTTPS</td><td>Application</td><td>Transfer web pages; HTTPS adds encryption (TLS)</td></tr>
+	<tr><td>TCP</td><td>Transport</td><td>Reliable, ordered delivery; confirms receipt; retransmits lost packets</td></tr>
+	<tr><td>UDP</td><td>Transport</td><td>Fast, no confirmation; used for video streaming, gaming, DNS</td></tr>
+	<tr><td>IP</td><td>Internet</td><td>Addresses and routes packets between networks</td></tr>
+</table>
+<div class="key">TCP vs. UDP trade-off: TCP guarantees delivery (good for files, web pages) but is slower. UDP is faster but some packets may be lost -- acceptable for video calls where a dropped frame is better than a delay.</div>
+<hr>
+
+<h2>Routing and Redundancy</h2>
+<p>When you send data, <strong>routers</strong> read the destination IP in each packet and forward it toward the destination. Each router only needs to know its neighbors -- not the full path.</p>
+<ul>
+	<li>The internet's routing structure is decentralized -- there is no single routing authority</li>
+	<li><strong>Redundancy</strong>: multiple paths exist between any two points, so the network continues functioning even if paths fail</li>
+	<li><strong>Scalability</strong>: the network can grow by adding nodes without redesigning the whole system</li>
+	<li><strong>traceroute</strong>: a tool that shows every router (hop) a packet passes through on its way to a destination</li>
+</ul>
+<hr>
+
+<h2>The World Wide Web</h2>
+<p>The Web is built on three core technologies:</p>
+<table>
+	<tr><th>Technology</th><th>Role</th></tr>
+	<tr><td>HTML</td><td>Structure and content of web pages</td></tr>
+	<tr><td>CSS</td><td>Styling and layout</td></tr>
+	<tr><td>JavaScript</td><td>Interactivity and dynamic behavior</td></tr>
+</table>
+<p><strong>HTTP request cycle:</strong></p>
+<ol>
+	<li>Browser sends a GET request to the server's IP address on port 80 (HTTP) or 443 (HTTPS)</li>
+	<li>Server responds with an HTML document and a status code (200 OK, 404 Not Found, 500 Server Error, etc.)</li>
+	<li>Browser parses the HTML and makes additional requests for CSS, images, and scripts</li>
+	<li>Browser renders the complete page</li>
+</ol>
+<hr>
+
+<h2>Net Neutrality and Open Standards</h2>
+<p>The internet's power comes partly from <strong>open standards</strong> -- protocols that anyone can implement without paying licensing fees. This allows competition and innovation at every layer.</p>
+<ul>
+	<li><strong>Net neutrality</strong>: the principle that ISPs must treat all internet traffic equally, regardless of source, destination, or content type. Without it, ISPs could throttle or block specific services.</li>
+	<li><strong>Open protocols</strong>: HTTP, TCP/IP, DNS are all open standards maintained by organizations like IETF and W3C</li>
+	<li>The web's success is largely due to Tim Berners-Lee placing the original web protocols into the public domain</li>
+</ul>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apcsp_unit2';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

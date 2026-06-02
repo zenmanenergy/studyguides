@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 2 &mdash; Unit 3: Parametric Equations and Polar Coordinates (Ch. 9)</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1 &mdash; Ch. 6</a>
+	<a href="unit2.html">Unit 2 &mdash; Ch. 7</a>
+	<a href="unit3.html" class="active">Unit 3 &mdash; Ch. 9</a>
+	<a href="unit4.html">Unit 4 &mdash; Ch. 10</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Unit 3: Parametric Equations and Polar Coordinates</h1>
+
+<h2>9.1 Parametric Equations</h2>
+<p>Instead of expressing \(y\) directly as a function of \(x\), a <strong>parametric curve</strong> expresses both \(x\) and \(y\) as functions of a third variable \(t\) (the <strong>parameter</strong>):</p>
+<div class="formula">
+	\[ x = f(t), \quad y = g(t), \quad t \in [a, b] \]
+</div>
+<ul>
+	<li>The curve is traced in the direction of increasing \(t\)</li>
+	<li><strong>Eliminating the parameter</strong>: solve one equation for \(t\) and substitute into the other to get \(y = h(x)\). Only valid when the relationship is one-to-one in \(t\).</li>
+	<li>Parametric form can represent curves that fail the vertical line test (e.g., circles)</li>
+</ul>
+<p><strong>Common parametric curves:</strong></p>
+<table>
+	<tr><th>Curve</th><th>Parametric Form</th></tr>
+	<tr><td>Circle, radius \(r\), centered at origin</td><td>\(x = r\cos t,\; y = r\sin t,\; t \in [0, 2\pi]\)</td></tr>
+	<tr><td>Ellipse \(\frac{x^2}{a^2}+\frac{y^2}{b^2}=1\)</td><td>\(x = a\cos t,\; y = b\sin t\)</td></tr>
+	<tr><td>Line through \((x_0,y_0)\) with slope \(m\)</td><td>\(x = x_0 + t,\; y = y_0 + mt\)</td></tr>
+	<tr><td>Cycloid</td><td>\(x = r(t - \sin t),\; y = r(1 - \cos t)\)</td></tr>
+</table>
+<hr>
+
+<h2>9.2 Calculus and Parametric Equations</h2>
+<p><strong>First derivative</strong> (slope of the tangent line):</p>
+<div class="formula">
+	\[ \frac{dy}{dx} = \frac{dy/dt}{dx/dt} \qquad \left(\frac{dx}{dt} \ne 0\right) \]
+</div>
+<p><strong>Second derivative:</strong></p>
+<div class="formula">
+	\[ \frac{d^2y}{dx^2} = \frac{d}{dx}\!\left(\frac{dy}{dx}\right) = \frac{\dfrac{d}{dt}\!\left(\dfrac{dy}{dx}\right)}{dx/dt} \]
+</div>
+<ul>
+	<li>Tangent is horizontal when \(dy/dt = 0\) (and \(dx/dt \ne 0\))</li>
+	<li>Tangent is vertical when \(dx/dt = 0\) (and \(dy/dt \ne 0\))</li>
+	<li>At a point where both are zero: further analysis needed (cusp or self-intersection)</li>
+</ul>
+<p><strong>Arc Length</strong> of a parametric curve:</p>
+<div class="formula">
+	\[ L = \int_a^b \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\, dt \]
+</div>
+<p><strong>Area</strong> enclosed by a parametric curve (traced once, counter-clockwise):</p>
+<div class="formula">
+	\[ A = \int_a^b y\, \frac{dx}{dt}\, dt \qquad \text{or} \qquad A = -\int_a^b y\, \frac{dx}{dt}\, dt \text{ (clockwise)} \]
+</div>
+<p><strong>Surface Area of Revolution</strong> about the \(x\)-axis:</p>
+<div class="formula">
+	\[ S = 2\pi \int_a^b y\, \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2}\, dt \qquad (y \ge 0) \]
+</div>
+<hr>
+
+<h2>9.3 Polar Coordinates</h2>
+<p>A point \(P\) is described by \((r, \theta)\): distance \(r\) from the origin (pole) and angle \(\theta\) from the polar axis (positive \(x\)-axis).</p>
+<div class="formula">
+	\[ x = r\cos\theta, \quad y = r\sin\theta, \quad r^2 = x^2 + y^2, \quad \tan\theta = \frac{y}{x} \]
+</div>
+<ul>
+	<li>Negative \(r\): the point is in the opposite direction at distance \(|r|\)</li>
+	<li>Each point has infinitely many representations: \((r, \theta) = (r, \theta + 2\pi k) = (-r, \theta + \pi)\)</li>
+</ul>
+<p><strong>Common polar curves:</strong></p>
+<table>
+	<tr><th>Equation</th><th>Curve</th></tr>
+	<tr><td>\(r = a\)</td><td>Circle, radius \(a\), centered at origin</td></tr>
+	<tr><td>\(r = a\cos\theta\)</td><td>Circle, diameter \(a\), tangent to \(y\)-axis at origin</td></tr>
+	<tr><td>\(r = a\sin\theta\)</td><td>Circle, diameter \(a\), tangent to \(x\)-axis at origin</td></tr>
+	<tr><td>\(r = a + b\cos\theta\)</td><td>Limacon (cardioid if \(a = b\))</td></tr>
+	<tr><td>\(r = a\cos(n\theta)\)</td><td>Rose with \(n\) petals (\(n\) odd) or \(2n\) petals (\(n\) even)</td></tr>
+	<tr><td>\(r^2 = a^2\cos(2\theta)\)</td><td>Lemniscate of Bernoulli</td></tr>
+	<tr><td>\(r = a\theta\)</td><td>Archimedean spiral</td></tr>
+</table>
+<hr>
+
+<h2>9.4 Calculus in Polar Coordinates</h2>
+<p><strong>Slope of tangent line</strong> (using parametric with \(t = \theta\)):</p>
+<div class="formula">
+	\[ \frac{dy}{dx} = \frac{dy/d\theta}{dx/d\theta} = \frac{r'(\theta)\sin\theta + r(\theta)\cos\theta}{r'(\theta)\cos\theta - r(\theta)\sin\theta} \]
+</div>
+<p><strong>Area enclosed</strong> by \(r = f(\theta)\) on \([\alpha, \beta]\):</p>
+<div class="formula">
+	\[ A = \frac{1}{2}\int_\alpha^\beta [f(\theta)]^2\, d\theta = \frac{1}{2}\int_\alpha^\beta r^2\, d\theta \]
+</div>
+<p><strong>Area between two polar curves</strong> \(r_1 \ge r_2\):</p>
+<div class="formula">
+	\[ A = \frac{1}{2}\int_\alpha^\beta \left([r_1(\theta)]^2 - [r_2(\theta)]^2\right) d\theta \]
+</div>
+<p><strong>Arc Length</strong> in polar:</p>
+<div class="formula">
+	\[ L = \int_\alpha^\beta \sqrt{r^2 + \left(\frac{dr}{d\theta}\right)^2}\, d\theta \]
+</div>
+<ul>
+	<li>To find intersection points of two polar curves, set \(r_1(\theta) = r_2(\theta)\) AND check the pole \((r=0)\) separately -- curves may pass through the pole at different angles</li>
+</ul>
+<hr>
+
+<h2>9.5 Conic Sections in Cartesian Coordinates</h2>
+<table>
+	<tr><th>Conic</th><th>Standard Form</th><th>Key Features</th></tr>
+	<tr><td>Parabola</td><td>\(y^2 = 4px\) (opens right) or \(x^2 = 4py\) (opens up)</td><td>Focus at \((p,0)\) or \((0,p)\); directrix \(x = -p\) or \(y = -p\)</td></tr>
+	<tr><td>Ellipse</td><td>\(\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1,\; a > b > 0\)</td><td>Foci at \((\pm c, 0)\), \(c^2 = a^2 - b^2\); eccentricity \(e = c/a < 1\)</td></tr>
+	<tr><td>Hyperbola</td><td>\(\dfrac{x^2}{a^2} - \dfrac{y^2}{b^2} = 1\)</td><td>Foci at \((\pm c, 0)\), \(c^2 = a^2 + b^2\); asymptotes \(y = \pm\frac{b}{a}x\); \(e = c/a > 1\)</td></tr>
+</table>
+<ul>
+	<li>Eccentricity: \(e = 0\) (circle), \(0 < e < 1\) (ellipse), \(e = 1\) (parabola), \(e > 1\) (hyperbola)</li>
+	<li>Completing the square converts general form \(Ax^2 + Cy^2 + Dx + Ey + F = 0\) to standard form</li>
+	<li>Reflective property of parabola: rays parallel to the axis reflect through the focus</li>
+	<li>Ellipse: sum of distances from any point to both foci = \(2a\); used in planetary orbits (Kepler's first law)</li>
+	<li>Hyperbola: difference of distances from any point to both foci = \(2a\)</li>
+</ul>
+<hr>
+
+<h2>9.6 Conic Sections in Polar Coordinates</h2>
+<p>All three conic sections can be written in a unified polar form with focus at the origin:</p>
+<div class="formula">
+	\[ r = \frac{ed}{1 \pm e\cos\theta} \qquad \text{or} \qquad r = \frac{ed}{1 \pm e\sin\theta} \]
+</div>
+<ul>
+	<li>\(e\) = eccentricity, \(d\) = distance from focus to directrix</li>
+	<li>\(+\cos\theta\): directrix to the right; \(-\cos\theta\): directrix to the left</li>
+	<li>\(+\sin\theta\): directrix above; \(-\sin\theta\): directrix below</li>
+</ul>
+<table>
+	<tr><th>Eccentricity</th><th>Conic</th></tr>
+	<tr><td>\(e = 1\)</td><td>Parabola</td></tr>
+	<tr><td>\(0 < e < 1\)</td><td>Ellipse</td></tr>
+	<tr><td>\(e > 1\)</td><td>Hyperbola</td></tr>
+</table>
+<ul>
+	<li>The semi-latus rectum is \(\ell = ed\); it is the \(r\)-value when \(\theta = \pi/2\)</li>
+	<li>Kepler's first law: planetary orbits are ellipses with the Sun at one focus -- expressed naturally in polar conic form</li>
+</ul>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc2_unit3';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

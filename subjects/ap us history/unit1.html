@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 1: Period 1 (1491–1607)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html" class="active">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 1: Period 1 (1491&ndash;1607)</h1>
+
+<h2>Pre-Columbian North America</h2>
+<ul>
+	<li>Diverse Native societies organized around geography: Eastern Woodlands, Great Plains, Southwest, Pacific Northwest, Mississippi Valley</li>
+	<li><strong>Mississippian culture:</strong> large mound-building cities (Cahokia), complex trade networks, maize-based agriculture</li>
+	<li><strong>Southwest:</strong> Pueblo peoples (Anasazi/Ancestral Puebloans) developed permanent adobe settlements, irrigation</li>
+	<li><strong>Great Plains:</strong> nomadic buffalo hunters; Eastern Woodlands tribes used farming and hunting</li>
+	<li>Most societies were kin-based, often matrilineal; land was communal, not privately owned</li>
+</ul>
+
+<hr>
+<h2>European Motivations for Exploration</h2>
+<div class="key">
+	The 3 G's: <strong>God</strong> (spread Christianity), <strong>Glory</strong> (national prestige), <strong>Gold</strong> (economic gain)
+</div>
+<ul>
+	<li>Ottoman Empire blocked overland trade routes to Asia &rarr; incentive to find sea routes</li>
+	<li>Technological advances: caravel, magnetic compass, astrolabe, Mercator maps</li>
+	<li><strong>Portugal:</strong> led early exploration along Africa's coast; Vasco da Gama reached India (1498)</li>
+	<li><strong>Spain:</strong> Columbus reached Caribbean (1492); Treaty of Tordesillas (1494) divided New World between Spain and Portugal</li>
+	<li><strong>Reconquista</strong> mindset shaped Spanish conquest: military subjugation of non-Christians</li>
+</ul>
+
+<hr>
+<h2>The Columbian Exchange</h2>
+<table>
+	<tr><th>Americas to Europe/Africa/Asia</th><th>Europe/Africa/Asia to Americas</th></tr>
+	<tr><td>Maize, potatoes, tomatoes, tobacco, cacao, squash, beans</td><td>Wheat, sugar, rice, cattle, horses, pigs, smallpox, measles, influenza</td></tr>
+</table>
+<ul>
+	<li>European diseases killed an estimated <strong>50–90% of the Native population</strong> within a century of contact</li>
+	<li>Horses transformed Plains tribes' culture (hunting, warfare) after 1500s</li>
+	<li>Sugar cultivation in the Caribbean drove the transatlantic slave trade</li>
+	<li>New crops (potatoes, maize) fed population booms in Europe and Africa</li>
+</ul>
+
+<hr>
+<h2>Spanish Colonization</h2>
+<ul>
+	<li><strong>Conquistadors:</strong> Cortes defeated Aztec Empire (1521); Pizarro conquered Inca (1532)</li>
+	<li><strong>Encomienda system:</strong> Spanish granted Native labor; brutal, led to mass death</li>
+	<li><strong>Bartolome de las Casas:</strong> priest who condemned encomienda abuses; argued for Native rights</li>
+	<li>New Laws (1542) attempted reform; replaced with African slave labor over time</li>
+	<li>Mestizo population emerged from intermarriage; complex racial hierarchy (casta system)</li>
+	<li>Spanish established missions in Florida (1565) and New Mexico to convert Natives</li>
+</ul>
+
+<hr>
+<h2>Other European Contact Before 1607</h2>
+<table>
+	<tr><th>Nation</th><th>Activity</th><th>Key Detail</th></tr>
+	<tr><td>France</td><td>Fishing, fur trade, exploration</td><td>Cartier explored St. Lawrence; allied with Huron and Algonquian tribes</td></tr>
+	<tr><td>England</td><td>Privateering, early colonization</td><td>Roanoke Colony (1587) failed mysteriously; motivated further attempts</td></tr>
+	<tr><td>Netherlands</td><td>Trade, exploration</td><td>Hudson explored Northeast; later founded New Amsterdam</td></tr>
+</table>
+<ul>
+	<li>French and Dutch tended toward trade partnerships with Natives rather than conquest</li>
+	<li>English viewed land as open for settlement; conflicted more directly with Native populations</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Estimated Native Population Decline in Americas after Contact</h3>
+		<canvas id="popChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>European Claims in North America by ~1600</h3>
+		<canvas id="claimsChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('popChart'), {
+		type: 'bar',
+		data: {
+			labels: ['1492 (pre-contact)', '1550', '1600', '1650'],
+			datasets: [{
+				label: 'Est. Native Population (millions)',
+				data: [54, 25, 10, 6],
+				backgroundColor: ['#8b2500cc', '#c0392bcc', '#e74c3ccc', '#f1948acc']
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { beginAtZero: true, title: { display: true, text: 'Millions of people' } } }
+		}
+	});
+
+	new Chart(document.getElementById('claimsChart'), {
+		type: 'bar',
+		data: {
+			labels: ['Spain', 'France', 'Portugal', 'England', 'Netherlands'],
+			datasets: [{
+				label: 'Relative territorial claims (index)',
+				data: [90, 40, 30, 15, 10],
+				backgroundColor: ['#8b2500cc', '#2c5f9ecc', '#27ae60cc', '#c0392bcc', '#e67e22cc']
+			}]
+		},
+		options: {
+			indexAxis: 'y',
+			plugins: { legend: { display: false } },
+			scales: { x: { title: { display: true, text: 'Relative claim size (approximate)' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit1';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

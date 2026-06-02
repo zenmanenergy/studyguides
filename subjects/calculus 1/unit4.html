@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 1 — Unit 4: Contextual Applications of Differentiation</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html" class="active">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+</nav>
+
+<h1>Calculus 1 &mdash; Unit 4: Contextual Applications of Differentiation</h1>
+
+<h2>Rates of Change: Motion</h2>
+<table>
+	<tr><th>Quantity</th><th>Notation</th><th>Meaning</th></tr>
+	<tr><td>Position</td><td>\(s(t)\)</td><td>Location at time \(t\)</td></tr>
+	<tr><td>Velocity</td><td>\(v(t) = s'(t)\)</td><td>Rate of change of position</td></tr>
+	<tr><td>Acceleration</td><td>\(a(t) = v'(t) = s''(t)\)</td><td>Rate of change of velocity</td></tr>
+	<tr><td>Speed</td><td>\(|v(t)|\)</td><td>Magnitude of velocity</td></tr>
+</table>
+<ul>
+	<li>Moving right/up when \(v(t) > 0\); left/down when \(v(t) < 0\)</li>
+	<li>Speeding up when \(v\) and \(a\) have the <strong>same</strong> sign; slowing down when opposite signs</li>
+	<li>At rest when \(v(t) = 0\)</li>
+</ul>
+
+<hr>
+<h2>Related Rates</h2>
+<ul>
+	<li>Two or more quantities both changing with respect to time</li>
+	<li>Differentiate a geometric or physical equation implicitly with respect to \(t\)</li>
+</ul>
+<div class="formula">
+	Strategy: Draw diagram &rarr; write equation relating variables &rarr; differentiate both sides w.r.t. \(t\) &rarr; plug in known values and solve
+</div>
+<ul>
+	<li>Common setups: ladder sliding, balloon expanding, shadow lengthening, water draining</li>
+	<li>Example (expanding circle): \(A = \pi r^2 \;\Rightarrow\; \dfrac{dA}{dt} = 2\pi r \dfrac{dr}{dt}\)</li>
+	<li>Example (Pythagorean): \(x^2 + y^2 = z^2 \;\Rightarrow\; 2x\dfrac{dx}{dt} + 2y\dfrac{dy}{dt} = 2z\dfrac{dz}{dt}\)</li>
+</ul>
+
+<hr>
+<h2>Linear Approximation (Linearization)</h2>
+<div class="formula">
+	\[ L(x) = f(a) + f'(a)(x - a) \]
+	This is the tangent line at \(x = a\), used to approximate \(f(x)\) near \(a\).
+</div>
+<ul>
+	<li>The closer \(x\) is to \(a\), the better the approximation</li>
+	<li>Example: approximate \(\sqrt{4.02}\) using \(f(x) = \sqrt{x}\) at \(a = 4\):</li>
+</ul>
+<div class="formula">
+	\(f'(x) = \dfrac{1}{2\sqrt{x}},\quad f'(4) = \dfrac{1}{4}\)<br>
+	\(L(4.02) = 2 + \dfrac{1}{4}(0.02) = 2.005\)
+</div>
+
+<hr>
+<h2>L'Hopital's Rule</h2>
+<div class="formula">
+	If \(\lim_{x \to c} \dfrac{f(x)}{g(x)}\) gives \(\dfrac{0}{0}\) or \(\dfrac{\infty}{\infty}\), then:
+	\[ \lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)} \]
+</div>
+<ul>
+	<li>Can be applied repeatedly if still indeterminate</li>
+	<li>Only valid for indeterminate forms &mdash; do not use when denominator limit is nonzero</li>
+	<li>Other indeterminate forms (\(0 \cdot \infty\), \(\infty - \infty\), \(1^\infty\), etc.) must first be rewritten as \(0/0\) or \(\infty/\infty\)</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Position, Velocity, Acceleration for s(t) = t^3 - 6t^2 + 9t</h3>
+		<canvas id="motionChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Linear Approximation of sqrt(x) at a = 4</h3>
+		<canvas id="linearChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	var sData = [], vData = [], aData = [];
+	for (var t = 0; t <= 4; t += 0.1) {
+		sData.push({ x: t, y: t*t*t - 6*t*t + 9*t });
+		vData.push({ x: t, y: 3*t*t - 12*t + 9 });
+		aData.push({ x: t, y: 6*t - 12 });
+	}
+	new Chart(document.getElementById('motionChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 's(t)', data: sData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: "v(t) = s'(t)", data: vData, borderColor: '#27ae60', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: "a(t) = v'(t)", data: aData, borderColor: '#c0392b', backgroundColor: 'transparent', showLine: true, pointRadius: 0 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 't' } }, y: { title: { display: true, text: 'value' } } }
+		}
+	});
+
+	var curveData = [], approxData = [];
+	for (var x = 1; x <= 9; x += 0.1) {
+		curveData.push({ x: x, y: Math.sqrt(x) });
+		approxData.push({ x: x, y: 2 + 0.25 * (x - 4) });
+	}
+	new Chart(document.getElementById('linearChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'f(x) = sqrt(x)', data: curveData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: 'L(x) = 2 + (x-4)/4', data: approxData, borderColor: '#c0392b', borderDash: [5,5], backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: 'a = 4', data: [{ x: 4, y: 2 }], borderColor: '#c0392b', backgroundColor: '#c0392b', pointRadius: 6 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { min: 0, max: 4 } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc1_unit4';
+
+	function setCookie(name, val) {
+		var d = new Date();
+		d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=';
+		var parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) {
+			var c = parts[i].trim();
+			if (c.indexOf(key) === 0) return c.substring(key.length);
+		}
+		return null;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var h2s = document.querySelectorAll('h2');
+		h2s.forEach(function(h2) {
+			var siblings = [];
+			var next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') {
+				siblings.push(next);
+				next = next.nextElementSibling;
+			}
+			var wrapper = document.createElement('div');
+			wrapper.className = 'section-content';
+			if (siblings.length > 0) {
+				h2.parentNode.insertBefore(wrapper, siblings[0]);
+				siblings.forEach(function(s) { wrapper.appendChild(s); });
+			}
+			var headingText = h2.textContent.trim().replace(/\s+/g, '_');
+			var cookieKey = PAGE_KEY + '__' + headingText;
+			var cb = document.createElement('input');
+			cb.type = 'checkbox';
+			cb.className = 'section-checkbox';
+			cb.title = 'Mark as understood (collapses section)';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span');
+			hint.className = 'collapse-hint';
+			hint.textContent = 'click to collapse';
+			h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed;
+				hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				if (collapsed) { wrapper.classList.add('collapsed'); } else { wrapper.classList.remove('collapsed'); }
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			var saved = getCookie(cookieKey);
+			applyState(saved === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

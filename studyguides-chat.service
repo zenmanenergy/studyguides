@@ -1,0 +1,18 @@
+[Unit]
+Description=Study Guides Chat Server
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/studyguides
+EnvironmentFile=/opt/studyguides/.env
+ExecStart=/opt/studyguides/venv/bin/python chat_server.py
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 1 — Unit 2: Differentiation: Definition and Fundamental Properties</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html" class="active">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+</nav>
+
+<h1>Calculus 1 &mdash; Unit 2: Differentiation: Definition and Fundamental Properties</h1>
+
+<h2>Definition of the Derivative</h2>
+<div class="formula">
+	\[ f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \]
+</div>
+<ul>
+	<li>Geometrically: slope of the tangent line at \(x\)</li>
+	<li>Physically: instantaneous rate of change</li>
+	<li>Notations: \(f'(x),\ \dfrac{dy}{dx},\ \dfrac{d}{dx}[f(x)],\ \dot{y}\)</li>
+	<li>A function is differentiable at \(x\) only if it is continuous there (converse is NOT true)</li>
+	<li>Not differentiable at: corners, cusps, vertical tangents, discontinuities</li>
+</ul>
+
+<hr>
+<h2>Basic Differentiation Rules</h2>
+<table>
+	<tr><th>Rule</th><th>Formula</th></tr>
+	<tr><td>Constant</td><td>\(\dfrac{d}{dx}[c] = 0\)</td></tr>
+	<tr><td>Power</td><td>\(\dfrac{d}{dx}[x^n] = nx^{n-1}\)</td></tr>
+	<tr><td>Constant Multiple</td><td>\(\dfrac{d}{dx}[cf] = cf'\)</td></tr>
+	<tr><td>Sum / Difference</td><td>\(\dfrac{d}{dx}[f \pm g] = f' \pm g'\)</td></tr>
+	<tr><td>Product</td><td>\(\dfrac{d}{dx}[fg] = f'g + fg'\)</td></tr>
+	<tr><td>Quotient</td><td>\(\dfrac{d}{dx}\!\left[\dfrac{f}{g}\right] = \dfrac{f'g - fg'}{g^2}\)</td></tr>
+</table>
+
+<hr>
+<h2>Derivatives of Trig Functions</h2>
+<table>
+	<tr><th>Function</th><th>Derivative</th><th>Function</th><th>Derivative</th></tr>
+	<tr><td>\(\sin x\)</td><td>\(\cos x\)</td><td>\(\csc x\)</td><td>\(-\csc x \cot x\)</td></tr>
+	<tr><td>\(\cos x\)</td><td>\(-\sin x\)</td><td>\(\sec x\)</td><td>\(\sec x \tan x\)</td></tr>
+	<tr><td>\(\tan x\)</td><td>\(\sec^2 x\)</td><td>\(\cot x\)</td><td>\(-\csc^2 x\)</td></tr>
+</table>
+
+<hr>
+<h2>Derivatives of Exponential and Log Functions</h2>
+<table>
+	<tr><th>Function</th><th>Derivative</th></tr>
+	<tr><td>\(e^x\)</td><td>\(e^x\)</td></tr>
+	<tr><td>\(a^x\)</td><td>\(a^x \ln a\)</td></tr>
+	<tr><td>\(\ln x\)</td><td>\(1/x\)</td></tr>
+	<tr><td>\(\log_a x\)</td><td>\(\dfrac{1}{x \ln a}\)</td></tr>
+</table>
+
+<hr>
+<h2>Higher-Order Derivatives</h2>
+<ul>
+	<li>\(f''(x)\) = second derivative = rate of change of \(f'\) = concavity indicator</li>
+	<li>Notation: \(f^{(n)}(x),\ \dfrac{d^n y}{dx^n}\)</li>
+	<li>Position \(s(t)\) &rarr; velocity \(v(t) = s'(t)\) &rarr; acceleration \(a(t) = v'(t) = s''(t)\)</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>f(x) = x^3 - 3x and its derivative f'(x) = 3x^2 - 3</h3>
+		<canvas id="derivChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Tangent line to f(x) = x^2 at x = 1</h3>
+		<canvas id="tangentChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	var fData = [], fpData = [], xVals = [];
+	for (var x = -2.5; x <= 2.5; x += 0.1) {
+		xVals.push(Math.round(x * 10) / 10);
+		fData.push({ x: x, y: x*x*x - 3*x });
+		fpData.push({ x: x, y: 3*x*x - 3 });
+	}
+	new Chart(document.getElementById('derivChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'f(x) = x^3 - 3x', data: fData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: "f'(x) = 3x^2 - 3", data: fpData, borderColor: '#e67e22', backgroundColor: 'transparent', showLine: true, pointRadius: 0 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { min: -6, max: 6, title: { display: true, text: 'y' } } }
+		}
+	});
+
+	var curveData = [], tangentData = [];
+	for (var x = -1; x <= 3; x += 0.1) {
+		curveData.push({ x: x, y: x * x });
+	}
+	// tangent at x=1: f(1)=1, f'(1)=2 => y = 2x - 1
+	tangentData = [{ x: -0.5, y: 2*(-0.5)-1 }, { x: 2.5, y: 2*(2.5)-1 }];
+	new Chart(document.getElementById('tangentChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'f(x) = x^2', data: curveData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: 'Tangent at x=1: y = 2x - 1', data: tangentData, borderColor: '#c0392b', borderDash: [5,5], backgroundColor: 'transparent', showLine: true, pointRadius: 0 },
+				{ label: 'Point (1, 1)', data: [{ x: 1, y: 1 }], borderColor: '#c0392b', backgroundColor: '#c0392b', pointRadius: 6 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { min: -2, max: 7, title: { display: true, text: 'y' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc1_unit2';
+
+	function setCookie(name, val) {
+		var d = new Date();
+		d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=';
+		var parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) {
+			var c = parts[i].trim();
+			if (c.indexOf(key) === 0) return c.substring(key.length);
+		}
+		return null;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var h2s = document.querySelectorAll('h2');
+		h2s.forEach(function(h2) {
+			var siblings = [];
+			var next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') {
+				siblings.push(next);
+				next = next.nextElementSibling;
+			}
+			var wrapper = document.createElement('div');
+			wrapper.className = 'section-content';
+			if (siblings.length > 0) {
+				h2.parentNode.insertBefore(wrapper, siblings[0]);
+				siblings.forEach(function(s) { wrapper.appendChild(s); });
+			}
+			var headingText = h2.textContent.trim().replace(/\s+/g, '_');
+			var cookieKey = PAGE_KEY + '__' + headingText;
+			var cb = document.createElement('input');
+			cb.type = 'checkbox';
+			cb.className = 'section-checkbox';
+			cb.title = 'Mark as understood (collapses section)';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span');
+			hint.className = 'collapse-hint';
+			hint.textContent = 'click to collapse';
+			h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed;
+				hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				if (collapsed) { wrapper.classList.add('collapsed'); } else { wrapper.classList.remove('collapsed'); }
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			var saved = getCookie(cookieKey);
+			applyState(saved === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 3: Period 3 (1754–1800)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html" class="active">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 3: Period 3 (1754&ndash;1800)</h1>
+
+<h2>French and Indian War (1754–1763)</h2>
+<ul>
+	<li>Britain vs. France (with Native allies) for control of Ohio River Valley; part of global Seven Years' War</li>
+	<li><strong>George Washington's</strong> early defeat at Fort Necessity (1754) sparked the war</li>
+	<li>Britain won; <strong>Treaty of Paris (1763)</strong>: France ceded Canada and land east of Mississippi to Britain</li>
+	<li>Pontiac's Rebellion (1763): Native resistance to British expansion; led to <strong>Proclamation of 1763</strong> (no settlement west of Appalachians)</li>
+	<li>War left Britain deeply in debt &rarr; decision to tax colonies &rarr; road to Revolution</li>
+</ul>
+
+<hr>
+<h2>Road to Revolution (1763–1775)</h2>
+<table>
+	<tr><th>Act / Event</th><th>Year</th><th>Colonial Response</th></tr>
+	<tr><td>Stamp Act</td><td>1765</td><td>"No taxation without representation"; Sons of Liberty formed; boycotts</td></tr>
+	<tr><td>Townshend Acts</td><td>1767</td><td>Boycotts; colonial assemblies protested</td></tr>
+	<tr><td>Boston Massacre</td><td>1770</td><td>Anti-British propaganda (Paul Revere engraving)</td></tr>
+	<tr><td>Tea Act / Boston Tea Party</td><td>1773</td><td>342 chests of tea dumped; radicalized opinion</td></tr>
+	<tr><td>Intolerable Acts</td><td>1774</td><td>First Continental Congress; colonial unity</td></tr>
+</table>
+<div class="key">
+	Key idea: "Virtual representation" (Britain) vs. "actual representation" (colonies) — ideological core of the dispute
+</div>
+
+<hr>
+<h2>Revolutionary War and Independence</h2>
+<ul>
+	<li><strong>Common Sense (1776):</strong> Thomas Paine argued for independence in plain language; mass audience</li>
+	<li><strong>Declaration of Independence (July 4, 1776):</strong> Jefferson's Lockean natural rights — life, liberty, pursuit of happiness</li>
+	<li>Key battles: Bunker Hill (1775), Trenton (1776), Saratoga (1777, turning point), Yorktown (1781)</li>
+	<li><strong>Saratoga</strong> convinced France to ally with colonists (key to victory)</li>
+	<li><strong>Treaty of Paris (1783):</strong> Britain recognized US independence; land to Mississippi River</li>
+	<li>Women, enslaved people, Natives largely excluded from "all men are created equal"</li>
+</ul>
+
+<hr>
+<h2>Articles of Confederation and the Constitution</h2>
+<ul>
+	<li><strong>Articles of Confederation (1781):</strong> weak central government; no power to tax or regulate commerce; no executive</li>
+	<li><strong>Shays' Rebellion (1786):</strong> debt-ridden farmers revolted; showed weakness of Articles; prompted Constitutional Convention</li>
+	<li><strong>Constitutional Convention (1787):</strong> Great Compromise (bicameral Congress); 3/5 Compromise; Electoral College</li>
+	<li><strong>Federalists</strong> (Hamilton, Madison, Jay) vs. <strong>Anti-Federalists</strong> (Patrick Henry) debated ratification; Bill of Rights added 1791</li>
+	<li><strong>Federalist Papers:</strong> #10 (factions), #51 (separation of powers) — most AP-tested</li>
+</ul>
+
+<hr>
+<h2>The Early Republic (1789–1800)</h2>
+<ul>
+	<li>Washington: set precedents — two-term limit, cabinet, Farewell Address warned against permanent alliances and parties</li>
+	<li><strong>Hamilton's Financial Plan:</strong> national bank, assumption of state debts, tariffs; Jefferson and Madison opposed &rarr; birth of party system</li>
+	<li><strong>Federalists</strong> (Hamilton): strong central government, commercial economy, pro-British</li>
+	<li><strong>Democratic-Republicans</strong> (Jefferson): states' rights, agrarian ideal, pro-French</li>
+	<li><strong>Alien and Sedition Acts (1798):</strong> targeted immigrants and critics; Virginia and Kentucky Resolutions (nullification theory) in response</li>
+	<li><strong>Election of 1800:</strong> "Revolution of 1800" — peaceful transfer of power from Federalists to Republicans</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Key Events Timeline: Road to Revolution</h3>
+		<canvas id="timelineChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Articles of Confederation vs Constitution: Powers Comparison</h3>
+		<canvas id="powersChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('timelineChart'), {
+		type: 'bar',
+		data: {
+			labels: ['Stamp Act\n1765', 'Townshend\n1767', 'Boston\nMassacre 1770', 'Tea Party\n1773', 'Intolerable\nActs 1774', 'Lexington\n1775', 'Declaration\n1776'],
+			datasets: [{
+				label: 'Years from 1763',
+				data: [2, 4, 7, 10, 11, 12, 13],
+				backgroundColor: '#8b2500cc'
+			}]
+		},
+		options: {
+			indexAxis: 'y',
+			plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(c) { return (1763 + c.raw) + ''; } } } },
+			scales: { x: { title: { display: true, text: 'Years after 1763' } } }
+		}
+	});
+
+	new Chart(document.getElementById('powersChart'), {
+		type: 'bar',
+		data: {
+			labels: ['Tax', 'Regulate\ncommerce', 'Executive\nbranch', 'Federal\ncourts', 'Enforce\nlaws', 'National\nbank'],
+			datasets: [
+				{ label: 'Articles of Confederation', data: [0, 0, 0, 0, 0, 0], backgroundColor: '#c0392bcc' },
+				{ label: 'Constitution', data: [1, 1, 1, 1, 1, 1], backgroundColor: '#27ae60cc' }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } }, tooltip: { callbacks: { label: function(c) { return c.dataset.label + ': ' + (c.raw ? 'YES' : 'NO'); } } } },
+			scales: { y: { max: 1.5, ticks: { display: false }, title: { display: true, text: 'Power granted (1=yes, 0=no)' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit3';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

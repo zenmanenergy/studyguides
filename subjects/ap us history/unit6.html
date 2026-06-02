@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AP US History — Unit 6: Period 6 (1865–1898)</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html" class="active">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+	<a href="unit9.html">Unit 9</a>
+</nav>
+
+<h1>AP US History &mdash; Unit 6: Period 6 (1865&ndash;1898)</h1>
+
+<h2>Industrialization and the Gilded Age</h2>
+<ul>
+	<li>Transcontinental Railroad completed 1869; connected markets, enabled settlement, relied on Chinese immigrant labor</li>
+	<li><strong>Captains of Industry / Robber Barons:</strong> Andrew Carnegie (steel), John D. Rockefeller (oil/Standard Oil), J.P. Morgan (banking)</li>
+	<li><strong>Vertical integration:</strong> Carnegie controlled every step of steel production</li>
+	<li><strong>Horizontal integration / monopolies:</strong> Rockefeller used trusts to dominate entire industries</li>
+	<li><strong>Social Darwinism:</strong> Herbert Spencer argued the wealthy "deserved" their position; used to oppose regulation</li>
+	<li><strong>Gospel of Wealth:</strong> Carnegie argued wealthy had a duty to use their money for public good</li>
+</ul>
+
+<hr>
+<h2>Immigration and Urbanization</h2>
+<ul>
+	<li>"Old Immigration" (pre-1880): Northwest Europe — Irish, German, Scandinavian</li>
+	<li>"New Immigration" (1880–1920): Southern and Eastern Europe — Italians, Poles, Jews, Russians; also Chinese (West Coast)</li>
+	<li>Immigrants settled in ethnic urban neighborhoods; supplied cheap industrial labor</li>
+	<li><strong>Chinese Exclusion Act (1882):</strong> first major federal immigration restriction based on ethnicity</li>
+	<li>Jane Addams founded Hull House (1889) in Chicago: settlement house providing services to immigrant poor</li>
+	<li>Nativist backlash: American Protective Association; fear of Catholic and Jewish immigrants</li>
+</ul>
+
+<hr>
+<h2>Labor and Workers' Response</h2>
+<table>
+	<tr><th>Event / Organization</th><th>Year</th><th>Significance</th></tr>
+	<tr><td>Knights of Labor</td><td>1869</td><td>Open to all workers; sought 8-hour day; declined after Haymarket</td></tr>
+	<tr><td>Haymarket Affair</td><td>1886</td><td>Chicago labor rally; bomb killed police; damaged labor movement image</td></tr>
+	<tr><td>American Federation of Labor (AFL)</td><td>1886</td><td>Samuel Gompers; skilled workers only; focused on wages, hours, conditions</td></tr>
+	<tr><td>Homestead Strike</td><td>1892</td><td>Carnegie Steel; Pinkerton agents attacked strikers; union crushed</td></tr>
+	<tr><td>Pullman Strike</td><td>1894</td><td>Eugene Debs; federal troops sent; federal injunction used to break it</td></tr>
+</table>
+<div class="key">
+	Key contrast: Social Darwinism vs. Social Gospel — Social Gospel (Washington Gladden, Walter Rauschenbusch) argued Christian duty required addressing poverty and inequality
+</div>
+
+<hr>
+<h2>The New South and Racial Violence</h2>
+<ul>
+	<li><strong>Jim Crow laws:</strong> segregation codified across the South after Reconstruction ended</li>
+	<li><em>Plessy v. Ferguson (1896):</em> Supreme Court upheld "separate but equal"; legalized segregation for 60 years</li>
+	<li><strong>Ida B. Wells:</strong> journalist; documented and campaigned against lynching</li>
+	<li><strong>Booker T. Washington:</strong> accommodation strategy; vocational education; Atlanta Compromise (1895)</li>
+	<li><strong>W.E.B. Du Bois:</strong> challenged Washington; demanded full civil rights; "the talented tenth"; later co-founded NAACP (1909)</li>
+</ul>
+
+<hr>
+<h2>Farmers and the Populist Movement</h2>
+<ul>
+	<li>Farmers squeezed by falling crop prices, railroad monopolies, and debt (deflation hurt debtors)</li>
+	<li><strong>Grange movement &rarr; Farmers' Alliances &rarr; People's Party (Populists)</strong></li>
+	<li>Populist platform (1892): graduated income tax, direct election of senators, regulation of railroads, silver coinage</li>
+	<li><strong>William Jennings Bryan:</strong> "Cross of Gold" speech (1896); Democrats adopted silver platform; lost to McKinley</li>
+	<li>Populism faded after 1896 but many demands were later enacted (16th, 17th Amendments)</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>US Immigration by Decade (millions)</h3>
+		<canvas id="immigrationChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>US Industrial Output Growth Index (1865 = 100)</h3>
+		<canvas id="industrialChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	new Chart(document.getElementById('immigrationChart'), {
+		type: 'bar',
+		data: {
+			labels: ['1850s', '1860s', '1870s', '1880s', '1890s', '1900s'],
+			datasets: [{
+				label: 'Immigrants (millions)',
+				data: [2.6, 2.3, 2.8, 5.2, 3.7, 8.8],
+				backgroundColor: ['#8b2500cc','#8b2500cc','#8b2500cc','#5a1a1acc','#5a1a1acc','#5a1a1acc']
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false }, tooltip: { callbacks: { afterBody: function(items) { return items[0].dataIndex >= 3 ? 'New Immigration wave' : 'Old Immigration'; } } } },
+			scales: { y: { title: { display: true, text: 'Millions of immigrants' } } }
+		}
+	});
+
+	new Chart(document.getElementById('industrialChart'), {
+		type: 'line',
+		data: {
+			labels: ['1865', '1870', '1875', '1880', '1885', '1890', '1895', '1900'],
+			datasets: [{
+				label: 'Industrial output index',
+				data: [100, 130, 160, 220, 290, 400, 480, 600],
+				borderColor: '#8b2500',
+				backgroundColor: 'rgba(139,37,0,0.1)',
+				fill: true, tension: 0.4, pointRadius: 4
+			}]
+		},
+		options: {
+			plugins: { legend: { display: false } },
+			scales: { y: { title: { display: true, text: 'Index (1865 = 100)' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'apush_unit6';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Calculus 2 &mdash; Unit 5: Chapter 9 Practice Test</title>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+<link rel="stylesheet" href="style.css">
+<style>
+.q-block { background: #eef2ff; border: 1px solid #b0c4de; border-radius: 4px; padding: 10px 14px; margin: 14px 0 0; }
+.q-label { font-weight: bold; color: #1a3a6b; margin-bottom: 6px; font-size: 0.97em; }
+.solution-block { background: #f4faf4; border-left: 4px solid #3a7d44; padding: 9px 14px; margin: 0 0 6px; font-size: 14px; }
+.solution-label { font-weight: bold; color: #2e7031; margin-bottom: 6px; }
+.step { margin: 3px 0 3px 10px; }
+.answer { font-weight: bold; color: #1a3a6b; margin-top: 6px; }
+</style>
+</head>
+<body>
+<nav>
+<a href="Chapter6.html">Chapter 6 &mdash; Ch. 6</a>
+<a href="Chapter7.html">Chapter 7 &mdash; Ch. 7</a>
+<a href="Chapter10.html">Chapter 10 &mdash; Ch. 10</a>
+<a href="Chapter9.html" class="active">Chapter 9 &mdash; Ch. 9</a>
+<a href="final.html">Final</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Unit 5: Chapter 9 Practice Test</h1>
+<p>Ten test questions with complete step-by-step walkthroughs. Click any section header to collapse or expand it.</p>
+
+<h2>Topic 1 &mdash; Construct Parametric Equations for a Line</h2>
+<p>A parametric line with slope \(m\) satisfies \(\dfrac{dy/dt}{dx/dt} = m\). If \(y\) is given as a function of \(t\), find \(dx/dt\) from the slope condition, integrate, and use the given point to find the constant.</p>
+
+<div class="q-block">
+<div class="q-label">Question 1</div>
+<p>Construct parametric equations describing the graph of the line with the following attributes.
+\[ \text{Slope} = 18 \quad \text{and passing through} \quad (18, -7) \]
+If \(y = 4 + t\), find the parametric equation for \(x\).</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Find \(dx/dt\) from the slope condition.</strong></p>
+<p class="step">Since \(y = 4 + t\), \(dy/dt = 1\). Slope \(= \dfrac{dy/dt}{dx/dt} = 18 \Rightarrow dx/dt = \dfrac{1}{18}\).</p>
+<p><strong>Step 2 &mdash; Integrate to find \(x(t)\).</strong></p>
+<p class="step">\(x = \dfrac{t}{18} + C\)</p>
+<p><strong>Step 3 &mdash; Use the given point to find \(C\).</strong></p>
+<p class="step">At \((18, -7)\): solve \(y = 4 + t = -7 \Rightarrow t = -11\). Then \(18 = \dfrac{-11}{18} + C \Rightarrow C = \dfrac{335}{18}\).</p>
+<p><strong>Step 4 &mdash; Write the result.</strong></p>
+<div class="formula">\[ x = \frac{t + 335}{18} \]</div>
+<p class="answer">\(x = \dfrac{t + 335}{18}\)</p>
+</div>
+<hr>
+
+<h2>Topic 2 &mdash; Convert Polar to Cartesian Coordinates</h2>
+<p>Given polar \((r, \theta)\), convert using \(x = r\cos\theta\) and \(y = r\sin\theta\). A negative \(r\) reflects the point through the origin relative to \(\theta\).</p>
+
+<div class="q-block">
+<div class="q-label">Question 2</div>
+<p>Convert the point from polar to Cartesian coordinates. Write your answer in the simplest form or rounded to the nearest hundredth.
+\[ \left(-6,\ -\frac{\pi}{4}\right) \]</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Recall exact values at \(-\pi/4\).</strong></p>
+<p class="step">\(\cos\!\left(-\dfrac{\pi}{4}\right) = \dfrac{\sqrt{2}}{2}\), \quad \(\sin\!\left(-\dfrac{\pi}{4}\right) = -\dfrac{\sqrt{2}}{2}\)</p>
+<p><strong>Step 2 &mdash; Apply conversion formulas with \(r = -6\).</strong></p>
+<p class="step">\(x = -6\cdot\dfrac{\sqrt{2}}{2} = -3\sqrt{2} \approx -4.24\)</p>
+<p class="step">\(y = -6\cdot\left(-\dfrac{\sqrt{2}}{2}\right) = 3\sqrt{2} \approx 4.24\)</p>
+<p class="answer">Cartesian coordinates: \(\left(-3\sqrt{2},\ 3\sqrt{2}\right) \approx (-4.24,\ 4.24)\)</p>
+</div>
+<hr>
+
+<h2>Topic 3 &mdash; Slope of the Tangent to a Polar Curve</h2>
+<p>For \(r = f(\theta)\), treat \(x = r\cos\theta\) and \(y = r\sin\theta\) as parametric in \(\theta\):
+\[ \dfrac{dy}{dx} = \dfrac{r'\sin\theta + r\cos\theta}{r'\cos\theta - r\sin\theta}, \quad r' = \dfrac{dr}{d\theta} \]</p>
+
+<div class="q-block">
+<div class="q-label">Question 3</div>
+<p>Find the slope of the line tangent to the polar curve
+\[ r = 2\sec^2\theta \]
+at the point \(\theta = \dfrac{3\pi}{4}\). Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Compute \(r'\).</strong></p>
+<p class="step">\(r' = 4\sec^2\theta\tan\theta\)</p>
+<p><strong>Step 2 &mdash; Evaluate at \(\theta = 3\pi/4\).</strong></p>
+<p class="step">\(\sec(3\pi/4) = -\sqrt{2}\), \(\sec^2(3\pi/4) = 2\), \(\tan(3\pi/4) = -1\)</p>
+<p class="step">\(r = 2(2) = 4\), \quad \(r' = 4(2)(-1) = -8\)</p>
+<p class="step">\(\sin(3\pi/4) = \dfrac{\sqrt{2}}{2}\), \quad \(\cos(3\pi/4) = -\dfrac{\sqrt{2}}{2}\)</p>
+<p><strong>Step 3 &mdash; Compute numerator and denominator.</strong></p>
+<p class="step">Numerator: \((-8)\!\left(\dfrac{\sqrt{2}}{2}\right) + (4)\!\left(-\dfrac{\sqrt{2}}{2}\right) = -4\sqrt{2} - 2\sqrt{2} = -6\sqrt{2}\)</p>
+<p class="step">Denominator: \((-8)\!\left(-\dfrac{\sqrt{2}}{2}\right) - (4)\!\left(\dfrac{\sqrt{2}}{2}\right) = 4\sqrt{2} - 2\sqrt{2} = 2\sqrt{2}\)</p>
+<p><strong>Step 4 &mdash; Divide.</strong></p>
+<div class="formula">\[ \frac{dy}{dx} = \frac{-6\sqrt{2}}{2\sqrt{2}} = -3 \]</div>
+<p class="answer">The slope of the tangent at \(\theta = \dfrac{3\pi}{4}\) is \(-3\).</p>
+</div>
+<hr>
+
+<h2>Topic 4 &mdash; Arc Length of a Polar Curve</h2>
+<p>The arc length of \(r = f(\theta)\) from \(\alpha\) to \(\beta\) is \(L = \displaystyle\int_\alpha^\beta \sqrt{r^2 + (r')^2}\, d\theta\). Simplify the radicand using Pythagorean identities before integrating.</p>
+
+<div class="q-block">
+<div class="q-label">Question 4</div>
+<p>Find the arc length of the polar curve
+\[ r = 16\sin\theta, \quad 0 \leq \theta \leq \frac{\pi}{4}. \]
+Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Find \(r'\).</strong></p>
+<p class="step">\(r' = 16\cos\theta\)</p>
+<p><strong>Step 2 &mdash; Simplify \(r^2 + (r')^2\).</strong></p>
+<div class="formula">\[ 256\sin^2\theta + 256\cos^2\theta = 256 \]</div>
+<p><strong>Step 3 &mdash; Evaluate the integral.</strong></p>
+<div class="formula">\[ L = \int_0^{\pi/4} 16\, d\theta = 16\cdot\frac{\pi}{4} = 4\pi \]</div>
+<p class="answer">\(L = 4\pi\)</p>
+</div>
+<hr>
+
+<h2>Topic 5 &mdash; Horizontal Tangent Lines to a Parametric Curve</h2>
+<p>A horizontal tangent exists where \(dy/dt = 0\) and \(dx/dt \ne 0\). If \(dy/dt\) is never zero on the given domain, the answer is None.</p>
+
+<div class="q-block">
+<div class="q-label">Question 5</div>
+<p>Find the equations of any horizontal tangent lines to the curve
+\[ x = 3t^2, \quad y = \frac{1}{t + 6}, \quad t > -6. \]
+Write the exact answer. Do not round. If there are no horizontal tangent lines, write <em>None</em>.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Differentiate \(y\).</strong></p>
+<div class="formula">\[ \frac{dy}{dt} = -\frac{1}{(t+6)^2} \]</div>
+<p><strong>Step 2 &mdash; Set \(dy/dt = 0\) and solve.</strong></p>
+<p class="step">\(-\dfrac{1}{(t+6)^2} = 0\) has no solution; the fraction is never zero.</p>
+<p class="answer">None</p>
+</div>
+<hr>
+
+<h2>Topic 6 &mdash; Find dy/dx for a Parametric Curve at a Given Point</h2>
+<p>Compute \(\dfrac{dy}{dx} = \dfrac{dy/dt}{dx/dt}\). First determine which \(t\) corresponds to the given Cartesian point, then evaluate the derivatives there.</p>
+
+<div class="q-block">
+<div class="q-label">Question 6</div>
+<p>Find the value of \(\dfrac{dy}{dx}\) for the curve
+\[ x = 4te^{6t}, \quad y = e^{-8t} \]
+at the point \((0, 1)\). Write the exact answer. Do not round.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Find \(t\) at \((0, 1)\).</strong></p>
+<p class="step">\(y = e^{-8t} = 1 \Rightarrow t = 0\). Check: \(x = 4(0)e^0 = 0\). Confirmed.</p>
+<p><strong>Step 2 &mdash; Differentiate.</strong></p>
+<p class="step">\(\dfrac{dx}{dt} = 4e^{6t}(1 + 6t)\)</p>
+<p class="step">\(\dfrac{dy}{dt} = -8e^{-8t}\)</p>
+<p><strong>Step 3 &mdash; Evaluate at \(t = 0\).</strong></p>
+<p class="step">\(dx/dt = 4\), \quad \(dy/dt = -8\)</p>
+<div class="formula">\[ \frac{dy}{dx} = \frac{-8}{4} = -2 \]</div>
+<p class="answer">\(\dfrac{dy}{dx} = -2\)</p>
+</div>
+<hr>
+
+<h2>Topic 7 &mdash; Convert a Polar Equation to Rectangular Form</h2>
+<p>Use \(r^2 = x^2 + y^2\). For a constant \(r = k\), square both sides to get \(x^2 + y^2 = k^2\).</p>
+
+<div class="q-block">
+<div class="q-label">Question 7</div>
+<p>Rewrite the following polar equation in rectangular form.
+\[ r = 16 \]</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Square both sides.</strong></p>
+<div class="formula">\[ r^2 = 256 \]</div>
+<p><strong>Step 2 &mdash; Substitute \(r^2 = x^2 + y^2\).</strong></p>
+<div class="formula">\[ x^2 + y^2 = 256 \]</div>
+<p class="answer">Rectangular form: \(x^2 + y^2 = 256\) (a circle of radius 16 centered at the origin)</p>
+</div>
+<hr>
+
+<h2>Topic 8 &mdash; Parametric Modeling of Projectile Motion</h2>
+<p>Decompose initial velocity: \(v_x = v_0\cos\alpha\), \(v_y = v_0\sin\alpha\). Then \(x(t) = v_x t\) and \(y(t) = y_0 + v_y t - 16t^2\) (using \(g = 32\) ft/s\(^2\)).</p>
+
+<div class="q-block">
+<div class="q-label">Question 8</div>
+<p>On her morning paper route Amy throws a newspaper from her car window 5 feet from the ground. The paper has an initial velocity of \(29\text{ ft/s}\) and is tossed at an angle of \(27^\circ\) from the horizontal. Construct a set of parametric equations modeling the path of the newspaper. Round all final values to the nearest tenth.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Decompose the initial velocity.</strong></p>
+<p class="step">\(v_x = 29\cos 27^\circ \approx 29(0.8910) \approx 25.8\) ft/s</p>
+<p class="step">\(v_y = 29\sin 27^\circ \approx 29(0.4540) \approx 13.2\) ft/s</p>
+<p><strong>Step 2 &mdash; Write the parametric equations.</strong></p>
+<p class="step">Initial height \(y_0 = 5\) ft.</p>
+<div class="formula">\[ x(t) = 25.8t \]</div>
+<div class="formula">\[ y(t) = 5 + 13.2t - 16t^2 \]</div>
+<p class="answer">\(x(t) = 25.8t\), \quad \(y(t) = 5 + 13.2t - 16t^2\)</p>
+</div>
+<hr>
+
+<h2>Topic 9 &mdash; Construct a Polar Equation for a Conic Section</h2>
+<p>With a focus at the origin, eccentricity \(e\), and distance \(d\) from focus to directrix:</p>
+<table>
+<tr><th>Directrix</th><th>Polar form</th></tr>
+<tr><td>\(x = d\) (right of focus)</td><td>\(r = \dfrac{ed}{1 + e\cos\theta}\)</td></tr>
+<tr><td>\(x = -d\) (left of focus)</td><td>\(r = \dfrac{ed}{1 - e\cos\theta}\)</td></tr>
+<tr><td>\(y = d\) (above focus)</td><td>\(r = \dfrac{ed}{1 + e\sin\theta}\)</td></tr>
+<tr><td>\(y = -d\) (below focus)</td><td>\(r = \dfrac{ed}{1 - e\sin\theta}\)</td></tr>
+</table>
+
+<div class="q-block">
+<div class="q-label">Question 9</div>
+<p>Construct a polar equation for the conic section with the focus at the origin and the following eccentricity and directrix.</p>
+<table>
+<tr><th>Conic</th><th>Eccentricity</th><th>Directrix</th></tr>
+<tr><td>parabola</td><td>\(e = 1\)</td><td>\(x = -6\)</td></tr>
+</table>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Identify \(e\) and \(d\).</strong></p>
+<p class="step">\(e = 1\) (parabola). Directrix \(x = -6\) is to the left of the focus, so \(d = 6\).</p>
+<p><strong>Step 2 &mdash; Select the correct form.</strong></p>
+<p class="step">Directrix to the left: \(r = \dfrac{ed}{1 - e\cos\theta}\).</p>
+<p><strong>Step 3 &mdash; Substitute.</strong></p>
+<div class="formula">\[ r = \frac{(1)(6)}{1 - (1)\cos\theta} = \frac{6}{1 - \cos\theta} \]</div>
+<p class="answer">\(r = \dfrac{6}{1 - \cos\theta}\)</p>
+</div>
+<hr>
+
+<h2>Topic 10 &mdash; Complete a Table and Plot Points for Parametric Equations</h2>
+<p>Substitute the given \(\theta\) values into both parametric equations to find \((x, y)\). Then eliminate the parameter to identify the curve type.</p>
+
+<div class="q-block">
+<div class="q-label">Question 10</div>
+<p>Consider the following parametric equations:
+\[ x = 2\cos(\theta) - 1 \quad \text{and} \quad y = 3\cos(\theta) \]
+<strong>Step 1 of 2:</strong> Complete the table for \(\theta = 0\) and \(\theta = \dfrac{\pi}{4}\). Round to two decimal places.</p>
+<table>
+<tr><th>\(\theta\)</th><th>\(x = 2\cos\theta - 1\)</th><th>\(y = 3\cos\theta\)</th><th>Point \((x, y)\)</th></tr>
+<tr><td>\(0\)</td><td>?</td><td>?</td><td>?</td></tr>
+<tr><td>\(\pi/4\)</td><td>?</td><td>?</td><td>?</td></tr>
+</table>
+<p><strong>Step 2 of 2:</strong> Plot the points for \(\theta = 0, \dfrac{\pi}{4}, \dfrac{\pi}{2}, \dfrac{3\pi}{4}, \pi\). Round coordinates to one decimal place if necessary.</p>
+</div>
+<div class="solution-block">
+<div class="solution-label">Walkthrough</div>
+<p><strong>Step 1 &mdash; Fill in the two-row table.</strong></p>
+<p class="step">\(\theta = 0\): \(\cos 0 = 1\), \(x = 2(1)-1 = 1\), \(y = 3(1) = 3\). Point: \((1, 3)\).</p>
+<p class="step">\(\theta = \pi/4\): \(\cos(\pi/4) \approx 0.71\), \(x \approx 2(0.71)-1 = 0.41\), \(y \approx 3(0.71) = 2.12\). Point: \((0.41, 2.12)\).</p>
+<table>
+<tr><th>\(\theta\)</th><th>\(x\)</th><th>\(y\)</th><th>Point</th></tr>
+<tr><td>\(0\)</td><td>\(1\)</td><td>\(3\)</td><td>\((1, 3)\)</td></tr>
+<tr><td>\(\pi/4\)</td><td>\(0.41\)</td><td>\(2.12\)</td><td>\((0.41, 2.12)\)</td></tr>
+</table>
+<p><strong>Step 2 &mdash; Evaluate all five points for plotting.</strong></p>
+<table>
+<tr><th>\(\theta\)</th><th>\(\cos\theta\)</th><th>\(x\)</th><th>\(y\)</th><th>Point</th></tr>
+<tr><td>\(0\)</td><td>\(1\)</td><td>\(1\)</td><td>\(3\)</td><td>\((1, 3)\)</td></tr>
+<tr><td>\(\pi/4\)</td><td>\(\approx 0.71\)</td><td>\(\approx 0.4\)</td><td>\(\approx 2.1\)</td><td>\((0.4, 2.1)\)</td></tr>
+<tr><td>\(\pi/2\)</td><td>\(0\)</td><td>\(-1\)</td><td>\(0\)</td><td>\((-1, 0)\)</td></tr>
+<tr><td>\(3\pi/4\)</td><td>\(\approx -0.71\)</td><td>\(\approx -2.4\)</td><td>\(\approx -2.1\)</td><td>\((-2.4, -2.1)\)</td></tr>
+<tr><td>\(\pi\)</td><td>\(-1\)</td><td>\(-3\)</td><td>\(-3\)</td><td>\((-3, -3)\)</td></tr>
+</table>
+<p><strong>Step 3 &mdash; Eliminate the parameter.</strong></p>
+<p class="step">From \(y = 3\cos\theta\): \(\cos\theta = y/3\). Substitute: \(x = 2(y/3) - 1 = \dfrac{2y}{3} - 1\), so \(y = \dfrac{3}{2}(x+1)\). The curve is a line segment.</p>
+<p class="answer">Table: \((1, 3)\) at \(\theta = 0\) and \((0.41, 2.12)\) at \(\theta = \pi/4\). Plot points: \((1,3),\ (0.4,2.1),\ (-1,0),\ (-2.4,-2.1),\ (-3,-3)\).</p>
+</div>
+
+<script>
+(function() {
+var PAGE_KEY = 'calc2_ch9';
+function setCookie(name, val) {
+var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+}
+function getCookie(name) {
+var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+return null;
+}
+document.addEventListener('DOMContentLoaded', function() {
+document.querySelectorAll('h2').forEach(function(h2) {
+var siblings = [], next = h2.nextElementSibling;
+while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+h2.insertBefore(cb, h2.firstChild);
+var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+function applyState(collapsed, save) {
+cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+wrapper.classList.toggle('collapsed', collapsed);
+if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+}
+applyState(getCookie(cookieKey) === '1', false);
+h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+});
+});
+}());
+</script>
+</body>
+</html>

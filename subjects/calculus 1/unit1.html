@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 1 — Unit 1: Limits and Continuity</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html" class="active">Unit 1</a>
+	<a href="unit2.html">Unit 2</a>
+	<a href="unit3.html">Unit 3</a>
+	<a href="unit4.html">Unit 4</a>
+	<a href="unit5.html">Unit 5</a>
+	<a href="unit6.html">Unit 6</a>
+	<a href="unit7.html">Unit 7</a>
+	<a href="unit8.html">Unit 8</a>
+</nav>
+
+<h1>Calculus 1 &mdash; Unit 1: Limits and Continuity</h1>
+
+<h2>Definition of a Limit</h2>
+<div class="formula">
+	\[ \lim_{x \to c} f(x) = L \]
+</div>
+<ul>
+	<li>The limit exists if and only if the left-hand and right-hand limits both exist <strong>and are equal</strong></li>
+	<li>\(\lim_{x \to c^-} f(x) = L\) and \(\lim_{x \to c^+} f(x) = L\) &rArr; limit = L</li>
+	<li>The function does <em>not</em> need to be defined at \(x = c\) for the limit to exist</li>
+	<li>Evaluate limits by direct substitution first; factor/cancel if you get 0/0</li>
+</ul>
+
+<hr>
+<h2>Limit Laws</h2>
+<ul>
+	<li><strong>Sum/Difference:</strong> \(\lim[f \pm g] = \lim f \pm \lim g\)</li>
+	<li><strong>Product:</strong> \(\lim[f \cdot g] = \lim f \cdot \lim g\)</li>
+	<li><strong>Quotient:</strong> \(\lim[f/g] = \lim f / \lim g\) (provided \(\lim g \neq 0\))</li>
+	<li><strong>Constant:</strong> \(\lim[c \cdot f] = c \cdot \lim f\)</li>
+	<li><strong>Power:</strong> \(\lim[f^n] = (\lim f)^n\)</li>
+</ul>
+<div class="formula">
+	Indeterminate forms: \(\frac{0}{0},\ \frac{\infty}{\infty},\ 0 \cdot \infty,\ \infty - \infty\) — must simplify or use L'Hopital's
+</div>
+
+<hr>
+<h2>Squeeze Theorem</h2>
+<div class="formula">
+	If \(g(x) \le f(x) \le h(x)\) near \(c\), and \(\lim_{x\to c} g(x) = \lim_{x\to c} h(x) = L\), then \(\lim_{x\to c} f(x) = L\)
+</div>
+<ul>
+	<li>Classic use: \(\lim_{x \to 0} \dfrac{\sin x}{x} = 1\) and \(\lim_{x \to 0} \dfrac{1 - \cos x}{x} = 0\)</li>
+	<li>Also used for functions bounded by oscillating expressions, e.g. \(x^2 \sin(1/x)\)</li>
+</ul>
+
+<hr>
+<h2>Continuity</h2>
+<p>A function is continuous at \(x = c\) if all three hold:</p>
+<ol style="margin: 4px 0; padding-left: 22px;">
+	<li>\(f(c)\) is defined</li>
+	<li>\(\lim_{x \to c} f(x)\) exists</li>
+	<li>\(\lim_{x \to c} f(x) = f(c)\)</li>
+</ol>
+<table>
+	<tr><th>Discontinuity Type</th><th>Description</th><th>Limit Exists?</th></tr>
+	<tr><td>Removable (hole)</td><td>Gap at one point; can be "filled"</td><td>Yes</td></tr>
+	<tr><td>Jump</td><td>Left and right limits differ</td><td>No</td></tr>
+	<tr><td>Infinite (asymptote)</td><td>Function goes to &plusmn;&infin;</td><td>No</td></tr>
+</table>
+
+<hr>
+<h2>Infinite Limits and Limits at Infinity</h2>
+<ul>
+	<li><strong>Infinite limit:</strong> \(\lim_{x \to c} f(x) = \infty\) — vertical asymptote at \(x = c\)</li>
+	<li><strong>Limit at infinity:</strong> \(\lim_{x \to \infty} f(x) = L\) — horizontal asymptote \(y = L\)</li>
+</ul>
+<div class="formula">
+	Rational functions: divide numerator and denominator by highest power of \(x\).<br>
+	\(\lim_{x\to\infty} \frac{3x^2 + 1}{5x^2 - 2} = \frac{3}{5}\)
+</div>
+<ul>
+	<li>If degree of numerator &gt; denominator: limit is &plusmn;&infin;</li>
+	<li>If degree of numerator &lt; denominator: limit is 0</li>
+	<li>If degrees are equal: limit = ratio of leading coefficients</li>
+</ul>
+
+<hr>
+<h2>Intermediate Value Theorem</h2>
+<div class="formula">
+	If \(f\) is continuous on \([a, b]\) and \(N\) is any value between \(f(a)\) and \(f(b)\), then there exists \(c \in (a, b)\) such that \(f(c) = N\).
+</div>
+<ul>
+	<li>Used to prove roots exist: if \(f(a) < 0\) and \(f(b) > 0\), a root exists on \((a,b)\)</li>
+	<li>Requires continuity on the closed interval</li>
+</ul>
+
+<div class="charts">
+	<div class="chart-box">
+		<h3>Left vs Right One-Sided Limits (Jump Discontinuity)</h3>
+		<canvas id="limitChart"></canvas>
+	</div>
+	<div class="chart-box">
+		<h3>Limit at Infinity: y = (3x^2+1)/(5x^2-2)</h3>
+		<canvas id="horizChart"></canvas>
+	</div>
+</div>
+
+<script>
+(function() {
+	var leftData = [], rightData = [], xLabels = [];
+	for (var x = -3; x < 0; x += 0.25) {
+		xLabels.push(x.toFixed(2));
+		leftData.push({ x: x, y: x + 2 });
+		rightData.push(null);
+	}
+	for (var x = 0; x <= 3; x += 0.25) {
+		xLabels.push(x.toFixed(2));
+		leftData.push(null);
+		rightData.push({ x: x, y: x - 1 });
+	}
+
+	new Chart(document.getElementById('limitChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'Left branch (limit = 2)', data: leftData.filter(Boolean), borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 2 },
+				{ label: 'Right branch (limit = -1)', data: rightData.filter(Boolean), borderColor: '#c0392b', backgroundColor: 'transparent', showLine: true, pointRadius: 2 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { title: { display: true, text: 'f(x)' } } }
+		}
+	});
+
+	var hLabels = [], hData = [];
+	for (var x = -20; x <= 20; x += 2) {
+		if (Math.abs(x) < 0.7) continue;
+		hLabels.push(x);
+		hData.push({ x: x, y: (3*x*x + 1) / (5*x*x - 2) });
+	}
+	var asympData = [{ x: -20, y: 0.6 }, { x: 20, y: 0.6 }];
+
+	new Chart(document.getElementById('horizChart'), {
+		type: 'scatter',
+		data: {
+			datasets: [
+				{ label: 'f(x)', data: hData, borderColor: '#2c5f9e', backgroundColor: 'transparent', showLine: true, pointRadius: 2 },
+				{ label: 'y = 3/5 (asymptote)', data: asympData, borderColor: '#e67e22', borderDash: [5, 5], backgroundColor: 'transparent', showLine: true, pointRadius: 0 }
+			]
+		},
+		options: {
+			plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } },
+			scales: { x: { title: { display: true, text: 'x' } }, y: { min: -1, max: 2, title: { display: true, text: 'f(x)' } } }
+		}
+	});
+}());
+</script>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc1_unit1';
+
+	function setCookie(name, val) {
+		var d = new Date();
+		d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=';
+		var parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) {
+			var c = parts[i].trim();
+			if (c.indexOf(key) === 0) return c.substring(key.length);
+		}
+		return null;
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		var h2s = document.querySelectorAll('h2');
+		h2s.forEach(function(h2) {
+			var siblings = [];
+			var next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') {
+				siblings.push(next);
+				next = next.nextElementSibling;
+			}
+			var wrapper = document.createElement('div');
+			wrapper.className = 'section-content';
+			if (siblings.length > 0) {
+				h2.parentNode.insertBefore(wrapper, siblings[0]);
+				siblings.forEach(function(s) { wrapper.appendChild(s); });
+			}
+			var headingText = h2.textContent.trim().replace(/\s+/g, '_');
+			var cookieKey = PAGE_KEY + '__' + headingText;
+			var cb = document.createElement('input');
+			cb.type = 'checkbox';
+			cb.className = 'section-checkbox';
+			cb.title = 'Mark as understood (collapses section)';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span');
+			hint.className = 'collapse-hint';
+			hint.textContent = 'click to collapse';
+			h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed;
+				hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				if (collapsed) { wrapper.classList.add('collapsed'); } else { wrapper.classList.remove('collapsed'); }
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			var saved = getCookie(cookieKey);
+			applyState(saved === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

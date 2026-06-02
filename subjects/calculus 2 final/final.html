@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 2 &mdash; Comprehensive Review Test</title>
+	<script>
+	MathJax = {
+		tex: {
+			inlineMath: [['$', '$'], ['\\(', '\\)']],
+			displayMath: [['$$', '$$'], ['\\[', '\\]']]
+		}
+	};
+	</script>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		.q-block { background: #eef2ff; border: 1px solid #b0c4de; border-radius: 4px; padding: 10px 14px; margin: 14px 0 0; }
+		.q-label { font-weight: bold; color: #1a3a6b; margin-bottom: 6px; font-size: 0.97em; }
+		.solution-block { background: #f4faf4; border-left: 4px solid #3a7d44; padding: 9px 14px; margin: 0 0 6px; font-size: 14px; }
+		.solution-label { font-weight: bold; color: #2e7031; margin-bottom: 6px; }
+		.step { margin: 3px 0 3px 10px; }
+		.answer { font-weight: bold; color: #1a3a6b; margin-top: 6px; }
+
+		/* Chat Styles */
+		.chat-button { background: #2563eb; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; font-size: 14px; margin-top: 10px; }
+		.chat-button:hover { background: #1d4ed8; }
+		
+		.chat-container { 
+			display: none;
+			background: white; 
+			border: 1px solid #ccc; 
+			border-radius: 8px; 
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+			margin: 15px 0;
+			flex-direction: column;
+		}
+		.chat-container.active { display: flex; }
+		
+		.chat-header { background: #2563eb; color: white; padding: 12px; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; }
+		.chat-header h3 { margin: 0; font-size: 16px; }
+		.chat-close { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+		
+		.chat-messages { max-height: 400px; overflow-y: auto; padding: 12px; background: #f9fafb; min-height: 100px; }
+		.chat-message { margin-bottom: 12px; display: flex; }
+		.chat-message.user { justify-content: flex-end; }
+		.chat-message.assistant { justify-content: flex-start; }
+		
+		.chat-bubble { max-width: 75%; padding: 10px 12px; border-radius: 12px; word-wrap: break-word; font-size: 14px; line-height: 1.4; }
+		.chat-message.user .chat-bubble { background: #2563eb; color: white; border-radius: 12px 4px 12px 12px; }
+		.chat-message.assistant .chat-bubble { background: #e5e7eb; color: #1f2937; border-radius: 4px 12px 12px 12px; }
+		
+		.chat-input-area { padding: 12px; border-top: 1px solid #e5e7eb; display: flex; gap: 8px; }
+		.chat-input { flex: 1; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px; font-size: 14px; }
+		.chat-input:focus { outline: none; border-color: #2563eb; }
+		.chat-send { background: #2563eb; color: white; border: none; padding: 8px 12px; border-radius: 4px; cursor: pointer; }
+		.chat-send:hover { background: #1d4ed8; }
+		.chat-send:disabled { background: #9ca3af; cursor: not-allowed; }
+		
+		.chat-status { font-size: 12px; color: #6b7280; text-align: center; padding: 4px; }
+		.chat-status.error { color: #dc2626; }
+	</style>
+</head>
+<body>
+<nav>
+	
+	<a href="Chapter6.html">Chapter 6 &mdash; Ch. 6</a>
+	<a href="Chapter7.html">Chapter 7 &mdash; Ch. 7</a>
+	<a href="Chapter10.html">Chapter 10 &mdash; Ch. 10</a>
+	<a href="Chapter9.html">Chapter 9 &mdash; Ch. 9</a>
+	<a href="final.html" class="active">Final</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Comprehensive Review Test</h1>
+<p>Practice problems covering 12 major topics with three questions each (36 total). Complete step-by-step walkthroughs for every problem. Click any section header to collapse or expand it.</p>
+
+<h2>Topic 1 &mdash; Disk and Washer Method</h2>
+<p>Find volumes of solids of revolution using the disk method \(V = \pi \int_a^b [R(x)]^2\, dx\) or washer method \(V = \pi \int_a^b [R(x)]^2 - [r(x)]^2\, dx\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find the volume of the solid obtained by rotating the region under \(y = \sqrt{x}\) from \(x = 0\) to \(x = 4\) about the \(x\)-axis.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Set up the disk method integral.</strong></p>
+	<div class="formula">\[ V = \pi \int_0^4 (\sqrt{x})^2\, dx = \pi \int_0^4 x\, dx \]</div>
+	<p><strong>Step 2 &mdash; Integrate.</strong></p>
+	<p class="step">\(V = \pi \left[ \frac{x^2}{2} \right]_0^4 = \pi \cdot 8 = 8\pi\)</p>
+	<p class="answer">\(V = 8\pi\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find the volume when the region between \(y = x\) and \(y = x^2\) on \([0, 1]\) is revolved about the \(x\)-axis.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify outer and inner radii.</strong></p>
+	<p class="step">Outer radius: \(R(x) = x\). Inner radius: \(r(x) = x^2\).</p>
+	<p><strong>Step 2 &mdash; Set up the washer method.</strong></p>
+	<div class="formula">\[ V = \pi \int_0^1 [x^2 - (x^2)^2]\, dx = \pi \int_0^1 (x^2 - x^4)\, dx \]</div>
+	<p><strong>Step 3 &mdash; Evaluate.</strong></p>
+	<p class="step">\(V = \pi \left[ \frac{x^3}{3} - \frac{x^5}{5} \right]_0^1 = \pi \left( \frac{1}{3} - \frac{1}{5} \right) = \frac{2\pi}{15}\)</p>
+	<p class="answer">\(V = \dfrac{2\pi}{15}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find the volume when the region under \(y = 4 - x^2\) from \(x = 0\) to \(x = 2\) is revolved about the \(y\)-axis using the washer method.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Express \(x\) in terms of \(y\).</strong></p>
+	<p class="step">From \(y = 4 - x^2\), we get \(x = \sqrt{4-y}\). When \(x=0\): \(y=4\). When \(x=2\): \(y=0\).</p>
+	<p><strong>Step 2 &mdash; Set up the washer integral.</strong></p>
+	<div class="formula">\[ V = \pi \int_0^4 (\sqrt{4-y})^2\, dy = \pi \int_0^4 (4-y)\, dy \]</div>
+	<p><strong>Step 3 &mdash; Evaluate.</strong></p>
+	<p class="step">\(V = \pi \left[ 4y - \frac{y^2}{2} \right]_0^4 = \pi(16 - 8) = 8\pi\)</p>
+	<p class="answer">\(V = 8\pi\)</p>
+</div>
+<hr>
+
+<h2>Topic 2 &mdash; Shell Method</h2>
+<p>Use cylindrical shells to find volumes: \(V = 2\pi \int_a^b x \cdot f(x)\, dx\) (about \(y\)-axis) or \(V = 2\pi \int_c^d y \cdot g(y)\, dy\) (about \(x\)-axis).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Use the shell method to find the volume when the region under \(y = x\) from \(x = 0\) to \(x = 3\) is revolved about the \(y\)-axis.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Set up the shell integral.</strong></p>
+	<p class="step">Radius: \(x\). Height: \(f(x) = x\).</p>
+	<div class="formula">\[ V = 2\pi \int_0^3 x \cdot x\, dx = 2\pi \int_0^3 x^2\, dx \]</div>
+	<p><strong>Step 2 &mdash; Evaluate.</strong></p>
+	<p class="step">\(V = 2\pi \left[ \frac{x^3}{3} \right]_0^3 = 2\pi \cdot 9 = 18\pi\)</p>
+	<p class="answer">\(V = 18\pi\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find the volume when the region bounded by \(y = \sqrt{x}\), \(x = 4\), and \(y = 0\) is revolved about the \(y\)-axis using the shell method.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify radius and height.</strong></p>
+	<p class="step">Radius: \(x\). Height: \(f(x) = \sqrt{x}\). Bounds: \(0 \le x \le 4\).</p>
+	<div class="formula">\[ V = 2\pi \int_0^4 x\sqrt{x}\, dx = 2\pi \int_0^4 x^{3/2}\, dx \]</div>
+	<p><strong>Step 2 &mdash; Integrate.</strong></p>
+	<p class="step">\(V = 2\pi \left[ \frac{2x^{5/2}}{5} \right]_0^4 = \frac{4\pi}{5} \cdot 32 = \frac{128\pi}{5}\)</p>
+	<p class="answer">\(V = \dfrac{128\pi}{5}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Use the shell method to find the volume when the region under \(y = e^x\) from \(x = 0\) to \(x = 1\) is revolved about the \(y\)-axis.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Set up the integral.</strong></p>
+	<div class="formula">\[ V = 2\pi \int_0^1 xe^x\, dx \]</div>
+	<p><strong>Step 2 &mdash; Use integration by parts: \(u = x\), \(dv = e^x\, dx\).</strong></p>
+	<p class="step">\(\int xe^x\, dx = xe^x - e^x = e^x(x-1)\)</p>
+	<p><strong>Step 3 &mdash; Evaluate.</strong></p>
+	<p class="step">\(V = 2\pi \left[ e^x(x-1) \right]_0^1 = 2\pi[0 - (-1)] = 2\pi\)</p>
+	<p class="answer">\(V = 2\pi\)</p>
+</div>
+<hr>
+
+<h2>Topic 3 &mdash; Arc Length</h2>
+<p>Find arc length using \(L = \int_a^b \sqrt{1 + [f'(x)]^2}\, dx\) for \(y = f(x)\), or \(L = \int_c^d \sqrt{1 + [g'(y)]^2}\, dy\) for \(x = g(y)\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find the arc length of \(y = \frac{2}{3}x^{3/2}\) from \(x = 0\) to \(x = 3\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find the derivative.</strong></p>
+	<p class="step">\(f'(x) = x^{1/2}\)</p>
+	<p><strong>Step 2 &mdash; Compute \(1 + [f'(x)]^2 = 1 + x\).</strong></p>
+	<p><strong>Step 3 &mdash; Set up and evaluate the arc length integral.</strong></p>
+	<div class="formula">\[ L = \int_0^3 \sqrt{1+x}\, dx \]</div>
+	<p class="step">Let \(u = 1+x\), \(du = dx\). When \(x=0\): \(u=1\); when \(x=3\): \(u=4\)</p>
+	<p class="step">\(L = \int_1^4 u^{1/2}\, du = \left[ \frac{2u^{3/2}}{3} \right]_1^4 = \frac{2}{3}(8 - 1) = \frac{14}{3}\)</p>
+	<p class="answer">\(L = \dfrac{14}{3}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find the arc length of \(y = \frac{x^2}{4} - \frac{\ln x}{2}\) from \(x = 1\) to \(x = 2\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find the derivative.</strong></p>
+	<p class="step">\(f'(x) = \frac{x}{2} - \frac{1}{2x}\)</p>
+	<p><strong>Step 2 &mdash; Simplify \(\sqrt{1 + [f'(x)]^2}\).</strong></p>
+	<p class="step">\([f'(x)]^2 = \frac{x^2}{4} - \frac{1}{2} + \frac{1}{4x^2}\), so \(1 + [f'(x)]^2 = \left(\frac{x}{2} + \frac{1}{2x}\right)^2\)</p>
+	<p class="step">Thus \(\sqrt{1 + [f'(x)]^2} = \frac{x}{2} + \frac{1}{2x}\)</p>
+	<p><strong>Step 3 &mdash; Integrate.</strong></p>
+	<div class="formula">\[ L = \int_1^2 \left( \frac{x}{2} + \frac{1}{2x} \right) dx = \left[ \frac{x^2}{4} + \frac{\ln x}{2} \right]_1^2 = \frac{3}{4} + \frac{\ln 2}{2} \]</div>
+	<p class="answer">\(L = \dfrac{3}{4} + \dfrac{\ln 2}{2}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Set up the arc length integral (do not evaluate) for \(y = x^5 + 2\) on \([0, 4]\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find the derivative.</strong></p>
+	<p class="step">\(f'(x) = 5x^4\)</p>
+	<p><strong>Step 2 &mdash; Compute \(1 + [f'(x)]^2 = 1 + 25x^8\).</strong></p>
+	<p><strong>Step 3 &mdash; Write the arc length integral.</strong></p>
+	<div class="formula">\[ L = \int_0^4 \sqrt{1 + 25x^8}\, dx \]</div>
+	<p class="answer">The integral \(L = \int_0^4 \sqrt{1 + 25x^8}\, dx\) cannot be evaluated in closed form.</p>
+</div>
+<hr>
+
+<h2>Topic 4 &mdash; Integration by Parts</h2>
+<p>Use the formula \(\int u\, dv = uv - \int v\, du\). Choose \(u\) using LIATE: Log, Inverse trig, Algebraic, Trig, Exponential.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Evaluate \(\displaystyle \int x \cos x\, dx\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Choose \(u = x\), \(dv = \cos x\, dx\).</strong></p>
+	<p class="step">Then \(du = dx\), \(v = \sin x\).</p>
+	<p><strong>Step 2 &mdash; Apply integration by parts.</strong></p>
+	<div class="formula">\[ \int x \cos x\, dx = x \sin x - \int \sin x\, dx = x \sin x + \cos x + C \]</div>
+	<p class="answer">\(\int x \cos x\, dx = x \sin x + \cos x + C\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Evaluate \(\displaystyle \int x e^{-x}\, dx\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Choose \(u = x\), \(dv = e^{-x}\, dx\).</strong></p>
+	<p class="step">Then \(du = dx\), \(v = -e^{-x}\).</p>
+	<p><strong>Step 2 &mdash; Apply the formula.</strong></p>
+	<div class="formula">\[ \int x e^{-x}\, dx = -x e^{-x} + \int e^{-x}\, dx = -x e^{-x} - e^{-x} + C = -e^{-x}(x+1) + C \]</div>
+	<p class="answer">\(\int x e^{-x}\, dx = -e^{-x}(x+1) + C\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Evaluate \(\displaystyle \int 2t^3 e^{2t}\, dt\) (use integration by parts multiple times).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; First application: \(u = 2t^3\), \(dv = e^{2t}\, dt\).</strong></p>
+	<p class="step">\(du = 6t^2\, dt\), \(v = \frac{e^{2t}}{2}\)</p>
+	<p class="step">\(\int 2t^3 e^{2t}\, dt = t^3 e^{2t} - 3\int t^2 e^{2t}\, dt\)</p>
+	<p><strong>Step 2 &mdash; Second application to \(\int t^2 e^{2t}\, dt\).</strong></p>
+	<p class="step">\(u = t^2\), \(dv = e^{2t}\, dt\): Result is \(\frac{t^2 e^{2t}}{2} - \int t e^{2t}\, dt\)</p>
+	<p><strong>Step 3 &mdash; Third application to \(\int t e^{2t}\, dt\).</strong></p>
+	<p class="step">\(u = t\), \(dv = e^{2t}\, dt\): Result is \(\frac{te^{2t}}{2} - \frac{e^{2t}}{4}\)</p>
+	<p><strong>Step 4 &mdash; Combine all parts.</strong></p>
+	<div class="formula">\[ \int 2t^3 e^{2t}\, dt = e^{2t}\left(t^3 - \frac{3t^2}{2} + 3t - \frac{3}{4}\right) + C \]</div>
+	<p class="answer">\(\int 2t^3 e^{2t}\, dt = e^{2t}\left(t^3 - \dfrac{3t^2}{2} + 3t - \dfrac{3}{4}\right) + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 5 &mdash; Trigonometric Substitution</h2>
+<p>For \(\sqrt{a^2-x^2}\) use \(x = a\sin\theta\); for \(\sqrt{a^2+x^2}\) use \(x = a\tan\theta\); for \(\sqrt{x^2-a^2}\) use \(x = a\sec\theta\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Evaluate \(\displaystyle \int \frac{-3x}{\sqrt{9-x^2}}\, dx\) using trigonometric substitution.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Use \(x = 3\sin\theta\), \(dx = 3\cos\theta\, d\theta\), \(\sqrt{9-x^2} = 3\cos\theta\).</strong></p>
+	<p><strong>Step 2 &mdash; Substitute.</strong></p>
+	<div class="formula">\[ \int \frac{-3(3\sin\theta)}{3\cos\theta} \cdot 3\cos\theta\, d\theta = \int -9\sin\theta\, d\theta = 9\cos\theta + C \]</div>
+	<p><strong>Step 3 &mdash; Back-substitute using \(\cos\theta = \frac{\sqrt{9-x^2}}{3}\).</strong></p>
+	<p class="step">\(9 \cdot \frac{\sqrt{9-x^2}}{3} + C = 3\sqrt{9-x^2} + C\)</p>
+	<p class="answer">\(\int \frac{-3x}{\sqrt{9-x^2}}\, dx = 3\sqrt{9-x^2} + C\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Evaluate \(\displaystyle \int \frac{1}{\sqrt{x^2+1}}\, dx\) using trigonometric substitution.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Use \(x = \tan\theta\), \(dx = \sec^2\theta\, d\theta\), \(\sqrt{x^2+1} = \sec\theta\).</strong></p>
+	<p><strong>Step 2 &mdash; Substitute and integrate.</strong></p>
+	<div class="formula">\[ \int \frac{\sec^2\theta}{\sec\theta}\, d\theta = \int \sec\theta\, d\theta = \ln|\sec\theta + \tan\theta| + C \]</div>
+	<p><strong>Step 3 &mdash; Back-substitute with \(\sec\theta = \sqrt{x^2+1}\) and \(\tan\theta = x\).</strong></p>
+	<p class="answer">\(\int \frac{1}{\sqrt{x^2+1}}\, dx = \ln|x + \sqrt{x^2+1}| + C\) or \(\sinh^{-1}(x) + C\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Evaluate \(\displaystyle \int \frac{x^2}{\sqrt{4-x^2}}\, dx\) using trigonometric substitution.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Use \(x = 2\sin\theta\), \(dx = 2\cos\theta\, d\theta\), \(\sqrt{4-x^2} = 2\cos\theta\).</strong></p>
+	<p><strong>Step 2 &mdash; Substitute.</strong></p>
+	<p class="step">\(\int \frac{4\sin^2\theta}{2\cos\theta} \cdot 2\cos\theta\, d\theta = \int 4\sin^2\theta\, d\theta\)</p>
+	<p><strong>Step 3 &mdash; Use \(\sin^2\theta = \frac{1-\cos 2\theta}{2}\).</strong></p>
+	<p class="step">\(\int 2(1 - \cos 2\theta)\, d\theta = 2\theta - \sin 2\theta + C\)</p>
+	<p><strong>Step 4 &mdash; Back-substitute.</strong></p>
+	<p class="answer">\(\int \frac{x^2}{\sqrt{4-x^2}}\, dx = 2\sin^{-1}(x/2) - \dfrac{x\sqrt{4-x^2}}{2} + C\)</p>
+</div>
+<hr>
+
+<h2>Topic 6 &mdash; Improper Integrals</h2>
+<p>Test convergence and evaluate improper integrals using limits: \(\int_a^\infty f(x)\, dx = \lim_{t \to \infty} \int_a^t f(x)\, dx\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Evaluate \(\displaystyle \int_0^{16} \frac{4}{\sqrt{x}}\, dx\) or determine if it diverges.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Recognize the singularity at \(x=0\).</strong></p>
+	<p class="step">Use the limit definition: \(\int_0^{16} \frac{4}{\sqrt{x}}\, dx = \lim_{a \to 0^+} \int_a^{16} 4x^{-1/2}\, dx\)</p>
+	<p><strong>Step 2 &mdash; Evaluate the antiderivative.</strong></p>
+	<p class="step">\(\int 4x^{-1/2}\, dx = 8\sqrt{x}\)</p>
+	<p><strong>Step 3 &mdash; Apply limits.</strong></p>
+	<p class="step">\(\lim_{a \to 0^+} [8\sqrt{x}]_a^{16} = 32 - 0 = 32\)</p>
+	<p class="answer">The integral converges to \(32\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Determine whether \(\displaystyle \int_3^\infty \frac{4}{x^3}\, dx\) converges or diverges. If convergent, find its value.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Set up using limits.</strong></p>
+	<div class="formula">\[ \int_3^\infty \frac{4}{x^3}\, dx = \lim_{t \to \infty} \int_3^t 4x^{-3}\, dx \]</div>
+	<p><strong>Step 2 &mdash; Integrate.</strong></p>
+	<p class="step">\(\int 4x^{-3}\, dx = -\frac{2}{x^2}\)</p>
+	<p><strong>Step 3 &mdash; Evaluate the limit.</strong></p>
+	<p class="step">\(\lim_{t \to \infty} \left[ -\frac{2}{x^2} \right]_3^t = 0 - \left(-\frac{2}{9}\right) = \frac{2}{9}\)</p>
+	<p class="answer">The integral converges to \(\dfrac{2}{9}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Evaluate \(\displaystyle \int_0^\infty e^{-2x}\, dx\) or determine if it diverges.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Set up with limit.</strong></p>
+	<div class="formula">\[ \int_0^\infty e^{-2x}\, dx = \lim_{t \to \infty} \int_0^t e^{-2x}\, dx \]</div>
+	<p><strong>Step 2 &mdash; Integrate.</strong></p>
+	<p class="step">\(\int e^{-2x}\, dx = -\frac{e^{-2x}}{2}\)</p>
+	<p><strong>Step 3 &mdash; Evaluate.</strong></p>
+	<p class="step">\(\lim_{t \to \infty} \left[ -\frac{e^{-2x}}{2} \right]_0^t = 0 + \frac{1}{2} = \frac{1}{2}\)</p>
+	<p class="answer">The integral converges to \(\dfrac{1}{2}\)</p>
+</div>
+<hr>
+
+<h2>Topic 7 &mdash; Geometric Series</h2>
+<p>A geometric series \(\sum_{n=0}^\infty ar^n\) converges to \(\dfrac{a}{1-r}\) if \(|r| < 1\), otherwise diverges.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Determine whether \(\displaystyle \sum_{n=0}^{\infty} 6 \cdot \left(\frac{11}{12}\right)^n\) converges or diverges. If it converges, find the sum.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify \(a\) and \(r\).</strong></p>
+	<p class="step">\(a = 6\), \(r = \frac{11}{12}\)</p>
+	<p><strong>Step 2 &mdash; Check convergence: \(|r| = \frac{11}{12} < 1\) ✓</strong></p>
+	<p><strong>Step 3 &mdash; Apply the sum formula.</strong></p>
+	<div class="formula">\[ S = \frac{6}{1 - \frac{11}{12}} = \frac{6}{\frac{1}{12}} = 72 \]</div>
+	<p class="answer">The series converges to \(72\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Decide whether \(\displaystyle \sum_{n=0}^{\infty} \frac{5^{n-1}}{7^n}\) converges or diverges. If convergent, find the sum.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Simplify the general term.</strong></p>
+	<p class="step">\(\frac{5^{n-1}}{7^n} = \frac{1}{5} \cdot \left(\frac{5}{7}\right)^n\)</p>
+	<p><strong>Step 2 &mdash; Identify parameters: \(a = \frac{1}{5}\), \(r = \frac{5}{7}\).</strong></p>
+	<p><strong>Step 3 &mdash; Check and compute.</strong></p>
+	<div class="formula">\[ S = \frac{\frac{1}{5}}{1 - \frac{5}{7}} = \frac{\frac{1}{5}}{\frac{2}{7}} = \frac{7}{10} \]</div>
+	<p class="answer">The series converges to \(\dfrac{7}{10}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find the sum of \(\displaystyle \sum_{n=1}^\infty \frac{3}{2^n}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Rewrite the series.</strong></p>
+	<p class="step">\(\sum_{n=1}^\infty \frac{3}{2^n} = 3 \sum_{n=1}^\infty \left(\frac{1}{2}\right)^n = 3 \cdot \frac{\frac{1}{2}}{1 - \frac{1}{2}} = 3 \cdot 1 = 3\)</p>
+	<p class="answer">The sum is \(3\)</p>
+</div>
+<hr>
+
+<h2>Topic 8 &mdash; Direct Comparison Test</h2>
+<p>If \(0 \le a_n \le b_n\) and \(\sum b_n\) converges, then \(\sum a_n\) converges. If \(\sum a_n\) diverges, then \(\sum b_n\) diverges.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Use the Direct Comparison Test to determine whether \(\displaystyle \sum_{n=0}^{\infty} \frac{1}{2 + 7^n}\) converges or diverges.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find a comparable series.</strong></p>
+	<p class="step">For large \(n\), \(\frac{1}{2+7^n} \approx \frac{1}{7^n}\).</p>
+	<p><strong>Step 2 &mdash; Establish the inequality.</strong></p>
+	<p class="step">\(\frac{1}{2+7^n} \le \frac{1}{7^n}\) for all \(n \ge 0\).</p>
+	<p><strong>Step 3 &mdash; Convergence of comparison series.</strong></p>
+	<p class="step">\(\sum_{n=0}^\infty \frac{1}{7^n}\) is geometric with \(r = \frac{1}{7} < 1\) (converges).</p>
+	<p><strong>Step 4 &mdash; Conclude.</strong></p>
+	<p class="step">By Direct Comparison, the original series converges.</p>
+	<p class="answer">The series converges</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Use the Limit Comparison Test to determine whether \(\displaystyle \sum_{n=1}^{\infty} \frac{8n^2}{n^3 + 4}\) converges or diverges.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify the dominant term.</strong></p>
+	<p class="step">For large \(n\), \(\frac{8n^2}{n^3+4} \approx \frac{8n^2}{n^3} = \frac{8}{n}\).</p>
+	<p><strong>Step 2 &mdash; Use \(b_n = \frac{1}{n}\) (harmonic series, divergent).</strong></p>
+	<p><strong>Step 3 &mdash; Compute the limit.</strong></p>
+	<div class="formula">\[ \lim_{n \to \infty} \frac{8n^2/(n^3+4)}{1/n} = \lim_{n \to \infty} \frac{8n^3}{n^3+4} = 8 \]</div>
+	<p><strong>Step 4 &mdash; Conclude.</strong></p>
+	<p class="step">Since \(\lim = 8 > 0\) and \(\sum \frac{1}{n}\) diverges, the series diverges.</p>
+	<p class="answer">The series diverges</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Use the Limit Comparison Test to determine the convergence of \(\displaystyle \sum_{n=1}^\infty \frac{n}{n^3+1}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Dominant behavior: \(\frac{n}{n^3+1} \approx \frac{n}{n^3} = \frac{1}{n^2}\).</strong></p>
+	<p><strong>Step 2 &mdash; Use \(b_n = \frac{1}{n^2}\) (\(p\)-series with \(p=2>1\), converges).</strong></p>
+	<p><strong>Step 3 &mdash; Compute limit.</strong></p>
+	<div class="formula">\[ \lim_{n \to \infty} \frac{n/(n^3+1)}{1/n^2} = \lim_{n \to \infty} \frac{n^3}{n^3+1} = 1 \]</div>
+	<p><strong>Step 4 &mdash; Conclude.</strong></p>
+	<p class="step">Since \(\lim = 1 > 0\) and \(\sum \frac{1}{n^2}\) converges, the series converges.</p>
+	<p class="answer">The series converges</p>
+</div>
+<hr>
+
+<h2>Topic 9 &mdash; Ratio Test</h2>
+<p>Ratio Test: \(\rho = \lim_{n \to \infty} \left|\frac{a_{n+1}}{a_n}\right|\). If \(\rho < 1\) converges; if \(\rho > 1\) diverges; if \(\rho = 1\) inconclusive.</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Use the Ratio Test to determine whether \(\displaystyle \sum_{n=1}^{\infty} \frac{3^n}{(n+6)n}\) converges or diverges.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Identify \(a_n = \frac{3^n}{(n+6)n}\).</strong></p>
+	<p><strong>Step 2 &mdash; Compute the ratio.</strong></p>
+	<p class="step">\(\frac{a_{n+1}}{a_n} = \frac{3^{n+1}}{(n+7)(n+1)} \cdot \frac{(n+6)n}{3^n} = 3 \cdot \frac{n(n+6)}{(n+1)(n+7)}\)</p>
+	<p><strong>Step 3 &mdash; Take the limit.</strong></p>
+	<div class="formula">\[ \lim_{n \to \infty} \left| 3 \cdot \frac{n^2+6n}{n^2+8n+7} \right| = 3 \cdot 1 = 3 \]</div>
+	<p><strong>Step 4 &mdash; Conclude.</strong></p>
+	<p class="step">Since \(\rho = 3 > 1\), the series diverges.</p>
+	<p class="answer">The series diverges</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Use the Ratio Test on \(\displaystyle \sum_{n=1}^\infty \frac{n!}{n^n}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Compute the ratio.</strong></p>
+	<p class="step">\(\frac{a_{n+1}}{a_n} = \frac{(n+1)!}{(n+1)^{n+1}} \cdot \frac{n^n}{n!} = \frac{(n+1) \cdot n^n}{(n+1)^{n+1}} = \left(\frac{n}{n+1}\right)^n\)</p>
+	<p><strong>Step 2 &mdash; Take the limit.</strong></p>
+	<p class="step">\(\lim_{n \to \infty} \left(\frac{n}{n+1}\right)^n = \lim_{n \to \infty} \left(\frac{1}{1+1/n}\right)^n = \frac{1}{e}\)</p>
+	<p><strong>Step 3 &mdash; Conclude.</strong></p>
+	<p class="step">Since \(\rho = \frac{1}{e} \approx 0.368 < 1\), the series converges.</p>
+	<p class="answer">The series converges</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Use the Root Test to determine whether \(\displaystyle \sum_{n=1}^{\infty} \left(\frac{11n}{n^2+11}\right)^n\) converges or diverges.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Apply the Root Test.</strong></p>
+	<p class="step">\(\sqrt[n]{|a_n|} = \frac{11n}{n^2+11}\)</p>
+	<p><strong>Step 2 &mdash; Take the limit.</strong></p>
+	<div class="formula">\[ \lim_{n \to \infty} \frac{11n}{n^2+11} = \lim_{n \to \infty} \frac{11}{n+11/n} = 0 \]</div>
+	<p><strong>Step 3 &mdash; Conclude.</strong></p>
+	<p class="step">Since \(\rho = 0 < 1\), the series converges.</p>
+	<p class="answer">The series converges</p>
+</div>
+<hr>
+
+<h2>Topic 10 &mdash; Radius and Interval of Convergence</h2>
+<p>For a power series \(\sum c_n(x-a)^n\), find the radius \(R\) using the Ratio Test, then check convergence at the endpoints \(x = a \pm R\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find the radius and interval of convergence for \(\displaystyle \sum_{n=1}^{\infty} \frac{(11x)^n}{n^6}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Apply the Ratio Test.</strong></p>
+	<p class="step">\(\left|\frac{(11x)^{n+1}}{(n+1)^6} \cdot \frac{n^6}{(11x)^n}\right| = |11x| \cdot \frac{n^6}{(n+1)^6} \to |11x|\)</p>
+	<p><strong>Step 2 &mdash; Set \(|11x| < 1\).</strong></p>
+	<p class="step">\(|x| < \frac{1}{11}\), so \(R = \frac{1}{11}\).</p>
+	<p><strong>Step 3 &mdash; Check endpoints.</strong></p>
+	<p class="step">At \(x = \pm\frac{1}{11}\): \(\sum \frac{(\pm 1)^n}{n^6}\) converges (both \(p\)-series with \(p=6>1\)).</p>
+	<p><strong>Step 4 &mdash; Interval.</strong></p>
+	<p class="answer">R = \(\dfrac{1}{11}\), Interval = \(\left[-\dfrac{1}{11}, \dfrac{1}{11}\right]\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find the radius of convergence for \(\displaystyle \sum_{n=1}^\infty \frac{x^n}{2^n \cdot n}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Apply Ratio Test.</strong></p>
+	<p class="step">\(\frac{x^{n+1}}{2^{n+1}(n+1)} \cdot \frac{2^n \cdot n}{x^n} = \frac{|x|}{2} \cdot \frac{n}{n+1} \to \frac{|x|}{2}\)</p>
+	<p><strong>Step 2 &mdash; Set \(\frac{|x|}{2} < 1\).</strong></p>
+	<p class="step">\(|x| < 2\)</p>
+	<p class="answer">R = 2</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find the interval of convergence for \(\displaystyle \sum_{n=0}^\infty \frac{(x-3)^n}{n!}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Apply Ratio Test.</strong></p>
+	<p class="step">\(\frac{(x-3)^{n+1}}{(n+1)!} \cdot \frac{n!}{(x-3)^n} = \frac{|x-3|}{n+1} \to 0\) for all \(x\).</p>
+	<p><strong>Step 2 &mdash; Conclude.</strong></p>
+	<p class="step">Since \(\rho = 0 < 1\) for all \(x\), the series converges everywhere.</p>
+	<p class="answer">Interval of convergence: \((-\infty, \infty)\)</p>
+</div>
+<hr>
+
+<h2>Topic 11 &mdash; Taylor and Maclaurin Series</h2>
+<p>Taylor series: \(\sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n\). Maclaurin series (\(a=0\)): \(\sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!}x^n\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find the first four nonzero terms of the Taylor series for \(f(x) = 3x^3 - 4x^2 + 2x - 4\) about \(a = 3\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Compute derivatives and evaluate at \(x=3\).</strong></p>
+	<p class="step">\(f(3) = 81 - 36 + 6 - 4 = 47\)</p>
+	<p class="step">\(f'(x) = 9x^2 - 8x + 2 \Rightarrow f'(3) = 81 - 24 + 2 = 59\)</p>
+	<p class="step">\(f''(x) = 18x - 8 \Rightarrow f''(3) = 54 - 8 = 46\)</p>
+	<p class="step">\(f'''(x) = 18 \Rightarrow f'''(3) = 18\)</p>
+	<p><strong>Step 2 &mdash; Write the Taylor series.</strong></p>
+	<div class="formula">\[ f(x) = 47 + 59(x-3) + 23(x-3)^2 + 3(x-3)^3 + \cdots \]</div>
+	<p class="answer">First four terms: \(47 + 59(x-3) + 23(x-3)^2 + 3(x-3)^3\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find the first three nonzero terms of the Maclaurin series for \(f(x) = e^x\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; All derivatives of \(e^x\) are \(e^x\), so \(f^{(n)}(0) = 1\) for all \(n\).</strong></p>
+	<p><strong>Step 2 &mdash; Write the series.</strong></p>
+	<div class="formula">\[ e^x = 1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \cdots \]</div>
+	<p class="answer">First three nonzero terms: \(1 + x + \dfrac{x^2}{2}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find the first four nonzero terms of the Maclaurin series for \(f(x) = \sin x\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Compute derivatives at \(x=0\).</strong></p>
+	<p class="step">\(f(0) = 0, f'(0) = 1, f''(0) = 0, f'''(0) = -1, f^{(4)}(0) = 0, f^{(5)}(0) = 1\)</p>
+	<p><strong>Step 2 &mdash; Write the series with nonzero terms.</strong></p>
+	<div class="formula">\[ \sin x = x - \frac{x^3}{6} + \frac{x^5}{120} - \frac{x^7}{5040} + \cdots \]</div>
+	<p class="answer">First four nonzero terms: \(x - \dfrac{x^3}{6} + \dfrac{x^5}{120} - \dfrac{x^7}{5040}\)</p>
+</div>
+<hr>
+
+<h2>Topic 12 &mdash; Tangent Lines and Parametric Equations</h2>
+<p>For parametric curves \(x = f(t), y = g(t)\), find slopes using \(\dfrac{dy}{dx} = \dfrac{dy/dt}{dx/dt}\). For tangent lines: \(y - y_0 = m(x - x_0)\).</p>
+
+<div class="q-block">
+	<div class="q-label">Question 1</div>
+	<p>Find the slope of the tangent line to the parametric curve \(x = t^2 + 1, y = t^3 - t\) at \(t = 2\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find the derivatives with respect to \(t\).</strong></p>
+	<p class="step">\(\frac{dx}{dt} = 2t\), \(\frac{dy}{dt} = 3t^2 - 1\)</p>
+	<p><strong>Step 2 &mdash; Compute the slope at \(t=2\).</strong></p>
+	<div class="formula">\[ \frac{dy}{dx}\bigg|_{t=2} = \frac{3(4) - 1}{2(2)} = \frac{11}{4} \]</div>
+	<p class="answer">The slope is \(\dfrac{11}{4}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 2</div>
+	<p>Find the equation of the tangent line to \(x = \cos t, y = \sin t\) at \(t = \frac{\pi}{4}\).</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find derivatives and the point.</strong></p>
+	<p class="step">\(\frac{dx}{dt} = -\sin t\), \(\frac{dy}{dt} = \cos t\)</p>
+	<p class="step">At \(t = \frac{\pi}{4}\): \(x = \frac{\sqrt{2}}{2}, y = \frac{\sqrt{2}}{2}\)</p>
+	<p><strong>Step 2 &mdash; Compute slope.</strong></p>
+	<p class="step">\(\frac{dy}{dx}\bigg|_{t=\pi/4} = \frac{\cos(\pi/4)}{-\sin(\pi/4)} = \frac{\sqrt{2}/2}{-\sqrt{2}/2} = -1\)</p>
+	<p><strong>Step 3 &mdash; Write the tangent line equation.</strong></p>
+	<div class="formula">\[ y - \frac{\sqrt{2}}{2} = -1\left(x - \frac{\sqrt{2}}{2}\right) \Rightarrow y = -x + \sqrt{2} \]</div>
+	<p class="answer">Tangent line: \(y = -x + \sqrt{2}\)</p>
+</div>
+
+<div class="q-block">
+	<div class="q-label">Question 3</div>
+	<p>Find where the parametric curve \(x = t - \sin t, y = 1 - \cos t\) has a horizontal tangent.</p>
+</div>
+<div class="solution-block">
+	<div class="solution-label">Walkthrough</div>
+	<p><strong>Step 1 &mdash; Find the derivatives.</strong></p>
+	<p class="step">\(\frac{dx}{dt} = 1 - \cos t\), \(\frac{dy}{dt} = \sin t\)</p>
+	<p><strong>Step 2 &mdash; Horizontal tangent occurs when \(\frac{dy}{dx} = 0\).</strong></p>
+	<p class="step">This requires \(\frac{dy}{dt} = 0\) and \(\frac{dx}{dt} \neq 0\).</p>
+	<p class="step">\(\sin t = 0 \Rightarrow t = n\pi\) (where \(n\) is an integer)</p>
+	<p><strong>Step 3 &mdash; Verify \(\frac{dx}{dt} \neq 0\).</strong></p>
+	<p class="step">At \(t = n\pi\): \(\cos(n\pi) = (-1)^n\), so \(\frac{dx}{dt} = 1 - (-1)^n \neq 0\) for all \(n\).</p>
+	<p><strong>Step 4 &mdash; Find the points.</strong></p>
+	<p class="step">For \(t = 2k\pi\) (even multiples): \(x = 2k\pi, y = 0\)</p>
+	<p class="step">For \(t = (2k+1)\pi\): \(x = (2k+1)\pi, y = 2\)</p>
+	<p class="answer">Horizontal tangents at: \((2k\pi, 0)\) and \(((2k+1)\pi, 2)\) for integer \(k\)</p>
+</div>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc2_test1';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	// Persistent client ID stored in localStorage (just the ID, not conversations)
+	let clientId = localStorage.getItem('chat_client_id');
+	if (!clientId) {
+		clientId = 'client_' + Math.random().toString(36).slice(2) + Date.now().toString(36);
+		localStorage.setItem('chat_client_id', clientId);
+	}
+
+	// Dynamically connect to the server using the current hostname/IP
+	const socketUrl = `http://${window.location.hostname}:5000`;
+	console.log('Connecting to chat server at:', socketUrl);
+	const socket = io(socketUrl);
+	let currentQuestionId = '';
+	let chatContainers = {}; // Store refs to each question's chat container
+
+	const chatContainer = document.getElementById('chat-container');
+	const chatInput = document.getElementById('chat-input');
+	const chatSendBtn = document.getElementById('chat-send-btn');
+	const chatMessages = document.getElementById('chat-messages');
+	const chatStatus = document.getElementById('chat-status');
+	const chatCloseBtn = document.getElementById('chat-close-btn');
+
+	// Add chat buttons to each question
+	function addChatButtons() {
+		document.querySelectorAll('.q-block').forEach((qBlock, index) => {
+			const questionText = qBlock.textContent;
+			const nextSolution = qBlock.nextElementSibling;
+			let solutionText = '';
+			
+			if (nextSolution && nextSolution.classList.contains('solution-block')) {
+				solutionText = nextSolution.textContent;
+			}
+
+			const fullContext = `Question:\n${questionText}\n\nSolution:\n${solutionText}`;
+			const questionId = 'q_' + index;
+
+			// Create chat container for this question
+			const chatContainer = document.createElement('div');
+			chatContainer.className = 'chat-container';
+			chatContainer.id = 'chat-' + questionId;
+			chatContainer.innerHTML = `
+				<div class="chat-header">
+					<h3>AI Tutor</h3>
+					<div style="display: flex; gap: 8px;">
+						<button class="chat-clear" style="background: none; border: none; color: white; cursor: pointer; font-size: 12px; padding: 4px 8px; border-radius: 3px; hover: background: rgba(255,255,255,0.2);">Clear</button>
+						<button class="chat-close" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">×</button>
+					</div>
+				</div>
+				<div class="chat-messages"></div>
+				<div class="chat-status"></div>
+				<div class="chat-input-area">
+					<input type="text" class="chat-input" placeholder="Ask about this question...">
+					<button class="chat-send">Send</button>
+				</div>
+			`;
+			
+			chatContainers[questionId] = {
+				context: fullContext,
+				container: chatContainer,
+				messages: chatContainer.querySelector('.chat-messages'),
+				status: chatContainer.querySelector('.chat-status'),
+				input: chatContainer.querySelector('.chat-input'),
+				sendBtn: chatContainer.querySelector('.chat-send'),
+				closeBtn: chatContainer.querySelector('.chat-close'),
+				clearBtn: chatContainer.querySelector('.chat-clear')
+			};
+			
+			// Insert chat container after the question/solution
+			let insertAfter = nextSolution || qBlock;
+			insertAfter.parentNode.insertBefore(chatContainer, insertAfter.nextSibling);
+			
+			// Setup event listeners for this question's chat
+			setupChatListeners(questionId);
+		});
+	}
+	
+	function setupChatListeners(questionId) {
+		const chat = chatContainers[questionId];
+		
+		chat.closeBtn.addEventListener('click', () => {
+			chat.container.classList.remove('active');
+		});
+		
+		chat.clearBtn.addEventListener('click', () => {
+			if (confirm('Clear chat history for this question?')) {
+				socket.emit('clear_conversation', { client_id: clientId, question_id: questionId });
+			}
+		});
+
+		socket.on('conversation_cleared', (data) => {
+			if (data.question_id !== questionId) return;
+			chat.messages.innerHTML = '';
+			const greetingDiv = document.createElement('div');
+			greetingDiv.className = 'chat-message assistant';
+			const greetingBubble = document.createElement('div');
+			greetingBubble.className = 'chat-bubble';
+			greetingBubble.textContent = 'Hi! I can help you understand this question. What would you like to know?';
+			greetingDiv.appendChild(greetingBubble);
+			chat.messages.appendChild(greetingDiv);
+		});
+		
+		chat.sendBtn.addEventListener('click', () => {
+			sendMessage(questionId);
+		});
+		
+		chat.input.addEventListener('keypress', (e) => {
+			if (e.key === 'Enter' && !e.shiftKey) {
+				e.preventDefault();
+				sendMessage(questionId);
+			}
+		});
+	}
+
+	function getStorageKey(questionId) {
+		return `chat_history_${questionId}`;
+	}
+
+	function openChat(questionId) {
+		const chat = chatContainers[questionId];
+		currentQuestionId = questionId;
+		
+		chat.container.classList.add('active');
+		chat.messages.innerHTML = '';
+		chat.status.textContent = 'Loading...';
+		
+		// Request history from server
+		socket.emit('get_history', { client_id: clientId, question_id: questionId });
+		
+		chat.messages.scrollTop = chat.messages.scrollHeight;
+	}
+
+	function sendMessage(questionId) {
+		const chat = chatContainers[questionId];
+		const message = chat.input.value.trim();
+		if (!message) return;
+
+		// Display user message
+		const userMsgDiv = document.createElement('div');
+		userMsgDiv.className = 'chat-message user';
+		const userBubble = document.createElement('div');
+		userBubble.className = 'chat-bubble';
+		userBubble.textContent = message;
+		userMsgDiv.appendChild(userBubble);
+		chat.messages.appendChild(userMsgDiv);
+
+		chat.input.value = '';
+		chat.sendBtn.disabled = true;
+		chat.status.textContent = 'Thinking...';
+		chat.status.className = 'chat-status';
+		chat.messages.scrollTop = chat.messages.scrollHeight;
+
+		// Send to server
+		socket.emit('send_message', {
+			message: message,
+			question_id: questionId,
+			client_id: clientId,
+			question_context: chat.context
+		});
+	}
+
+	socket.on('connect', () => {
+		console.log('Connected to chat server');
+		// Request all histories in one batch
+		const questionIds = Object.keys(chatContainers);
+		socket.emit('get_all_history', { client_id: clientId, question_ids: questionIds });
+	});
+
+	socket.on('history_response', (data) => {
+		// Handle both single and batched responses
+		const responses = data.histories || [{ question_id: data.question_id, history: data.history }];
+		responses.forEach(item => {
+			const questionId = item.question_id;
+			const chat = chatContainers[questionId];
+			if (!chat) return;
+
+			chat.status.textContent = '';
+			chat.messages.innerHTML = '';
+
+			const history = item.history || [];
+			if (history.length === 0) {
+				const greetingDiv = document.createElement('div');
+				greetingDiv.className = 'chat-message assistant';
+				const greetingBubble = document.createElement('div');
+				greetingBubble.className = 'chat-bubble';
+				greetingBubble.textContent = 'Hi! I can help you understand this question. What would you like to know?';
+				greetingDiv.appendChild(greetingBubble);
+				chat.messages.appendChild(greetingDiv);
+			} else {
+				history.forEach(msg => {
+					const msgDiv = document.createElement('div');
+					msgDiv.className = `chat-message ${msg.role}`;
+					const bubble = document.createElement('div');
+					bubble.className = 'chat-bubble';
+					if (msg.role === 'assistant') {
+						bubble.innerHTML = formatResponse(msg.content);
+					} else {
+						bubble.textContent = msg.content;
+					}
+					msgDiv.appendChild(bubble);
+					chat.messages.appendChild(msgDiv);
+				});
+				if (window.MathJax) {
+					MathJax.typesetPromise([chat.messages]).catch(err => console.log(err));
+				}
+			}
+			chat.messages.scrollTop = chat.messages.scrollHeight;
+		});
+	});
+
+	socket.on('response', (data) => {
+		const questionId = data.question_id;
+		const chat = chatContainers[questionId];
+		if (!chat) return;
+		
+		chat.sendBtn.disabled = false;
+		chat.status.textContent = '';
+
+		console.log('Raw response:', data.message);
+		
+		const assistantMsgDiv = document.createElement('div');
+		assistantMsgDiv.className = 'chat-message assistant';
+		const bubble = document.createElement('div');
+		bubble.className = 'chat-bubble';
+		
+		// Format the message with proper markdown and line breaks
+		let html = formatResponse(data.message);
+		console.log('Formatted HTML:', html);
+		
+		bubble.innerHTML = html;
+		
+		assistantMsgDiv.appendChild(bubble);
+		chat.messages.appendChild(assistantMsgDiv);
+		chat.messages.scrollTop = chat.messages.scrollHeight;
+
+		// Re-render MathJax on the new bubble only
+		if (window.MathJax) {
+			MathJax.typesetPromise([bubble]).catch(err => console.log(err));
+		}
+	});
+
+	socket.on('error', (data) => {
+		const questionId = data.question_id || currentQuestionId;
+		const chat = chatContainers[questionId];
+		if (!chat) return;
+		
+		chat.sendBtn.disabled = false;
+		chat.status.textContent = 'Error: ' + data.message;
+		chat.status.className = 'chat-status error';
+	});
+
+	socket.on('disconnect', () => {
+		console.log('Disconnected from chat server');
+		Object.values(chatContainers).forEach(chat => {
+			chat.status.textContent = 'Disconnected - refresh page to reconnect';
+			chat.status.className = 'chat-status error';
+			chat.sendBtn.disabled = true;
+		});
+	});
+
+	function escapeHtml(text) {
+		const map = {
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;',
+			"'": '&#039;'
+		};
+		return text.replace(/[&<>"']/g, m => map[m]);
+	}
+
+	function formatResponse(text) {
+		let formatted = text;
+		
+		// Use sentinels that won't be escaped
+		formatted = formatted.replace(/^## (.+)$/gm, '___HEADER3___$1___ENDHEADER3___');
+		formatted = formatted.replace(/^# (.+)$/gm, '___HEADER2___$1___ENDHEADER2___');
+		formatted = formatted.replace(/\*\*(.+?)\*\*/g, '___BOLD___$1___ENDBOLD___');
+		
+		// Now escape all remaining HTML safely
+		formatted = escapeHtml(formatted);
+		
+		// Convert sentinels to real HTML tags
+		formatted = formatted.replace(/___HEADER3___(.+?)___ENDHEADER3___/g, '<h3>$1</h3>');
+		formatted = formatted.replace(/___HEADER2___(.+?)___ENDHEADER2___/g, '<h2>$1</h2>');
+		formatted = formatted.replace(/___BOLD___(.+?)___ENDBOLD___/g, '<strong>$1</strong>');
+		
+		// Split by double newlines for paragraphs
+		let paragraphs = formatted.split(/\n\n+/);
+		
+		let result = paragraphs.map((para) => {
+			para = para.trim();
+			
+			// If this is just a header, don't wrap in <p>
+			if (para.match(/^<h[23]>.+<\/h[23]>$/)) {
+				return para;
+			}
+			
+			// Convert single newlines to <br>
+			para = para.replace(/\n/g, '<br>');
+			
+			return '<p style="margin: 8px 0; line-height: 1.5;">' + para + '</p>';
+		}).join('');
+		
+		return result;
+	}
+
+	// Initialize chats (set up UI but history loads after socket connects)
+	addChatButtons();
+	Object.keys(chatContainers).forEach(id => {
+		const chat = chatContainers[id];
+		chat.container.classList.add('active');
+		chat.messages.innerHTML = '';
+		chat.status.textContent = 'Loading...';
+	});
+});
+</script>
+</body>
+</html>

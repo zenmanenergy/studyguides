@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 2 &mdash; Unit 2: Techniques of Integration (Ch. 7)</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1 &mdash; Ch. 6</a>
+	<a href="unit2.html" class="active">Unit 2 &mdash; Ch. 7</a>
+	<a href="unit3.html">Unit 3 &mdash; Ch. 9</a>
+	<a href="unit4.html">Unit 4 &mdash; Ch. 10</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Unit 2: Techniques of Integration</h1>
+
+<h2>7.1 Integration by Parts</h2>
+<p>Integration by parts comes from the product rule for derivatives. It converts one integral into another that is (hopefully) easier.</p>
+<div class="formula">
+	\[ \int u\, dv = uv - \int v\, du \]
+</div>
+<p><strong>LIATE rule</strong> for choosing \(u\) (pick the first type that appears):</p>
+<table>
+	<tr><th>L</th><th>I</th><th>A</th><th>T</th><th>E</th></tr>
+	<tr><td>Logarithms</td><td>Inverse trig</td><td>Algebraic (polynomials)</td><td>Trigonometric</td><td>Exponential</td></tr>
+</table>
+<ul>
+	<li>Whatever you choose as \(u\), differentiate to get \(du\); whatever remains is \(dv\), integrate to get \(v\)</li>
+	<li><strong>Tabular method</strong>: when a polynomial multiplies a sine, cosine, or exponential, build a table of repeated derivatives of \(u\) and repeated integrals of \(dv\), then alternate signs</li>
+	<li>Sometimes IBP must be applied twice (e.g., \(\int x^2 e^x\, dx\))</li>
+	<li>Cycling trick: apply IBP twice; if the original integral reappears, move it to one side and solve (e.g., \(\int e^x \sin x\, dx\))</li>
+</ul>
+<div class="formula">
+	\[ \int e^x \sin x\, dx = \frac{e^x(\sin x - \cos x)}{2} + C \]
+</div>
+<hr>
+
+<h2>7.2 The Partial Fractions Method</h2>
+<p>Decomposes a rational function \(P(x)/Q(x)\) (with \(\deg P < \deg Q\)) into simpler fractions that integrate easily. If \(\deg P \ge \deg Q\), do polynomial long division first.</p>
+<table>
+	<tr><th>Factor in \(Q(x)\)</th><th>Partial Fraction Term(s)</th></tr>
+	<tr><td>Linear \((ax+b)\)</td><td>\(\dfrac{A}{ax+b}\)</td></tr>
+	<tr><td>Repeated linear \((ax+b)^n\)</td><td>\(\dfrac{A_1}{ax+b} + \dfrac{A_2}{(ax+b)^2} + \cdots + \dfrac{A_n}{(ax+b)^n}\)</td></tr>
+	<tr><td>Irreducible quadratic \((ax^2+bx+c)\)</td><td>\(\dfrac{Ax+B}{ax^2+bx+c}\)</td></tr>
+	<tr><td>Repeated irreducible quadratic \((ax^2+bx+c)^n\)</td><td>\(\dfrac{A_1 x+B_1}{ax^2+bx+c} + \cdots + \dfrac{A_n x+B_n}{(ax^2+bx+c)^n}\)</td></tr>
+</table>
+<ul>
+	<li>Find unknown constants by multiplying both sides by \(Q(x)\), then either equating coefficients or substituting convenient values of \(x\)</li>
+	<li>Integrate each piece: \(\int \frac{A}{ax+b}\,dx = \frac{A}{a}\ln|ax+b| + C\)</li>
+	<li>Irreducible quadratic pieces use completing the square and \(\arctan\)</li>
+</ul>
+<hr>
+
+<h2>7.3 Trigonometric Integrals</h2>
+<p><strong>Integrals of the form \(\displaystyle\int \sin^m x \cos^n x\, dx\):</strong></p>
+<table>
+	<tr><th>Case</th><th>Strategy</th></tr>
+	<tr><td>\(m\) odd</td><td>Factor one \(\sin x\), substitute \(u = \cos x\), use \(\sin^2 x = 1 - \cos^2 x\)</td></tr>
+	<tr><td>\(n\) odd</td><td>Factor one \(\cos x\), substitute \(u = \sin x\), use \(\cos^2 x = 1 - \sin^2 x\)</td></tr>
+	<tr><td>Both even</td><td>Use half-angle identities: \(\sin^2 x = \frac{1-\cos 2x}{2}\), \(\cos^2 x = \frac{1+\cos 2x}{2}\)</td></tr>
+</table>
+<p><strong>Integrals of the form \(\displaystyle\int \tan^m x \sec^n x\, dx\):</strong></p>
+<table>
+	<tr><th>Case</th><th>Strategy</th></tr>
+	<tr><td>\(n\) even (\(n \ge 2\))</td><td>Factor \(\sec^2 x\), substitute \(u = \tan x\), use \(\sec^2 x = 1 + \tan^2 x\)</td></tr>
+	<tr><td>\(m\) odd</td><td>Factor \(\sec x \tan x\), substitute \(u = \sec x\), use \(\tan^2 x = \sec^2 x - 1\)</td></tr>
+</table>
+<p><strong>Key identities to memorize:</strong></p>
+<div class="formula">
+	\[ \sin^2 x + \cos^2 x = 1 \qquad \tan^2 x + 1 = \sec^2 x \qquad 1 + \cot^2 x = \csc^2 x \]
+	\[ \sin^2 x = \frac{1 - \cos 2x}{2} \qquad \cos^2 x = \frac{1 + \cos 2x}{2} \qquad \sin x \cos x = \frac{\sin 2x}{2} \]
+</div>
+<hr>
+
+<h2>7.4 Trigonometric Substitutions</h2>
+<p>Used when the integrand contains \(\sqrt{a^2 - x^2}\), \(\sqrt{a^2 + x^2}\), or \(\sqrt{x^2 - a^2}\).</p>
+<table>
+	<tr><th>Expression</th><th>Substitution</th><th>Identity Used</th><th>Range of \(\theta\)</th></tr>
+	<tr><td>\(\sqrt{a^2 - x^2}\)</td><td>\(x = a\sin\theta\)</td><td>\(1 - \sin^2\theta = \cos^2\theta\)</td><td>\(-\pi/2 \le \theta \le \pi/2\)</td></tr>
+	<tr><td>\(\sqrt{a^2 + x^2}\)</td><td>\(x = a\tan\theta\)</td><td>\(1 + \tan^2\theta = \sec^2\theta\)</td><td>\(-\pi/2 < \theta < \pi/2\)</td></tr>
+	<tr><td>\(\sqrt{x^2 - a^2}\)</td><td>\(x = a\sec\theta\)</td><td>\(\sec^2\theta - 1 = \tan^2\theta\)</td><td>\(0 \le \theta < \pi/2\) or \(\pi/2 < \theta \le \pi\)</td></tr>
+</table>
+<ul>
+	<li>After integrating in \(\theta\), convert back to \(x\) using a right triangle drawn from the substitution</li>
+	<li>Completing the square can turn a general quadratic under a radical into one of the three standard forms</li>
+</ul>
+<hr>
+
+<h2>7.5 Integration Strategy</h2>
+<p>When you see an integral, try techniques in this order:</p>
+<ol>
+	<li><strong>Simplify</strong> first: algebra, trig identities, expand the product</li>
+	<li><strong>Basic formulas</strong>: does it match a standard integral directly?</li>
+	<li><strong>Substitution (\(u\)-sub)</strong>: look for a function and its derivative</li>
+	<li><strong>Integration by parts</strong>: product of two different types</li>
+	<li><strong>Partial fractions</strong>: rational function</li>
+	<li><strong>Trig integrals / trig substitution</strong>: powers of trig functions or radical expressions</li>
+	<li><strong>Manipulate further</strong>: multiply by conjugate, use an identity, or split the fraction</li>
+</ol>
+<ul>
+	<li>CAS (Computer Algebra Systems) like Wolfram Alpha can compute integrals but may give forms different from what you expect -- always verify by differentiating the result</li>
+</ul>
+<hr>
+
+<h2>7.6 Numerical Integration</h2>
+<p>When an antiderivative cannot be found in closed form, approximate the definite integral numerically. Divide \([a,b]\) into \(n\) subintervals of width \(\Delta x = (b-a)/n\).</p>
+<div class="formula">
+	\[ \textbf{Midpoint Rule:} \quad M_n = \Delta x \sum_{i=1}^{n} f\!\left(\bar{x}_i\right) \qquad \bar{x}_i = \text{midpoint of } [x_{i-1}, x_i] \]
+</div>
+<div class="formula">
+	\[ \textbf{Trapezoidal Rule:} \quad T_n = \frac{\Delta x}{2}\left[f(x_0) + 2f(x_1) + 2f(x_2) + \cdots + 2f(x_{n-1}) + f(x_n)\right] \]
+</div>
+<div class="formula">
+	\[ \textbf{Simpson's Rule:} \quad S_n = \frac{\Delta x}{3}\left[f(x_0) + 4f(x_1) + 2f(x_2) + 4f(x_3) + \cdots + 4f(x_{n-1}) + f(x_n)\right] \quad (n \text{ even}) \]
+</div>
+<p><strong>Error bounds</strong> (where \(|f''(x)| \le K\) and \(|f^{(4)}(x)| \le M\) on \([a,b]\)):</p>
+<div class="formula">
+	\[ |E_T| \le \frac{K(b-a)^3}{12n^2}, \qquad |E_M| \le \frac{K(b-a)^3}{24n^2}, \qquad |E_S| \le \frac{M(b-a)^5}{180n^4} \]
+</div>
+<ul>
+	<li>Simpson's Rule is exact for polynomials of degree \(\le 3\)</li>
+	<li>Doubling \(n\) cuts the Trapezoidal error by a factor of 4; cuts Simpson's error by a factor of 16</li>
+</ul>
+<hr>
+
+<h2>7.7 Improper Integrals</h2>
+<p>An integral is <strong>improper</strong> if the interval of integration is infinite or the integrand has a vertical asymptote on \([a,b]\).</p>
+<p><strong>Type 1 (infinite limits):</strong></p>
+<div class="formula">
+	\[ \int_a^{\infty} f(x)\, dx = \lim_{t \to \infty} \int_a^t f(x)\, dx \]
+</div>
+<p><strong>Type 2 (discontinuous integrand):</strong> If \(f\) has an asymptote at \(x = b\):</p>
+<div class="formula">
+	\[ \int_a^b f(x)\, dx = \lim_{t \to b^-} \int_a^t f(x)\, dx \]
+</div>
+<p>The integral <strong>converges</strong> if the limit exists and is finite; otherwise it <strong>diverges</strong>.</p>
+<p><strong>p-integral test:</strong></p>
+<div class="formula">
+	\[ \int_1^{\infty} \frac{1}{x^p}\, dx \begin{cases} \text{converges} & p > 1 \\ \text{diverges} & p \le 1 \end{cases} \qquad \int_0^1 \frac{1}{x^p}\, dx \begin{cases} \text{converges} & p < 1 \\ \text{diverges} & p \ge 1 \end{cases} \]
+</div>
+<p><strong>Comparison Theorem:</strong> If \(0 \le f(x) \le g(x)\) for \(x \ge a\):</p>
+<ul>
+	<li>If \(\int_a^\infty g(x)\,dx\) converges, so does \(\int_a^\infty f(x)\,dx\)</li>
+	<li>If \(\int_a^\infty f(x)\,dx\) diverges, so does \(\int_a^\infty g(x)\,dx\)</li>
+</ul>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc2_unit2';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>

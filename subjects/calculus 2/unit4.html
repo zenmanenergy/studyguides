@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Calculus 2 &mdash; Unit 4: Sequences and Series (Ch. 10)</title>
+	<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js" defer></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+	<a href="unit1.html">Unit 1 &mdash; Ch. 6</a>
+	<a href="unit2.html">Unit 2 &mdash; Ch. 7</a>
+	<a href="unit3.html">Unit 3 &mdash; Ch. 9</a>
+	<a href="unit4.html" class="active">Unit 4 &mdash; Ch. 10</a>
+</nav>
+
+<h1>Calculus 2 &mdash; Unit 4: Sequences and Series</h1>
+
+<h2>10.1 Sequences</h2>
+<p>A <strong>sequence</strong> \(\{a_n\}_{n=1}^\infty\) is an ordered list of numbers. The key question is whether the sequence <strong>converges</strong> (approaches a finite limit) or <strong>diverges</strong>.</p>
+<div class="formula">
+	\[ \lim_{n \to \infty} a_n = L \quad \Rightarrow \quad \text{sequence converges to } L \]
+</div>
+<ul>
+	<li>If the limit DNE or is \(\pm\infty\), the sequence diverges</li>
+	<li>Limit laws, Squeeze Theorem, and L'Hopital's Rule (treating \(n\) as a continuous variable) all apply</li>
+	<li>\(\lim_{n\to\infty} r^n = 0\) if \(|r| < 1\); diverges if \(|r| \ge 1\) (except \(r=1\) gives 1)</li>
+	<li>\(\lim_{n\to\infty} n^{1/n} = 1\), \quad \lim_{n\to\infty} \frac{\ln n}{n} = 0\)</li>
+</ul>
+<p><strong>Monotone Convergence Theorem:</strong> A sequence that is bounded AND monotone (always increasing or always decreasing) must converge.</p>
+<table>
+	<tr><th>Type</th><th>Condition</th></tr>
+	<tr><td>Increasing</td><td>\(a_{n+1} \ge a_n\) for all \(n\)</td></tr>
+	<tr><td>Decreasing</td><td>\(a_{n+1} \le a_n\) for all \(n\)</td></tr>
+	<tr><td>Bounded above</td><td>\(a_n \le M\) for all \(n\)</td></tr>
+	<tr><td>Bounded below</td><td>\(a_n \ge m\) for all \(n\)</td></tr>
+</table>
+<hr>
+
+<h2>10.2 Infinite Series</h2>
+<p>An <strong>infinite series</strong> \(\displaystyle\sum_{n=1}^\infty a_n\) is the limit of the sequence of <strong>partial sums</strong> \(S_N = \sum_{n=1}^N a_n\).</p>
+<div class="formula">
+	\[ \sum_{n=1}^\infty a_n = \lim_{N\to\infty} S_N \]
+</div>
+<p><strong>Geometric Series</strong> (most important series to know):</p>
+<div class="formula">
+	\[ \sum_{n=0}^\infty ar^n = \frac{a}{1-r} \qquad |r| < 1 \quad \text{(diverges if } |r| \ge 1\text{)} \]
+</div>
+<p><strong>Divergence Test</strong> (Test for Divergence):</p>
+<div class="formula">
+	\[ \text{If } \lim_{n\to\infty} a_n \ne 0, \text{ then } \sum a_n \text{ diverges.} \]
+</div>
+<ul>
+	<li>Warning: if \(\lim a_n = 0\), the series may still diverge (e.g., harmonic series \(\sum 1/n\))</li>
+</ul>
+<p><strong>Telescoping Series:</strong> Most terms cancel when \(S_N\) is expanded. Find a partial fraction decomposition.</p>
+<div class="formula">
+	\[ \sum_{n=1}^\infty \frac{1}{n(n+1)} = \sum_{n=1}^\infty \left(\frac{1}{n} - \frac{1}{n+1}\right) = 1 \]
+</div>
+<hr>
+
+<h2>10.3 The Integral Test</h2>
+<p>If \(f\) is continuous, positive, and decreasing on \([1, \infty)\) with \(f(n) = a_n\), then:</p>
+<div class="formula">
+	\[ \sum_{n=1}^\infty a_n \text{ converges} \iff \int_1^\infty f(x)\, dx \text{ converges} \]
+</div>
+<p><strong>p-Series:</strong></p>
+<div class="formula">
+	\[ \sum_{n=1}^\infty \frac{1}{n^p} \begin{cases} \text{converges} & p > 1 \\ \text{diverges} & p \le 1 \end{cases} \]
+</div>
+<ul>
+	<li>The harmonic series \(\sum 1/n\) diverges (\(p = 1\))</li>
+	<li>The Integral Test gives remainder estimates: \(R_N = S - S_N \le \int_N^\infty f(x)\,dx\)</li>
+</ul>
+<hr>
+
+<h2>10.4 Comparison Tests</h2>
+<p><strong>Direct Comparison Test:</strong> For series with positive terms, if \(0 \le a_n \le b_n\) for all sufficiently large \(n\):</p>
+<ul>
+	<li>If \(\sum b_n\) converges, then \(\sum a_n\) converges</li>
+	<li>If \(\sum a_n\) diverges, then \(\sum b_n\) diverges</li>
+</ul>
+<p><strong>Limit Comparison Test:</strong> If \(a_n, b_n > 0\) and</p>
+<div class="formula">
+	\[ \lim_{n\to\infty} \frac{a_n}{b_n} = c \qquad (0 < c < \infty) \]
+</div>
+<p>then \(\sum a_n\) and \(\sum b_n\) either both converge or both diverge.</p>
+<ul>
+	<li>If \(c = 0\): convergence of \(\sum b_n\) implies convergence of \(\sum a_n\)</li>
+	<li>If \(c = \infty\): divergence of \(\sum b_n\) implies divergence of \(\sum a_n\)</li>
+	<li>Strategy: compare with a geometric series or p-series that behaves like \(a_n\) for large \(n\)</li>
+</ul>
+<hr>
+
+<h2>10.5 The Ratio and Root Tests</h2>
+<p><strong>Ratio Test:</strong></p>
+<div class="formula">
+	\[ L = \lim_{n\to\infty} \left|\frac{a_{n+1}}{a_n}\right| \]
+</div>
+<table>
+	<tr><th>Value of \(L\)</th><th>Conclusion</th></tr>
+	<tr><td>\(L < 1\)</td><td>Series converges absolutely</td></tr>
+	<tr><td>\(L > 1\) (or \(L = \infty\))</td><td>Series diverges</td></tr>
+	<tr><td>\(L = 1\)</td><td>Inconclusive -- use another test</td></tr>
+</table>
+<p><strong>Root Test:</strong></p>
+<div class="formula">
+	\[ L = \lim_{n\to\infty} \sqrt[n]{|a_n|} = \lim_{n\to\infty} |a_n|^{1/n} \]
+</div>
+<ul>
+	<li>Same conclusions as the Ratio Test</li>
+	<li>Root Test is most useful when \(a_n = [f(n)]^n\) (something to the \(n\)th power)</li>
+	<li>Ratio Test is most useful for factorials and products: \(n!\), \(r^n\), or products</li>
+</ul>
+<hr>
+
+<h2>10.6 Absolute and Conditional Convergence</h2>
+<p>A series \(\sum a_n\) is <strong>absolutely convergent</strong> if \(\sum |a_n|\) converges. Absolute convergence implies convergence.</p>
+<p>A series is <strong>conditionally convergent</strong> if \(\sum a_n\) converges but \(\sum |a_n|\) diverges.</p>
+<p><strong>Alternating Series Test (Leibniz's Test):</strong> \(\displaystyle\sum_{n=1}^\infty (-1)^{n-1} b_n\) converges if:</p>
+<ul>
+	<li>\(b_n > 0\) for all \(n\)</li>
+	<li>\(b_{n+1} \le b_n\) (terms are decreasing)</li>
+	<li>\(\lim_{n\to\infty} b_n = 0\)</li>
+</ul>
+<p><strong>Alternating Series Estimation Theorem:</strong></p>
+<div class="formula">
+	\[ |S - S_N| \le b_{N+1} \qquad \text{(error is bounded by the first omitted term)} \]
+</div>
+<p>Classic example: the alternating harmonic series \(\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} = \ln 2\) converges conditionally.</p>
+<hr>
+
+<h2>10.7 Power Series</h2>
+<p>A <strong>power series</strong> centered at \(a\) is:</p>
+<div class="formula">
+	\[ \sum_{n=0}^\infty c_n (x - a)^n = c_0 + c_1(x-a) + c_2(x-a)^2 + \cdots \]
+</div>
+<p>It converges for \(|x - a| < R\) where \(R\) is the <strong>radius of convergence</strong>. The <strong>interval of convergence</strong> is \((a-R,\, a+R)\) with endpoints checked separately.</p>
+<div class="formula">
+	\[ R = \frac{1}{\displaystyle\lim_{n\to\infty} \left|\frac{c_{n+1}}{c_n}\right|} \qquad \text{(from the Ratio Test)} \]
+</div>
+<ul>
+	<li>\(R = 0\): series only converges at \(x = a\)</li>
+	<li>\(R = \infty\): series converges for all \(x\)</li>
+</ul>
+<p><strong>Term-by-term differentiation and integration:</strong> Within the interval of convergence:</p>
+<div class="formula">
+	\[ \frac{d}{dx}\sum_{n=0}^\infty c_n(x-a)^n = \sum_{n=1}^\infty n\, c_n(x-a)^{n-1}, \qquad \int \sum_{n=0}^\infty c_n(x-a)^n\, dx = \sum_{n=0}^\infty \frac{c_n}{n+1}(x-a)^{n+1} + C \]
+</div>
+<ul>
+	<li>The radius of convergence is preserved under differentiation and integration; endpoints may differ</li>
+</ul>
+<hr>
+
+<h2>10.8 Taylor and Maclaurin Series</h2>
+<p>The <strong>Taylor series</strong> of \(f\) centered at \(a\):</p>
+<div class="formula">
+	\[ f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(a)}{n!}(x-a)^n = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 + \cdots \]
+</div>
+<p>A <strong>Maclaurin series</strong> is a Taylor series centered at \(a = 0\).</p>
+<p><strong>Essential Maclaurin series to memorize:</strong></p>
+<table>
+	<tr><th>Function</th><th>Series</th><th>Interval of Convergence</th></tr>
+	<tr><td>\(e^x\)</td><td>\(\displaystyle\sum_{n=0}^\infty \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots\)</td><td>\((-\infty, \infty)\)</td></tr>
+	<tr><td>\(\sin x\)</td><td>\(\displaystyle\sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{(2n+1)!} = x - \frac{x^3}{6} + \frac{x^5}{120} - \cdots\)</td><td>\((-\infty, \infty)\)</td></tr>
+	<tr><td>\(\cos x\)</td><td>\(\displaystyle\sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2} + \frac{x^4}{24} - \cdots\)</td><td>\((-\infty, \infty)\)</td></tr>
+	<tr><td>\(\dfrac{1}{1-x}\)</td><td>\(\displaystyle\sum_{n=0}^\infty x^n = 1 + x + x^2 + x^3 + \cdots\)</td><td>\((-1, 1)\)</td></tr>
+	<tr><td>\(\ln(1+x)\)</td><td>\(\displaystyle\sum_{n=1}^\infty \frac{(-1)^{n-1} x^n}{n} = x - \frac{x^2}{2} + \frac{x^3}{3} - \cdots\)</td><td>\((-1, 1]\)</td></tr>
+	<tr><td>\(\arctan x\)</td><td>\(\displaystyle\sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1} = x - \frac{x^3}{3} + \frac{x^5}{5} - \cdots\)</td><td>\([-1, 1]\)</td></tr>
+	<tr><td>\((1+x)^k\)</td><td>\(\displaystyle\sum_{n=0}^\infty \binom{k}{n} x^n\) (binomial series)</td><td>\((-1, 1)\) (or larger, depends on \(k\))</td></tr>
+</table>
+<p><strong>Taylor's Remainder Theorem:</strong> The error in using the degree-\(n\) Taylor polynomial \(T_n(x)\):</p>
+<div class="formula">
+	\[ |R_n(x)| = |f(x) - T_n(x)| \le \frac{M}{(n+1)!}|x - a|^{n+1} \]
+</div>
+<p>where \(M\) is a bound on \(|f^{(n+1)}|\) between \(x\) and \(a\).</p>
+<hr>
+
+<h2>10.9 Further Applications of Series</h2>
+<p><strong>Approximating definite integrals:</strong> When an antiderivative has no closed form (e.g., \(\int e^{-x^2}\, dx\)), substitute the Maclaurin series and integrate term by term:</p>
+<div class="formula">
+	\[ \int_0^1 e^{-x^2}\, dx = \int_0^1 \sum_{n=0}^\infty \frac{(-1)^n x^{2n}}{n!}\, dx = \sum_{n=0}^\infty \frac{(-1)^n}{n!(2n+1)} \]
+</div>
+<p><strong>Euler's Formula and complex exponentials:</strong></p>
+<div class="formula">
+	\[ e^{ix} = \cos x + i\sin x, \qquad e^{i\pi} + 1 = 0 \]
+</div>
+<p><strong>Binomial Series:</strong></p>
+<div class="formula">
+	\[ (1+x)^k = \sum_{n=0}^\infty \binom{k}{n} x^n, \qquad \binom{k}{n} = \frac{k(k-1)(k-2)\cdots(k-n+1)}{n!} \]
+</div>
+<ul>
+	<li>When \(k\) is a non-negative integer, this terminates to the familiar Binomial Theorem</li>
+	<li>For non-integer \(k\) and \(|x| < 1\), gives an infinite series for functions like \(\sqrt{1+x}\) or \(\frac{1}{\sqrt{1-x^2}}\)</li>
+</ul>
+<p><strong>Multiplication and composition of series:</strong> Known series can be combined to find new ones. Example: \(e^x \sin x\) by multiplying the two Maclaurin series term by term.</p>
+<p><strong>Convergence test summary:</strong></p>
+<table>
+	<tr><th>Series Type / Form</th><th>Test to Use</th></tr>
+	<tr><td>Geometric: \(ar^n\)</td><td>Geometric series formula: \(|r|<1\) converges</td></tr>
+	<tr><td>p-series: \(1/n^p\)</td><td>p-series rule</td></tr>
+	<tr><td>Terms \(\to\) nonzero limit</td><td>Divergence Test (first)</td></tr>
+	<tr><td>Similar to a known series</td><td>Direct or Limit Comparison</td></tr>
+	<tr><td>Integrable, positive, decreasing</td><td>Integral Test</td></tr>
+	<tr><td>Contains \(n!\) or \(r^n\)</td><td>Ratio Test</td></tr>
+	<tr><td>Contains \([f(n)]^n\)</td><td>Root Test</td></tr>
+	<tr><td>Alternating signs</td><td>Alternating Series Test</td></tr>
+	<tr><td>Power series</td><td>Ratio Test for radius; check endpoints separately</td></tr>
+</table>
+
+<script>
+(function() {
+	var PAGE_KEY = 'calc2_unit4';
+	function setCookie(name, val) {
+		var d = new Date(); d.setFullYear(d.getFullYear() + 1);
+		document.cookie = encodeURIComponent(name) + '=' + val + ';expires=' + d.toUTCString() + ';path=/';
+	}
+	function getCookie(name) {
+		var key = encodeURIComponent(name) + '=', parts = document.cookie.split(';');
+		for (var i = 0; i < parts.length; i++) { var c = parts[i].trim(); if (c.indexOf(key) === 0) return c.substring(key.length); }
+		return null;
+	}
+	document.addEventListener('DOMContentLoaded', function() {
+		document.querySelectorAll('h2').forEach(function(h2) {
+			var siblings = [], next = h2.nextElementSibling;
+			while (next && next.tagName !== 'HR' && next.tagName !== 'H2') { siblings.push(next); next = next.nextElementSibling; }
+			var wrapper = document.createElement('div'); wrapper.className = 'section-content';
+			if (siblings.length > 0) { h2.parentNode.insertBefore(wrapper, siblings[0]); siblings.forEach(function(s) { wrapper.appendChild(s); }); }
+			var cookieKey = PAGE_KEY + '__' + h2.textContent.trim().replace(/\s+/g, '_');
+			var cb = document.createElement('input'); cb.type = 'checkbox'; cb.className = 'section-checkbox'; cb.title = 'Mark as understood';
+			h2.insertBefore(cb, h2.firstChild);
+			var hint = document.createElement('span'); hint.className = 'collapse-hint'; hint.textContent = 'click to collapse'; h2.appendChild(hint);
+			function applyState(collapsed, save) {
+				cb.checked = collapsed; hint.textContent = collapsed ? 'click to expand' : 'click to collapse';
+				wrapper.classList.toggle('collapsed', collapsed);
+				if (save) setCookie(cookieKey, collapsed ? '1' : '0');
+			}
+			applyState(getCookie(cookieKey) === '1', false);
+			h2.addEventListener('click', function(e) { e.preventDefault(); applyState(!cb.checked, true); });
+		});
+	});
+}());
+</script>
+</body>
+</html>
