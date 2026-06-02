@@ -20,7 +20,6 @@ conversations/
 
 # Setup files with embedded secrets
 CHAT_SETUP.txt
-start_chat_server.bat
 
 # OS
 .DS_Store
