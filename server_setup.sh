@@ -19,6 +19,9 @@ if [ -f $PROJECT_DIR/.env ]; then
     cp $PROJECT_DIR/.env /tmp/studyguides_env_backup
 fi
 
+# Allow root to run git in this directory even though it's owned by www-data
+git config --global --add safe.directory $PROJECT_DIR
+
 # Clone or update repo
 if [ -d $PROJECT_DIR/.git ]; then
     echo "Updating existing repo..."
