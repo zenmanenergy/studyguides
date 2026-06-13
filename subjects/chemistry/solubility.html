@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chemistry — Solubility Rules</title>
+	<style>
+		body {
+			font-family: sans-serif;
+			max-width: 1150px;
+			margin: 0 auto;
+			padding: 16px 20px;
+			font-size: 16px;
+		}
+		nav { margin-bottom: 12px; }
+		nav a {
+			margin-right: 16px;
+			text-decoration: none;
+			color: #1a3a6b;
+			font-weight: bold;
+		}
+		nav a.active { border-bottom: 2px solid #1a3a6b; }
+		h1 {
+			font-size: 1.4em;
+			border-bottom: 2px solid #1a3a6b;
+			padding-bottom: 6px;
+			margin-bottom: 8px;
+		}
+		p { margin: 0 0 12px; color: #444; font-size: 0.95em; }
+
+		.sol-table {
+			border-collapse: collapse;
+			font-size: 20px;
+			width: 100%;
+		}
+		.sol-table th {
+			background: #1a3a6b;
+			color: white;
+			padding: 5px 10px;
+			text-align: left;
+		}
+		.sol-table td {
+			padding: 5px 10px;
+			border-bottom: 1px solid #ddd;
+			vertical-align: top;
+		}
+		.sol-table tr:nth-child(even) td { background: #f5f7fa; }
+
+		.anion { font-weight: bold; }
+		.anion .name { font-weight: normal; font-size: 0.85em; color: #444; }
+		.soluble { color: #145214; }
+		.insoluble { color: #7a1010; }
+		.exception {
+			font-size: 0.80em;
+			color: #555;
+			display: block;
+			margin-top: 2px;
+		}
+
+		.section-header td {
+			background: #d0d8e8 !important;
+			font-weight: bold;
+			font-size: 0.85em;
+			color: #1a3a6b;
+			padding: 3px 10px;
+			letter-spacing: 0.05em;
+			text-transform: uppercase;
+		}
+
+		@media print {
+			body { max-width: 100%; margin: 0; padding: 8px 12px; font-size: 12px; }
+			nav { display: none; }
+			h1 { font-size: 13px; margin: 0 0 5px; padding-bottom: 3px; }
+			p { display: none; }
+			.sol-table { font-size: 12px; }
+			.sol-table td, .sol-table th { padding: 2px 6px; }
+			@page { margin: 0.45in; size: portrait; }
+		}
+	</style>
+</head>
+<body>
+
+<nav>
+	<a href="Test1.html">Test 1</a>
+	<a href="polyatomic-ions.html">Polyatomic Ions</a>
+	<a href="solubility.html" class="active">Solubility Rules</a>
+	<a href="cheatsheet.html">Cheat Sheet</a>
+</nav>
+
+<h1>Solubility Rules — Reference Sheet</h1>
+<p>Sorted by formula. "Group 1A" = Li⁺, Na⁺, K⁺, Rb⁺, Cs⁺. "Most cations" means all common cations unless exceptions listed. Print with Ctrl+P (landscape).</p>
+
+<table class="sol-table">
+	<thead>
+		<tr>
+			<th style="width:20%">Anion</th>
+			<th style="width:40%" class="soluble">Soluble with these cations</th>
+			<th style="width:40%" class="insoluble">"Insoluble" with these cations</th>
+		</tr>
+	</thead>
+	<tbody>
+
+		<!-- ANIONS -->
+
+		<tr>
+			<td class="anion">AsO<sub>3</sub><sup>3−</sup> — <span class="name">arsenite</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">AsO<sub>4</sub><sup>3−</sup> — <span class="name">arsenate</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">BO<sub>3</sub><sup>3−</sup> — <span class="name">borate</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">Br<sup>−</sup> — <span class="name">bromide</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Ag⁺, Hg<sub>2</sub><sup>2+</sup>, Pb²⁺, Cu⁺, Tl⁺</td>
+		</tr>
+
+		<tr>
+			<td class="anion">BrO<sub>3</sub><sup>−</sup> — <span class="name">bromate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Most cations
+				<span class="exception">(heavy metal bromates sparingly soluble)</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="anion">C<sub>2</sub>H<sub>3</sub>O<sub>2</sub><sup>−</sup> — <span class="name">acetate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">None</td>
+		</tr>
+
+		<tr>
+			<td class="anion">C<sub>2</sub>O<sub>4</sub><sup>2−</sup> — <span class="name">oxalate</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">Cl<sup>−</sup> — <span class="name">chloride</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Ag⁺, Hg<sub>2</sub><sup>2+</sup>, Pb²⁺, Cu⁺, Tl⁺</td>
+		</tr>
+
+		<tr>
+			<td class="anion">ClO<sub>3</sub><sup>−</sup> — <span class="name">chlorate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">None</td>
+		</tr>
+
+		<tr>
+			<td class="anion">ClO<sub>4</sub><sup>−</sup> — <span class="name">perchlorate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">None</td>
+		</tr>
+
+		<tr>
+			<td class="anion">CN<sup>−</sup> — <span class="name">cyanide</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">CO<sub>3</sub><sup>2−</sup> — <span class="name">carbonate</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">CrO<sub>4</sub><sup>2−</sup> — <span class="name">chromate</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Ca²⁺, Cu²⁺, Mg²⁺, Group 1A</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup> — <span class="name">dichromate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Most cations
+				<span class="exception">(Ag⁺, Pb²⁺, Ba²⁺ insoluble)</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="anion">F<sup>−</sup> — <span class="name">fluoride</span></td>
+			<td class="soluble">Ag⁺, NH<sub>4</sub><sup>+</sup>, Group 1A</td>
+			<td class="insoluble">Ba²⁺, Group 2A
+				<span class="exception">(Ca²⁺, Sr²⁺, Mg²⁺, Ba²⁺ insoluble)</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="anion">[Fe(CN)<sub>6</sub>]<sup>3−</sup> — <span class="name">ferricyanide</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">[Fe(CN)<sub>6</sub>]<sup>4−</sup> — <span class="name">ferrocyanide</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">HCO<sub>3</sub><sup>−</sup> — <span class="name">bicarbonate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">None common</td>
+		</tr>
+
+		<tr>
+			<td class="anion">I<sup>−</sup> — <span class="name">iodide</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Ag⁺, Hg<sub>2</sub><sup>2+</sup>, Pb²⁺, Cu⁺, Tl⁺, Br³⁺, Sn⁴⁺</td>
+		</tr>
+
+		<tr>
+			<td class="anion">IO<sub>3</sub><sup>−</sup> — <span class="name">iodate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Most cations
+				<span class="exception">(Ba²⁺, Sr²⁺, Ca²⁺, Pb²⁺, Ag⁺ insoluble)</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="anion">MnO<sub>4</sub><sup>−</sup> — <span class="name">permanganate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">None</td>
+		</tr>
+		<tr>
+			<td class="anion">NH<sub>4</sub><sup>+</sup> — <span class="name">ammonium</span></td>
+			<td class="soluble">Most anions</td>
+			<td class="insoluble">No common anions</td>
+		</tr>
+		<tr>
+			<td class="anion">NO<sub>2</sub><sup>−</sup> — <span class="name">nitrite</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">None</td>
+		</tr>
+
+		<tr>
+			<td class="anion">NO<sub>3</sub><sup>−</sup> — <span class="name">nitrate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">None</td>
+		</tr>
+
+		<tr>
+			<td class="anion">O<sup>2−</sup> — <span class="name">oxide</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Sr²⁺, Ba²⁺, Group 1A</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">OH<sup>−</sup> — <span class="name">hydroxide</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Sr²⁺, Ba²⁺, Group 1A
+				<span class="exception">Ca(OH)₂ slightly soluble</span>
+			</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">PO<sub>4</sub><sup>3−</sup> — <span class="name">phosphate</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">S<sup>2−</sup> — <span class="name">sulfide</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Groups 1A and 2A</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">SCN<sup>−</sup> — <span class="name">thiocyanate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Ag⁺, Hg<sub>2</sub><sup>2+</sup>, Pb²⁺</td>
+		</tr>
+
+		<tr>
+			<td class="anion">SiF<sub>6</sub><sup>2−</sup> — <span class="name">fluorosilicate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Ba²⁺, Group 2A</td>
+		</tr>
+
+		<tr>
+			<td class="anion">SiO<sub>3</sub><sup>2−</sup> — <span class="name">silicate</span></td>
+			<td class="soluble">Group 1A</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">SO<sub>3</sub><sup>2−</sup> — <span class="name">sulfite</span></td>
+			<td class="soluble">NH<sub>4</sub><sup>+</sup>, Group 1A (except Li⁺)</td>
+			<td class="insoluble">Most cations</td>
+		</tr>
+
+		<tr>
+			<td class="anion">SO<sub>4</sub><sup>2−</sup> — <span class="name">sulfate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Sr²⁺, Ba²⁺, Pb²⁺, Hg²⁺
+				<span class="exception">Ag₂SO₄ and CaSO₄ slightly soluble</span>
+			</td>
+		</tr>
+
+		<tr>
+			<td class="anion">S<sub>2</sub>O<sub>3</sub><sup>2−</sup> — <span class="name">thiosulfate</span></td>
+			<td class="soluble">Most cations</td>
+			<td class="insoluble">Ag⁺, Pb²⁺</td>
+		</tr>
+
+
+		
+
+		
+
+	</tbody>
+</table>
+
+<p style="margin-top:10px; font-size:0.85em; color:#555;">
+	<strong>Group 1A:</strong> Li⁺, Na⁺, K⁺, Rb⁺, Cs⁺ &nbsp;|&nbsp;
+	<strong>Group 2A:</strong> Mg²⁺, Ca²⁺, Sr²⁺, Ba²⁺ &nbsp;|&nbsp;
+	<strong>Always soluble anions:</strong> NO<sub>3</sub><sup>−</sup>, ClO<sub>3</sub><sup>−</sup>, ClO<sub>4</sub><sup>−</sup>, C<sub>2</sub>H<sub>3</sub>O<sub>2</sub><sup>−</sup>, NO<sub>2</sub><sup>−</sup>, MnO<sub>4</sub><sup>−</sup>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chemistry &mdash; Element Charges</title>
+	<link rel="stylesheet" href="style.css">
+	<style>
+		body {
+			background: white;
+			padding: 0;
+			margin: 0;
+		}
+		nav { display: none; }
+		h2 {
+			text-align: center;
+			font-size: 18px;
+			margin: 4px 0 8px 0;
+			padding: 0;
+		}
+		.periodic-table-container {
+			display: grid;
+			grid-template-columns: repeat(18, 1fr);
+			grid-template-rows: auto;
+			gap: 2px;
+			padding: 4px;
+			width: 100%;
+			max-width: 100%;
+		}
+		.element {
+			border: 1px solid #333;
+			padding: 3px;
+			text-align: center;
+			font-size: 10px;
+			aspect-ratio: 1;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			background: #f0f0f0;
+			position: relative;
+		}
+		.element.alkali-metal { background: #ff9999; }
+		.element.alkaline-earth { background: #ffcc99; }
+		.element.transition-metal { background: #ccccff; }
+		.element.lanthanide { background: #99ff99; }
+		.element.actinide { background: #ffccff; }
+		.element.semimetal { background: #99ffff; }
+		.element.nonmetal { background: #ffff99; }
+		.element.halogen { background: #ff99ff; }
+		.element.noble-gas { background: #99ccff; }
+
+		.element-number {
+			font-size: 7px;
+			font-weight: bold;
+			position: absolute;
+			top: 1px;
+			left: 1px;
+		}
+		.element-symbol {
+			font-size: 11px;
+			font-weight: bold;
+		}
+		.element-charges {
+			font-size: 12px;
+			line-height: 1;
+		}
+
+		/* Grid positioning for each period and group */
+		.period1 { grid-row: 1; }
+		.period2 { grid-row: 2; }
+		.period3 { grid-row: 3; }
+		.period4 { grid-row: 4; }
+		.period5 { grid-row: 5; }
+		.period6 { grid-row: 6; }
+		.period7 { grid-row: 7; }
+		.lanthanide-row { grid-row: 8; }
+		.actinide-row { grid-row: 9; }
+
+		.group1 { grid-column: 1; }
+		.group2 { grid-column: 2; }
+		.group3 { grid-column: 3; }
+		.group4 { grid-column: 4; }
+		.group5 { grid-column: 5; }
+		.group6 { grid-column: 6; }
+		.group7 { grid-column: 7; }
+		.group8 { grid-column: 8; }
+		.group9 { grid-column: 9; }
+		.group10 { grid-column: 10; }
+		.group11 { grid-column: 11; }
+		.group12 { grid-column: 12; }
+		.group13 { grid-column: 13; }
+		.group14 { grid-column: 14; }
+		.group15 { grid-column: 15; }
+		.group16 { grid-column: 16; }
+		.group17 { grid-column: 17; }
+		.group18 { grid-column: 18; }
+
+		@media print {
+			@page { margin: 0.3in; size: landscape; }
+			body { margin: 0; padding: 4px; }
+			h2 { font-size: 14px; margin: 2px 0 4px 0; }
+			.periodic-table-container { gap: 1px; padding: 2px; }
+			.element { font-size: 9px; padding: 2px; }
+			.element-symbol { font-size: 10px; }
+			.element-charges { font-size: 14px; }
+		}
+	</style>
+</head>
+<body>
+<nav>
+	<a href="Test1.html">Test 1</a>
+	<a href="polyatomic-ions.html">Polyatomic Ions</a>
+	<a href="cheatsheet.html">Cheat Sheet</a>
+</nav>
+<Br/><br/><Br/><br/>
+<h2>Periodic Table &mdash; Element Charges</h2>
+
+<div class="periodic-table-container">
+	<!-- Period 1 -->
+	<div class="element period1 group1 nonmetal"><span class="element-number">1</span><span class="element-symbol">H</span><span class="element-charges">1+, 1−</span></div>
+	<div class="element period1 group18 noble-gas"><span class="element-number">2</span><span class="element-symbol">He</span><span class="element-charges">0</span></div>
+
+	<!-- Period 2 -->
+	<div class="element period2 group1 alkali-metal"><span class="element-number">3</span><span class="element-symbol">Li</span><span class="element-charges">1+</span></div>
+	<div class="element period2 group2 alkaline-earth"><span class="element-number">4</span><span class="element-symbol">Be</span><span class="element-charges">2+</span></div>
+	<div class="element period2 group13 semimetal"><span class="element-number">5</span><span class="element-symbol">B</span><span class="element-charges">3+, 3−</span></div>
+	<div class="element period2 group14 nonmetal"><span class="element-number">6</span><span class="element-symbol">C</span><span class="element-charges">4−</span></div>
+	<div class="element period2 group15 nonmetal"><span class="element-number">7</span><span class="element-symbol">N</span><span class="element-charges">3−</span></div>
+	<div class="element period2 group16 nonmetal"><span class="element-number">8</span><span class="element-symbol">O</span><span class="element-charges">2−</span></div>
+	<div class="element period2 group17 halogen"><span class="element-number">9</span><span class="element-symbol">F</span><span class="element-charges">1−</span></div>
+	<div class="element period2 group18 noble-gas"><span class="element-number">10</span><span class="element-symbol">Ne</span><span class="element-charges">0</span></div>
+
+	<!-- Period 3 -->
+	<div class="element period3 group1 alkali-metal"><span class="element-number">11</span><span class="element-symbol">Na</span><span class="element-charges">1+</span></div>
+	<div class="element period3 group2 alkaline-earth"><span class="element-number">12</span><span class="element-symbol">Mg</span><span class="element-charges">2+</span></div>
+	<div class="element period3 group13 semimetal"><span class="element-number">13</span><span class="element-symbol">Al</span><span class="element-charges">3+</span></div>
+	<div class="element period3 group14 nonmetal"><span class="element-number">14</span><span class="element-symbol">Si</span><span class="element-charges">4−</span></div>
+	<div class="element period3 group15 nonmetal"><span class="element-number">15</span><span class="element-symbol">P</span><span class="element-charges">3−</span></div>
+	<div class="element period3 group16 nonmetal"><span class="element-number">16</span><span class="element-symbol">S</span><span class="element-charges">2−</span></div>
+	<div class="element period3 group17 halogen"><span class="element-number">17</span><span class="element-symbol">Cl</span><span class="element-charges">1−</span></div>
+	<div class="element period3 group18 noble-gas"><span class="element-number">18</span><span class="element-symbol">Ar</span><span class="element-charges">0</span></div>
+
+	<!-- Period 4 -->
+	<div class="element period4 group1 alkali-metal"><span class="element-number">19</span><span class="element-symbol">K</span><span class="element-charges">1+</span></div>
+	<div class="element period4 group2 alkaline-earth"><span class="element-number">20</span><span class="element-symbol">Ca</span><span class="element-charges">2+</span></div>
+	<div class="element period4 group3 transition-metal"><span class="element-number">21</span><span class="element-symbol">Sc</span><span class="element-charges">3+</span></div>
+	<div class="element period4 group4 transition-metal"><span class="element-number">22</span><span class="element-symbol">Ti</span><span class="element-charges">2+, 3+, 4+</span></div>
+	<div class="element period4 group5 transition-metal"><span class="element-number">23</span><span class="element-symbol">V</span><span class="element-charges">2+, 3+, 4+, 5+</span></div>
+	<div class="element period4 group6 transition-metal"><span class="element-number">24</span><span class="element-symbol">Cr</span><span class="element-charges">2+, 3+, 6+</span></div>
+	<div class="element period4 group7 transition-metal"><span class="element-number">25</span><span class="element-symbol">Mn</span><span class="element-charges">2+, 3+, 4+, 6+, 7+</span></div>
+	<div class="element period4 group8 transition-metal"><span class="element-number">26</span><span class="element-symbol">Fe</span><span class="element-charges">2+, 3+</span></div>
+	<div class="element period4 group9 transition-metal"><span class="element-number">27</span><span class="element-symbol">Co</span><span class="element-charges">2+, 3+</span></div>
+	<div class="element period4 group10 transition-metal"><span class="element-number">28</span><span class="element-symbol">Ni</span><span class="element-charges">2+, 3+</span></div>
+	<div class="element period4 group11 transition-metal"><span class="element-number">29</span><span class="element-symbol">Cu</span><span class="element-charges">1+, 2+</span></div>
+	<div class="element period4 group12 transition-metal"><span class="element-number">30</span><span class="element-symbol">Zn</span><span class="element-charges">2+</span></div>
+	<div class="element period4 group13 semimetal"><span class="element-number">31</span><span class="element-symbol">Ga</span><span class="element-charges">3+</span></div>
+	<div class="element period4 group14 semimetal"><span class="element-number">32</span><span class="element-symbol">Ge</span><span class="element-charges">4+</span></div>
+	<div class="element period4 group15 semimetal"><span class="element-number">33</span><span class="element-symbol">As</span><span class="element-charges">3−</span></div>
+	<div class="element period4 group16 nonmetal"><span class="element-number">34</span><span class="element-symbol">Se</span><span class="element-charges">2−</span></div>
+	<div class="element period4 group17 halogen"><span class="element-number">35</span><span class="element-symbol">Br</span><span class="element-charges">1−</span></div>
+	<div class="element period4 group18 noble-gas"><span class="element-number">36</span><span class="element-symbol">Kr</span><span class="element-charges">0</span></div>
+
+	<!-- Period 5 -->
+	<div class="element period5 group1 alkali-metal"><span class="element-number">37</span><span class="element-symbol">Rb</span><span class="element-charges">1+</span></div>
+	<div class="element period5 group2 alkaline-earth"><span class="element-number">38</span><span class="element-symbol">Sr</span><span class="element-charges">2+</span></div>
+	<div class="element period5 group3 transition-metal"><span class="element-number">39</span><span class="element-symbol">Y</span><span class="element-charges">3+</span></div>
+	<div class="element period5 group4 transition-metal"><span class="element-number">40</span><span class="element-symbol">Zr</span><span class="element-charges">4+</span></div>
+	<div class="element period5 group5 transition-metal"><span class="element-number">41</span><span class="element-symbol">Nb</span><span class="element-charges">3+, 5+</span></div>
+	<div class="element period5 group6 transition-metal"><span class="element-number">42</span><span class="element-symbol">Mo</span><span class="element-charges">3+, 5+, 6+</span></div>
+	<div class="element period5 group7 transition-metal"><span class="element-number">43</span><span class="element-symbol">Tc</span><span class="element-charges">4+, 5+, 7+</span></div>
+	<div class="element period5 group8 transition-metal"><span class="element-number">44</span><span class="element-symbol">Ru</span><span class="element-charges">2+, 3+, 4+, 8+</span></div>
+	<div class="element period5 group9 transition-metal"><span class="element-number">45</span><span class="element-symbol">Rh</span><span class="element-charges">2+, 3+, 4+</span></div>
+	<div class="element period5 group10 transition-metal"><span class="element-number">46</span><span class="element-symbol">Pd</span><span class="element-charges">2+, 4+</span></div>
+	<div class="element period5 group11 transition-metal"><span class="element-number">47</span><span class="element-symbol">Ag</span><span class="element-charges">1+, 2+, 3+</span></div>
+	<div class="element period5 group12 transition-metal"><span class="element-number">48</span><span class="element-symbol">Cd</span><span class="element-charges">2+</span></div>
+	<div class="element period5 group13 semimetal"><span class="element-number">49</span><span class="element-symbol">In</span><span class="element-charges">3+</span></div>
+	<div class="element period5 group14 semimetal"><span class="element-number">50</span><span class="element-symbol">Sn</span><span class="element-charges">2+, 4+</span></div>
+	<div class="element period5 group15 semimetal"><span class="element-number">51</span><span class="element-symbol">Sb</span><span class="element-charges">3+, 5+</span></div>
+	<div class="element period5 group16 nonmetal"><span class="element-number">52</span><span class="element-symbol">Te</span><span class="element-charges">2−</span></div>
+	<div class="element period5 group17 halogen"><span class="element-number">53</span><span class="element-symbol">I</span><span class="element-charges">1−</span></div>
+	<div class="element period5 group18 noble-gas"><span class="element-number">54</span><span class="element-symbol">Xe</span><span class="element-charges">0</span></div>
+
+	<!-- Period 6 -->
+	<div class="element period6 group1 alkali-metal"><span class="element-number">55</span><span class="element-symbol">Cs</span><span class="element-charges">1+</span></div>
+	<div class="element period6 group2 alkaline-earth"><span class="element-number">56</span><span class="element-symbol">Ba</span><span class="element-charges">2+</span></div>
+	<div class="element period6 group3 transition-metal" style="grid-column: 3;"><span class="element-number">57</span><span class="element-symbol">La</span><span class="element-charges">3+</span></div>
+	<div class="element period6 group4 transition-metal"><span class="element-number">72</span><span class="element-symbol">Hf</span><span class="element-charges">4+</span></div>
+	<div class="element period6 group5 transition-metal"><span class="element-number">73</span><span class="element-symbol">Ta</span><span class="element-charges">5+</span></div>
+	<div class="element period6 group6 transition-metal"><span class="element-number">74</span><span class="element-symbol">W</span><span class="element-charges">4+, 5+, 6+</span></div>
+	<div class="element period6 group7 transition-metal"><span class="element-number">75</span><span class="element-symbol">Re</span><span class="element-charges">4+, 5+, 7+</span></div>
+	<div class="element period6 group8 transition-metal"><span class="element-number">76</span><span class="element-symbol">Os</span><span class="element-charges">3+, 4+, 8+</span></div>
+	<div class="element period6 group9 transition-metal"><span class="element-number">77</span><span class="element-symbol">Ir</span><span class="element-charges">3+, 4+</span></div>
+	<div class="element period6 group10 transition-metal"><span class="element-number">78</span><span class="element-symbol">Pt</span><span class="element-charges">2+, 4+</span></div>
+	<div class="element period6 group11 transition-metal"><span class="element-number">79</span><span class="element-symbol">Au</span><span class="element-charges">1+, 3+</span></div>
+	<div class="element period6 group12 transition-metal"><span class="element-number">80</span><span class="element-symbol">Hg</span><span class="element-charges">1+, 2+</span></div>
+	<div class="element period6 group13 semimetal"><span class="element-number">81</span><span class="element-symbol">Tl</span><span class="element-charges">1+, 3+</span></div>
+	<div class="element period6 group14 semimetal"><span class="element-number">82</span><span class="element-symbol">Pb</span><span class="element-charges">2+, 4+</span></div>
+	<div class="element period6 group15 semimetal"><span class="element-number">83</span><span class="element-symbol">Bi</span><span class="element-charges">3+, 5+</span></div>
+	<div class="element period6 group16 nonmetal"><span class="element-number">84</span><span class="element-symbol">Po</span><span class="element-charges">2−, 2+, 4+</span></div>
+	<div class="element period6 group17 halogen"><span class="element-number">85</span><span class="element-symbol">At</span><span class="element-charges">1−</span></div>
+	<div class="element period6 group18 noble-gas"><span class="element-number">86</span><span class="element-symbol">Rn</span><span class="element-charges">0</span></div>
+
+	<!-- Period 7 -->
+	<div class="element period7 group1 alkali-metal"><span class="element-number">87</span><span class="element-symbol">Fr</span><span class="element-charges">1+</span></div>
+	<div class="element period7 group2 alkaline-earth"><span class="element-number">88</span><span class="element-symbol">Ra</span><span class="element-charges">2+</span></div>
+	<div class="element period7 group3 actinide" style="grid-column: 3;"><span class="element-number">89</span><span class="element-symbol">Ac</span><span class="element-charges">3+</span></div>
+	<div class="element period7 group4 transition-metal"><span class="element-number">104</span><span class="element-symbol">Rf</span><span class="element-charges">4+</span></div>
+	<div class="element period7 group5 transition-metal"><span class="element-number">105</span><span class="element-symbol">Db</span><span class="element-charges">5+</span></div>
+	<div class="element period7 group6 transition-metal"><span class="element-number">106</span><span class="element-symbol">Sg</span><span class="element-charges">6+</span></div>
+	<div class="element period7 group7 transition-metal"><span class="element-number">107</span><span class="element-symbol">Bh</span><span class="element-charges">7+</span></div>
+	<div class="element period7 group8 transition-metal"><span class="element-number">108</span><span class="element-symbol">Hs</span><span class="element-charges">8+</span></div>
+	<div class="element period7 group9 transition-metal"><span class="element-number">109</span><span class="element-symbol">Mt</span><span class="element-charges"></span></div>
+	<div class="element period7 group10 transition-metal"><span class="element-number">110</span><span class="element-symbol">Ds</span><span class="element-charges"></span></div>
+	<div class="element period7 group11 transition-metal"><span class="element-number">111</span><span class="element-symbol">Rg</span><span class="element-charges"></span></div>
+	<div class="element period7 group12 transition-metal"><span class="element-number">112</span><span class="element-symbol">Cn</span><span class="element-charges"></span></div>
+	<div class="element period7 group13 semimetal"><span class="element-number">113</span><span class="element-symbol">Nh</span><span class="element-charges"></span></div>
+	<div class="element period7 group14 semimetal"><span class="element-number">114</span><span class="element-symbol">Fl</span><span class="element-charges"></span></div>
+	<div class="element period7 group15 semimetal"><span class="element-number">115</span><span class="element-symbol">Mc</span><span class="element-charges"></span></div>
+	<div class="element period7 group16 nonmetal"><span class="element-number">116</span><span class="element-symbol">Lv</span><span class="element-charges"></span></div>
+	<div class="element period7 group17 halogen"><span class="element-number">117</span><span class="element-symbol">Ts</span><span class="element-charges">1−</span></div>
+	<div class="element period7 group18 noble-gas"><span class="element-number">118</span><span class="element-symbol">Og</span><span class="element-charges">0</span></div>
+
+	<!-- Lanthanides (Period 6 f-block) -->
+	<div class="element lanthanide-row group3 lanthanide" style="grid-column: 3;"><span class="element-number">58</span><span class="element-symbol">Ce</span><span class="element-charges">3+, 4+</span></div>
+	<div class="element lanthanide-row group4 lanthanide" style="grid-column: 4;"><span class="element-number">59</span><span class="element-symbol">Pr</span><span class="element-charges">3+, 4+</span></div>
+	<div class="element lanthanide-row group5 lanthanide" style="grid-column: 5;"><span class="element-number">60</span><span class="element-symbol">Nd</span><span class="element-charges">3+</span></div>
+	<div class="element lanthanide-row group6 lanthanide" style="grid-column: 6;"><span class="element-number">61</span><span class="element-symbol">Pm</span><span class="element-charges">3+</span></div>
+	<div class="element lanthanide-row group7 lanthanide" style="grid-column: 7;"><span class="element-number">62</span><span class="element-symbol">Sm</span><span class="element-charges">2+, 3+</span></div>
+	<div class="element lanthanide-row group8 lanthanide" style="grid-column: 8;"><span class="element-number">63</span><span class="element-symbol">Eu</span><span class="element-charges">2+, 3+</span></div>
+	<div class="element lanthanide-row group9 lanthanide" style="grid-column: 9;"><span class="element-number">64</span><span class="element-symbol">Gd</span><span class="element-charges">3+</span></div>
+	<div class="element lanthanide-row group10 lanthanide" style="grid-column: 10;"><span class="element-number">65</span><span class="element-symbol">Tb</span><span class="element-charges">3+, 4+</span></div>
+	<div class="element lanthanide-row group11 lanthanide" style="grid-column: 11;"><span class="element-number">66</span><span class="element-symbol">Dy</span><span class="element-charges">3+</span></div>
+	<div class="element lanthanide-row group12 lanthanide" style="grid-column: 12;"><span class="element-number">67</span><span class="element-symbol">Ho</span><span class="element-charges">3+</span></div>
+	<div class="element lanthanide-row group13 lanthanide" style="grid-column: 13;"><span class="element-number">68</span><span class="element-symbol">Er</span><span class="element-charges">3+</span></div>
+	<div class="element lanthanide-row group14 lanthanide" style="grid-column: 14;"><span class="element-number">69</span><span class="element-symbol">Tm</span><span class="element-charges">2+, 3+</span></div>
+	<div class="element lanthanide-row group15 lanthanide" style="grid-column: 15;"><span class="element-number">70</span><span class="element-symbol">Yb</span><span class="element-charges">2+, 3+</span></div>
+	<div class="element lanthanide-row group16 lanthanide" style="grid-column: 16;"><span class="element-number">71</span><span class="element-symbol">Lu</span><span class="element-charges">3+</span></div>
+
+	<!-- Actinides (Period 7 f-block) -->
+	<div class="element actinide-row group3 actinide" style="grid-column: 3;"><span class="element-number">90</span><span class="element-symbol">Th</span><span class="element-charges">4+</span></div>
+	<div class="element actinide-row group4 actinide" style="grid-column: 4;"><span class="element-number">91</span><span class="element-symbol">Pa</span><span class="element-charges">3+, 4+, 5+</span></div>
+	<div class="element actinide-row group5 actinide" style="grid-column: 5;"><span class="element-number">92</span><span class="element-symbol">U</span><span class="element-charges">3+, 4+, 5+, 6+</span></div>
+	<div class="element actinide-row group6 actinide" style="grid-column: 6;"><span class="element-number">93</span><span class="element-symbol">Np</span><span class="element-charges">3+, 4+, 5+, 6+</span></div>
+	<div class="element actinide-row group7 actinide" style="grid-column: 7;"><span class="element-number">94</span><span class="element-symbol">Pu</span><span class="element-charges">3+, 4+, 5+, 6+</span></div>
+</div>
+
+</body>
+</html>
